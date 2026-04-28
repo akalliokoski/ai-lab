@@ -1,0 +1,27 @@
+[project]
+name = "ai-lab"
+version = "0.1.0"
+description = "Home AI lab for learning by doing with Hermes, Unsloth, Hugging Face, and Modal"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "datasets>=3.0.0",
+  "huggingface_hub>=0.34.0",
+  "ipykernel>=6.29.0",
+  "jupyter>=1.1.0",
+  "modal>=1.1.0",
+  "pandas>=2.2.0",
+  "python-dotenv>=1.0.1",
+  "pyyaml>=6.0.2",
+  "rich>=14.0.0",
+  "transformers>=4.55.0",
+]
+
+[project.optional-dependencies]
+train = [
+  "accelerate>=1.10.0",
+  "trl>=0.21.0",
+]
+
+[tool.uv]
+package = false
