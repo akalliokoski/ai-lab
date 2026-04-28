@@ -57,6 +57,13 @@ cd /home/hermes/work/ai-lab
 That sets up a local `.venv` with neutral tooling first.
 Machine-specific GPU installs are documented in `docs/start-here.md`.
 
+Then create a local secret file and verify it:
+
+```bash
+cp .env.example .env
+python3 scripts/check_env.py
+```
+
 ## GitHub remote
 
 A local git repo is initialized, but no GitHub remote was created automatically because `gh` is not authenticated on this machine.

@@ -43,12 +43,13 @@ Use Modal when you need actual GPU training or reproducible serverless GPU execu
 3. On the Mac, clone this repo and run the machine bootstrap from `hermes-stack`:
    - `bash scripts/bootstrap-machine.sh --env-id macbook --service-mode remote`
 4. Create a GitHub remote after `gh auth login`.
-5. Add secrets as needed:
+5. Copy `.env.example` to `.env` and add secrets as needed:
    - `HF_TOKEN`
    - `MODAL_TOKEN_ID`
    - `MODAL_TOKEN_SECRET`
 6. Run `./scripts/bootstrap-python.sh`
-7. Start the Unsloth learning path in `docs/unsloth-self-learning-path.md`
+7. Run `python3 scripts/check_env.py`
+8. Start the Unsloth learning path in `docs/unsloth-self-learning-path.md`
 
 ## Hugging Face setup
 
