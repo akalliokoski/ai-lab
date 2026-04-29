@@ -22,6 +22,35 @@ From the current docs snapshot:
 - Install entrypoint on macOS/Linux is `curl -fsSL https://unsloth.ai/install.sh | sh`.
 - There are dedicated docs for requirements, beginner guidance, notebooks, and model-specific pages such as Gemma.
 
+## Start here today
+
+Based on the current docs snapshot, the best beginner entry sequence is:
+1. `get-started/fine-tuning-llms-guide`
+2. `get-started/fine-tuning-llms-guide/what-model-should-i-use`
+3. `get-started/fine-tuning-llms-guide/datasets-guide`
+4. `get-started/beginner-start-here/unsloth-requirements`
+5. `get-started/unsloth-notebooks`
+6. `basics/running-and-saving-models`
+
+Why this order:
+- the docs themselves point beginners first to the fine-tuning guide, requirements, and notebooks
+- the model-choice page gives simple rules for base vs instruct
+- the dataset guide answers the usual “how much data do I need?” question early
+- the requirements page prevents picking a path your hardware cannot run
+- the saving/running page closes the loop so you actually use the result
+
+## Current environment fit
+
+Checked on 2026-04-28 from the VPS:
+- this machine has no NVIDIA GPU
+- `MODAL_TOKEN_ID` and `MODAL_TOKEN_SECRET` are set
+- `HF_TOKEN` is currently missing in the environment check
+
+Practical implication:
+- use the VPS for reading docs, data prep, notes, and orchestration
+- use the MacBook for lightweight local notebook experiments
+- use Modal for the first real GPU-backed Unsloth training run
+
 ## Recommended learning sequence
 
 ### Stage 0 — orientation

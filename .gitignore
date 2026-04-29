@@ -6,6 +6,7 @@ __pycache__/
 .cache/
 artifacts/
 outputs/
+*.egg-info/
 *.pyc
 *.pyo
 *.pyd

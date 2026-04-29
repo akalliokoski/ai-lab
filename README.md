@@ -21,10 +21,21 @@ Profile facts
 
 1. Read `docs/start-here.md`
 2. Read `docs/unsloth-self-learning-path.md`
-3. Open the wiki in `wiki/`
-4. Start Hermes in this profile with:
+3. Read `docs/first-unsloth-experiment.md`
+4. Open the wiki in `wiki/`
+5. Start Hermes in this profile with:
    - `ai-lab chat`
    - or `hermes -p ai-lab chat`
+
+## Current first experiment
+
+Default project:
+- `Hermes AI lab tutor adapter`
+
+Current repo artifacts:
+- dataset seed in `data/hermes-tutor-v1/`
+- experiment brief in `docs/first-unsloth-experiment.md`
+- Modal scaffolds in `modal/`
 
 ## Suggested workflow split
 
