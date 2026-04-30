@@ -21,21 +21,28 @@ Profile facts
 
 1. Read `docs/start-here.md`
 2. Read `docs/unsloth-self-learning-path.md`
-3. Read `docs/first-unsloth-experiment.md`
-4. Open the wiki in `wiki/`
-5. Start Hermes in this profile with:
+3. Read `docs/first-artifact-card-experiment.md`
+4. Read `docs/first-unsloth-experiment.md` for the earlier tutor-track history
+5. Open the wiki in `wiki/`
+6. Start Hermes in this profile with:
    - `ai-lab chat`
    - or `hermes -p ai-lab chat`
 
 ## Current first experiment
 
 Default project:
-- `Hermes AI lab tutor adapter`
+- `artifact-card-sft`
 
 Current repo artifacts:
-- dataset seed in `data/hermes-tutor-v1/`
-- experiment brief in `docs/first-unsloth-experiment.md`
-- Modal scaffolds in `modal/`
+- dataset scaffold in `data/artifact-card-v1/`
+- experiment brief in `docs/first-artifact-card-experiment.md`
+- Modal training entrypoint in `modal/train_unsloth_artifact_card.py`
+- scoring helper in `scripts/evaluate_artifact_card_run.py`
+
+Previous first-project track retained as a negative result and debugging case study:
+- `Hermes AI lab tutor adapter`
+- dataset history in `data/hermes-tutor-v1/` and `data/hermes-tutor-v2/`
+- run history in `docs/first-unsloth-experiment.md`
 
 ## Suggested workflow split
 

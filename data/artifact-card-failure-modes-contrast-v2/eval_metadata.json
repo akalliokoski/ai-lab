@@ -1,0 +1,514 @@
+[
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "both",
+    "gold_evidence_key": "both-supported",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "gold_decision": "both",
+    "gold_evidence_key": "both-supported",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "both",
+    "gold_evidence_key": "both-supported",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "gold_decision": "both",
+    "gold_evidence_key": "both-supported",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": true,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "gold_decision": "no-material-change",
+    "gold_evidence_key": "repeated-no-change",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "gold_decision": "neither",
+    "gold_evidence_key": "other-label-dominates",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "gold_decision": "overlap-contaminated-eval",
+    "gold_evidence_key": "overlap-untrustworthy",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "group_index": 0,
+    "contrast_group": "missing-required-detail-vs-generic-explanation",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "group_index": 1,
+    "contrast_group": "missing-required-detail-vs-no-material-change",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "group_index": 2,
+    "contrast_group": "missing-required-detail-vs-hallucinated-detail",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "hallucinated-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "group_index": 3,
+    "contrast_group": "missing-required-detail-vs-overlap-contaminated-eval",
+    "anchor_label": "missing-required-detail",
+    "rival_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_decision": "missing-required-detail",
+    "gold_evidence_key": "missing-or-noncanonical-field",
+    "reconstructable": false,
+    "source_kind": "original"
+  }
+]

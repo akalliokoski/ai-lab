@@ -1,0 +1,2690 @@
+[
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "wrong-causal-point",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "pair_index": 27
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "missing-required-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 0
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "generic-explanation",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 1
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 2
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 3
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 4
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "no-material-change",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 5
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "no-material-change",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 6
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "generic-explanation",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 7
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 8
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 9
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 10
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "missing-required-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 11
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "missing-required-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 12
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "generic-explanation",
+    "label_b": "overlap-contaminated-eval",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 13
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "generic-explanation",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 14
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "generic-explanation",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 15
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "generic-explanation",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "generic-explanation",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 16
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "generic-explanation",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 17
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "phrase-copy-or-template-collapse",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 18
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 19
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "overlap-contaminated-eval",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 20
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "overlap-contaminated-eval",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 21
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "hallucinated-detail",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 22
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "phrase-copy-or-template-collapse",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 23
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "phrase-copy-or-template-collapse",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 24
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "wrong-causal-point",
+    "preferred_label": "hallucinated-detail",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 25
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "hallucinated-detail",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 26
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "label_a": "wrong-causal-point",
+    "label_b": "fluency-without-correctness",
+    "preferred_label": "fluency-without-correctness",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "pair_index": 27
+  }
+]

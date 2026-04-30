@@ -1,0 +1,104 @@
+[
+  {
+    "run_id": "20260506T080000Z",
+    "dataset_name": "artifact-card-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run became worse on the tracked task according to the evidence below.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable",
+      "the tuned explanation broadened into generic advice instead of the reference-specific behavior",
+      "canonical evidence phrase: tuned answers became more generic than the reference",
+      "canonical evidence phrase: the core causal point stayed underspecified"
+    ],
+    "gold_pair": [
+      "generic-explanation",
+      "wrong-causal-point"
+    ],
+    "rationale": "targeted rival-only generic state with no missing-field signal"
+  },
+  {
+    "run_id": "20260506T081500Z",
+    "dataset_name": "artifact-card-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run did not materially change the outcome compared with the previous baseline.",
+    "observed_evidence": [
+      "all required fields stayed present across the checked rows",
+      "the same weak explanation appeared again with almost no practical change",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs",
+      "canonical evidence phrase: the core causal point stayed underspecified"
+    ],
+    "gold_pair": [
+      "no-material-change",
+      "wrong-causal-point"
+    ],
+    "rationale": "targeted rival-only no-material state with no missing-field signal"
+  },
+  {
+    "run_id": "20260506T083000Z",
+    "dataset_name": "artifact-card-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The evidence is mixed or untrustworthy, so do not over-claim improvement.",
+    "observed_evidence": [
+      "the new training rows sat unusually close to the held-out phrasing",
+      "the tuned labels echoed benchmark wording but still filled the required fields",
+      "canonical evidence phrase: train/eval overlap made the improvement untrustworthy",
+      "canonical evidence phrase: phrase-copy distortion appeared in the tuned output"
+    ],
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "rationale": "targeted rival-only overlap state with no missing-field signal"
+  },
+  {
+    "run_id": "20260506T084500Z",
+    "dataset_name": "artifact-card-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run became worse on the tracked task according to the evidence below.",
+    "observed_evidence": [
+      "next_action was missing on several tuned rows",
+      "the remaining explanation became broader and less tied to the reference outcome",
+      "canonical evidence phrase: longer inputs weakened schema discipline",
+      "canonical evidence phrase: tuned answers became more generic than the reference"
+    ],
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "rationale": "targeted both state for missing-required-detail vs generic-explanation"
+  },
+  {
+    "run_id": "20260506T090000Z",
+    "dataset_name": "artifact-card-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run did not materially change the outcome compared with the previous baseline.",
+    "observed_evidence": [
+      "the same two weak fields failed again",
+      "required fields still dropped out on the harder rows",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs",
+      "canonical evidence phrase: label outputs were short but field accuracy stayed mixed"
+    ],
+    "gold_pair": [
+      "missing-required-detail",
+      "no-material-change"
+    ],
+    "rationale": "targeted both state for missing-required-detail vs no-material-change"
+  },
+  {
+    "run_id": "20260506T091500Z",
+    "dataset_name": "issue-brief-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The result is mixed because the structure got better but the content still invented details.",
+    "observed_evidence": [
+      "required blocker fields were missing on sparse-note cases",
+      "some tuned outputs still invented blockers and causes not present in the input",
+      "canonical evidence phrase: the tuned model matched the target template more often than the base model",
+      "canonical evidence phrase: tuned outputs invented details not present in the input"
+    ],
+    "gold_pair": [
+      "missing-required-detail",
+      "hallucinated-detail"
+    ],
+    "rationale": "targeted both state for missing-required-detail vs hallucinated-detail"
+  }
+]

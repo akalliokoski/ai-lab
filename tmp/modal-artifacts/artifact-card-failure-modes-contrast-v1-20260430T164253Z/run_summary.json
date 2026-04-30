@@ -1,0 +1,297 @@
+{
+  "status": "trained",
+  "run_id": "20260430T164253Z",
+  "dataset_name": "artifact-card-failure-modes-contrast-v1",
+  "train_rows": 104,
+  "eval_rows": 32,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 20,
+  "task_config": {
+    "system_prompt": "You are the Hermes AI Lab contrast-group failure-mode judge. Read the evidence and return only one valid JSON object with exactly these keys: contrast_group, decision, evidence_key. Copy contrast_group exactly. Set decision to one allowed value shown in the prompt. Choose evidence_key from the allowed list shown in the prompt. Do not add prose before or after the JSON.",
+    "expected_fields": [
+      "contrast_group",
+      "decision",
+      "evidence_key"
+    ],
+    "list_fields": [],
+    "max_new_tokens": 56
+  },
+  "output_dir": "/tmp/ai-lab-unsloth-artifact-card-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/artifact-card-failure-modes-contrast-v1/20260430T164253Z",
+  "adapter_dir": "/artifacts/artifact-card-failure-modes-contrast-v1/20260430T164253Z/adapter",
+  "metrics": {
+    "train_runtime": 38.991,
+    "train_samples_per_second": 4.104,
+    "train_steps_per_second": 0.513,
+    "total_flos": 421653923315712.0,
+    "train_loss": 2.3851829051971434,
+    "epoch": 1.5384615384615383
+  },
+  "sample_eval": [
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    }
+  ],
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"missing-required-detail\", \"evidence_key\": \"next_action was missing on several rows\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"next_action was missing on several rows\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"missing-required-detail\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"loss barely moved\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"template matching improved\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"missing-required-detail\", \"evidence_key\": \"template matching improved\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"template matching improved\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"no-material-change\",\"evidence_key\": \"repeated-no-change\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"missing-required-detail\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"missing-required-detail\", \"evidence_key\": \"new training rows were very close to the held-out phrasing\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"neither\",\"evidence_key\": \"other-label-dominates\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"new training rows were very close to the held-out phrasing\"",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"overlap-contaminated-eval\",\"evidence_key\": \"overlap-untrustworthy\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"canonical evidence phrase: a stronger base improved fluency more than correctness\"",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-generic-explanation\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"canonical evidence phrase: a stronger base improved fluency more than correctness\"",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-no-material-change\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"canonical evidence phrase: a stronger base improved fluency more than correctness\"",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-hallucinated-detail\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+      "reference": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"missing-required-detail\",\"evidence_key\": \"missing-or-noncanonical-field\"}",
+      "base_response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"contrast_group\": \"missing-required-detail-vs-overlap-contaminated-eval\",\"decision\": \"both\",\"evidence_key\": \"both-supported\"}"
+    }
+  ],
+  "auto_eval": {
+    "base_metrics": {
+      "rows": 32,
+      "valid_json_rate": 0.875,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "contrast_group": 0.0,
+        "decision": 0.15625,
+        "evidence_key": 0.1875
+      },
+      "invalid_examples": [
+        {
+          "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+          "response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"neither\", \"evidence_key\": \"new training rows were very close to the held-out phrasing\""
+        },
+        {
+          "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+          "response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"canonical evidence phrase: a stronger base improved fluency more than correctness\""
+        },
+        {
+          "instruction": "Read the experiment evidence and make one local contrast-group decision. Return one strict JSON object with exactly these keys: contrast_group, decision, evidence_key. Output JSON only.",
+          "response": "{\"contrast_group\": \"missing-required-detail\", \"decision\": \"both\", \"evidence_key\": \"canonical evidence phrase: a stronger base improved fluency more than correctness\""
+        }
+      ]
+    },
+    "tuned_metrics": {
+      "rows": 32,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.5625,
+      "field_accuracy": {
+        "contrast_group": 1.0,
+        "decision": 0.5625,
+        "evidence_key": 0.5625
+      },
+      "invalid_examples": []
+    }
+  },
+  "trainer_config": {
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 8,
+    "assistant_only_loss": true,
+    "learning_rate": 0.0002,
+    "warmup_steps": 2
+  },
+  "next_steps": [
+    "Review auto_eval.tuned_metrics before trusting train loss.",
+    "Inspect rows where the tuned output is invalid JSON or misses required fields.",
+    "Patch the dataset by field failure, not by train loss alone."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "system_prompt": "You are the Hermes AI Lab failure-mode labeler. Read the user evidence and return only one valid JSON object with exactly this key: primary_failure_modes. The value must be a list of exactly 2 allowed labels. Do not add prose before or after the JSON.",
+  "expected_fields": [
+    "primary_failure_modes"
+  ],
+  "list_fields": [
+    "primary_failure_modes"
+  ],
+  "max_new_tokens": 80
+}

@@ -1,0 +1,151 @@
+{
+  "status": "trained",
+  "run_id": "20260430T072526Z",
+  "dataset_name": "artifact-card-v1",
+  "train_rows": 20,
+  "eval_rows": 8,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 20,
+  "output_dir": "/tmp/ai-lab-unsloth-artifact-card-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/artifact-card-v1/20260430T072526Z",
+  "adapter_dir": "/artifacts/artifact-card-v1/20260430T072526Z/adapter",
+  "metrics": {
+    "train_runtime": 33.3426,
+    "train_samples_per_second": 4.799,
+    "train_steps_per_second": 0.6,
+    "total_flos": 322908892078080.0,
+    "train_loss": 2.496953636407852,
+    "epoch": 6.8
+  },
+  "sample_eval": [
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"no-material-change\", \"missing-required-detail\"], \"key_evidence\": [\"the tuned model produced valid JSON more often than the base model\", \"label outputs were short but field accuracy stayed mixed\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": \"mixed\", \"key_evidence\": \"eval split\", \"next_action\": \"better formatting, but mixed-case labeling is still weak\"",
+      "tuned_response": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"invalid JSON\", \"mixed-case labeling\"], \"key_evidence\": [\"better JSON stayed valid\", \"verdict labels improved on clear cases\", \"mixed cases still flipped between same and improved\"], \"next_action\": \"use only strict JSON\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"regressed\", \"primary_failure_modes\": [\"missing-required-detail\", \"generic-explanation\"], \"key_evidence\": [\"longer inputs weakened schema discipline\", \"tuned answers became more generic than the reference\"], \"next_action\": \"shorten the inputs and keep the schema fixed before rerunning\"}",
+      "base_response": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"primary_failure_modes\": [\"Adding verbose operator notes caused the tuned model to drop canonical evidence phrases and miss one required field again\", \"key_evidence\": \"JSON validity fell compared with the shorter-input baseline\", \"next_action\": \"Use only the evidence in this input.\"}",
+      "tuned_response": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"unreliable\", \"primary_failure_modes\": [\"schema_fallacy\", \"inconsistent_evidence\"], \"key_evidence\": [\"the model's output was too long\", \"the model's output was too free-form\"], \"next_action\": \"use only the canonical evidence phrase\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"fluency-without-correctness\", \"missing-required-detail\"], \"key_evidence\": [\"a stronger base improved fluency more than correctness\", \"the tuned model produced valid JSON more often than the base model\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"over-predicted\", \"primary_failure_modes\": [\"extra\", \"unsupported\"], \"key_evidence\": \"JSON validity stayed high\", \"next_action\": \"Bigger base, same label-discipline problem.\"}",
+      "tuned_response": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"over-predicted extra label\", \"still under-predicted some key points\"], \"key_evidence\": [\"JSON validity stayed high\", \"verbal explanations improved\", \"the model still over-predicted some key points\"], \"next_action\": \"train with a smaller base\"}"
+    }
+  ],
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"no-material-change\", \"missing-required-detail\"], \"key_evidence\": [\"the tuned model produced valid JSON more often than the base model\", \"label outputs were short but field accuracy stayed mixed\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": \"mixed\", \"key_evidence\": \"eval split\", \"next_action\": \"better formatting, but mixed-case labeling is still weak\"",
+      "tuned_response": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"invalid JSON\", \"mixed-case labeling\"], \"key_evidence\": [\"better JSON stayed valid\", \"verdict labels improved on clear cases\", \"mixed cases still flipped between same and improved\"], \"next_action\": \"use only strict JSON\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"regressed\", \"primary_failure_modes\": [\"missing-required-detail\", \"generic-explanation\"], \"key_evidence\": [\"longer inputs weakened schema discipline\", \"tuned answers became more generic than the reference\"], \"next_action\": \"shorten the inputs and keep the schema fixed before rerunning\"}",
+      "base_response": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"primary_failure_modes\": [\"Adding verbose operator notes caused the tuned model to drop canonical evidence phrases and miss one required field again\", \"key_evidence\": \"JSON validity fell compared with the shorter-input baseline\", \"next_action\": \"Use only the evidence in this input.\"}",
+      "tuned_response": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"unreliable\", \"primary_failure_modes\": [\"schema_fallacy\", \"inconsistent_evidence\"], \"key_evidence\": [\"the model's output was too long\", \"the model's output was too free-form\"], \"next_action\": \"use only the canonical evidence phrase\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"fluency-without-correctness\", \"missing-required-detail\"], \"key_evidence\": [\"a stronger base improved fluency more than correctness\", \"the tuned model produced valid JSON more often than the base model\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"over-predicted\", \"primary_failure_modes\": [\"extra\", \"unsupported\"], \"key_evidence\": \"JSON validity stayed high\", \"next_action\": \"Bigger base, same label-discipline problem.\"}",
+      "tuned_response": "{\"run_id\": \"20260504T083000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"over-predicted extra label\", \"still under-predicted some key points\"], \"key_evidence\": [\"JSON validity stayed high\", \"verbal explanations improved\", \"the model still over-predicted some key points\"], \"next_action\": \"train with a smaller base\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T084700Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"same\", \"primary_failure_modes\": [\"no-material-change\", \"missing-required-detail\"], \"key_evidence\": [\"repeated runs produced nearly identical outputs\", \"label outputs were short but field accuracy stayed mixed\"], \"next_action\": \"stop rerunning unchanged data and patch the weak concepts\"}",
+      "base_response": "{\"run_id\": \"20260504T084700Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"primary_failure_modes\": \"field failures\", \"key_evidence\": \"loss barely moved\", \"next_action\": \"rerun\"",
+      "tuned_response": "{\"run_id\": \"20260504T084700Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"no improvement\", \"primary_failure_modes\": [\"field failure\", \"label failure\"], \"key_evidence\": [\"loss barely moved\", \"same two fields failed again\", \"qualitative outputs were almost unchanged\"], \"next_action\": \"use a different dataset\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T090200Z\", \"dataset_name\": \"issue-brief-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"inconclusive\", \"primary_failure_modes\": [\"hallucinated-detail\", \"missing-required-detail\"], \"key_evidence\": [\"the tuned model matched the target template more often than the base model\", \"tuned outputs invented details not present in the input\"], \"next_action\": \"shorten the inputs and keep the schema fixed before rerunning\"}",
+      "base_response": "{\"run_id\": \"20260504T090200Z\", \"dataset_name\": \"issue-brief-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"invented\", \"primary_failure_modes\": \"invented blockers\", \"key_evidence\": \"template matching improved, invented blockers appeared on sparse notes\", \"next_action\": \"base outputs were less structured but sometimes more faithful\"",
+      "tuned_response": "{\"run_id\": \"20260504T090200Z\", \"dataset_name\": \"issue-brief-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"template-matching-invented-blocking\", \"template-matching-invented-next-step\"], \"key_evidence\": [\"template-matching-appeared-on-sparse-notes\", \"base-outputs-were-less-structured-but-sometimes-more-faithful\"], \"next_action\": \"use-a-better-template-format\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T091900Z\", \"dataset_name\": \"failure-labeler-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"inconclusive\", \"primary_failure_modes\": [\"wrong-causal-point\", \"no-material-change\"], \"key_evidence\": [\"label outputs were short but field accuracy stayed mixed\", \"loss improved but held-out answers still missed the target concept\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T091900Z\", \"dataset_name\": \"failure-labeler-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"inconsistent\", \"primary_failure_modes\": \"overlap contamination\", \"key_evidence\": \"outputs stayed short\", \"next_action\": \"Use sharper boundaries in label taxonomy\"",
+      "tuned_response": "{\"run_id\": \"20260504T091900Z\", \"dataset_name\": \"failure-labeler-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improvement\", \"primary_failure_modes\": [\"label confusion\", \"overlap contamination\"], \"key_evidence\": [\"outputs stayed short\", \"label taxonomy may still need sharper boundaries\"], \"next_action\": \"tune model more carefully on overlap contamination\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T093100Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"regressed\", \"primary_failure_modes\": [\"overlap-contaminated-eval\", \"phrase-copy-or-template-collapse\"], \"key_evidence\": [\"train/eval overlap made the improvement untrustworthy\", \"phrase-copy distortion appeared in the tuned output\"], \"next_action\": \"remove overlap-heavy rows and rerun\"}",
+      "base_response": "{\"run_id\": \"20260504T093100Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"mixed\", \"primary_failure_modes\": \"['copy evidence wording into failure-mode field']\", \"key_evidence\": \"new training rows were very close to the held-out phrasing\", \"next_action\": \"Use only the evidence in this input.\"",
+      "tuned_response": "{\"run_id\": \"20260504T093100Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"mixed\", \"primary_failure_modes\": [\"near-duplicate\", \"overlapping\"], \"key_evidence\": [\"the model copied evidence wording into the failure-mode field again\", \"new training rows were very close to the held-out phrasing\"], \"next_action\": \"use a different evaluation metric or add more diverse training data\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+      "reference": "{\"run_id\": \"20260504T094500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"fluency-without-correctness\", \"missing-required-detail\"], \"key_evidence\": [\"a stronger base improved fluency more than correctness\", \"the tuned model produced valid JSON more often than the base model\"], \"next_action\": \"add automatic field scoring before the next run\"}",
+      "base_response": "{\"run_id\": \"20260504T094500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved fluency and verdict consistency\", \"primary_failure_modes\": \"key_evidence\", \"key_evidence\": \"['drifted into free-form prose on ambiguous rows']\", \"next_action\": \"target normalization\"",
+      "tuned_response": "{\"run_id\": \"20260504T094500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-3B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": [\"target_normalization\"], \"key_evidence\": [\"the model's output was more readable but still contained some free-form prose\", \"the model's output was more concise but still contained some ambiguous phrases\"], \"next_action\": \"refine the model's output to better match the input format\"}"
+    }
+  ],
+  "auto_eval": {
+    "base_metrics": {
+      "rows": 8,
+      "valid_json_rate": 0.125,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "run_id": 0.125,
+        "dataset_name": 0.125,
+        "model_name": 0.125,
+        "verdict": 0.0,
+        "primary_failure_modes": 0.0,
+        "key_evidence": 0.0,
+        "next_action": 0.0
+      },
+      "invalid_examples": [
+        {
+          "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+          "response": "{\"run_id\": \"20260504T080000Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"improved\", \"primary_failure_modes\": \"mixed\", \"key_evidence\": \"eval split\", \"next_action\": \"better formatting, but mixed-case labeling is still weak\""
+        },
+        {
+          "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+          "response": "{\"run_id\": \"20260504T081500Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"primary_failure_modes\": [\"Adding verbose operator notes caused the tuned model to drop canonical evidence phrases and miss one required field again\", \"key_evidence\": \"JSON validity fell compared with the shorter-input baseline\", \"next_action\": \"Use only the evidence in this input.\"}"
+        },
+        {
+          "instruction": "Read the experiment evidence and write one strict JSON experiment card with exactly these keys: run_id, dataset_name, model_name, verdict, primary_failure_modes, key_evidence, next_action. Output JSON only.",
+          "response": "{\"run_id\": \"20260504T084700Z\", \"dataset_name\": \"artifact-card-v1\", \"model_name\": \"unsloth/Llama-3.2-1B-Instruct-bnb-4bit\", \"verdict\": \"primary_failure_modes\": \"field failures\", \"key_evidence\": \"loss barely moved\", \"next_action\": \"rerun\""
+        }
+      ]
+    },
+    "tuned_metrics": {
+      "rows": 8,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "run_id": 1.0,
+        "dataset_name": 1.0,
+        "model_name": 1.0,
+        "verdict": 0.375,
+        "primary_failure_modes": 0.0,
+        "key_evidence": 0.0,
+        "next_action": 0.0
+      },
+      "invalid_examples": []
+    }
+  },
+  "trainer_config": {
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 8,
+    "assistant_only_loss": true,
+    "learning_rate": 0.0002,
+    "warmup_steps": 2
+  },
+  "next_steps": [
+    "Review auto_eval.tuned_metrics before trusting train loss.",
+    "Inspect rows where the tuned output is invalid JSON or misses required fields.",
+    "Patch the dataset by field failure, not by train loss alone."
+  ]
+}

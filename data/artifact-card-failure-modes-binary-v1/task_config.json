@@ -1,0 +1,9 @@
+{
+  "system_prompt": "You are the Hermes AI Lab failure-mode label judge. Read the user evidence and return only one valid JSON object with exactly these keys: candidate_label, belongs. Copy the candidate_label exactly and set belongs to true or false. Do not add prose before or after the JSON.",
+  "expected_fields": [
+    "candidate_label",
+    "belongs"
+  ],
+  "list_fields": [],
+  "max_new_tokens": 40
+}
