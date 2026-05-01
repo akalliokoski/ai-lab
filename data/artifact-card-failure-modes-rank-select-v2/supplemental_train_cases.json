@@ -1,0 +1,138 @@
+[
+  {
+    "run_id": "20260507T080000Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run looked cleaner structurally, but it still missed required field content and did not materially improve the task.",
+    "observed_evidence": [
+      "required fields were still dropped or non-canonical on the hard rows",
+      "the same weak task outcome repeated again with little practical gain",
+      "canonical evidence phrase: label outputs were short but field accuracy stayed mixed",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs"
+    ],
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "rationale": "strong missing-required-detail secondary case with repeated-no-change primary signal"
+  },
+  {
+    "run_id": "20260507T081500Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The tuned answer became broader while also dropping required field detail.",
+    "observed_evidence": [
+      "next_action was missing or non-canonical on several tuned rows",
+      "the remaining explanation became broader and less tied to the reference outcome",
+      "canonical evidence phrase: longer inputs weakened schema discipline",
+      "canonical evidence phrase: tuned answers became more generic than the reference"
+    ],
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "rationale": "strong missing-required-detail primary case paired with generic drift"
+  },
+  {
+    "run_id": "20260507T083000Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The answer sounded smoother, but the required content still fell out on the harder cases.",
+    "observed_evidence": [
+      "required blocker or next_action fields were missing on sparse-note rows",
+      "the tuned wording sounded cleaner without fixing the real task outcome",
+      "canonical evidence phrase: the tuned model produced valid JSON more often than the base model",
+      "canonical evidence phrase: a stronger base improved fluency more than correctness"
+    ],
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "rationale": "teaches the fluency-vs-missing-required-detail boundary without phrase-copy noise"
+  },
+  {
+    "run_id": "20260507T084500Z",
+    "dataset_name": "issue-brief-v1",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "Template fit improved, but the content both omitted required fields and invented extra blockers.",
+    "observed_evidence": [
+      "required blocker fields were still missing on sparse-note examples",
+      "some tuned outputs invented blockers and causes not present in the input",
+      "canonical evidence phrase: the tuned model matched the target template more often than the base model",
+      "canonical evidence phrase: tuned outputs invented details not present in the input"
+    ],
+    "gold_pair": [
+      "missing-required-detail",
+      "hallucinated-detail"
+    ],
+    "rationale": "strong missing-required-detail plus hallucination case"
+  },
+  {
+    "run_id": "20260507T090000Z",
+    "dataset_name": "artifact-card-v2",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The answer stayed structurally complete, but it drifted broader and missed the main causal point.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the tuned explanation broadened into generic advice instead of the reference-specific behavior",
+      "canonical evidence phrase: tuned answers became more generic than the reference",
+      "canonical evidence phrase: the core causal point stayed underspecified"
+    ],
+    "gold_pair": [
+      "generic-explanation",
+      "wrong-causal-point"
+    ],
+    "rationale": "hard negative for missing-required-detail and fluency false positives"
+  },
+  {
+    "run_id": "20260507T091500Z",
+    "dataset_name": "artifact-card-v2",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The gain is untrustworthy because overlap-heavy rows leaked into the check and the tuned answer echoed their phrasing.",
+    "observed_evidence": [
+      "all required fields stayed present in the checked outputs",
+      "the new training rows sat unusually close to the held-out phrasing",
+      "canonical evidence phrase: train/eval overlap made the improvement untrustworthy",
+      "canonical evidence phrase: phrase-copy distortion appeared in the tuned output"
+    ],
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "rationale": "hard negative for missing-required-detail and fluency on a style-noise case"
+  },
+  {
+    "run_id": "20260507T093000Z",
+    "dataset_name": "artifact-card-v2",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The run sounded cleaner, but the task outcome barely changed and all required fields still stayed present.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the wording became a bit smoother without a meaningful task win",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs",
+      "canonical evidence phrase: a stronger base improved fluency more than correctness"
+    ],
+    "gold_pair": [
+      "no-material-change",
+      "fluency-without-correctness"
+    ],
+    "rationale": "suppresses missing-required-detail and phrase-copy false positives when fields stayed complete"
+  },
+  {
+    "run_id": "20260507T094500Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The required fields stayed present, but the answer copied canned wording without improving the decision quality.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the tuned output repeated prompt-like phrases and distorted template fragments",
+      "canonical evidence phrase: phrase-copy distortion appeared in the tuned output",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs"
+    ],
+    "gold_pair": [
+      "phrase-copy-or-template-collapse",
+      "no-material-change"
+    ],
+    "rationale": "teaches phrase-copy as a true positive without missing-required-detail evidence"
+  }
+]

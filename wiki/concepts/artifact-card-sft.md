@@ -1,7 +1,7 @@
 ---
 title: Artifact Card SFT
 created: 2026-04-30
-updated: 2026-04-30
+updated: 2026-05-01
 type: concept
 tags: [training, dataset, evaluation, unsloth, modal, experiment, workflow]
 sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
@@ -29,13 +29,14 @@ sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
 - Contrast-group branch scaffold: `data/artifact-card-failure-modes-contrast-v1/`
 - Targeted contrast patch scaffold: `data/artifact-card-failure-modes-contrast-v2/`
 - Two-stage rank-then-select scaffold: `data/artifact-card-failure-modes-rank-select-v1/`
+- Rank-calibration patch scaffold: `data/artifact-card-failure-modes-rank-select-v2/`
 - Training entrypoint: `modal/train_unsloth_artifact_card.py`
 - Dataset preview: `scripts/preview_dataset.py`
 - Run scoring helpers: `scripts/evaluate_artifact_card_run.py`, `scripts/evaluate_failure_mode_evidence_run.py`, `scripts/evaluate_failure_mode_contrast_run.py`, `scripts/evaluate_failure_mode_rank_select_run.py`
-- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`
+- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`
 - Experiment brief: `docs/first-artifact-card-experiment.md`
-- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`
-- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval
+- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`
+- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval
 
 ## Output schema
 The model should return exactly one JSON object with these keys:
@@ -147,6 +148,7 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - `artifact-card-failure-modes-contrast-v1` is another useful negative result: it improved row structure again, but collapsed all 4 reconstructable held-out cases to singleton `missing-required-detail`, so reconstructed top-2 set match stayed at `0.0`.
 - `artifact-card-failure-modes-contrast-v2` is now a second clean negative result for the narrow contrast path: the targeted 6-case patch preserved the same row metrics and the same `missing-required-detail` singleton collapse on all 4 reconstructable held-out cases.
 - `artifact-card-failure-modes-rank-select-v1` is now another clean negative result: it improved row validity and rank-field accuracy, but downstream reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0` on the full 8-example held-out split.
+- `artifact-card-failure-modes-rank-select-v2` is the current next branch: it keeps the same evaluator and overall rank-then-select setup, but adds train-only calibration cases and a shorter prompt contract aimed at recovering `missing-required-detail` recall and removing schema leakage.
 
 ## Sixth decomposed branch result
 - Run `20260430T164253Z` completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-contrast-v1/20260430T164253Z/`.
