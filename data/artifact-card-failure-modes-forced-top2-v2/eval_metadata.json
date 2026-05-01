@@ -1,0 +1,106 @@
+[
+  {
+    "source_example_index": 0,
+    "source_run_id": "20260504T080000Z",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_primary_label": "no-material-change",
+    "gold_secondary_label": "missing-required-detail",
+    "gold_primary_evidence_key": "mixed-fields-no-clear-task-win",
+    "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 1,
+    "source_run_id": "20260504T081500Z",
+    "gold_pair": [
+      "missing-required-detail",
+      "generic-explanation"
+    ],
+    "gold_primary_label": "missing-required-detail",
+    "gold_secondary_label": "generic-explanation",
+    "gold_primary_evidence_key": "missing-or-noncanonical-field",
+    "gold_secondary_evidence_key": "broader-than-reference",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 2,
+    "source_run_id": "20260504T083000Z",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_primary_label": "fluency-without-correctness",
+    "gold_secondary_label": "missing-required-detail",
+    "gold_primary_evidence_key": "fluency-gain-without-correctness",
+    "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 3,
+    "source_run_id": "20260504T084700Z",
+    "gold_pair": [
+      "no-material-change",
+      "missing-required-detail"
+    ],
+    "gold_primary_label": "no-material-change",
+    "gold_secondary_label": "missing-required-detail",
+    "gold_primary_evidence_key": "repeated-no-change",
+    "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 4,
+    "source_run_id": "20260504T090200Z",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "gold_primary_label": "hallucinated-detail",
+    "gold_secondary_label": "missing-required-detail",
+    "gold_primary_evidence_key": "invented-detail",
+    "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 5,
+    "source_run_id": "20260504T091900Z",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "gold_primary_label": "wrong-causal-point",
+    "gold_secondary_label": "no-material-change",
+    "gold_primary_evidence_key": "missed-core-cause",
+    "gold_secondary_evidence_key": "mixed-fields-no-clear-task-win",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 6,
+    "source_run_id": "20260504T093100Z",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "gold_primary_label": "overlap-contaminated-eval",
+    "gold_secondary_label": "phrase-copy-or-template-collapse",
+    "gold_primary_evidence_key": "overlap-untrustworthy",
+    "gold_secondary_evidence_key": "phrase-copy-distortion",
+    "source_kind": "original"
+  },
+  {
+    "source_example_index": 7,
+    "source_run_id": "20260504T094500Z",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "gold_primary_label": "fluency-without-correctness",
+    "gold_secondary_label": "missing-required-detail",
+    "gold_primary_evidence_key": "fluency-gain-without-correctness",
+    "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+    "source_kind": "original"
+  }
+]

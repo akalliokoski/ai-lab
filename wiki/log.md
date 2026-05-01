@@ -583,3 +583,28 @@
   - Designed the next post-joint-rank branch as `artifact-card-failure-modes-forced-top2-v2`: a no-abstention direct top-2 target with evidence-bound slots `{primary_label, primary_evidence_key, secondary_label, secondary_evidence_key}`.
   - Rationale: keep the target close to the downstream object, remove the all-`out` escape hatch completely, and improve over `top2-v1` by forcing each chosen slot to bind to explicit evidence.
   - If `forced-top2-v2` still fails, the next redesign should become a staged shortlist / tournament selector.
+
+## [2026-05-01] update | forced-top2-v2 scaffold implemented and locally verified
+- Files created:
+  - ../docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md
+  - ../scripts/build_failure_mode_forced_top2_v2_dataset.py
+  - ../scripts/evaluate_failure_mode_forced_top2_run.py
+  - ../data/artifact-card-failure-modes-forced-top2-v2/README.md
+  - ../data/artifact-card-failure-modes-forced-top2-v2/train.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2/eval.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2/train_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2/eval_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2/task_config.json
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2-smoke-run_summary.json
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - ../docs/first-artifact-card-experiment.md
+  - ../docs/artifact-card-failure-modes-forced-top2-v2-proposal.md
+  - log.md
+- Notes:
+  - Implemented the no-abstention forced-top-2 branch as `artifact-card-failure-modes-forced-top2-v2`.
+  - The builder converts each source example into one strict four-field target: `primary_label`, `primary_evidence_key`, `secondary_label`, `secondary_evidence_key`.
+  - The evaluator enforces distinct ranked labels plus label-compatible evidence keys and reports downstream set/order recovery along with evidence-key accuracy.
+  - Local verification passed end to end: compile, dataset build, preview, and perfect-payload smoke evaluation.
+  - The branch is ready for the first real Modal run on the current 1B Llama baseline.
+

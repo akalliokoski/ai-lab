@@ -1,7 +1,7 @@
 # Proposed next branch: artifact-card-failure-modes-forced-top2-v2
 
 Date: 2026-05-01
-Status: design only, not yet implemented
+Status: implemented as a scaffold; see `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`
 
 ## Why this branch should exist
 
