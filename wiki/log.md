@@ -510,3 +510,20 @@
   - But the downstream objective still failed completely: branch-specific evaluation kept exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0` on the full 8-example held-out split.
   - The failure pattern shifted away from contrast-style anchor collapse into mixed calibration failure: 5 held-out source examples underselected to zero positives, 2 selected exactly 2 positives but still chose the wrong pair, and 1 example overselected 4 positives.
   - `artifact-card-failure-modes-pairwise-v1` therefore remains the strongest downstream decomposition baseline, and the next patch should target rank calibration plus schema leakage rather than rerunning the same scaffold unchanged.
+
+## [2026-05-01] update | rank-select-v2 calibration patch run completed and reviewed
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-rank-select-v2-20260501T052544Z/run_summary.json
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - ../docs/first-artifact-card-experiment.md
+  - log.md
+- Notes:
+  - Run `20260501T052544Z` completed successfully on `artifact-card-failure-modes-rank-select-v2` with `unsloth/Llama-3.2-1B-Instruct-bnb-4bit` and saved artifacts under `/artifacts/artifact-card-failure-modes-rank-select-v2/20260501T052544Z/`.
+  - Pulled a local copy of `run_summary.json` to `../tmp/modal-artifacts/artifact-card-failure-modes-rank-select-v2-20260501T052544Z/run_summary.json` for artifact-first review.
+  - The schema-hardening patch succeeded on its narrow target: tuned `valid_json_rate` reached `1.0` with no invalid rows and no copied prompt-tail leakage.
+  - But the core task regressed relative to rank-select-v1: exact row match fell to `0.359375`, `support_rank` accuracy to `0.359375`, and `evidence_key` accuracy to `0.46875`.
+  - Downstream reconstruction still failed completely on the full 8-example held-out split: exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`.
+  - The failure mode became even more decisively underselective than rank-select-v1, with tuned positive-count histogram `{0: 6, 1: 1, 2: 1}` and underselected rate `0.875`.
+  - The intended calibration fix did not land: `missing-required-detail` positive recall stayed at `0.0`, while `phrase-copy-or-template-collapse` remained the main surviving false-positive label.
+  - Decision: keep the schema-cleanup change as a useful diagnostic lesson, but stop spending patch budget on the same independent per-label rank-select family and test a joint selector next while keeping `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline.

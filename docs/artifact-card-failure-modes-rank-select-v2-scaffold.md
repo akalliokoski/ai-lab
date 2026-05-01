@@ -109,6 +109,29 @@ How to judge the first run
   - `phrase-copy-or-template-collapse` and `fluency-without-correctness` stop overfiring on the wrong held-out rows
   - the invalid JSON rate falls to `0.0` with no copied schema tails
 
+First run result (`20260501T052544Z`)
+- artifact path: `/artifacts/artifact-card-failure-modes-rank-select-v2/20260501T052544Z/`
+- local summary copy: `tmp/modal-artifacts/artifact-card-failure-modes-rank-select-v2-20260501T052544Z/run_summary.json`
+- tuned row metrics:
+  - `valid_json_rate = 1.0`
+  - `exact_row_match_rate = 0.359375`
+  - `candidate_label` accuracy = `1.0`
+  - `support_rank` accuracy = `0.359375`
+  - `evidence_key` accuracy = `0.46875`
+- tuned reconstruction metrics:
+  - exact positive-set match = `0.0`
+  - top-2 set match = `0.0`
+  - ordered top-2 match = `0.0`
+  - first-label accuracy = `0.25`
+  - second-label accuracy = `0.125`
+  - underselected rate = `0.875`
+  - positive-count histogram = `{0: 6, 1: 1, 2: 1}`
+- main interpretation:
+  - the schema-hardening patch solved the copied-tail / invalid-JSON problem
+  - but the selector regressed overall and became more underselective than rank-select-v1
+  - `missing-required-detail` still failed to recover positive recall, so the intended calibration fix did not land
+  - `phrase-copy-or-template-collapse` remained the main surviving false-positive label
+
 Interpretation rule
 - if this branch improves reconstruction, keep iterating on calibration and selector logic
 - if it still fails completely, stop assuming prompt-only calibration is the main lever and consider a selector that scores all stage-1 outputs jointly instead of independently

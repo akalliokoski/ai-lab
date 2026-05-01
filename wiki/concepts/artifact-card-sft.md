@@ -148,7 +148,7 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - `artifact-card-failure-modes-contrast-v1` is another useful negative result: it improved row structure again, but collapsed all 4 reconstructable held-out cases to singleton `missing-required-detail`, so reconstructed top-2 set match stayed at `0.0`.
 - `artifact-card-failure-modes-contrast-v2` is now a second clean negative result for the narrow contrast path: the targeted 6-case patch preserved the same row metrics and the same `missing-required-detail` singleton collapse on all 4 reconstructable held-out cases.
 - `artifact-card-failure-modes-rank-select-v1` is now another clean negative result: it improved row validity and rank-field accuracy, but downstream reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0` on the full 8-example held-out split.
-- `artifact-card-failure-modes-rank-select-v2` is the current next branch: it keeps the same evaluator and overall rank-then-select setup, but adds train-only calibration cases and a shorter prompt contract aimed at recovering `missing-required-detail` recall and removing schema leakage.
+- `artifact-card-failure-modes-rank-select-v2` is now a second clean negative result for the rank-select family: schema leakage disappeared completely, but tuned row accuracy regressed and downstream reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`.
 
 ## Sixth decomposed branch result
 - Run `20260430T164253Z` completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-contrast-v1/20260430T164253Z/`.
@@ -171,7 +171,11 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - The first rank-select run is now also documented as a negative result, not a success signal from row metrics.
 - Its real failure pattern differs from contrast-v1/v2: instead of collapsing everything to one anchor label, it mostly underselected to zero positives, with one held-out example overselecting four positives.
 - Keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream decomposition baseline until a later branch actually beats reconstructed top-2 set match `0.25`.
-- The next patch should target rank calibration and schema leakage directly, especially the copied `allowed_evidence_keys` tail and the persistent false positives in `generic-explanation`, `phrase-copy-or-template-collapse`, and `fluency-without-correctness`.
+- The rank-select-v2 calibration patch fixed schema leakage completely, but it did not recover the core selector behavior: tuned reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`.
+- The v2 failure mode became even more decisively underselective, with positive-count histogram `{0: 6, 1: 1, 2: 1}` and underselected rate `0.875`.
+- `missing-required-detail` still failed to recover positive recall, while `phrase-copy-or-template-collapse` remained the main spurious surviving positive.
+- Do not spend the next patch budget on more prompt-contract tuning inside the same independent per-label rank-select family.
+- The next branch should test a selector that scores all candidate labels jointly rather than independently.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

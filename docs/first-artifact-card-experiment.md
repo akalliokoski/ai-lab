@@ -782,6 +782,22 @@ How to judge the first rank-select-v2 run:
 - minimum downstream bar to beat is still `artifact-card-failure-modes-pairwise-v1` top-2 set match `0.25`
 - specifically inspect whether `missing-required-detail` finally recovers positive recall and whether the schema leak disappears entirely
 
+Result from the first rank-select-v2 run (`20260501T052544Z`):
+- the run completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-rank-select-v2/20260501T052544Z/`
+- local copy pulled to `tmp/modal-artifacts/artifact-card-failure-modes-rank-select-v2-20260501T052544Z/run_summary.json`
+- schema leakage was fixed cleanly: tuned `valid_json_rate` rose to `1.0` and there were no invalid rows or copied prompt tails
+- but the main task regressed relative to rank-select-v1: tuned exact row match fell to `0.359375`, `support_rank` accuracy to `0.359375`, and `evidence_key` accuracy to `0.46875`
+- downstream reconstruction still failed completely: exact positive-set match `0.0`, top-2 set match `0.0`, ordered top-2 match `0.0`
+- the failure mode also became more decisively underselective: positive-count histogram `{0: 6, 1: 1, 2: 1}` with underselected rate `0.875`
+- the intended calibration fix did not land: `missing-required-detail` positive precision and recall both stayed `0.0`
+- the one label that still fired as a positive was mostly the wrong one: `phrase-copy-or-template-collapse` kept positive recall `1.0` but only `0.5` precision, while the other labels mostly collapsed to zero positive recall
+
+Decision after the first rank-select-v2 run:
+- keep the schema-hardening change as a useful diagnostic success, not a task success
+- do not spend more patch budget on the same independent per-label rank-select prompt family
+- keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline
+- next branch should test a selector that scores labels jointly instead of independently, because prompt cleanup removed schema spillover but made the underselection problem even worse
+
 ## Latest reproduced full-card run
 
 ```bash

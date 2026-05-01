@@ -1,0 +1,476 @@
+{
+  "status": "trained",
+  "run_id": "20260501T052544Z",
+  "dataset_name": "artifact-card-failure-modes-rank-select-v2",
+  "train_rows": 272,
+  "eval_rows": 64,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 20,
+  "task_config": {
+    "system_prompt": "You are the Hermes AI Lab rank calibration scorer. Read the user evidence and return only one valid JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Copy candidate_label exactly. Use support_rank=primary only when this label should rank first overall, secondary only when it should rank second overall, and out otherwise. Never add extra keys or prose.",
+    "expected_fields": [
+      "candidate_label",
+      "support_rank",
+      "evidence_key"
+    ],
+    "list_fields": [],
+    "max_new_tokens": 40
+  },
+  "output_dir": "/tmp/ai-lab-unsloth-artifact-card-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/artifact-card-failure-modes-rank-select-v2/20260501T052544Z",
+  "adapter_dir": "/artifacts/artifact-card-failure-modes-rank-select-v2/20260501T052544Z/adapter",
+  "metrics": {
+    "train_runtime": 42.3102,
+    "train_samples_per_second": 3.782,
+    "train_steps_per_second": 0.473,
+    "total_flos": 482455535443968.0,
+    "train_loss": 2.3508262932300568,
+    "epoch": 0.5882352941176471
+  },
+  "sample_eval": [
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary\",\"evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary\",\"evidence_key\":\"broader-than-reference\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary\",\"evidence_key\":\"not-supported\"}"
+    }
+  ],
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary\",\"evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary\",\"evidence_key\":\"broader-than-reference\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"secondary\",\"evidence_key\":\"broader-than-reference\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary\",\"evidence_key\":\"fluency-gain-without-correctness\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary\",\"evidence_key\":\"repeated-no-change\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"repeated-no-change|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"repeated-no-change|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"secondary\",\"evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary\",\"evidence_key\":\"missed-core-cause\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary\",\"evidence_key\":\"overlap-untrustworthy\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"secondary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"no-material-change\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"mixed-fields-no-clear-task-win|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"secondary\",\"evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"missing-required-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missing-or-noncanonical-field|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"broader-than-reference|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"generic-explanation\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"overlap-untrustworthy|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"overlap-contaminated-eval\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary\",\"evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"candidate_label\":\"phrase-copy-or-template-collapse\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"phrase-copy-distortion|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary\",\"evidence_key\":\"invented-detail\"}",
+      "tuned_response": "{\"candidate_label\":\"hallucinated-detail\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"invented-detail|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"out\",\"evidence_key\":\"not-supported\"}",
+      "base_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"wrong-causal-point\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"missed-core-cause|not-supported\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and score one candidate failure label for a later top-2 selection step. Return one strict JSON object with exactly these keys: candidate_label, support_rank, evidence_key. Output JSON only.",
+      "reference": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary\",\"evidence_key\":\"fluency-gain-without-correctness\"}",
+      "base_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}",
+      "tuned_response": "{\"candidate_label\":\"fluency-without-correctness\",\"support_rank\":\"primary|secondary|out\",\"evidence_key\":\"fluency-gain-without-correctness|not-supported\"}"
+    }
+  ],
+  "auto_eval": {
+    "base_metrics": {
+      "rows": 64,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.015625,
+      "field_accuracy": {
+        "candidate_label": 1.0,
+        "support_rank": 0.015625,
+        "evidence_key": 0.015625
+      },
+      "invalid_examples": []
+    },
+    "tuned_metrics": {
+      "rows": 64,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.359375,
+      "field_accuracy": {
+        "candidate_label": 1.0,
+        "support_rank": 0.359375,
+        "evidence_key": 0.46875
+      },
+      "invalid_examples": []
+    }
+  },
+  "trainer_config": {
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 8,
+    "assistant_only_loss": true,
+    "learning_rate": 0.0002,
+    "warmup_steps": 2
+  },
+  "next_steps": [
+    "Review auto_eval.tuned_metrics before trusting train loss.",
+    "Inspect rows where the tuned output is invalid JSON or misses required fields.",
+    "Patch the dataset by field failure, not by train loss alone."
+  ]
+}
