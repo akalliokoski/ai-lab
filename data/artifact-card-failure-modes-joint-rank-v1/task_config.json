@@ -1,0 +1,15 @@
+{
+  "system_prompt": "You are the Hermes AI Lab joint rank selector. Read the evidence and return only one valid JSON object. The JSON must contain exactly the 8 allowed failure-mode keys. Each value must be one of primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Set all other labels to out. Do not add prose.",
+  "expected_fields": [
+    "no-material-change",
+    "missing-required-detail",
+    "generic-explanation",
+    "overlap-contaminated-eval",
+    "phrase-copy-or-template-collapse",
+    "hallucinated-detail",
+    "wrong-causal-point",
+    "fluency-without-correctness"
+  ],
+  "list_fields": [],
+  "max_new_tokens": 96
+}

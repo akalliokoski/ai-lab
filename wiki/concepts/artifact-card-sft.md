@@ -30,13 +30,14 @@ sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
 - Targeted contrast patch scaffold: `data/artifact-card-failure-modes-contrast-v2/`
 - Two-stage rank-then-select scaffold: `data/artifact-card-failure-modes-rank-select-v1/`
 - Rank-calibration patch scaffold: `data/artifact-card-failure-modes-rank-select-v2/`
+- Joint-rank scaffold: `data/artifact-card-failure-modes-joint-rank-v1/`
 - Training entrypoint: `modal/train_unsloth_artifact_card.py`
 - Dataset preview: `scripts/preview_dataset.py`
-- Run scoring helpers: `scripts/evaluate_artifact_card_run.py`, `scripts/evaluate_failure_mode_evidence_run.py`, `scripts/evaluate_failure_mode_contrast_run.py`, `scripts/evaluate_failure_mode_rank_select_run.py`
-- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`
+- Run scoring helpers: `scripts/evaluate_artifact_card_run.py`, `scripts/evaluate_failure_mode_evidence_run.py`, `scripts/evaluate_failure_mode_contrast_run.py`, `scripts/evaluate_failure_mode_rank_select_run.py`, `scripts/evaluate_failure_mode_joint_rank_run.py`
+- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`, `scripts/build_failure_mode_joint_rank_v1_dataset.py`
 - Experiment brief: `docs/first-artifact-card-experiment.md`
-- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`
-- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval
+- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`, `docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md`
+- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval, failure-modes-joint-rank-v1 = 34 train / 8 eval
 
 ## Output schema
 The model should return exactly one JSON object with these keys:
@@ -175,7 +176,8 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - The v2 failure mode became even more decisively underselective, with positive-count histogram `{0: 6, 1: 1, 2: 1}` and underselected rate `0.875`.
 - `missing-required-detail` still failed to recover positive recall, while `phrase-copy-or-template-collapse` remained the main spurious surviving positive.
 - Do not spend the next patch budget on more prompt-contract tuning inside the same independent per-label rank-select family.
-- The next branch should test a selector that scores all candidate labels jointly rather than independently.
+- The next branch is now scaffolded as `artifact-card-failure-modes-joint-rank-v1`, which scores all candidate labels jointly inside one shared output object instead of one label at a time.
+- Keep the first evaluation bar unchanged: a real success must beat `artifact-card-failure-modes-pairwise-v1` on reconstructed top-2 set match `0.25`.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

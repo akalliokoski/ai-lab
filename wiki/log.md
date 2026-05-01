@@ -527,3 +527,25 @@
   - The failure mode became even more decisively underselective than rank-select-v1, with tuned positive-count histogram `{0: 6, 1: 1, 2: 1}` and underselected rate `0.875`.
   - The intended calibration fix did not land: `missing-required-detail` positive recall stayed at `0.0`, while `phrase-copy-or-template-collapse` remained the main surviving false-positive label.
   - Decision: keep the schema-cleanup change as a useful diagnostic lesson, but stop spending patch budget on the same independent per-label rank-select family and test a joint selector next while keeping `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline.
+
+## [2026-05-01] update | joint-rank-v1 selector branch scaffolded
+- Files created:
+  - ../data/artifact-card-failure-modes-joint-rank-v1/train.jsonl
+  - ../data/artifact-card-failure-modes-joint-rank-v1/eval.jsonl
+  - ../data/artifact-card-failure-modes-joint-rank-v1/train_metadata.json
+  - ../data/artifact-card-failure-modes-joint-rank-v1/eval_metadata.json
+  - ../data/artifact-card-failure-modes-joint-rank-v1/task_config.json
+  - ../data/artifact-card-failure-modes-joint-rank-v1/README.md
+  - ../scripts/build_failure_mode_joint_rank_v1_dataset.py
+  - ../scripts/evaluate_failure_mode_joint_rank_run.py
+  - ../docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-joint-rank-v1-smoke-run_summary.json
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - ../docs/first-artifact-card-experiment.md
+  - log.md
+- Notes:
+  - New branch: `artifact-card-failure-modes-joint-rank-v1` scores all 8 labels jointly in one strict JSON object instead of one candidate label per row.
+  - The scaffold reuses the 8 train-only supplemental source cases from `rank-select-v2`, but compresses each source example back to one row with fixed label keys and `primary|secondary|out` values.
+  - Local verification passed: dataset build, preview, and a synthetic perfect-payload smoke test through `scripts/evaluate_failure_mode_joint_rank_run.py` all succeeded.
+  - The first real success criterion is unchanged: the branch only counts as progress if reconstructed top-2 set match beats the current `pairwise-v1` baseline of `0.25`.
