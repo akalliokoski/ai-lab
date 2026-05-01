@@ -861,15 +861,15 @@ Decision after the first joint-rank-v1 run:
   - predicting a direct `{primary_label, secondary_label}` object, or
   - using a staged selector / shortlist tournament where every inference step must choose among a smaller set instead of independently refusing all labels
 
-## Eleventh decomposed branch scaffold: artifact-card-failure-modes-forced-top2-v2
+## Eleventh decomposed branch result: artifact-card-failure-modes-forced-top2-v2
 
-Scaffold note now exists at `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`.
+Scaffold and run note now exist at `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`.
 
-Why this is the current best next branch:
-- it removes the all-`out` escape hatch completely instead of asking the model to emit one 8-label state map with many chances to abstain
-- it stays closer to the actual downstream target than the large `pairwise-v1` expansion
-- it keeps the useful pressure from the evidence-conditioned branches by binding each chosen slot to an evidence key
-- it is a meaningful upgrade over `top2-v1`, not just a retry, because the chosen labels must now be justified through closed evidence slots and sharper contrast notes
+Why this branch was the right next test:
+- it removed the all-`out` escape hatch completely instead of asking the model to emit one 8-label state map with many chances to abstain
+- it stayed closer to the actual downstream target than the large `pairwise-v1` expansion
+- it kept the useful pressure from the evidence-conditioned branches by binding each chosen slot to an evidence key
+- it was a meaningful upgrade over `top2-v1`, not just a retry, because the chosen labels had to be justified through closed evidence slots and sharper contrast notes
 
 Strict JSON target:
 ```json
@@ -881,34 +881,60 @@ Strict JSON target:
 }
 ```
 
-Why this branch is better motivated than `top2-v1` was:
+What changed relative to `top2-v1` and `joint-rank-v1`:
 - `top2-v1` forced two labels, but it did not force the model to anchor each slot to explicit support
 - `joint-rank-v1` forced one shared object, but it still allowed near-total abstention through repeated `out`
-- `forced-top2-v2` combines the smaller final target shape with evidence grounding and removes abstention states entirely
+- `forced-top2-v2` combined the smaller final target shape with evidence grounding and removed abstention states entirely
 
-Current scaffold shape:
+Current branch shape:
 - source examples before supplements: `26` train / `8` eval
 - train-only supplemental source cases: `8`
 - final rows: `34` train / `8` eval
 - helper metadata: `data/artifact-card-failure-modes-forced-top2-v2/train_metadata.json` and `eval_metadata.json`
 - mean train input length is about `4366.2` chars
 
-Local verification completed:
+Local verification completed before GPU time:
 - `python3 -m py_compile scripts/build_failure_mode_forced_top2_v2_dataset.py scripts/evaluate_failure_mode_forced_top2_run.py scripts/preview_dataset.py modal/train_unsloth_artifact_card.py` passed
 - `python3 scripts/build_failure_mode_forced_top2_v2_dataset.py` generated the dataset successfully
 - `python3 scripts/preview_dataset.py artifact-card-failure-modes-forced-top2-v2` passed with valid strict-JSON targets
 - `python3 scripts/evaluate_failure_mode_forced_top2_run.py tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2-smoke-run_summary.json data/artifact-card-failure-modes-forced-top2-v2/eval_metadata.json` returned perfect smoke metrics, including `top2_set_match_rate = 1.0` and `top2_ordered_match_rate = 1.0`
 
-Recommended experiment order:
-1. run `artifact-card-failure-modes-forced-top2-v2` first on the current `unsloth/Llama-3.2-1B-Instruct-bnb-4bit` for continuity
-2. rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
-3. optionally use `unsloth/gemma-3-1b-it-bnb-4bit` as a same-class family-control comparison
+First real run result:
+- Run ID: `20260501T074237Z`
+- Model: `unsloth/Llama-3.2-1B-Instruct-bnb-4bit`
+- Train loss: `1.8952500939369201`
+- Built-in auto-eval looked better than earlier branches:
+  - `valid_json_rate = 1.0`
+  - `exact_card_match_rate = 0.375`
+  - field accuracy: `primary_label = 0.375`, `primary_evidence_key = 0.5`, `secondary_label = 0.375`, `secondary_evidence_key = 0.5`
+- Branch-specific evaluator gave the real downstream result:
+  - `valid_json_rate = 0.875`
+  - `top2_set_match_rate = 0.375`
+  - `top2_ordered_match_rate = 0.375`
+  - `primary_label_accuracy = 0.375`
+  - `secondary_label_accuracy = 0.375`
+  - `primary_evidence_key_accuracy = 0.375`
+  - `secondary_evidence_key_accuracy = 0.375`
+  - `invalid_row_rate = 0.125`
 
-Primary success bar remains unchanged:
-- beat the current strongest downstream baseline, `artifact-card-failure-modes-pairwise-v1`, on top-2 set match `0.25`
-- also treat any ordered top-2 recovery above `0.0` as an important sign that the no-abstention target is learning something real
+Why this run matters:
+- it is the first decomposed branch to beat the old `pairwise-v1` downstream baseline
+- previous best top-2 set match was `0.25`; `forced-top2-v2` reached `0.375`
+- previous ordered top-2 recovery was `0.0`; `forced-top2-v2` reached `0.375`
+- this means removing the abstention path was not just cleaner structurally — it materially improved downstream recovery
 
-If this branch still fails, the next branch should become a staged tournament selector rather than another flat one-shot target.
+Main remaining failure pattern:
+- the model still overused `missing-required-detail` as the primary label and `generic-explanation` as the fallback secondary label
+- both `fluency-without-correctness` eval rows collapsed into that repeated fallback pair
+- the `hallucinated-detail` row and the `wrong-causal-point + no-material-change` row also collapsed into the same repeated fallback pair
+- the overlap / phrase-copy eval row failed structurally because the model copied evidence-key names (`overlap-untrustworthy`, `phrase-copy-distortion`) into label slots instead of outputting the corresponding labels
+
+Decision after the first forced-top2-v2 run:
+- keep `forced-top2-v2` as the current best decomposition branch, ahead of `pairwise-v1`
+- treat the branch as a real success signal, not just a near miss or a clean negative result
+- do not spend patch budget immediately on another target redesign, because the target shape itself finally worked better
+- the next clean comparison is to rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
+- if the stronger model keeps the same repeated fallback pair, then the next patch should target the now-visible confusion set around `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point`
 
 ## Latest reproduced full-card run
 

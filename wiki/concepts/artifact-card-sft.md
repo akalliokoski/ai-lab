@@ -185,8 +185,12 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - Its core change is to remove abstention states completely and predict only `{primary_label, primary_evidence_key, secondary_label, secondary_evidence_key}`.
 - This is intentionally different from `top2-v1`: each chosen slot must now bind to a closed evidence key, so the model cannot satisfy the task with an unsupported default pair as easily.
 - Local verification already passed: dataset build, preview, and a perfect-payload smoke evaluation all succeeded.
-- Recommended experiment order: run `forced-top2-v2` first on the current 1B Llama baseline, then compare the exact same branch on `Qwen3-4B-Instruct-2507`, with `Gemma-3-1B-it` as an optional family-control run.
-- If `forced-top2-v2` still fails, the next redesign should become a staged shortlist / tournament selector rather than another flat one-shot map.
+- The first real `forced-top2-v2` run then became the first decomposition branch to beat `pairwise-v1` downstream: tuned branch-specific `top2_set_match_rate` reached `0.375` and `top2_ordered_match_rate` reached `0.375` versus the old `0.25` / `0.0` pairwise baseline.
+- Built-in auto-eval slightly overstated the row quality because it accepted one structurally wrong row where evidence-key names were copied into label slots; the branch-specific evaluator still showed a strong real gain with `valid_json_rate = 0.875`.
+- The remaining bottleneck is now visible and narrower: the model still falls back repeatedly to `missing-required-detail + generic-explanation`, especially on `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` examples.
+- Keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch.
+- The next clean comparison is to rerun the exact same branch on `Qwen3-4B-Instruct-2507` before spending more patch budget on data changes.
+- If the stronger-model rerun keeps the same fallback pair, patch the branch around that specific confusion set rather than redesigning the target again.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

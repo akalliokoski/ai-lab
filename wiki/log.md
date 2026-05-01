@@ -608,3 +608,18 @@
   - Local verification passed end to end: compile, dataset build, preview, and perfect-payload smoke evaluation.
   - The branch is ready for the first real Modal run on the current 1B Llama baseline.
 
+## [2026-05-01] update | forced-top2-v2 first run beat the pairwise baseline
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2-20260501T074237Z/run_summary.json
+- Files updated:
+  - ../docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md
+  - ../docs/first-artifact-card-experiment.md
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Reviewed the first real `artifact-card-failure-modes-forced-top2-v2` run from Modal artifacts with the branch-specific evaluator.
+  - Run `20260501T074237Z` on `unsloth/Llama-3.2-1B-Instruct-bnb-4bit` reached tuned branch-specific `top2_set_match_rate = 0.375` and `top2_ordered_match_rate = 0.375`.
+  - That beats the old downstream best from `artifact-card-failure-modes-pairwise-v1` (`0.25` set match, `0.0` ordered match), making `forced-top2-v2` the strongest decomposition branch so far.
+  - The main remaining issue is a repeated fallback pair of `missing-required-detail + generic-explanation`, plus one structural confusion where evidence-key names were emitted in label slots.
+  - Next clean comparison: rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` before spending more patch budget on data changes.
+

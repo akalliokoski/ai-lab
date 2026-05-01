@@ -2,7 +2,7 @@
 
 Status
 - scaffolded and locally verified on 2026-05-01
-- first real Modal run not launched yet
+- first real Modal run completed and reviewed on 2026-05-01
 
 Goal
 - keep the task focused on `primary_failure_modes`
@@ -78,11 +78,48 @@ Recommended comparison order
 2. rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
 3. optionally run `unsloth/gemma-3-1b-it-bnb-4bit` as a family-control comparison
 
+First real run result
+- Run ID: `20260501T074237Z`
+- Model: `unsloth/Llama-3.2-1B-Instruct-bnb-4bit`
+- Train loss: `1.8952500939369201`
+- Built-in auto-eval looked encouraging:
+  - `valid_json_rate`: `1.0`
+  - `exact_card_match_rate`: `0.375`
+  - field accuracy: `primary_label = 0.375`, `primary_evidence_key = 0.5`, `secondary_label = 0.375`, `secondary_evidence_key = 0.5`
+- Branch-specific evaluator is the real read:
+  - `valid_json_rate`: `0.875`
+  - `top2_set_match_rate`: `0.375`
+  - `top2_ordered_match_rate`: `0.375`
+  - `primary_label_accuracy`: `0.375`
+  - `secondary_label_accuracy`: `0.375`
+  - `primary_evidence_key_accuracy`: `0.375`
+  - `secondary_evidence_key_accuracy`: `0.375`
+  - `invalid_row_rate`: `0.125`
+- This is the first decomposed branch to beat the old `pairwise-v1` downstream baseline:
+  - previous best `pairwise-v1` top-2 set match: `0.25`
+  - `forced-top2-v2` top-2 set match: `0.375`
+  - previous best ordered top-2 recovery: `0.0`
+  - `forced-top2-v2` ordered top-2 recovery: `0.375`
+- Main remaining failure pattern:
+  - the branch still overuses `missing-required-detail` as the primary label and `generic-explanation` as the fallback secondary label
+  - both `fluency-without-correctness` eval rows were pulled into the repeated `missing-required-detail + generic-explanation` pair
+  - the `hallucinated-detail` row and the `wrong-causal-point + no-material-change` row also collapsed into that same repeated pair
+  - the overlap / phrase-copy eval row failed structurally because the model emitted evidence-key names (`overlap-untrustworthy`, `phrase-copy-distortion`) in label slots instead of the corresponding labels
+- Practical interpretation:
+  - removing the abstention path worked: the branch no longer collapses to all-`out`, and it finally recovered real downstream top-2 behavior
+  - the new bottleneck is not escape-hatch abstention but label/evidence namespace confusion plus a repeated fallback pair under ambiguity
+  - this branch is a real improvement, not just a clean negative result
+
 Success criterion
 - beat the current strongest downstream baseline, `artifact-card-failure-modes-pairwise-v1`, on top-2 set match `0.25`
 - also treat any ordered top-2 recovery above `0.0` as an important sign that the no-abstention target is learning something real
 - evidence-key accuracy matters as a grounding check, but label-pair recovery is the main pass/fail condition
 
-If this branch still fails
-- do not spend the next patch budget on another flat one-shot target
-- move to a staged shortlist / tournament selector that forces choice in smaller comparison steps
+Current verdict
+- `forced-top2-v2` cleared the success bar on the 1B Llama baseline.
+- The next clean comparison is to rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` before spending patch budget on more data changes.
+- If Qwen still keeps the same repeated fallback pair, the next dataset pass should add a few source-level cases targeting `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` versus the tempting `missing-required-detail + generic-explanation` default.
+
+If a later stronger-model rerun still fails to improve
+- do not immediately return to another flat target redesign
+- instead patch the branch around the now-visible confusion set, because this scaffold already proved the no-abstention target can beat the old downstream baseline
