@@ -940,18 +940,18 @@ Decision after the forced-top2-v2 model comparison:
 - the main Qwen3 failure was not the old fallback pair but a new output-contract break: 5/8 tuned rows wrapped the JSON in Markdown code fences, making them invalid for the task despite looking superficially plausible
 - this means the next patch should target raw-JSON-only / anti-fence behavior on the same branch before spending more time on additional model-family comparisons
 
-## Twelfth decomposed branch scaffold: `artifact-card-failure-modes-forced-top2-v3`
+## Twelfth decomposed branch review: `artifact-card-failure-modes-forced-top2-v3`
 
-What this branch changes:
-- keep the same no-abstention four-field target from `forced-top2-v2`, because that target finally beat the old `pairwise-v1` downstream baseline
+What the anti-fence patch tried:
+- keep the same no-abstention four-field target from `forced-top2-v2`
 - keep the same labels, evidence keys, and source examples so the comparison stays apples-to-apples
 - harden the output contract directly instead of redesigning the semantics again
 
 Anti-fence patch details:
-- the system prompt and row instruction now explicitly require raw JSON only and explicitly ban Markdown wrappers like ```json ... ```
-- the per-row decision rules now say the first character of the answer must be `{` and treat fenced/prose-wrapped outputs as invalid
-- `data/artifact-card-failure-modes-forced-top2-v3/task_config.json` lowers `max_new_tokens` from `64` to `48`
-- the training/inference pipeline now supports `generation_prefix`, and this branch sets it to `{` so decoding starts inside the JSON object instead of leaving room for a Markdown preamble
+- the system prompt and row instruction explicitly required raw JSON only and explicitly banned Markdown wrappers like ```json ... ```
+- the per-row decision rules required the first character to be `{` and treated fenced/prose-wrapped outputs as invalid
+- `data/artifact-card-failure-modes-forced-top2-v3/task_config.json` lowered `max_new_tokens` from `64` to `48`
+- the training/inference pipeline gained `generation_prefix`, and this branch set it to `{` so decoding started inside the JSON object instead of leaving room for a Markdown preamble
 
 Current branch shape:
 - source examples before supplements: `26` train / `8` eval
@@ -966,13 +966,38 @@ Local verification completed before GPU time:
 - `python3 scripts/preview_dataset.py artifact-card-failure-modes-forced-top2-v3` showed the strengthened anti-fence contract on both train and eval rows
 - `python3 scripts/evaluate_failure_mode_forced_top2_run.py tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v3-smoke-run_summary.json data/artifact-card-failure-modes-forced-top2-v3/eval_metadata.json` returned perfect smoke metrics
 - `python3 scripts/check_env.py` passed
-- `modal run modal/train_unsloth_artifact_card.py --help` still exposes `--dataset-name`, `--model-name`, `--chat-template`, and `--max-steps`
+- `modal run modal/train_unsloth_artifact_card.py --help` still exposed `--dataset-name`, `--model-name`, `--chat-template`, and `--max-steps`
 
-How to judge the first `forced-top2-v3` run:
-- first check whether branch-specific `valid_json_rate` improves over the `forced-top2-v2` Qwen3 rerun (`0.375`)
-- practical raw-output bar: do not regress below the `forced-top2-v2` 1B Llama branch-specific `valid_json_rate = 0.875`
-- keep downstream metrics in view at the same time: a formatting-only win is not enough if `top2_set_match_rate` and `top2_ordered_match_rate` collapse
-- if raw-JSON validity improves while downstream recovery stays near the current `forced-top2-v2` baseline, this is still a useful patch because it isolates the next bottleneck back to label/evidence judgment instead of wrapper formatting
+First real run result:
+- Run ID: `20260501T085312Z`
+- Model: `unsloth/Llama-3.2-1B-Instruct-bnb-4bit`
+- Train loss: `1.913314300775528`
+- Built-in auto-eval again looked cleaner than the real task result:
+  - `valid_json_rate = 1.0`
+  - `exact_card_match_rate = 0.125`
+  - field accuracy: `primary_label = 0.25`, `primary_evidence_key = 0.25`, `secondary_label = 0.125`, `secondary_evidence_key = 0.5`
+- Branch-specific evaluator showed the actual outcome:
+  - `valid_json_rate = 0.625`
+  - `top2_set_match_rate = 0.125`
+  - `top2_ordered_match_rate = 0.125`
+  - `primary_label_accuracy = 0.25`
+  - `secondary_label_accuracy = 0.125`
+  - `primary_evidence_key_accuracy = 0.25`
+  - `secondary_evidence_key_accuracy = 0.125`
+  - `invalid_row_rate = 0.375`
+
+What this means:
+- the anti-fence patch did remove the exact Qwen3 failure mode: the run no longer collapsed through Markdown code fences
+- but it still regressed against the stronger `forced-top2-v2` 1B baseline:
+  - `forced-top2-v2` 1B: `valid_json_rate = 0.875`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`
+  - `forced-top2-v3` 1B: `valid_json_rate = 0.625`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`
+- the errors shifted from wrapper formatting into a different branch-level contract failure: 3/8 tuned rows paired `generic-explanation` with the wrong secondary evidence key (`missing-or-noncanonical-field`), which the evaluator marked as `bad-secondary-evidence-key`
+- the remaining valid rows still overcollapsed toward the old fallback family centered on `missing-required-detail`
+
+Decision after the forced-top2-v3 run:
+- keep `forced-top2-v2` as the best current decomposition branch and keep the original 1B Llama `forced-top2-v2` run as the best actual result so far
+- do not continue with the heavier `forced-top2-v3` contract rewrite as the main branch
+- if we keep patching this family, the next move should be a narrower fix: start from the stronger `forced-top2-v2` prompt shape, then add only minimal anti-fence pressure or targeted train rows for evidence-key/label compatibility instead of the larger `v3` rewrite
 
 ## Latest reproduced full-card run
 

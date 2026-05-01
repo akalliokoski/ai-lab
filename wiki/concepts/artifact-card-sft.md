@@ -197,6 +197,10 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - `forced-top2-v3` keeps the same four-field no-abstention target, the same labels/evidence keys, and the same eval reconstruction metrics so the comparison stays apples-to-apples.
 - Its main changes are contract hardening rather than semantic redesign: stronger raw-JSON-only instructions, an explicit "first character must be `{`" rule, a shorter `max_new_tokens = 48`, and a new `generation_prefix = "{"` hook in the training/inference pipeline.
 - Local verification already passed for `forced-top2-v3`: compile, dataset build, preview, smoke evaluation, env check, and CLI verification all succeeded.
+- The first real `forced-top2-v3` run removed the specific Qwen3 fence-wrapping failure mode, but it still regressed against the stronger `forced-top2-v2` 1B baseline: tuned branch-specific `valid_json_rate = 0.625`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, `invalid_row_rate = 0.375`.
+- The new failure mode was contract-compatible evidence mismatch rather than Markdown wrapping: 3/8 tuned rows paired `generic-explanation` with the wrong secondary evidence key (`missing-or-noncanonical-field`), so the branch-specific evaluator marked them `bad-secondary-evidence-key`.
+- Decision: keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch and treat `forced-top2-v3` as a useful negative result showing that heavy contract hardening can remove fence wrappers while still hurting the real downstream objective.
+- If this family continues, the next patch should be narrower: start from the stronger `forced-top2-v2` prompt shape and add only minimal anti-fence pressure or targeted evidence-key compatibility cases instead of the larger `v3` rewrite.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

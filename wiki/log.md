@@ -661,3 +661,19 @@
   - Added generic pipeline support for `generation_prefix` in `modal/train_unsloth_artifact_card.py`; `forced-top2-v3` sets it to `{` so generation starts inside the JSON object.
   - Tightened the response budget with `max_new_tokens = 48` and completed local verification: compile, dataset build, preview, smoke evaluation, env check, and CLI verification.
 
+## [2026-05-01] update | forced-top2-v3 anti-fence run removed fences but regressed downstream
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v3-20260501T085312Z/run_summary.json
+- Files updated:
+  - ../docs/artifact-card-failure-modes-forced-top2-v3-scaffold.md
+  - ../docs/first-artifact-card-experiment.md
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Reviewed the first real `artifact-card-failure-modes-forced-top2-v3` run from Modal artifacts with the branch-specific evaluator.
+  - Run `20260501T085312Z` on `unsloth/Llama-3.2-1B-Instruct-bnb-4bit` did remove the specific fenced-JSON failure mode seen in the Qwen3 rerun, but it still regressed on the real task.
+  - Tuned branch-specific metrics reached only `valid_json_rate = 0.625`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, and `invalid_row_rate = 0.375`.
+  - That is better than the `forced-top2-v2` Qwen3 rerun on raw validity (`0.375`) but worse than the stronger `forced-top2-v2` 1B baseline (`0.875`, `0.375`, `0.375`, `0.125`).
+  - The new main failure mode was evidence-key/label incompatibility rather than Markdown wrapping: 3/8 tuned rows paired `generic-explanation` with `missing-or-noncanonical-field`, which the evaluator marked as `bad-secondary-evidence-key`.
+  - Decision: keep `forced-top2-v2` as the strongest current branch, and if this family continues, patch more narrowly from the `v2` prompt shape instead of continuing the heavier `v3` contract rewrite.
+
