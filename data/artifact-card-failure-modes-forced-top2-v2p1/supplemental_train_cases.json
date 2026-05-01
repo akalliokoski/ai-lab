@@ -1,0 +1,104 @@
+[
+  {
+    "run_id": "20260508T080000Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The output stayed structurally complete and sounded smoother, but the task outcome barely changed.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the tuned wording sounded cleaner without fixing the real task outcome",
+      "canonical evidence phrase: a stronger base improved fluency more than correctness",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs"
+    ],
+    "gold_pair": [
+      "fluency-without-correctness",
+      "no-material-change"
+    ],
+    "rationale": "teaches the fluency-vs-no-material-change pattern when missing-required-detail should be suppressed"
+  },
+  {
+    "run_id": "20260508T081500Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The answer became smoother and more confident, but it still dropped required field content on the hard rows.",
+    "observed_evidence": [
+      "required fields were still missing or non-canonical on the hardest rows",
+      "the tuned wording sounded cleaner without improving the task outcome",
+      "canonical evidence phrase: a stronger base improved fluency more than correctness",
+      "canonical evidence phrase: missing or non-canonical fields remained on sparse-note rows"
+    ],
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "rationale": "reinforces the exact eval boundary where fluency should stay primary and missing-required-detail secondary"
+  },
+  {
+    "run_id": "20260508T083000Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The required fields stayed present, but the explanation drifted broader than the reference and missed the core causal point.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the explanation broadened into generic advice instead of the reference-specific behavior",
+      "canonical evidence phrase: tuned answers became more generic than the reference",
+      "canonical evidence phrase: the core causal point stayed underspecified"
+    ],
+    "gold_pair": [
+      "generic-explanation",
+      "wrong-causal-point"
+    ],
+    "rationale": "anchors generic-explanation to broader-than-reference and suppresses missing-required-detail when fields stayed complete"
+  },
+  {
+    "run_id": "20260508T084500Z",
+    "dataset_name": "artifact-card-v2",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The model kept producing parseable rows, but the main label confusion stayed unresolved and the run did not materially improve.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "closely related categories were still confused on the held-out rows",
+      "canonical evidence phrase: loss improved but held-out answers still missed the target concept",
+      "canonical evidence phrase: label outputs were short but field accuracy stayed mixed"
+    ],
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "rationale": "reinforces the wrong-causal-point plus no-material-change boundary without any missing-required-detail evidence"
+  },
+  {
+    "run_id": "20260508T090000Z",
+    "dataset_name": "artifact-card-v2",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "Template matching improved, but the tuned answer invented details while also omitting required field content.",
+    "observed_evidence": [
+      "required fields were still missing or non-canonical on sparse-note rows",
+      "the tuned output invented blockers and causes not present in the input evidence",
+      "canonical evidence phrase: tuned outputs invented details not present in the input",
+      "canonical evidence phrase: missing or non-canonical fields remained on sparse-note rows"
+    ],
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "rationale": "sharpens the hallucinated-detail primary case that v2 often collapsed into missing-required-detail plus generic-explanation"
+  },
+  {
+    "run_id": "20260508T091500Z",
+    "dataset_name": "artifact-card-v3",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "summary": "The answer stayed structurally complete, but the outcome barely changed and the wording copied prompt-like fragments.",
+    "observed_evidence": [
+      "all required fields stayed present and parseable across the checked rows",
+      "the tuned output repeated prompt-like phrases and distorted template fragments",
+      "canonical evidence phrase: phrase-copy distortion appeared in the tuned output",
+      "canonical evidence phrase: repeated runs produced nearly identical outputs"
+    ],
+    "gold_pair": [
+      "phrase-copy-or-template-collapse",
+      "no-material-change"
+    ],
+    "rationale": "keeps the no-material-change secondary pairing alive while preserving a non-missing-required-detail primary"
+  }
+]

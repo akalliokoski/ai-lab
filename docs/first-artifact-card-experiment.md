@@ -997,7 +997,56 @@ What this means:
 Decision after the forced-top2-v3 run:
 - keep `forced-top2-v2` as the best current decomposition branch and keep the original 1B Llama `forced-top2-v2` run as the best actual result so far
 - do not continue with the heavier `forced-top2-v3` contract rewrite as the main branch
-- if we keep patching this family, the next move should be a narrower fix: start from the stronger `forced-top2-v2` prompt shape, then add only minimal anti-fence pressure or targeted train rows for evidence-key/label compatibility instead of the larger `v3` rewrite
+- the next move is now scaffolded as `artifact-card-failure-modes-forced-top2-v2p1`: start from the stronger `forced-top2-v2` prompt shape, add only minimal anti-fence pressure (`generation_prefix = "{"` plus a small no-fences reminder), and add a smaller targeted train-only patch for evidence-key compatibility on the remaining confusion cases
+
+## Thirteenth decomposed branch scaffold: `artifact-card-failure-modes-forced-top2-v2p1`
+
+What this narrower patch changes:
+- keep the same no-abstention four-field target object from `forced-top2-v2`
+- keep the stronger `v2` response budget with `max_new_tokens = 64`
+- avoid the heavier `forced-top2-v3` rewrite; only add light anti-fence pressure and a small train-only compatibility patch
+
+Minimal anti-fence additions:
+- system prompt now says `Do not add prose or Markdown fences`
+- instruction now says `Do not use Markdown fences or add prose`
+- `data/artifact-card-failure-modes-forced-top2-v2p1/task_config.json` sets `generation_prefix = "{"`
+- decision rule adds one short compatibility reminder instead of the larger `v3` invalid-example block:
+  - `generic-explanation -> broader-than-reference`
+  - `missing-required-detail -> missing-or-noncanonical-field`
+  - `fluency-without-correctness -> fluency-gain-without-correctness`
+
+Targeted train-only compatibility cases:
+- `fluency-without-correctness + no-material-change` with all required fields present
+- `fluency-without-correctness + missing-required-detail` with explicit missing-field evidence
+- `generic-explanation + wrong-causal-point` with all required fields present
+- `wrong-causal-point + no-material-change` without missing-field evidence
+- `hallucinated-detail + missing-required-detail`
+- `phrase-copy-or-template-collapse + no-material-change`
+
+Current branch shape:
+- source examples before supplements: `26` train / `8` eval
+- train-only supplemental source cases: `6`
+- final rows: `32` train / `8` eval
+- helper metadata: `data/artifact-card-failure-modes-forced-top2-v2p1/train_metadata.json` and `eval_metadata.json`
+- mean train input length is about `4630.8` chars
+
+Local verification completed before GPU time:
+- `python3 -m py_compile scripts/build_failure_mode_forced_top2_v2p1_dataset.py scripts/evaluate_failure_mode_forced_top2_run.py modal/train_unsloth_artifact_card.py` passed
+- `python3 scripts/build_failure_mode_forced_top2_v2p1_dataset.py` generated the dataset successfully
+- `python3 scripts/preview_dataset.py artifact-card-failure-modes-forced-top2-v2p1` showed the narrower anti-fence wording and the same four-field target contract
+- `python3 scripts/evaluate_failure_mode_forced_top2_run.py tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2p1-smoke-run_summary.json data/artifact-card-failure-modes-forced-top2-v2p1/eval_metadata.json` returned perfect smoke metrics
+- `python3 scripts/check_env.py` passed
+- `modal run modal/train_unsloth_artifact_card.py --help` still exposed `--dataset-name`, `--model-name`, `--chat-template`, and `--max-steps`
+
+How to judge the first `forced-top2-v2p1` run:
+- first compare against the best actual branch result, not only against `v3`:
+  - `forced-top2-v2` 1B baseline: `valid_json_rate = 0.875`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`
+- secondary comparison: avoid the `v3` regression pattern:
+  - `forced-top2-v3` 1B: `valid_json_rate = 0.625`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`
+- practical success bar:
+  - keep or improve `forced-top2-v2`-level downstream reconstruction
+  - preserve or improve strict validity
+  - reduce the repeated fallback / bad-secondary-evidence-key pattern on `generic-explanation` and `fluency-without-correctness` cases
 
 ## Latest reproduced full-card run
 

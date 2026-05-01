@@ -201,6 +201,11 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - The new failure mode was contract-compatible evidence mismatch rather than Markdown wrapping: 3/8 tuned rows paired `generic-explanation` with the wrong secondary evidence key (`missing-or-noncanonical-field`), so the branch-specific evaluator marked them `bad-secondary-evidence-key`.
 - Decision: keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch and treat `forced-top2-v3` as a useful negative result showing that heavy contract hardening can remove fence wrappers while still hurting the real downstream objective.
 - If this family continues, the next patch should be narrower: start from the stronger `forced-top2-v2` prompt shape and add only minimal anti-fence pressure or targeted evidence-key compatibility cases instead of the larger `v3` rewrite.
+- That narrower continuation is now scaffolded as `artifact-card-failure-modes-forced-top2-v2p1`, documented in `../docs/artifact-card-failure-modes-forced-top2-v2p1-scaffold.md`.
+- `forced-top2-v2p1` preserves the original `forced-top2-v2` four-field target and the stronger `max_new_tokens = 64` setting, instead of reusing the heavier `v3` contract block.
+- Its anti-fence additions are intentionally small: one no-fences reminder in the system prompt and instruction plus `generation_prefix = "{"` in task config.
+- Its train-only patch is also narrower: 6 targeted compatibility cases aimed at the remaining `fluency-without-correctness`, `generic-explanation`, `wrong-causal-point`, `hallucinated-detail`, and `phrase-copy-or-template-collapse` confusions without rewriting the whole prompt contract.
+- Local verification already passed for `forced-top2-v2p1`: compile, dataset build, preview, smoke evaluation, env check, and CLI verification all succeeded.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

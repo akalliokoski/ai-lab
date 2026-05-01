@@ -677,3 +677,26 @@
   - The new main failure mode was evidence-key/label incompatibility rather than Markdown wrapping: 3/8 tuned rows paired `generic-explanation` with `missing-or-noncanonical-field`, which the evaluator marked as `bad-secondary-evidence-key`.
   - Decision: keep `forced-top2-v2` as the strongest current branch, and if this family continues, patch more narrowly from the `v2` prompt shape instead of continuing the heavier `v3` contract rewrite.
 
+## [2026-05-01] update | forced-top2-v2p1 narrow continuation scaffolded and locally verified
+- Files created:
+  - ../docs/artifact-card-failure-modes-forced-top2-v2p1-scaffold.md
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/README.md
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/train.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/eval.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/train_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/eval_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/task_config.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p1/supplemental_train_cases.json
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2p1-smoke-run_summary.json
+  - ../scripts/build_failure_mode_forced_top2_v2p1_dataset.py
+- Files updated:
+  - ../docs/first-artifact-card-experiment.md
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Scaffolded `artifact-card-failure-modes-forced-top2-v2p1` as the narrower continuation after `forced-top2-v3` regressed.
+  - Preserved the stronger `forced-top2-v2` branch shape: same four-field target and `max_new_tokens = 64`.
+  - Added only light anti-fence pressure: one no-fences reminder in the system prompt and instruction plus `generation_prefix = "{"` in task config.
+  - Added 6 targeted train-only compatibility cases focused on the real remaining confusion patterns instead of reusing the heavier `v3` contract rewrite.
+  - Local verification passed: compile, dataset build, preview, smoke evaluation, env check, and CLI verification.
+
