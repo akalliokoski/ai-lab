@@ -28,10 +28,11 @@ import modal
 DEFAULT_MODEL_NAME = "unsloth/Llama-3.2-1B-Instruct-bnb-4bit"
 DEFAULT_CHAT_TEMPLATE = "llama-3.2"
 DEFAULT_SYSTEM_PROMPT = (
-    "You are the Hermes AI Lab tutor. Explain ML and fine-tuning concepts clearly, "
-    "briefly, and step-by-step for beginners."
+    "You are the Hermes AI Lab tutor. Answer like a concise lab mentor for beginners. "
+    "Keep answers concrete, technically correct, and focused on the exact workflow details that matter."
 )
-LOCAL_DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "hermes-tutor-v1"
+DEFAULT_DATASET_NAME = "hermes-tutor-v1"
+LOCAL_DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
 VOLUME_NAME = "ai-lab-unsloth-artifacts"
 REMOTE_ARTIFACT_ROOT = Path("/artifacts")
 
@@ -75,7 +76,7 @@ def row_to_user_content(row: dict[str, str]) -> str:
 
 def row_to_conversation(row: dict[str, str], system_prompt: str = DEFAULT_SYSTEM_PROMPT) -> dict[str, Any]:
     return {
-        "conversations": [
+        "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": row_to_user_content(row)},
             {"role": "assistant", "content": row["output"].strip()},
@@ -83,13 +84,15 @@ def row_to_conversation(row: dict[str, str], system_prompt: str = DEFAULT_SYSTEM
     }
 
 
-def load_local_payload() -> dict[str, Any]:
-    train_rows = load_jsonl(LOCAL_DATA_DIR / "train.jsonl")
-    eval_rows = load_jsonl(LOCAL_DATA_DIR / "eval.jsonl")
+def load_local_payload(dataset_name: str = DEFAULT_DATASET_NAME) -> dict[str, Any]:
+    dataset_dir = LOCAL_DATA_ROOT / dataset_name
+    train_rows = load_jsonl(dataset_dir / "train.jsonl")
+    eval_rows = load_jsonl(dataset_dir / "eval.jsonl")
     return {
         "train": train_rows,
         "eval": eval_rows,
-        "dataset_name": LOCAL_DATA_DIR.name,
+        "dataset_name": dataset_dir.name,
+        "dataset_dir": str(dataset_dir),
     }
 
 
@@ -105,7 +108,7 @@ def run_first_sft(
     chat_template: str = DEFAULT_CHAT_TEMPLATE,
     max_seq_length: int = 2048,
     learning_rate: float = 2e-4,
-    max_steps: int = 60,
+    max_steps: int = 20,
 ) -> dict[str, Any]:
     from datasets import Dataset
     from unsloth import FastLanguageModel
@@ -126,14 +129,14 @@ def run_first_sft(
     tokenizer = get_chat_template(tokenizer, chat_template=chat_template)
 
     def formatting_prompts_func(examples: dict[str, list[Any]]) -> dict[str, list[str]]:
-        convos = examples["conversations"]
+        messages = examples["messages"]
         texts = [
             tokenizer.apply_chat_template(
                 convo,
                 tokenize=False,
                 add_generation_prompt=False,
             )
-            for convo in convos
+            for convo in messages
         ]
         return {"text": texts}
 
@@ -183,6 +186,7 @@ def run_first_sft(
 
     sample_eval_rows = payload["eval"][:3]
     base_eval_samples = generate_samples(model, sample_eval_rows, label="base")
+    base_eval_full = generate_samples(model, payload["eval"], label="base")
 
     model = FastLanguageModel.get_peft_model(
         model,
@@ -217,7 +221,7 @@ def run_first_sft(
             dataset_num_proc=4,
             per_device_train_batch_size=2,
             gradient_accumulation_steps=4,
-            warmup_steps=5,
+            warmup_steps=2,
             max_steps=max_steps,
             learning_rate=learning_rate,
             logging_steps=1,
@@ -225,12 +229,14 @@ def run_first_sft(
             seed=3407,
             report_to=[],
             save_strategy="no",
+            assistant_only_loss=True,
         ),
     )
 
     trainer_stats = trainer.train()
     metrics = dict(trainer_stats.metrics)
     tuned_eval_samples = generate_samples(model, sample_eval_rows, label="tuned")
+    tuned_eval_full = generate_samples(model, payload["eval"], label="tuned")
 
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     artifact_dir = REMOTE_ARTIFACT_ROOT / payload["dataset_name"] / run_id
@@ -264,9 +270,26 @@ def run_first_sft(
             }
             for base_sample, tuned_sample in zip(base_eval_samples, tuned_eval_samples, strict=True)
         ],
+        "full_eval": [
+            {
+                "instruction": base_sample["instruction"],
+                "reference": base_sample["reference"],
+                "base_response": base_sample["response"],
+                "tuned_response": tuned_sample["response"],
+            }
+            for base_sample, tuned_sample in zip(base_eval_full, tuned_eval_full, strict=True)
+        ],
+        "trainer_config": {
+            "per_device_train_batch_size": 2,
+            "gradient_accumulation_steps": 4,
+            "effective_batch_size": 8,
+            "assistant_only_loss": True,
+            "learning_rate": learning_rate,
+            "warmup_steps": 2,
+        },
         "next_steps": [
-            "Review the saved adapter in the Modal volume.",
-            "Compare the sample_eval outputs and decide whether the dataset needs another quality pass.",
+            "Review the saved full_eval outputs, not only sample_eval.",
+            "Check whether assistant-only loss improves answer sharpness before changing the dataset again.",
             "If you want Hub upload later, create a write token or a dedicated upload workflow.",
         ],
     }
@@ -286,11 +309,13 @@ def run_first_sft(
 def main(
     model_name: str = DEFAULT_MODEL_NAME,
     chat_template: str = DEFAULT_CHAT_TEMPLATE,
-    max_steps: int = 60,
+    dataset_name: str = DEFAULT_DATASET_NAME,
+    max_steps: int = 20,
 ) -> None:
-    if not LOCAL_DATA_DIR.exists():
-        raise FileNotFoundError(f"Missing dataset directory: {LOCAL_DATA_DIR}")
-    payload = load_local_payload()
+    dataset_dir = LOCAL_DATA_ROOT / dataset_name
+    if not dataset_dir.exists():
+        raise FileNotFoundError(f"Missing dataset directory: {dataset_dir}")
+    payload = load_local_payload(dataset_name=dataset_name)
     print(
         run_first_sft.remote(
             payload,

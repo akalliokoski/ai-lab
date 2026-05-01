@@ -1,0 +1,48 @@
+{
+  "status": "trained",
+  "run_id": "20260429T172803Z",
+  "dataset_name": "hermes-tutor-v1",
+  "train_rows": 40,
+  "eval_rows": 10,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 60,
+  "output_dir": "/tmp/ai-lab-unsloth-tutor-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/hermes-tutor-v1/20260429T172803Z",
+  "adapter_dir": "/artifacts/hermes-tutor-v1/20260429T172803Z/adapter",
+  "metrics": {
+    "train_runtime": 57.7845,
+    "train_samples_per_second": 8.307,
+    "train_steps_per_second": 1.038,
+    "total_flos": 339647940919296.0,
+    "train_loss": 1.6901863932609558,
+    "epoch": 12.0
+  },
+  "sample_eval": [
+    {
+      "instruction": "In simple language, explain why instruct models are often better for tiny datasets.",
+      "reference": "Instruct models already know how to follow requests, so a tiny dataset can focus on the behavior you want instead of teaching instruction-following from scratch.",
+      "base_response": "I'd be happy to explain why ML models are often better suited for small datasets.\n\n**Why are ML models better for small datasets?**\n\nIn simple terms, here are the reasons why ML models are often better suited for small datasets:\n\n1. **Data Overhead**: As the dataset size increases, the amount of data required to train and deploy a model also increases. This can lead to increased computational resources, memory usage, and training time. Small datasets require less computational resources, making it easier to train and deploy models.\n2. **Computational Resources**: Training a model on a small dataset requires",
+      "tuned_response": "Instruct models are usually easier to fine-tune and more memory-efficient than supervised models. They can learn from small examples directly, whereas larger supervised models need more training data and memory."
+    },
+    {
+      "instruction": "Describe the smallest useful outcome for a first fine-tuning project.",
+      "reference": "The smallest useful outcome is a complete mini workflow: a small dataset, one short training run, a saved adapter, and a side-by-side comparison of base and tuned answers.",
+      "base_response": "As a first fine-tuning project, the smallest useful outcome is likely to be a simple model that can be used for a specific task, such as:\n\n**Classification:** Predicting whether a person is likely to buy a car based on their credit score, income, and other demographic information.\n\n**Task:** Predicting whether a person is likely to buy a car based on their credit score, income, and other demographic information.\n\n**Fine-tuning goal:** To train a model to predict the likelihood of a person buying a car based on their credit score, income, and other demographic information.\n\n**Fine",
+      "tuned_response": "The smallest useful outcome is a trained model that can answer a clear, short question. This is often the first real win of the project."
+    },
+    {
+      "instruction": "Give a short explanation of why eval prompts should not be reused as training prompts.",
+      "reference": "If eval prompts are reused for training, the model may memorize them. Then the evaluation no longer shows whether the tuned model generalizes to new examples.",
+      "base_response": "**Why Reusing Evaluation Prompts Can Be a Problem**\n\nIn machine learning (ML), evaluation prompts are crucial for training models to learn from the data. However, reusing evaluation prompts can lead to suboptimal performance and even failure. Here's why:\n\n1. **Overfitting**: When you reuse evaluation prompts, you're essentially asking the model to learn from the same data it's already seen. This can lead to overfitting, where the model becomes too specialized to the training data and fails to generalize well to new, unseen data.\n2. **Lack of diversity**: Re",
+      "tuned_response": "Reuse prompts can make it seem like you trained the model on the same dataset. Instead, use eval prompts to check how the model generalizes, handles adapters, or handles the target language."
+    }
+  ],
+  "next_steps": [
+    "Review the saved adapter in the Modal volume.",
+    "Compare the sample_eval outputs and decide whether the dataset needs another quality pass.",
+    "If you want Hub upload later, create a write token or a dedicated upload workflow."
+  ]
+}

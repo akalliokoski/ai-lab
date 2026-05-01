@@ -24,7 +24,7 @@ Style target
 - step-by-step when useful
 
 How to grow it next
-1. Expand the train split toward 50+ examples only if quality stays high.
+1. Expand the train split cautiously and only when artifact reviews show the added rows are helping.
 2. Keep the writing style consistent: concise, clear, beginner-friendly.
 3. Add more held-out eval prompts that are not paraphrases of the train set.
 4. Version changes in git and keep a short note on what changed.
