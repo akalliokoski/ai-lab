@@ -1,0 +1,67 @@
+{
+  "run_id": "forced-top2-v3-smoke",
+  "dataset_name": "artifact-card-failure-modes-forced-top2-v3",
+  "model_name": "smoke-test",
+  "task_config": {
+    "system_prompt": "You are the Hermes AI Lab forced top-2 selector. Read the evidence and return only one raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Never wrap the JSON in Markdown, never start with ```json, never end with ```, and never add prose. Both labels must be copied exactly from the allowed failure-mode list and must be distinct. Each evidence key must be copied exactly from the allowed list for the chosen label.",
+    "expected_fields": [
+      "primary_label",
+      "primary_evidence_key",
+      "secondary_label",
+      "secondary_evidence_key"
+    ],
+    "list_fields": [],
+    "max_new_tokens": 48,
+    "generation_prefix": "{"
+  },
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}",
+      "base_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"hallucinated-detail\",\"primary_evidence_key\":\"invented-detail\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"hallucinated-detail\",\"primary_evidence_key\":\"invented-detail\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"hallucinated-detail\",\"primary_evidence_key\":\"invented-detail\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"wrong-causal-point\",\"primary_evidence_key\":\"missed-core-cause\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "base_response": "{\"primary_label\":\"wrong-causal-point\",\"primary_evidence_key\":\"missed-core-cause\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "tuned_response": "{\"primary_label\":\"wrong-causal-point\",\"primary_evidence_key\":\"missed-core-cause\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"mixed-fields-no-clear-task-win\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"overlap-contaminated-eval\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-or-template-collapse\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}",
+      "base_response": "{\"primary_label\":\"overlap-contaminated-eval\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-or-template-collapse\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}",
+      "tuned_response": "{\"primary_label\":\"overlap-contaminated-eval\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-or-template-collapse\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict raw JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output raw JSON only. Do not use Markdown fences, do not write ```json, and do not add any prose.",
+      "reference": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    }
+  ]
+}

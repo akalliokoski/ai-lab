@@ -940,6 +940,40 @@ Decision after the forced-top2-v2 model comparison:
 - the main Qwen3 failure was not the old fallback pair but a new output-contract break: 5/8 tuned rows wrapped the JSON in Markdown code fences, making them invalid for the task despite looking superficially plausible
 - this means the next patch should target raw-JSON-only / anti-fence behavior on the same branch before spending more time on additional model-family comparisons
 
+## Twelfth decomposed branch scaffold: `artifact-card-failure-modes-forced-top2-v3`
+
+What this branch changes:
+- keep the same no-abstention four-field target from `forced-top2-v2`, because that target finally beat the old `pairwise-v1` downstream baseline
+- keep the same labels, evidence keys, and source examples so the comparison stays apples-to-apples
+- harden the output contract directly instead of redesigning the semantics again
+
+Anti-fence patch details:
+- the system prompt and row instruction now explicitly require raw JSON only and explicitly ban Markdown wrappers like ```json ... ```
+- the per-row decision rules now say the first character of the answer must be `{` and treat fenced/prose-wrapped outputs as invalid
+- `data/artifact-card-failure-modes-forced-top2-v3/task_config.json` lowers `max_new_tokens` from `64` to `48`
+- the training/inference pipeline now supports `generation_prefix`, and this branch sets it to `{` so decoding starts inside the JSON object instead of leaving room for a Markdown preamble
+
+Current branch shape:
+- source examples before supplements: `26` train / `8` eval
+- train-only supplemental source cases: `8`
+- final rows: `34` train / `8` eval
+- helper metadata: `data/artifact-card-failure-modes-forced-top2-v3/train_metadata.json` and `eval_metadata.json`
+- mean train input length is about `4737.2` chars
+
+Local verification completed before GPU time:
+- `python3 -m py_compile scripts/build_failure_mode_forced_top2_v3_dataset.py scripts/evaluate_failure_mode_forced_top2_run.py scripts/preview_dataset.py modal/train_unsloth_artifact_card.py` passed
+- `python3 scripts/build_failure_mode_forced_top2_v3_dataset.py` generated the dataset successfully
+- `python3 scripts/preview_dataset.py artifact-card-failure-modes-forced-top2-v3` showed the strengthened anti-fence contract on both train and eval rows
+- `python3 scripts/evaluate_failure_mode_forced_top2_run.py tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v3-smoke-run_summary.json data/artifact-card-failure-modes-forced-top2-v3/eval_metadata.json` returned perfect smoke metrics
+- `python3 scripts/check_env.py` passed
+- `modal run modal/train_unsloth_artifact_card.py --help` still exposes `--dataset-name`, `--model-name`, `--chat-template`, and `--max-steps`
+
+How to judge the first `forced-top2-v3` run:
+- first check whether branch-specific `valid_json_rate` improves over the `forced-top2-v2` Qwen3 rerun (`0.375`)
+- practical raw-output bar: do not regress below the `forced-top2-v2` 1B Llama branch-specific `valid_json_rate = 0.875`
+- keep downstream metrics in view at the same time: a formatting-only win is not enough if `top2_set_match_rate` and `top2_ordered_match_rate` collapse
+- if raw-JSON validity improves while downstream recovery stays near the current `forced-top2-v2` baseline, this is still a useful patch because it isolates the next bottleneck back to label/evidence judgment instead of wrapper formatting
+
 ## Latest reproduced full-card run
 
 ```bash

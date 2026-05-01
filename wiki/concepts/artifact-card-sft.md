@@ -32,13 +32,14 @@ sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
 - Rank-calibration patch scaffold: `data/artifact-card-failure-modes-rank-select-v2/`
 - Joint-rank scaffold: `data/artifact-card-failure-modes-joint-rank-v1/`
 - Forced-top-2 scaffold: `data/artifact-card-failure-modes-forced-top2-v2/`
+- Forced-top-2 anti-fence scaffold: `data/artifact-card-failure-modes-forced-top2-v3/`
 - Training entrypoint: `modal/train_unsloth_artifact_card.py`
 - Dataset preview: `scripts/preview_dataset.py`
 - Run scoring helpers: `scripts/evaluate_artifact_card_run.py`, `scripts/evaluate_failure_mode_evidence_run.py`, `scripts/evaluate_failure_mode_contrast_run.py`, `scripts/evaluate_failure_mode_rank_select_run.py`, `scripts/evaluate_failure_mode_joint_rank_run.py`, `scripts/evaluate_failure_mode_forced_top2_run.py`
-- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`, `scripts/build_failure_mode_joint_rank_v1_dataset.py`, `scripts/build_failure_mode_forced_top2_v2_dataset.py`
+- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`, `scripts/build_failure_mode_joint_rank_v1_dataset.py`, `scripts/build_failure_mode_forced_top2_v2_dataset.py`, `scripts/build_failure_mode_forced_top2_v3_dataset.py`
 - Experiment brief: `docs/first-artifact-card-experiment.md`
-- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`, `docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md`, `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`
-- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval, failure-modes-joint-rank-v1 = 34 train / 8 eval, failure-modes-forced-top2-v2 = 34 train / 8 eval
+- Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`, `docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md`, `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`, `docs/artifact-card-failure-modes-forced-top2-v3-scaffold.md`
+- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval, failure-modes-joint-rank-v1 = 34 train / 8 eval, failure-modes-forced-top2-v2 = 34 train / 8 eval, failure-modes-forced-top2-v3 = 34 train / 8 eval
 
 ## Output schema
 The model should return exactly one JSON object with these keys:
@@ -192,6 +193,10 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - The main Qwen3 failure mode was output-contract breakage rather than label collapse: 5/8 tuned rows wrapped the answer in Markdown code fences, which made them invalid for the strict raw-JSON task.
 - Keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch, but keep the 1B Llama run as the best actual result so far.
 - The next patch should harden raw-JSON-only behavior on this branch before spending more budget on further model-family comparisons.
+- That anti-fence patch is now scaffolded as `artifact-card-failure-modes-forced-top2-v3`, documented in `../docs/artifact-card-failure-modes-forced-top2-v3-scaffold.md`.
+- `forced-top2-v3` keeps the same four-field no-abstention target, the same labels/evidence keys, and the same eval reconstruction metrics so the comparison stays apples-to-apples.
+- Its main changes are contract hardening rather than semantic redesign: stronger raw-JSON-only instructions, an explicit "first character must be `{`" rule, a shorter `max_new_tokens = 48`, and a new `generation_prefix = "{"` hook in the training/inference pipeline.
+- Local verification already passed for `forced-top2-v3`: compile, dataset build, preview, smoke evaluation, env check, and CLI verification all succeeded.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

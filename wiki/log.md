@@ -638,3 +638,26 @@
   - The main regression was output-contract failure rather than a repeated fallback label pair: 5/8 tuned rows wrapped the answer in Markdown code fences instead of returning raw JSON only.
   - Decision: keep the 1B Llama `forced-top2-v2` run as the best current result, and spend the next patch budget on anti-fence / raw-JSON-only hardening before running more model-family comparisons.
 
+## [2026-05-01] update | forced-top2-v3 anti-fence patch scaffolded and locally verified
+- Files created:
+  - ../docs/artifact-card-failure-modes-forced-top2-v3-scaffold.md
+  - ../data/artifact-card-failure-modes-forced-top2-v3/README.md
+  - ../data/artifact-card-failure-modes-forced-top2-v3/train.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v3/eval.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v3/train_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v3/eval_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v3/task_config.json
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v3-smoke-run_summary.json
+  - ../scripts/build_failure_mode_forced_top2_v3_dataset.py
+- Files updated:
+  - ../modal/train_unsloth_artifact_card.py
+  - ../docs/first-artifact-card-experiment.md
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Scaffolded `artifact-card-failure-modes-forced-top2-v3` as a narrow contract-hardening patch on top of the strongest current branch design.
+  - Kept the same no-abstention four-field target and the same source/eval semantics so comparisons remain apples-to-apples with `forced-top2-v2`.
+  - Hardened the prompt contract against Markdown fences by explicitly requiring raw JSON only, explicitly banning ```json wrappers, and adding a rule that the first answer character must be `{`.
+  - Added generic pipeline support for `generation_prefix` in `modal/train_unsloth_artifact_card.py`; `forced-top2-v3` sets it to `{` so generation starts inside the JSON object.
+  - Tightened the response budget with `max_new_tokens = 48` and completed local verification: compile, dataset build, preview, smoke evaluation, env check, and CLI verification.
+

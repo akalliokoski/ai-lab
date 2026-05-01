@@ -49,6 +49,7 @@ DEFAULT_TASK_CONFIG = {
     "expected_fields": DEFAULT_EXPECTED_FIELDS,
     "list_fields": DEFAULT_LIST_FIELDS,
     "max_new_tokens": 220,
+    "generation_prefix": "",
 }
 
 app = modal.App("ai-lab-unsloth-artifact-card")
@@ -109,6 +110,7 @@ def load_task_config(dataset_dir: Path) -> dict[str, Any]:
     config["list_fields"] = list(config.get("list_fields") or [])
     config["max_new_tokens"] = int(config.get("max_new_tokens") or DEFAULT_TASK_CONFIG["max_new_tokens"])
     config["system_prompt"] = str(config.get("system_prompt") or DEFAULT_SYSTEM_PROMPT)
+    config["generation_prefix"] = str(config.get("generation_prefix") or "")
     return config
 
 
@@ -223,6 +225,7 @@ def run_first_sft(
     expected_fields = list(task_config.get("expected_fields") or DEFAULT_EXPECTED_FIELDS)
     list_fields = list(task_config.get("list_fields") or [])
     max_new_tokens = int(task_config.get("max_new_tokens") or DEFAULT_TASK_CONFIG["max_new_tokens"])
+    generation_prefix = str(task_config.get("generation_prefix") or "")
 
     train_records = [row_to_conversation(row, system_prompt=system_prompt) for row in payload["train"]]
     eval_records = [row_to_conversation(row, system_prompt=system_prompt) for row in payload["eval"]]
@@ -250,7 +253,7 @@ def run_first_sft(
         return {"text": texts}
 
     def render_generation_prompt(row: dict[str, str]) -> str:
-        return tokenizer.apply_chat_template(
+        prompt = tokenizer.apply_chat_template(
             [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": row_to_user_content(row)},
@@ -258,6 +261,9 @@ def run_first_sft(
             tokenize=False,
             add_generation_prompt=True,
         )
+        if generation_prefix:
+            prompt = f"{prompt}{generation_prefix}"
+        return prompt
 
     def generate_samples(current_model: Any, rows: list[dict[str, str]], label: str) -> list[dict[str, str]]:
         import torch
@@ -278,6 +284,8 @@ def run_first_sft(
             prompt_tokens = encoded["input_ids"].shape[1]
             new_tokens = generated[0][prompt_tokens:]
             text = tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+            if generation_prefix:
+                text = text if text.startswith(generation_prefix) else f"{generation_prefix}{text}"
             results.append(
                 {
                     "label": label,
@@ -380,6 +388,7 @@ def run_first_sft(
             "expected_fields": expected_fields,
             "list_fields": list_fields,
             "max_new_tokens": max_new_tokens,
+            "generation_prefix": generation_prefix,
         },
         "output_dir": output_dir,
         "artifact_volume": VOLUME_NAME,
