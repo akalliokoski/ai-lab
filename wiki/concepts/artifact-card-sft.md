@@ -187,10 +187,11 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - Local verification already passed: dataset build, preview, and a perfect-payload smoke evaluation all succeeded.
 - The first real `forced-top2-v2` run then became the first decomposition branch to beat `pairwise-v1` downstream: tuned branch-specific `top2_set_match_rate` reached `0.375` and `top2_ordered_match_rate` reached `0.375` versus the old `0.25` / `0.0` pairwise baseline.
 - Built-in auto-eval slightly overstated the row quality because it accepted one structurally wrong row where evidence-key names were copied into label slots; the branch-specific evaluator still showed a strong real gain with `valid_json_rate = 0.875`.
-- The remaining bottleneck is now visible and narrower: the model still falls back repeatedly to `missing-required-detail + generic-explanation`, especially on `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` examples.
-- Keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch.
-- The next clean comparison is to rerun the exact same branch on `Qwen3-4B-Instruct-2507` before spending more patch budget on data changes.
-- If the stronger-model rerun keeps the same fallback pair, patch the branch around that specific confusion set rather than redesigning the target again.
+- The remaining bottleneck from the 1B run was a narrower repeated fallback pair: `missing-required-detail + generic-explanation`, especially on `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` examples.
+- The direct Qwen3 rerun on the same branch did not help: run `20260501T075313Z` dropped to tuned branch-specific `valid_json_rate = 0.375`, `top2_set_match_rate = 0.125`, and `top2_ordered_match_rate = 0.125`.
+- The main Qwen3 failure mode was output-contract breakage rather than label collapse: 5/8 tuned rows wrapped the answer in Markdown code fences, which made them invalid for the strict raw-JSON task.
+- Keep `artifact-card-failure-modes-forced-top2-v2` as the current strongest decomposition branch, but keep the 1B Llama run as the best actual result so far.
+- The next patch should harden raw-JSON-only behavior on this branch before spending more budget on further model-family comparisons.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

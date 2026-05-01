@@ -623,3 +623,18 @@
   - The main remaining issue is a repeated fallback pair of `missing-required-detail + generic-explanation`, plus one structural confusion where evidence-key names were emitted in label slots.
   - Next clean comparison: rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` before spending more patch budget on data changes.
 
+## [2026-05-01] update | forced-top2-v2 Qwen3 comparison regressed on strict JSON compliance
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2-20260501T075313Z/run_summary.json
+- Files updated:
+  - ../docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md
+  - ../docs/first-artifact-card-experiment.md
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Reviewed the direct Qwen3 rerun of `artifact-card-failure-modes-forced-top2-v2` with the branch-specific evaluator.
+  - Run `20260501T075313Z` on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` looked cheaper by train loss (`1.7252290666103363` vs `1.8952500939369201`) but was materially worse on the task.
+  - Tuned branch-specific metrics fell to `valid_json_rate = 0.375`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, and `invalid_row_rate = 0.625`.
+  - The main regression was output-contract failure rather than a repeated fallback label pair: 5/8 tuned rows wrapped the answer in Markdown code fences instead of returning raw JSON only.
+  - Decision: keep the 1B Llama `forced-top2-v2` run as the best current result, and spend the next patch budget on anti-fence / raw-JSON-only hardening before running more model-family comparisons.
+

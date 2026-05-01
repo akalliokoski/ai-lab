@@ -3,6 +3,7 @@
 Status
 - scaffolded and locally verified on 2026-05-01
 - first real Modal run completed and reviewed on 2026-05-01
+- Qwen3 comparison run completed and reviewed on 2026-05-01
 
 Goal
 - keep the task focused on `primary_failure_modes`
@@ -76,7 +77,8 @@ modal run modal/train_unsloth_artifact_card.py \
 Recommended comparison order
 1. run `artifact-card-failure-modes-forced-top2-v2` on the current `unsloth/Llama-3.2-1B-Instruct-bnb-4bit`
 2. rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
-3. optionally run `unsloth/gemma-3-1b-it-bnb-4bit` as a family-control comparison
+3. only if the stronger-model rerun helps, decide whether the next budget should go to a targeted confusion-set patch or to a Gemma-family control
+4. optionally run `unsloth/gemma-3-1b-it-bnb-4bit` as a family-control comparison after the stronger-model result is understood
 
 First real run result
 - Run ID: `20260501T074237Z`
@@ -117,8 +119,31 @@ Success criterion
 
 Current verdict
 - `forced-top2-v2` cleared the success bar on the 1B Llama baseline.
-- The next clean comparison is to rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` before spending patch budget on more data changes.
-- If Qwen still keeps the same repeated fallback pair, the next dataset pass should add a few source-level cases targeting `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` versus the tempting `missing-required-detail + generic-explanation` default.
+- The Qwen3 comparison run did not improve the branch and regressed it materially.
+- Run ID: `20260501T075313Z`
+- Model: `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
+- Train loss looked lower at `1.7252290666103363`, but the branch-specific evaluator showed that this was not a real task win.
+- Built-in auto-eval already looked worse than the 1B Llama run:
+  - `valid_json_rate = 0.375`
+  - `exact_card_match_rate = 0.125`
+  - field accuracy: `primary_label = 0.375`, `primary_evidence_key = 0.375`, `secondary_label = 0.125`, `secondary_evidence_key = 0.125`
+- Branch-specific evaluator confirmed the regression:
+  - `valid_json_rate = 0.375`
+  - `top2_set_match_rate = 0.125`
+  - `top2_ordered_match_rate = 0.125`
+  - `primary_label_accuracy = 0.375`
+  - `secondary_label_accuracy = 0.125`
+  - `primary_evidence_key_accuracy = 0.375`
+  - `secondary_evidence_key_accuracy = 0.125`
+  - `invalid_row_rate = 0.625`
+- Main failure pattern in the Qwen3 run:
+  - 5/8 tuned rows were invalid because the model wrapped otherwise plausible JSON in Markdown code fences instead of returning raw JSON only
+  - the model did not recover the repeated `missing-required-detail + generic-explanation` fallback from the 1B Llama run, but it replaced that with a worse formatting failure that destroyed downstream recovery
+  - distinct predicted label coverage also collapsed from `0.875` on the baseline run to `0.375` on Qwen3 once invalid rows were excluded by the evaluator
+- Comparison decision:
+  - keep the 1B Llama `forced-top2-v2` run as the current best decomposition result
+  - do not treat the lower Qwen3 train loss as evidence of progress
+  - the next patch budget should go to output-contract hardening for this branch, especially anti-fence / raw-JSON-only behavior, before spending more time on model-family swaps
 
 If a later stronger-model rerun still fails to improve
 - do not immediately return to another flat target redesign

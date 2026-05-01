@@ -929,12 +929,16 @@ Main remaining failure pattern:
 - the `hallucinated-detail` row and the `wrong-causal-point + no-material-change` row also collapsed into the same repeated fallback pair
 - the overlap / phrase-copy eval row failed structurally because the model copied evidence-key names (`overlap-untrustworthy`, `phrase-copy-distortion`) into label slots instead of outputting the corresponding labels
 
-Decision after the first forced-top2-v2 run:
-- keep `forced-top2-v2` as the current best decomposition branch, ahead of `pairwise-v1`
-- treat the branch as a real success signal, not just a near miss or a clean negative result
-- do not spend patch budget immediately on another target redesign, because the target shape itself finally worked better
-- the next clean comparison is to rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
-- if the stronger model keeps the same repeated fallback pair, then the next patch should target the now-visible confusion set around `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point`
+Decision after the forced-top2-v2 model comparison:
+- keep `forced-top2-v2` as the current best decomposition branch, but keep the 1B Llama run as the best actual result so far
+- treat the branch as a real success signal on target design, not as evidence that the Qwen3 swap helped
+- do not spend patch budget on another target redesign yet, because the no-abstention target itself still looks like the right direction
+- the Qwen3 comparison run on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` regressed sharply instead of improving:
+  - Run ID: `20260501T075313Z`
+  - built-in auto-eval: `valid_json_rate = 0.375`, `exact_card_match_rate = 0.125`
+  - branch-specific evaluator: `valid_json_rate = 0.375`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, `invalid_row_rate = 0.625`
+- the main Qwen3 failure was not the old fallback pair but a new output-contract break: 5/8 tuned rows wrapped the JSON in Markdown code fences, making them invalid for the task despite looking superficially plausible
+- this means the next patch should target raw-JSON-only / anti-fence behavior on the same branch before spending more time on additional model-family comparisons
 
 ## Latest reproduced full-card run
 
