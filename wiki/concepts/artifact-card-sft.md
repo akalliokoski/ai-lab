@@ -180,7 +180,11 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - `artifact-card-failure-modes-joint-rank-v1` also failed cleanly on the real run: tuned branch-specific `valid_json_rate` fell to `0.0` once the global two-slot constraint was enforced, and the model collapsed to all-`out` predictions on 7/8 eval rows plus one singleton `generic-explanation = secondary` row.
 - Keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline until a later branch actually beats reconstructed top-2 set match `0.25`.
 - The main new lesson is that joint scoring by itself was not enough if the target still allowed an easy near-all-`out` escape hatch during generation.
-- The next branch should likely remove that escape hatch entirely with a direct `{primary_label, secondary_label}` target or a staged shortlist/tournament selector that forces active choice.
+- The next proposed branch is `artifact-card-failure-modes-forced-top2-v2`, documented in `../docs/artifact-card-failure-modes-forced-top2-v2-proposal.md`.
+- Its core change is to remove abstention states completely and predict only `{primary_label, primary_evidence_key, secondary_label, secondary_evidence_key}`.
+- This is intentionally different from `top2-v1`: each chosen slot must now bind to a closed evidence key, so the model cannot satisfy the task with an unsupported default pair as easily.
+- Recommended experiment order: implement `forced-top2-v2`, run it first on the current 1B Llama baseline, then compare the exact same branch on `Qwen3-4B-Instruct-2507`, with `Gemma-3-1B-it` as an optional family-control run.
+- If `forced-top2-v2` still fails, the next redesign should become a staged shortlist / tournament selector rather than another flat one-shot map.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages
@@ -192,3 +196,4 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - [[artifact-card-failure-modes-top2-v1-vs-pairwise-v1]]
 - [[fine-tuning-lessons-from-first-project]]
 - [[first-fine-tuning-project-options]]
+- [[model-swap-qwen3-vs-gemma3-for-artifact-card-sft]]

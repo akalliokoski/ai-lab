@@ -861,6 +861,43 @@ Decision after the first joint-rank-v1 run:
   - predicting a direct `{primary_label, secondary_label}` object, or
   - using a staged selector / shortlist tournament where every inference step must choose among a smaller set instead of independently refusing all labels
 
+## Eleventh decomposed branch proposal: artifact-card-failure-modes-forced-top2-v2
+
+Proposed design note now exists at `docs/artifact-card-failure-modes-forced-top2-v2-proposal.md`.
+
+Why this is the current best next branch:
+- it removes the all-`out` escape hatch completely instead of asking the model to emit one 8-label state map with many chances to abstain
+- it stays closer to the actual downstream target than the large `pairwise-v1` expansion
+- it keeps the useful pressure from the evidence-conditioned branches by binding each chosen slot to an evidence key
+- it is a meaningful upgrade over `top2-v1`, not just a retry, because the chosen labels must now be justified through closed evidence slots and sharper contrast notes
+
+Proposed strict JSON target:
+```json
+{
+  "primary_label": "<allowed_label>",
+  "primary_evidence_key": "<allowed_evidence_key>",
+  "secondary_label": "<allowed_label>",
+  "secondary_evidence_key": "<allowed_evidence_key>"
+}
+```
+
+Why this proposal is better motivated than `top2-v1` was:
+- `top2-v1` forced two labels, but it did not force the model to anchor each slot to explicit support
+- `joint-rank-v1` forced one shared object, but it still allowed near-total abstention through repeated `out`
+- `forced-top2-v2` combines the smaller final target shape with evidence grounding and removes abstention states entirely
+
+Recommended experiment order for this proposal:
+1. implement `artifact-card-failure-modes-forced-top2-v2`
+2. run it first on the current `unsloth/Llama-3.2-1B-Instruct-bnb-4bit` for continuity
+3. rerun the exact same branch on `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit`
+4. optionally use `unsloth/gemma-3-1b-it-bnb-4bit` as a same-class family-control comparison
+
+Primary success bar remains unchanged:
+- beat the current strongest downstream baseline, `artifact-card-failure-modes-pairwise-v1`, on top-2 set match `0.25`
+- also treat any ordered top-2 recovery above `0.0` as an important sign that the no-abstention target is learning something real
+
+If this proposal still fails, the next branch should become a staged tournament selector rather than another flat one-shot target.
+
 ## Latest reproduced full-card run
 
 ```bash

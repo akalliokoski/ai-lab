@@ -1,7 +1,7 @@
 # Wiki Index
 
 > AI lab knowledge base for this profile.
-> Last updated: 2026-04-30 | Total pages: 15
+> Last updated: 2026-05-01 | Total pages: 16
 
 ## Entities
 - [[unsloth]] — Main fine-tuning framework currently chosen for the first learning track.
@@ -25,3 +25,4 @@
 - [[fine-tuning-improvement-strategies-2026-04-30]] — Fresh strategy memo on how to improve the current fine-tuning work, emphasizing supervision redesign, confusion-targeted contrasts, and shorter prompts.
 - [[fine-tuning-lessons-from-first-project]] — Practical lessons learned from the tutor failure, artifact-card-v1 structure win, artifact-card-v2 semantic improvements, and the later decomposition tests.
 - [[fine-tuning-no-improvement-root-cause-review]] — Fresh diagnosis of why the tutor-adapter fine-tuning runs are not showing stable improvements.
+- [[model-swap-qwen3-vs-gemma3-for-artifact-card-sft]] — Research note comparing the latest practical Qwen and Gemma replacement paths for the artifact-card SFT loop.

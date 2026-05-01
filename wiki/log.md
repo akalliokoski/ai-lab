@@ -565,3 +565,21 @@
   - Tuned downstream reconstruction stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`, so `artifact-card-failure-modes-pairwise-v1` remains the strongest downstream baseline.
   - Failure pattern: 7/8 eval rows predicted all labels as `out`, and the remaining row emitted only `generic-explanation = secondary`, so the joint branch still collapsed to near-zero positive allocation.
   - Decision: treat `joint-rank-v1` as another clean negative result and move the next redesign toward a target that removes the all-`out` escape hatch, likely a direct `{primary_label, secondary_label}` object or a staged shortlist selector.
+
+## [2026-05-01] query | qwen3 vs gemma3 model swap and post-joint-rank branch design
+- Files created:
+  - queries/model-swap-qwen3-vs-gemma3-for-artifact-card-sft.md
+  - ../docs/model-swap-qwen3-vs-gemma3-2026-05-01.md
+  - ../docs/artifact-card-failure-modes-forced-top2-v2-proposal.md
+- Files updated:
+  - index.md
+  - concepts/artifact-card-sft.md
+  - ../docs/first-artifact-card-experiment.md
+  - log.md
+- Notes:
+  - Researched the latest practical Qwen and Gemma replacement paths for the artifact-card SFT loop and filed the result into the wiki and repo docs.
+  - Best immediate replacement candidate is `unsloth/Qwen3-4B-Instruct-2507-bnb-4bit` with chat template `qwen3` because it is a recent text-generation CausalLM and a clean fit for the current Unsloth text-only training path.
+  - Best low-risk Gemma comparison is `unsloth/gemma-3-1b-it-bnb-4bit` with chat template `gemma-3`; `gemma-3-4b-it` is a weaker first fit because HF metadata marks it as multimodal `Gemma3ForConditionalGeneration`.
+  - Designed the next post-joint-rank branch as `artifact-card-failure-modes-forced-top2-v2`: a no-abstention direct top-2 target with evidence-bound slots `{primary_label, primary_evidence_key, secondary_label, secondary_evidence_key}`.
+  - Rationale: keep the target close to the downstream object, remove the all-`out` escape hatch completely, and improve over `top2-v1` by forcing each chosen slot to bind to explicit evidence.
+  - If `forced-top2-v2` still fails, the next redesign should become a staged shortlist / tournament selector.
