@@ -1,0 +1,155 @@
+{
+  "status": "trained",
+  "run_id": "20260501T064308Z",
+  "dataset_name": "artifact-card-failure-modes-joint-rank-v1",
+  "train_rows": 34,
+  "eval_rows": 8,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 20,
+  "task_config": {
+    "system_prompt": "You are the Hermes AI Lab joint rank selector. Read the evidence and return only one valid JSON object. The JSON must contain exactly the 8 allowed failure-mode keys. Each value must be one of primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Set all other labels to out. Do not add prose.",
+    "expected_fields": [
+      "no-material-change",
+      "missing-required-detail",
+      "generic-explanation",
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse",
+      "hallucinated-detail",
+      "wrong-causal-point",
+      "fluency-without-correctness"
+    ],
+    "list_fields": [],
+    "max_new_tokens": 96
+  },
+  "output_dir": "/tmp/ai-lab-unsloth-artifact-card-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/artifact-card-failure-modes-joint-rank-v1/20260501T064308Z",
+  "adapter_dir": "/artifacts/artifact-card-failure-modes-joint-rank-v1/20260501T064308Z/adapter",
+  "metrics": {
+    "train_runtime": 71.4081,
+    "train_samples_per_second": 2.241,
+    "train_steps_per_second": 0.28,
+    "total_flos": 625133186752512.0,
+    "train_loss": 1.9509304225444795,
+    "epoch": 4.0
+  },
+  "sample_eval": [
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"primary\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"primary\",\"generic-explanation\":\"secondary\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"secondary\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"primary\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    }
+  ],
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"primary\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"primary\",\"generic-explanation\":\"secondary\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"secondary\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"primary\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"primary\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"primary\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"secondary\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"primary\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"primary\",\"phrase-copy-or-template-collapse\":\"secondary\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object whose keys are the 8 allowed failure modes. Each value must be primary, secondary, or out. Use exactly one primary label and exactly one secondary label. Output JSON only.",
+      "reference": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"secondary\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"primary\"}",
+      "base_response": "{\"no-material-change\":\"primary|secondary|out\",\"missing-required-detail\":\"primary|secondary|out\",\"generic-explanation\":\"primary|secondary|out\",\"overlap-contaminated-eval\":\"primary|secondary|out\",\"phrase-copy-or-template-collapse\":\"primary|secondary|out\",\"hallucinated-detail\":\"primary|secondary|out\",\"wrong-causal-point\":\"primary|secondary|out\",\"fluency-without-correctness\":\"primary|secondary|out\"}",
+      "tuned_response": "{\"no-material-change\":\"out\",\"missing-required-detail\":\"out\",\"generic-explanation\":\"out\",\"overlap-contaminated-eval\":\"out\",\"phrase-copy-or-template-collapse\":\"out\",\"hallucinated-detail\":\"out\",\"wrong-causal-point\":\"out\",\"fluency-without-correctness\":\"out\"}"
+    }
+  ],
+  "auto_eval": {
+    "base_metrics": {
+      "rows": 8,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "no-material-change": 0.0,
+        "missing-required-detail": 0.0,
+        "generic-explanation": 0.0,
+        "overlap-contaminated-eval": 0.0,
+        "phrase-copy-or-template-collapse": 0.0,
+        "hallucinated-detail": 0.0,
+        "wrong-causal-point": 0.0,
+        "fluency-without-correctness": 0.0
+      },
+      "invalid_examples": []
+    },
+    "tuned_metrics": {
+      "rows": 8,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "no-material-change": 0.625,
+        "missing-required-detail": 0.25,
+        "generic-explanation": 1.0,
+        "overlap-contaminated-eval": 0.875,
+        "phrase-copy-or-template-collapse": 0.875,
+        "hallucinated-detail": 0.875,
+        "wrong-causal-point": 0.875,
+        "fluency-without-correctness": 0.75
+      },
+      "invalid_examples": []
+    }
+  },
+  "trainer_config": {
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 8,
+    "assistant_only_loss": true,
+    "learning_rate": 0.0002,
+    "warmup_steps": 2
+  },
+  "next_steps": [
+    "Review auto_eval.tuned_metrics before trusting train loss.",
+    "Inspect rows where the tuned output is invalid JSON or misses required fields.",
+    "Patch the dataset by field failure, not by train loss alone."
+  ]
+}

@@ -150,6 +150,7 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - `artifact-card-failure-modes-contrast-v2` is now a second clean negative result for the narrow contrast path: the targeted 6-case patch preserved the same row metrics and the same `missing-required-detail` singleton collapse on all 4 reconstructable held-out cases.
 - `artifact-card-failure-modes-rank-select-v1` is now another clean negative result: it improved row validity and rank-field accuracy, but downstream reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0` on the full 8-example held-out split.
 - `artifact-card-failure-modes-rank-select-v2` is now a second clean negative result for the rank-select family: schema leakage disappeared completely, but tuned row accuracy regressed and downstream reconstruction still stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`.
+- `artifact-card-failure-modes-joint-rank-v1` is now another clean negative result for the joint-selector idea: built-in auto-eval showed parseable JSON, but branch-specific evaluation found that all 8 tuned eval rows violated the exact-one-primary / exact-one-secondary contract and downstream reconstruction still stayed at `0.0` across every top-2 metric.
 
 ## Sixth decomposed branch result
 - Run `20260430T164253Z` completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-contrast-v1/20260430T164253Z/`.
@@ -176,8 +177,10 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - The v2 failure mode became even more decisively underselective, with positive-count histogram `{0: 6, 1: 1, 2: 1}` and underselected rate `0.875`.
 - `missing-required-detail` still failed to recover positive recall, while `phrase-copy-or-template-collapse` remained the main spurious surviving positive.
 - Do not spend the next patch budget on more prompt-contract tuning inside the same independent per-label rank-select family.
-- The next branch is now scaffolded as `artifact-card-failure-modes-joint-rank-v1`, which scores all candidate labels jointly inside one shared output object instead of one label at a time.
-- Keep the first evaluation bar unchanged: a real success must beat `artifact-card-failure-modes-pairwise-v1` on reconstructed top-2 set match `0.25`.
+- `artifact-card-failure-modes-joint-rank-v1` also failed cleanly on the real run: tuned branch-specific `valid_json_rate` fell to `0.0` once the global two-slot constraint was enforced, and the model collapsed to all-`out` predictions on 7/8 eval rows plus one singleton `generic-explanation = secondary` row.
+- Keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline until a later branch actually beats reconstructed top-2 set match `0.25`.
+- The main new lesson is that joint scoring by itself was not enough if the target still allowed an easy near-all-`out` escape hatch during generation.
+- The next branch should likely remove that escape hatch entirely with a direct `{primary_label, secondary_label}` target or a staged shortlist/tournament selector that forces active choice.
 - Continue judging every new branch by reconstruction before row metrics or loss.
 
 ## Related pages

@@ -549,3 +549,19 @@
   - The scaffold reuses the 8 train-only supplemental source cases from `rank-select-v2`, but compresses each source example back to one row with fixed label keys and `primary|secondary|out` values.
   - Local verification passed: dataset build, preview, and a synthetic perfect-payload smoke test through `scripts/evaluate_failure_mode_joint_rank_run.py` all succeeded.
   - The first real success criterion is unchanged: the branch only counts as progress if reconstructed top-2 set match beats the current `pairwise-v1` baseline of `0.25`.
+
+## [2026-05-01] update | joint-rank-v1 first run completed and reviewed
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-joint-rank-v1-20260501T064308Z/run_summary.json
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - ../docs/first-artifact-card-experiment.md
+  - ../docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md
+  - log.md
+- Notes:
+  - Run `20260501T064308Z` completed successfully on Modal and saved artifacts under `/artifacts/artifact-card-failure-modes-joint-rank-v1/20260501T064308Z/`.
+  - Raw `run_summary.json` auto-eval was misleading: it reported tuned `valid_json_rate = 1.0` because the outputs were parseable JSON with the expected keys.
+  - Branch-specific evaluation showed the real selector failure: all 8 tuned eval rows violated the required `exactly one primary + exactly one secondary` contract.
+  - Tuned downstream reconstruction stayed at exact positive-set match `0.0`, top-2 set match `0.0`, and ordered top-2 match `0.0`, so `artifact-card-failure-modes-pairwise-v1` remains the strongest downstream baseline.
+  - Failure pattern: 7/8 eval rows predicted all labels as `out`, and the remaining row emitted only `generic-explanation = secondary`, so the joint branch still collapsed to near-zero positive allocation.
+  - Decision: treat `joint-rank-v1` as another clean negative result and move the next redesign toward a target that removes the all-`out` escape hatch, likely a direct `{primary_label, secondary_label}` object or a staged shortlist selector.

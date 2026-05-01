@@ -832,11 +832,34 @@ Recommended next run command:
 set -a && source .env && set +a && source .venv/bin/activate && modal run modal/train_unsloth_artifact_card.py --dataset-name artifact-card-failure-modes-joint-rank-v1 --max-steps 20
 ```
 
-How to judge the first joint-rank-v1 run:
-- first check `scripts/evaluate_failure_mode_joint_rank_run.py`, not just `run_summary.json` row metrics
-- main pass/fail condition remains reconstruction, not loss or joint-map exact match alone
-- minimum downstream bar to beat is still `artifact-card-failure-modes-pairwise-v1` top-2 set match `0.25`
-- a useful secondary signal would be finally moving ordered recovery above the current `0.0` ceiling from pairwise and rank-select
+Result from the first joint-rank-v1 run (`20260501T064308Z`):
+- the run completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-joint-rank-v1/20260501T064308Z/`
+- local copy pulled to `tmp/modal-artifacts/artifact-card-failure-modes-joint-rank-v1-20260501T064308Z/run_summary.json`
+- the raw training summary was misleading on first glance: built-in auto-eval reported tuned `valid_json_rate = 1.0` because the model emitted parseable JSON objects with the expected keys
+- branch-specific evaluation exposed the real failure: every tuned eval row violated the required global constraint `exactly one primary + exactly one secondary`
+- tuned joint-rank evaluator metrics:
+  - `valid_json_rate`: `0.0`
+  - `exact_row_match_rate`: `0.0`
+  - `exact_positive_set_match_rate`: `0.0`
+  - `top2_set_match_rate`: `0.0`
+  - `top2_ordered_match_rate`: `0.0`
+  - `first_label_accuracy`: `0.25`
+  - `second_label_accuracy`: `0.0`
+  - `underselected_rate`: `1.0`
+  - selected-positive histogram: `{0: 7, 1: 1}`
+- the failure pattern was even more extreme than rank-select-v2:
+  - 7/8 eval rows predicted every label as `out`
+  - the remaining row emitted only `generic-explanation = secondary` and still no `primary`
+  - `generic-explanation` became the lone surviving positive (`positive_precision = 1.0`, `positive_recall = 1.0`)
+  - every other label, including `missing-required-detail`, collapsed to `positive_recall = 0.0`
+
+Decision after the first joint-rank-v1 run:
+- keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline because joint-rank-v1 still did not recover a single exact top-2 set
+- record `joint-rank-v1` as another clean negative result rather than as a schema or selector improvement
+- the main lesson is that joint scoring alone was insufficient: the model learned the fixed key set, but not the compulsory two-slot allocation
+- the next redesign should likely remove the easy all-`out` escape hatch entirely, either by:
+  - predicting a direct `{primary_label, secondary_label}` object, or
+  - using a staged selector / shortlist tournament where every inference step must choose among a smaller set instead of independently refusing all labels
 
 ## Latest reproduced full-card run
 

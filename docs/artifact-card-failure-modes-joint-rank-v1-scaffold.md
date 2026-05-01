@@ -1,7 +1,7 @@
 # artifact-card-failure-modes-joint-rank-v1 scaffold
 
 Date: 2026-05-01
-Status: scaffolded and locally verified
+Status: first run completed and reviewed
 
 Goal
 - keep the task focused on `primary_failure_modes`
@@ -54,14 +54,32 @@ Output contract
 }
 ```
 
-How to judge the first run
-- do not trust train loss by itself
-- first run `scripts/evaluate_failure_mode_joint_rank_run.py` on the produced `run_summary.json`
-- main success criterion is downstream reconstruction, not exact row match alone
-- the branch should beat the current best downstream baseline from `artifact-card-failure-modes-pairwise-v1`:
-  - reconstructed top-2 set match must exceed `0.25`
-- a strong secondary win would be finally improving ordered recovery above the current `0.0` pairwise/rank-select ceiling
-- if this branch still fails, the next redesign should likely move to an explicitly learned two-pass selector or a smaller learned tournament among shortlisted labels
+Result from the first run (`20260501T064308Z`)
+- the run completed successfully and saved artifacts under `/artifacts/artifact-card-failure-modes-joint-rank-v1/20260501T064308Z/`
+- local copy pulled to `tmp/modal-artifacts/artifact-card-failure-modes-joint-rank-v1-20260501T064308Z/run_summary.json`
+- raw `run_summary.json` auto-eval looked superficially better than earlier branches because it only checked JSON parseability plus per-field equality and reported tuned `valid_json_rate = 1.0`
+- branch-specific evaluation showed the real outcome was still a clean failure once the global joint constraints were enforced
+- tuned joint-rank evaluator metrics:
+  - `valid_json_rate`: `0.0`
+  - `exact_row_match_rate`: `0.0`
+  - `exact_positive_set_match_rate`: `0.0`
+  - `top2_set_match_rate`: `0.0`
+  - `top2_ordered_match_rate`: `0.0`
+  - `underselected_rate`: `1.0`
+  - selected-positive histogram: `{0: 7, 1: 1}`
+- the dominant failure pattern was even harsher underselection than `rank-select-v2`: 7/8 eval rows predicted all labels as `out`, and the remaining row emitted only `generic-explanation = secondary` with no `primary`
+- all 8 tuned eval rows violated the branch contract `exactly one primary + exactly one secondary`, so the apparent raw-JSON success did not translate into a valid joint selector
+- label behavior stayed narrow and brittle:
+  - `generic-explanation` got the lone surviving positive and reached `positive_precision = 1.0`, `positive_recall = 1.0`
+  - every other label had `positive_recall = 0.0`, including `missing-required-detail`
+
+Decision after the first run
+- keep `artifact-card-failure-modes-pairwise-v1` as the strongest downstream baseline
+- record `joint-rank-v1` as another clean negative result, not progress toward the selector objective
+- treat the key lesson as structural: making labels compete in one object was not enough when the model could still satisfy the loss by predicting near-all-`out`
+- the next redesign should make the final two-slot choice explicit in the target itself, likely with either:
+  - a direct `{primary_label, secondary_label}` output object with no per-label `out` state, or
+  - a staged/tournament selector that only compares a small shortlist at once and cannot collapse to zero positives
 
 Local verification completed
 - `python3 -m py_compile scripts/build_failure_mode_joint_rank_v1_dataset.py scripts/evaluate_failure_mode_joint_rank_run.py scripts/preview_dataset.py modal/train_unsloth_artifact_card.py`
