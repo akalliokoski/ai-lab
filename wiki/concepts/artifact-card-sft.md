@@ -32,14 +32,15 @@ sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
 - Rank-calibration patch scaffold: `data/artifact-card-failure-modes-rank-select-v2/`
 - Joint-rank scaffold: `data/artifact-card-failure-modes-joint-rank-v1/`
 - Forced-top-2 scaffold: `data/artifact-card-failure-modes-forced-top2-v2/`
+- Forced-top-2 narrow semantic patch scaffold: `data/artifact-card-failure-modes-forced-top2-v2p2/`
 - Forced-top-2 anti-fence scaffold: `data/artifact-card-failure-modes-forced-top2-v3/`
 - Training entrypoint: `modal/train_unsloth_artifact_card.py`
 - Dataset preview: `scripts/preview_dataset.py`
 - Run scoring helpers: `scripts/evaluate_artifact_card_run.py`, `scripts/evaluate_failure_mode_evidence_run.py`, `scripts/evaluate_failure_mode_contrast_run.py`, `scripts/evaluate_failure_mode_rank_select_run.py`, `scripts/evaluate_failure_mode_joint_rank_run.py`, `scripts/evaluate_failure_mode_forced_top2_run.py`
-- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`, `scripts/build_failure_mode_joint_rank_v1_dataset.py`, `scripts/build_failure_mode_forced_top2_v2_dataset.py`, `scripts/build_failure_mode_forced_top2_v3_dataset.py`
+- Dataset builders: `scripts/build_failure_mode_evidence_dataset.py`, `scripts/build_failure_mode_contrast_dataset.py`, `scripts/build_failure_mode_contrast_v2_dataset.py`, `scripts/build_failure_mode_rank_select_dataset.py`, `scripts/build_failure_mode_rank_select_v2_dataset.py`, `scripts/build_failure_mode_joint_rank_v1_dataset.py`, `scripts/build_failure_mode_forced_top2_v2_dataset.py`, `scripts/build_failure_mode_forced_top2_v2p2_dataset.py`, `scripts/build_failure_mode_forced_top2_v3_dataset.py`
 - Experiment brief: `docs/first-artifact-card-experiment.md`
 - Scaffold notes: `docs/artifact-card-failure-modes-evidence-v1-scaffold.md`, `docs/artifact-card-failure-modes-contrast-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v1-scaffold.md`, `docs/artifact-card-failure-modes-rank-select-v2-scaffold.md`, `docs/artifact-card-failure-modes-joint-rank-v1-scaffold.md`, `docs/artifact-card-failure-modes-forced-top2-v2-scaffold.md`, `docs/artifact-card-failure-modes-forced-top2-v3-scaffold.md`
-- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval, failure-modes-joint-rank-v1 = 34 train / 8 eval, failure-modes-forced-top2-v2 = 34 train / 8 eval, failure-modes-forced-top2-v3 = 34 train / 8 eval
+- Row counts: v1 = 20 train / 8 eval, v2 = 20 train / 8 eval, v3 = 26 train / 8 eval, failure-modes-v1 = 26 train / 8 eval, failure-modes-binary-v1 = 208 train / 64 eval, failure-modes-top2-v1 = 26 train / 8 eval, failure-modes-pairwise-v1 = 728 train / 224 eval, failure-modes-evidence-v1 = 208 train / 64 eval, failure-modes-contrast-v1 = 104 train / 32 eval, failure-modes-contrast-v2 = 128 train / 32 eval, failure-modes-rank-select-v1 = 208 train / 64 eval, failure-modes-rank-select-v2 = 272 train / 64 eval, failure-modes-joint-rank-v1 = 34 train / 8 eval, failure-modes-forced-top2-v2 = 34 train / 8 eval, failure-modes-forced-top2-v2p2 = 38 train / 8 eval, failure-modes-forced-top2-v3 = 34 train / 8 eval
 
 ## Output schema
 The model should return exactly one JSON object with these keys:
@@ -207,6 +208,41 @@ The earlier tutor adapter is still valuable as a negative result and debugging c
 - Its train-only patch is also narrower: 6 targeted compatibility cases aimed at the remaining `fluency-without-correctness`, `generic-explanation`, `wrong-causal-point`, `hallucinated-detail`, and `phrase-copy-or-template-collapse` confusions without rewriting the whole prompt contract.
 - Local verification already passed for `forced-top2-v2p1`: compile, dataset build, preview, smoke evaluation, env check, and CLI verification all succeeded.
 - Continue judging every new branch by reconstruction before row metrics or loss.
+- As of 2026-05-01, the shared Modal training entrypoint now includes built-in task-aware forced-top-2 evaluation and strips `generation_prefix` from assistant targets during training so prefilled JSON prefixes stay train/infer consistent.
+- The repo also now treats Karpathy-style persistent compiled notes as part of the optimization surface: important training conclusions should land in `docs/` and `wiki/`, not only in chat or raw artifacts.
+- Verification run `20260501T111907Z` confirmed the new `task_aware_eval` path is wired into the shared training entrypoint: tuned branch-specific `valid_json_rate = 0.75`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, and `invalid_row_rate = 0.25`.
+- The new summary also made the remaining failure more explicit: the tuned model still overused `missing-required-detail + generic-explanation`, and two rows failed specifically because `generic-explanation` was paired with the illegal secondary evidence key `missing-or-noncanonical-field`.
+- Kickoff autoresearch run `20260501T145949Z` rechecked the semantic anchor branch itself (`artifact-card-failure-modes-forced-top2-v2`) with the patched shared entrypoint rather than the narrower `v2p1` continuation.
+- The rerun reconfirmed `forced-top2-v2` as the strongest current semantic baseline under built-in branch-aware scoring: tuned `valid_json_rate = 0.875`, `exact_row_match_rate = 0.375`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`, and `invalid_row_rate = 0.125`.
+- The remaining errors stayed tightly concentrated instead of broad: 4 eval rows still collapsed to the fallback pair `missing-required-detail + generic-explanation`, and the only invalid tuned row copied evidence keys into label slots on the `overlap-contaminated-eval` example (`bad-primary-label`).
+- That makes the next patch direction narrower than another prompt rewrite: prefer a small data-side compatibility fix aimed at the `fluency-without-correctness`, `hallucinated-detail`, and `wrong-causal-point` boundaries plus the overlap label-slot confusion.
+- A later apples-to-apples forced-top-2 comparison also confirmed that neither follow-up contract branch beat the anchor: `forced-top2-v2p1` reached tuned branch-aware `valid_json_rate = 0.75`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, and `invalid_row_rate = 0.25`, while `forced-top2-v3` reached `0.625`, `0.125`, `0.125`, and `0.375` respectively. [[artifact-card-forced-top2-v2-vs-v2p1-vs-v3]]
+- The important learning rule from that comparison is that `generation_prefix = "{"` plus extra anti-fence language did not solve the real bottleneck; both branches still regressed toward the same `missing-required-detail + generic-explanation` fallback family.
+- So the next bounded move should stay anchored on `forced-top2-v2` and patch the surviving semantic boundaries directly, not spend another pass on broader raw-JSON contract wording.
+- A follow-up autoresearch measurement patch on 2026-05-01 hardened the shared trainer to summarize collapse concentration directly inside future forced-top-2 `task_aware_eval` blocks: it now records mismatch-only ordered-pair histograms, the most common wrong pair, its rate across mismatches, and a `selector_collapse_alert` flag when one repeated wrong pair dominates at least half of 3+ mismatches.
+- That patch is intentionally measurement-first rather than another GPU rerun: the current repo already has enough evidence that `forced-top2-v2` is the semantic anchor and that `v2p1` / `v3` regress toward the same fallback family, so the next expensive run should only happen after a small data-side boundary patch is ready.
+- The next bounded autoresearch pass created that data-side continuation as `artifact-card-failure-modes-forced-top2-v2p2` instead of spending Modal budget immediately.
+- `v2p2` is intentionally narrow: it inherits every `forced-top2-v2` row unchanged and adds only 4 train-only semantic patch cases for the four surviving confusion boundaries from the anchor run: `fluency-without-correctness -> missing-required-detail`, `hallucinated-detail -> missing-required-detail`, `wrong-causal-point -> no-material-change`, and `overlap-contaminated-eval -> phrase-copy-or-template-collapse`.
+- This keeps the stronger `v2` contract shape, avoids the broader anti-fence prompt mass from `v2p1` / `v3`, and gives the next capped rerun a cleaner test of whether selector-collapse concentration actually falls.
+- The first real `v2p2` run (`20260501T184312Z`) is now another useful negative result rather than a new baseline.
+- The branch-specific headline metrics were unchanged from the `forced-top2-v2` anchor despite the 4 train-only semantic patch rows: tuned `valid_json_rate = 0.875`, `exact_row_match_rate = 0.375`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`, and `invalid_row_rate = 0.125`.
+- The new collapse metrics show the same selector bottleneck even more explicitly: `selector_collapse_alert = true`, `mismatch_rows = 5`, and 4 of those 5 mismatches (`0.8`) were still the fallback pair `missing-required-detail -> generic-explanation`.
+- The surviving misses stayed on the same four semantic boundaries as the anchor (`fluency-without-correctness`, `hallucinated-detail`, `wrong-causal-point`, and the overlap label-slot confusion), which means the extra rows did not actually change the model's held-out decision behavior.
+- Practical lesson: another tiny train-only patch inside the same direct forced-top-2 framing is now lower-value than a supervision redesign that makes the confused labels compete differently or binds the overlap case to label names more directly.
+
+## Autoresearch loop operating status
+- The repo now has a recurring local-delivery cron loop for bounded artifact-card autoresearch.
+- The original gateway scheduler path was not reliably advancing due jobs in this profile, even when `hermes cron status` reported the gateway as running.
+- The current repair is a local ticker loop at `scripts/cron_tick_loop.sh` that runs `hermes cron tick --accept-hooks` every 30 seconds. [[karpathy-llm-wiki-and-autoresearch-improvements-2026-05-01]]
+- Real Modal launches from cron also required exporting the repo `.env` in the same shell as the command (`set -a && source .env && set +a`); a passing env-check alone was not enough.
+- After that repair, the kickoff autoresearch run and the first recurring loop pass both executed successfully.
+
+## Autoresearch documentation contract
+- Every autoresearch pass must inspect `wiki/SCHEMA.md`, `wiki/index.md`, and the recent tail of `wiki/log.md` before changing anything.
+- Every pass must append a chronological entry to `wiki/log.md`, even if it decides not to patch code or launch Modal.
+- If a pass changes understanding, confirms a new result, or patches code, it must also update at least one durable wiki page such as this concept page or a dedicated comparison/query note.
+- Documentation updates are required bookkeeping and do not replace the single primary experiment/patch budget for the pass.
+- The current recurring loop should therefore leave evidence in three places whenever it makes progress: cron session logs, repo artifacts/docs, and the wiki.
 
 ## Related pages
 - [[artifact-card-v1-vs-v2]]

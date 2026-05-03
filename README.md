@@ -33,6 +33,9 @@ Profile facts
 Default project:
 - `artifact-card-sft`
 
+Additional starter project scaffold:
+- `projects/bruxism-cap/` — public CAP Sleep Database pilot for tiny EEG/EMG bruxism baselines with subject-aware evaluation
+
 Current repo artifacts:
 - dataset scaffold in `data/artifact-card-v1/`
 - experiment brief in `docs/first-artifact-card-experiment.md`

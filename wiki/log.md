@@ -700,3 +700,150 @@
   - Added 6 targeted train-only compatibility cases focused on the real remaining confusion patterns instead of reusing the heavier `v3` contract rewrite.
   - Local verification passed: compile, dataset build, preview, smoke evaluation, env check, and CLI verification.
 
+
+## [2026-05-01] query | Karpathy LLM Wiki pattern and autoresearch improvements
+- Sources captured:
+  - raw/articles/karpathy-llm-wiki-2026-05-01.md
+- Files created:
+  - ../docs/autoresearch-karpathy-and-training-patch-2026-05-01.md
+  - queries/karpathy-llm-wiki-and-autoresearch-improvements-2026-05-01.md
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - index.md
+  - log.md
+- Notes:
+  - Re-read Andrej Karpathy's original `LLM Wiki` pattern and extracted the parts most relevant to ai-lab's local `autoresearch` workflow.
+  - Patched `modal/train_unsloth_artifact_card.py` so `generation_prefix` prefill is train/infer consistent and forced-top-2 runs now emit built-in `task_aware_eval`.
+  - Updated the local `autoresearch` skill so future passes preserve persistent compiled notes instead of leaving expensive conclusions only in chat.
+
+## [2026-05-01] update | verified built-in forced-top-2 task-aware evaluation on a live Modal run
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Ran `artifact-card-failure-modes-forced-top2-v2p1` again after patching the shared training entrypoint.
+  - Verification run `20260501T111907Z` emitted `task_aware_eval` directly in the training result, confirming the new evaluator path works end-to-end.
+  - The run also showed that better measurement did not automatically improve behavior: tuned branch-aware `valid_json_rate = 0.75`, `top2_set_match_rate = 0.125`, `top2_ordered_match_rate = 0.125`, `invalid_row_rate = 0.25`, with two rows still failing on illegal `generic-explanation` secondary evidence keys.
+
+## [2026-05-01] update | kickoff autoresearch reran forced-top2-v2 as the semantic anchor
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Preflight passed: `python3 scripts/check_env.py` confirmed required env vars, and `modal run modal/train_unsloth_artifact_card.py --help` verified the Modal entrypoint.
+  - Ran exactly one capped Modal experiment: `artifact-card-failure-modes-forced-top2-v2` with `max_steps = 20`, producing run `20260501T145949Z` under `/artifacts/artifact-card-failure-modes-forced-top2-v2/20260501T145949Z/`.
+  - The rerun reconfirmed `forced-top2-v2` as the strongest current semantic baseline under built-in branch-aware scoring: tuned `valid_json_rate = 0.875`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`, and `invalid_row_rate = 0.125`.
+  - The remaining errors stayed concentrated in the same fallback pair `missing-required-detail + generic-explanation`, with one additional invalid overlap example that copied evidence keys into label slots.
+
+## [2026-05-01] update | autoresearch cron repair and wiki documentation contract
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - queries/karpathy-llm-wiki-and-autoresearch-improvements-2026-05-01.md
+  - log.md
+- Notes:
+  - Recorded that the practical scheduler repair for this profile is `scripts/cron_tick_loop.sh`, which drives `hermes cron tick --accept-hooks` every 30 seconds from the repo workdir.
+  - Recorded that real Modal launches from cron need `.env` exported in the launch shell, not only a passing env-check script.
+  - Tightened the expected autoresearch documentation contract: every pass should append to `wiki/log.md`, and any pass that changes understanding or code should also update at least one durable wiki page.
+
+## [2026-05-01] update | forced-top2 branch-aware comparison preserved the semantic anchor
+- Files created:
+  - comparisons/artifact-card-forced-top2-v2-vs-v2p1-vs-v3.md
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - index.md
+  - log.md
+- Notes:
+  - Inspected the required autoresearch surface in order: `wiki/SCHEMA.md`, `wiki/index.md`, recent `wiki/log.md`, `docs/autoresearch-artifact-card-playbook.md`, `docs/autoresearch-karpathy-and-training-patch-2026-05-01.md`, `wiki/concepts/artifact-card-sft.md`, `modal/train_unsloth_artifact_card.py`, both forced-top-2 `task_config.json` files, the latest local forced-top-2 run summaries, and `git status`.
+  - Also pulled the latest real Modal summaries for `artifact-card-failure-modes-forced-top2-v2` run `20260501T145949Z` and `artifact-card-failure-modes-forced-top2-v2p1` run `20260501T111907Z` from the artifact volume, then re-ran the local forced-top-2 evaluator on `forced-top2-v3` so the three branches could be compared on the same branch-aware scoreboard.
+  - Decision: no code patch and no new Modal launch this pass. The highest-value bounded increment was a durable comparison note because the evidence already shows the selector bottleneck clearly and there is uncommitted local training/wiki work that should not be overwritten blindly.
+  - Preserved the main result explicitly: `forced-top2-v2` remains the strongest semantic anchor (`valid_json_rate = 0.875`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`), while `v2p1` (`0.75`, `0.125`, `0.125`) and `v3` (`0.625`, `0.125`, `0.125`) are useful negative results about contract pressure that did not fix fallback collapse.
+  - Exact next step: start from `artifact-card-failure-modes-forced-top2-v2` and add one small train-only semantic patch for `fluency-without-correctness`, `hallucinated-detail`, `wrong-causal-point`, and the overlap label-slot confusion instead of spending the next pass on more anti-fence wording.
+
+## [2026-05-01] update | measurement hardening patch for forced-top-2 selector collapse
+- Files updated:
+  - ../modal/train_unsloth_artifact_card.py
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Inspected the required autoresearch surface in order: `wiki/SCHEMA.md`, `wiki/index.md`, recent `wiki/log.md`, `docs/autoresearch-artifact-card-playbook.md`, `docs/autoresearch-karpathy-and-training-patch-2026-05-01.md`, `wiki/concepts/artifact-card-sft.md`, `modal/train_unsloth_artifact_card.py`, both forced-top-2 `task_config.json` files, the latest present local forced-top-2 run summaries, and `git status`.
+  - Reviewed the strongest available local summaries again: `forced-top2-v2` remains the semantic anchor, while `v2p1` and `v3` both regress toward the same fallback family rather than revealing a new formatting bottleneck worth another immediate GPU run.
+  - Decision: no Modal launch this pass. The highest-value bounded increment was a small measurement patch because the repo already has enough evidence that selector collapse, not raw JSON formatting alone, is the live bottleneck.
+  - Patched `modal/train_unsloth_artifact_card.py` so future forced-top-2 `task_aware_eval` blocks also emit mismatch-only ordered-pair histograms, `most_common_mismatch_ordered_pair`, `most_common_mismatch_ordered_pair_rate`, `mismatch_rows`, and a boolean `selector_collapse_alert` when one wrong pair dominates at least half of 3+ mismatches.
+  - Local verification passed: `python3 -m py_compile modal/train_unsloth_artifact_card.py`.
+  - Exact next step: create one small train-only semantic patch on top of `artifact-card-failure-modes-forced-top2-v2`, then use the new collapse metrics on the next capped rerun to verify whether fallback-pair concentration actually falls.
+
+## [2026-05-01] update | forced-top2-v2p2 semantic patch scaffold
+- Files created:
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/README.md
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/task_config.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/train.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/eval.jsonl
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/train_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/eval_metadata.json
+  - ../data/artifact-card-failure-modes-forced-top2-v2p2/supplemental_train_cases.json
+  - ../scripts/build_failure_mode_forced_top2_v2p2_dataset.py
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Inspected the required autoresearch surface in order: `wiki/SCHEMA.md`, `wiki/index.md`, recent `wiki/log.md`, `docs/autoresearch-artifact-card-playbook.md`, `docs/autoresearch-karpathy-and-training-patch-2026-05-01.md`, `wiki/concepts/artifact-card-sft.md`, `modal/train_unsloth_artifact_card.py`, `data/artifact-card-failure-modes-forced-top2-v2/task_config.json`, `data/artifact-card-failure-modes-forced-top2-v2p1/task_config.json`, the latest relevant forced-top-2 run summaries (including the current volume-backed `forced-top2-v2`, `v2p1`, and `v3` results), and `git status`.
+  - Evidence used for the decision: `forced-top2-v2` remains the semantic anchor at tuned branch-aware `valid_json_rate = 0.875`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`, with the remaining misses concentrated in the same fallback pair; `v2p1` and `v3` both regress to `0.125` / `0.125` on top-2 recovery while adding more contract pressure.
+  - Decision: no Modal launch this pass. The highest-value bounded increment was the planned train-only semantic patch because the bottleneck is still selector collapse, not missing measurement or a lack of anti-fence wording.
+  - Built `artifact-card-failure-modes-forced-top2-v2p2` as a narrow continuation of `forced-top2-v2`: it inherits the anchor dataset unchanged and adds only 4 train-only cases for `fluency-without-correctness -> missing-required-detail`, `hallucinated-detail -> missing-required-detail`, `wrong-causal-point -> no-material-change`, and `overlap-contaminated-eval -> phrase-copy-or-template-collapse`.
+  - Local verification passed: `python3 scripts/build_failure_mode_forced_top2_v2p2_dataset.py` and `python3 scripts/preview_dataset.py artifact-card-failure-modes-forced-top2-v2p2` produced a clean 38-train / 8-eval scaffold with valid JSON targets.
+  - Exact next step: if preflight passes, run one capped Modal experiment on `artifact-card-failure-modes-forced-top2-v2p2` with `--max-steps 20` and judge it first by branch-aware `top2_set_match_rate`, `top2_ordered_match_rate`, `selector_collapse_alert`, and the mismatch ordered-pair histogram versus the `forced-top2-v2` anchor.
+
+## [2026-05-01] update | forced-top2-v2p2 capped rerun preserved the same collapse pattern
+- Files created:
+  - ../tmp/modal-artifacts/artifact-card-failure-modes-forced-top2-v2p2-20260501T184312Z/run_summary.json
+- Files updated:
+  - concepts/artifact-card-sft.md
+  - log.md
+- Notes:
+  - Inspected the required autoresearch surface in order: `wiki/SCHEMA.md`, `wiki/index.md`, recent `wiki/log.md`, `docs/autoresearch-artifact-card-playbook.md`, `docs/autoresearch-karpathy-and-training-patch-2026-05-01.md`, `wiki/concepts/artifact-card-sft.md`, `modal/train_unsloth_artifact_card.py`, `data/artifact-card-failure-modes-forced-top2-v2/task_config.json`, `data/artifact-card-failure-modes-forced-top2-v2p1/task_config.json`, the latest relevant forced-top-2 run summaries for `v2`, `v2p1`, and `v3`, and `git status`.
+  - Modal preflight passed exactly as required: `source .venv/bin/activate && python3 scripts/check_env.py` and `source .venv/bin/activate && set -a && source .env && set +a && modal run modal/train_unsloth_artifact_card.py --help` both succeeded.
+  - Ran one capped Modal experiment: `source .venv/bin/activate && set -a && source .env && set +a && modal run modal/train_unsloth_artifact_card.py --dataset-name artifact-card-failure-modes-forced-top2-v2p2 --max-steps 20`, producing run `20260501T184312Z` under `/artifacts/artifact-card-failure-modes-forced-top2-v2p2/20260501T184312Z/`.
+  - Result: `v2p2` did not beat the `forced-top2-v2` anchor. Tuned branch-aware metrics stayed exactly flat at `valid_json_rate = 0.875`, `exact_row_match_rate = 0.375`, `top2_set_match_rate = 0.375`, `top2_ordered_match_rate = 0.375`, and `invalid_row_rate = 0.125`.
+  - The new measurement fields confirm the same selector-collapse bottleneck: `selector_collapse_alert = true`, `mismatch_rows = 5`, and `most_common_mismatch_ordered_pair = missing-required-detail -> generic-explanation` with rate `0.8` across mismatches.
+  - The train-only patch also failed to fix the overlap label-slot confusion: one held-out row still copied evidence-key names into label slots (`bad-primary-label`) instead of emitting `overlap-contaminated-eval` plus `phrase-copy-or-template-collapse`.
+  - Decision: preserve `forced-top2-v2` as the semantic anchor and keep `v2p2` as a useful negative result showing that a 4-row semantic supplement inside the same direct forced-top-2 framing was too weak to move held-out behavior.
+  - Exact next step: stop stacking tiny direct-prompt patches on top of `forced-top2-v2`; the next bounded branch should redesign supervision for the surviving confused labels so they compete differently, especially the repeated `missing-required-detail` vs `generic-explanation` fallback and the overlap label-slot namespace confusion.
+
+## [2026-05-03] query | bruxism EEG/EMG starter project research
+- Files created:
+  - queries/bruxism-eeg-emg-starter-project-2026-05-03.md
+  - raw/articles/cap-sleep-database-physionet-2012.md
+  - raw/articles/bruxism-single-channel-eeg-2024.md
+  - raw/articles/bruxism-multimodal-ensemble-2024.md
+  - raw/articles/sleep-bruxism-portable-emg-meta-analysis-2024.md
+  - raw/articles/sleep-bruxism-emg-only-setups-2020.md
+  - raw/articles/advanced-sensing-system-sleep-bruxism-emg-2024.md
+- Files updated:
+  - index.md
+  - log.md
+- Notes:
+  - Compared open-data starter options for bruxism detection from EEG/EMG signals.
+  - Chose a CAP Sleep Database pilot as the simplest reproducible first project because it is public and already used by recent bruxism classification papers.
+  - Explicitly recorded that high published accuracies come from tiny cohorts and should be treated as reproduction baselines rather than clinical evidence.
+
+## [2026-05-03] update | bruxism-cap starter scaffold created
+- Files created:
+  - ../projects/bruxism-cap/README.md
+  - ../projects/bruxism-cap/data/README.md
+  - ../projects/bruxism-cap/data/subject_manifest.example.csv
+  - ../projects/bruxism-cap/notebooks/00_cap_subset_inspection.ipynb
+  - ../projects/bruxism-cap/reports/first-baseline.md
+  - ../projects/bruxism-cap/src/features.py
+  - ../projects/bruxism-cap/src/prepare_windows.py
+  - ../projects/bruxism-cap/src/train_baseline.py
+  - ../projects/bruxism-cap/src/eval.py
+  - ../docs/plans/2026-05-03-bruxism-cap-scaffold.md
+- Files updated:
+  - ../README.md
+  - ../pyproject.toml
+  - queries/bruxism-eeg-emg-starter-project-2026-05-03.md
+  - log.md
+- Notes:
+  - Added a minimal public-data starter project under `projects/bruxism-cap/` for CAP-based EEG/EMG bruxism experiments.
+  - Kept the first baseline explicitly classical and leakage-aware, with random-window versus leave-one-subject-out evaluation.
+  - Added an optional `biosignals` dependency group so EDF loading stays isolated from the core Unsloth/Modal workflow.

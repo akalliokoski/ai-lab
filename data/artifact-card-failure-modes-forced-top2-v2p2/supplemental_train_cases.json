@@ -1,0 +1,70 @@
+[
+  {
+    "run_id": "20260512T080000Z",
+    "dataset_name": "artifact-card-failure-modes-forced-top2-v2p2-train",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "gold_pair": [
+      "fluency-without-correctness",
+      "missing-required-detail"
+    ],
+    "summary": "The tuned card sounds smoother and more confident than the baseline, but it still omits the canonical next action and leaves the evidence list incomplete.",
+    "observed_evidence": [
+      "Base output was clumsy but already signaled that the run did not really solve the selector problem.",
+      "Tuned output is more polished and better written, yet the verdict stays effectively unsupported by the cited evidence.",
+      "The required next_action field is vague instead of one canonical action from the reference.",
+      "One evidence slot is missing the expected canonical phrase even though the rest of the JSON shape parses cleanly.",
+      "The strongest change is fluency gain without a real correctness win; incompleteness is still the secondary issue."
+    ]
+  },
+  {
+    "run_id": "20260512T081500Z",
+    "dataset_name": "artifact-card-failure-modes-forced-top2-v2p2-train",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "gold_pair": [
+      "hallucinated-detail",
+      "missing-required-detail"
+    ],
+    "summary": "The tuned card invents a blocker that never appeared in the run evidence, and it also drops one required field from the final card.",
+    "observed_evidence": [
+      "The response claims the run failed because of Modal authentication drift, but the provided artifact notes mention no auth failure at all.",
+      "That invented blocker becomes the centerpiece of the explanation even though the input evidence only discussed label collapse.",
+      "The secondary problem is that one required evidence field is omitted from the final object.",
+      "Because the made-up detail changes the narrative of the run, hallucinated-detail is stronger than the missing-field issue.",
+      "No copied template fragments or overlap warnings appear in the evidence."
+    ]
+  },
+  {
+    "run_id": "20260512T083000Z",
+    "dataset_name": "artifact-card-failure-modes-forced-top2-v2p2-train",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "gold_pair": [
+      "wrong-causal-point",
+      "no-material-change"
+    ],
+    "summary": "The tuned card keeps saying the JSON contract was the main bottleneck, but the artifacts show the real failure was unchanged selector collapse; overall outcomes barely moved.",
+    "observed_evidence": [
+      "Across reruns the model still falls back to the same default label pair on most eval rows.",
+      "The explanation blames formatting pressure even though the branch-aware evaluator shows semantic selection stayed the main blocker.",
+      "Top-2 recovery is effectively unchanged relative to the anchor baseline.",
+      "All required fields remain present and parseable, so incompleteness is not the main issue here.",
+      "The strongest mistake is missing the core causal point, with no-material-change as the secondary verdict because the task outcome barely improved."
+    ]
+  },
+  {
+    "run_id": "20260512T084500Z",
+    "dataset_name": "artifact-card-failure-modes-forced-top2-v2p2-train",
+    "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+    "gold_pair": [
+      "overlap-contaminated-eval",
+      "phrase-copy-or-template-collapse"
+    ],
+    "summary": "The apparent gain is not trustworthy because the train patch mirrors the held-out wording too closely, and the tuned answer also repeats those phrases in distorted form.",
+    "observed_evidence": [
+      "The new training additions reuse nearly the same wording pattern as the held-out eval prompt, making the improvement hard to trust.",
+      "The tuned response echoes the overlap-heavy phrasing with repeated fragments instead of forming a clean independent explanation.",
+      "The evidence explicitly names overlap as the reason the eval win is untrustworthy.",
+      "Template-like phrase reuse is visible, but it is secondary to the overlap problem because the overlap makes the gain itself suspect.",
+      "All required keys are still present, so missing-required-detail should not be chosen."
+    ]
+  }
+]

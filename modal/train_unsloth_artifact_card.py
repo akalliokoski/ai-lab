@@ -51,6 +51,32 @@ DEFAULT_TASK_CONFIG = {
     "max_new_tokens": 220,
     "generation_prefix": "",
 }
+FORCED_TOP2_EXPECTED_FIELDS = [
+    "primary_label",
+    "primary_evidence_key",
+    "secondary_label",
+    "secondary_evidence_key",
+]
+FORCED_TOP2_LABELS = [
+    "no-material-change",
+    "missing-required-detail",
+    "generic-explanation",
+    "overlap-contaminated-eval",
+    "phrase-copy-or-template-collapse",
+    "hallucinated-detail",
+    "wrong-causal-point",
+    "fluency-without-correctness",
+]
+FORCED_TOP2_ALLOWED_EVIDENCE_KEYS_BY_LABEL = {
+    "no-material-change": {"repeated-no-change", "mixed-fields-no-clear-task-win"},
+    "missing-required-detail": {"missing-or-noncanonical-field"},
+    "generic-explanation": {"broader-than-reference"},
+    "overlap-contaminated-eval": {"overlap-untrustworthy"},
+    "phrase-copy-or-template-collapse": {"phrase-copy-distortion"},
+    "hallucinated-detail": {"invented-detail"},
+    "wrong-causal-point": {"missed-core-cause"},
+    "fluency-without-correctness": {"fluency-gain-without-correctness"},
+}
 
 app = modal.App("ai-lab-unsloth-artifact-card")
 artifacts_volume = modal.Volume.from_name(VOLUME_NAME, create_if_missing=True)
@@ -90,12 +116,23 @@ def row_to_user_content(row: dict[str, str]) -> str:
     return user_content
 
 
-def row_to_conversation(row: dict[str, str], system_prompt: str = DEFAULT_SYSTEM_PROMPT) -> dict[str, Any]:
+def strip_generation_prefix(text: str, generation_prefix: str) -> str:
+    if generation_prefix and text.startswith(generation_prefix):
+        return text[len(generation_prefix) :]
+    return text
+
+
+def row_to_conversation(
+    row: dict[str, str],
+    system_prompt: str = DEFAULT_SYSTEM_PROMPT,
+    generation_prefix: str = "",
+) -> dict[str, Any]:
+    assistant_content = strip_generation_prefix(row["output"].strip(), generation_prefix)
     return {
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": row_to_user_content(row)},
-            {"role": "assistant", "content": row["output"].strip()},
+            {"role": "assistant", "content": assistant_content},
         ]
     }
 
@@ -118,12 +155,16 @@ def load_local_payload(dataset_name: str = DEFAULT_DATASET_NAME) -> dict[str, An
     dataset_dir = LOCAL_DATA_ROOT / dataset_name
     train_rows = load_jsonl(dataset_dir / "train.jsonl")
     eval_rows = load_jsonl(dataset_dir / "eval.jsonl")
+    eval_metadata_path = dataset_dir / "eval_metadata.json"
+    train_metadata_path = dataset_dir / "train_metadata.json"
     return {
         "train": train_rows,
         "eval": eval_rows,
         "dataset_name": dataset_dir.name,
         "dataset_dir": str(dataset_dir),
         "task_config": load_task_config(dataset_dir),
+        "eval_metadata": json.loads(eval_metadata_path.read_text()) if eval_metadata_path.exists() else None,
+        "train_metadata": json.loads(train_metadata_path.read_text()) if train_metadata_path.exists() else None,
     }
 
 
@@ -201,6 +242,211 @@ def score_eval_rows(
     }
 
 
+def valid_forced_top2_candidate(parsed: dict[str, Any] | None) -> tuple[bool, str | None]:
+    if parsed is None:
+        return False, "invalid-json"
+    if list(parsed.keys()) != FORCED_TOP2_EXPECTED_FIELDS:
+        return False, "wrong-keys"
+
+    primary_label = normalize_text(parsed.get("primary_label"))
+    secondary_label = normalize_text(parsed.get("secondary_label"))
+    primary_evidence_key = normalize_text(parsed.get("primary_evidence_key"))
+    secondary_evidence_key = normalize_text(parsed.get("secondary_evidence_key"))
+
+    if primary_label not in FORCED_TOP2_LABELS:
+        return False, "bad-primary-label"
+    if secondary_label not in FORCED_TOP2_LABELS:
+        return False, "bad-secondary-label"
+    if primary_label == secondary_label:
+        return False, "duplicate-labels"
+    if primary_evidence_key not in FORCED_TOP2_ALLOWED_EVIDENCE_KEYS_BY_LABEL[primary_label]:
+        return False, "bad-primary-evidence-key"
+    if secondary_evidence_key not in FORCED_TOP2_ALLOWED_EVIDENCE_KEYS_BY_LABEL[secondary_label]:
+        return False, "bad-secondary-evidence-key"
+    return True, None
+
+
+def score_forced_top2_rows(
+    rows: list[dict[str, str]],
+    metadata_rows: list[dict[str, Any]],
+    response_key: str,
+) -> dict[str, Any]:
+    if len(rows) != len(metadata_rows):
+        raise ValueError("Eval metadata length does not match full_eval length")
+
+    valid = 0
+    exact = 0
+    field_hits = {field: 0 for field in FORCED_TOP2_EXPECTED_FIELDS}
+    invalid_reason_counts: dict[str, int] = {}
+    invalid_examples: list[dict[str, Any]] = []
+    top2_set_match = 0
+    top2_ordered_match = 0
+    primary_label_match = 0
+    secondary_label_match = 0
+    primary_evidence_match = 0
+    secondary_evidence_match = 0
+    invalid_rows = 0
+    predicted_label_histogram: dict[str, int] = {}
+    predicted_ordered_pair_histogram: dict[str, int] = {}
+    mismatch_ordered_pair_histogram: dict[str, int] = {}
+    example_mismatches: list[dict[str, Any]] = []
+
+    for row, meta in zip(rows, metadata_rows, strict=True):
+        reference = safe_json_parse(row["reference"])
+        candidate = safe_json_parse(row[response_key])
+        if reference is None:
+            raise ValueError("Reference eval output is not valid JSON")
+        ok, reason = valid_forced_top2_candidate(candidate)
+        if not ok:
+            invalid_rows += 1
+            reason_key = reason or "invalid"
+            invalid_reason_counts[reason_key] = invalid_reason_counts.get(reason_key, 0) + 1
+            if len(invalid_examples) < 3:
+                invalid_examples.append(
+                    {
+                        "instruction": row["instruction"],
+                        "response": row[response_key],
+                        "reason": reason,
+                    }
+                )
+            if len(example_mismatches) < 5:
+                example_mismatches.append(
+                    {
+                        "source_example_index": meta["source_example_index"],
+                        "source_run_id": meta["source_run_id"],
+                        "gold_pair": meta["gold_pair"],
+                        "predicted": row[response_key],
+                        "reason": reason,
+                    }
+                )
+            continue
+
+        valid += 1
+        row_exact = True
+        for field in FORCED_TOP2_EXPECTED_FIELDS:
+            hit = normalize_text(reference.get(field)) == normalize_text(candidate.get(field))
+            if hit:
+                field_hits[field] += 1
+            else:
+                row_exact = False
+        if row_exact:
+            exact += 1
+
+        primary_label = normalize_text(candidate.get("primary_label"))
+        secondary_label = normalize_text(candidate.get("secondary_label"))
+        primary_key = normalize_text(candidate.get("primary_evidence_key"))
+        secondary_key = normalize_text(candidate.get("secondary_evidence_key"))
+        predicted_pair = [primary_label, secondary_label]
+        predicted_set = set(predicted_pair)
+        gold_pair = [normalize_text(label) for label in meta["gold_pair"]]
+        gold_set = set(gold_pair)
+
+        predicted_label_histogram[primary_label] = predicted_label_histogram.get(primary_label, 0) + 1
+        predicted_label_histogram[secondary_label] = predicted_label_histogram.get(secondary_label, 0) + 1
+        ordered_pair_key = f"{primary_label} -> {secondary_label}"
+        predicted_ordered_pair_histogram[ordered_pair_key] = predicted_ordered_pair_histogram.get(ordered_pair_key, 0) + 1
+
+        if predicted_set == gold_set:
+            top2_set_match += 1
+        if predicted_pair == gold_pair:
+            top2_ordered_match += 1
+        if primary_label == gold_pair[0]:
+            primary_label_match += 1
+        if secondary_label == gold_pair[1]:
+            secondary_label_match += 1
+        if primary_key == normalize_text(meta["gold_primary_evidence_key"]):
+            primary_evidence_match += 1
+        if secondary_key == normalize_text(meta["gold_secondary_evidence_key"]):
+            secondary_evidence_match += 1
+
+        mismatch_detected = (
+            predicted_pair != gold_pair
+            or primary_key != normalize_text(meta["gold_primary_evidence_key"])
+            or secondary_key != normalize_text(meta["gold_secondary_evidence_key"])
+        )
+        if mismatch_detected:
+            mismatch_ordered_pair_histogram[ordered_pair_key] = mismatch_ordered_pair_histogram.get(ordered_pair_key, 0) + 1
+            if len(example_mismatches) < 5:
+                example_mismatches.append(
+                    {
+                        "source_example_index": meta["source_example_index"],
+                        "source_run_id": meta["source_run_id"],
+                        "gold_pair": gold_pair,
+                        "gold_primary_evidence_key": meta["gold_primary_evidence_key"],
+                        "gold_secondary_evidence_key": meta["gold_secondary_evidence_key"],
+                        "predicted_pair": predicted_pair,
+                        "predicted_primary_evidence_key": primary_key,
+                        "predicted_secondary_evidence_key": secondary_key,
+                    }
+                )
+
+    total = len(metadata_rows)
+    sorted_pair_histogram = dict(
+        sorted(predicted_ordered_pair_histogram.items(), key=lambda item: (-item[1], item[0]))
+    )
+    sorted_mismatch_pair_histogram = dict(
+        sorted(mismatch_ordered_pair_histogram.items(), key=lambda item: (-item[1], item[0]))
+    )
+    most_common_pair = next(iter(sorted_pair_histogram.items()), None)
+    most_common_mismatch_pair = next(iter(sorted_mismatch_pair_histogram.items()), None)
+    mismatch_count = total - exact
+    return {
+        "rows": total,
+        "valid_json_rate": valid / total if total else 0.0,
+        "exact_row_match_rate": exact / total if total else 0.0,
+        "field_accuracy": {field: field_hits[field] / total if total else 0.0 for field in FORCED_TOP2_EXPECTED_FIELDS},
+        "invalid_reason_counts": invalid_reason_counts,
+        "invalid_examples": invalid_examples,
+        "top2_set_match_rate": top2_set_match / total if total else 0.0,
+        "top2_ordered_match_rate": top2_ordered_match / total if total else 0.0,
+        "primary_label_accuracy": primary_label_match / total if total else 0.0,
+        "secondary_label_accuracy": secondary_label_match / total if total else 0.0,
+        "primary_evidence_key_accuracy": primary_evidence_match / total if total else 0.0,
+        "secondary_evidence_key_accuracy": secondary_evidence_match / total if total else 0.0,
+        "invalid_row_rate": invalid_rows / total if total else 0.0,
+        "predicted_label_histogram": dict(sorted(predicted_label_histogram.items())),
+        "predicted_ordered_pair_histogram": sorted_pair_histogram,
+        "most_common_ordered_pair": most_common_pair[0] if most_common_pair else None,
+        "most_common_ordered_pair_rate": (most_common_pair[1] / total) if (most_common_pair and total) else 0.0,
+        "mismatch_rows": mismatch_count,
+        "mismatch_ordered_pair_histogram": sorted_mismatch_pair_histogram,
+        "most_common_mismatch_ordered_pair": most_common_mismatch_pair[0] if most_common_mismatch_pair else None,
+        "most_common_mismatch_ordered_pair_rate": (
+            most_common_mismatch_pair[1] / mismatch_count if (most_common_mismatch_pair and mismatch_count) else 0.0
+        ),
+        "selector_collapse_alert": bool(
+            most_common_mismatch_pair and mismatch_count >= 3 and (most_common_mismatch_pair[1] / mismatch_count) >= 0.5
+        ),
+        "example_mismatches": example_mismatches,
+    }
+
+
+def build_task_aware_eval(
+    rows: list[dict[str, str]],
+    metadata_rows: list[dict[str, Any]] | None,
+    expected_fields: list[str],
+) -> dict[str, Any] | None:
+    if not metadata_rows:
+        return None
+    if expected_fields != FORCED_TOP2_EXPECTED_FIELDS:
+        return None
+    first_meta = metadata_rows[0] if metadata_rows else {}
+    required_meta_keys = {
+        "gold_pair",
+        "gold_primary_evidence_key",
+        "gold_secondary_evidence_key",
+        "source_example_index",
+        "source_run_id",
+    }
+    if not required_meta_keys.issubset(first_meta):
+        return None
+    return {
+        "scheme": "forced_top2",
+        "base_metrics": score_forced_top2_rows(rows, metadata_rows, "base_response"),
+        "tuned_metrics": score_forced_top2_rows(rows, metadata_rows, "tuned_response"),
+    }
+
+
 @app.function(
     gpu="T4",
     image=image,
@@ -226,9 +472,16 @@ def run_first_sft(
     list_fields = list(task_config.get("list_fields") or [])
     max_new_tokens = int(task_config.get("max_new_tokens") or DEFAULT_TASK_CONFIG["max_new_tokens"])
     generation_prefix = str(task_config.get("generation_prefix") or "")
+    eval_metadata = payload.get("eval_metadata")
 
-    train_records = [row_to_conversation(row, system_prompt=system_prompt) for row in payload["train"]]
-    eval_records = [row_to_conversation(row, system_prompt=system_prompt) for row in payload["eval"]]
+    train_records = [
+        row_to_conversation(row, system_prompt=system_prompt, generation_prefix=generation_prefix)
+        for row in payload["train"]
+    ]
+    eval_records = [
+        row_to_conversation(row, system_prompt=system_prompt, generation_prefix=generation_prefix)
+        for row in payload["eval"]
+    ]
 
     train_dataset = Dataset.from_list(train_records)
     eval_dataset = Dataset.from_list(eval_records)
@@ -364,6 +617,7 @@ def run_first_sft(
         }
         for base_sample, tuned_sample in zip(base_eval_full, tuned_eval_full, strict=True)
     ]
+    task_aware_eval = build_task_aware_eval(full_eval_rows, eval_metadata, expected_fields)
 
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     artifact_dir = REMOTE_ARTIFACT_ROOT / payload["dataset_name"] / run_id
@@ -409,6 +663,7 @@ def run_first_sft(
             "base_metrics": score_eval_rows(full_eval_rows, "base_response", expected_fields, list_fields),
             "tuned_metrics": score_eval_rows(full_eval_rows, "tuned_response", expected_fields, list_fields),
         },
+        "task_aware_eval": task_aware_eval,
         "trainer_config": {
             "per_device_train_batch_size": 2,
             "gradient_accumulation_steps": 4,
@@ -418,9 +673,9 @@ def run_first_sft(
             "warmup_steps": 2,
         },
         "next_steps": [
-            "Review auto_eval.tuned_metrics before trusting train loss.",
-            "Inspect rows where the tuned output is invalid JSON or misses required fields.",
-            "Patch the dataset by field failure, not by train loss alone.",
+            "Review task_aware_eval before trusting train loss or generic auto_eval.",
+            "Inspect rows where the tuned output is invalid JSON, uses illegal label/evidence pairings, or misses required fields.",
+            "Patch the dataset by field failure and branch-specific contract failure, not by train loss alone.",
         ],
     }
 

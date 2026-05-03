@@ -11,3 +11,7 @@ outputs/
 *.pyo
 *.pyd
 .DS_Store
+
+# Large local experiment data
+projects/bruxism-cap/data/raw/
+*.edf

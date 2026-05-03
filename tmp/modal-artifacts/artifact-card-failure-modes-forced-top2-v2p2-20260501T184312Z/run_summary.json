@@ -1,0 +1,370 @@
+{
+  "status": "trained",
+  "run_id": "20260501T184312Z",
+  "dataset_name": "artifact-card-failure-modes-forced-top2-v2p2",
+  "train_rows": 38,
+  "eval_rows": 8,
+  "model_name": "unsloth/Llama-3.2-1B-Instruct-bnb-4bit",
+  "chat_template": "llama-3.2",
+  "max_seq_length": 2048,
+  "max_steps": 20,
+  "task_config": {
+    "system_prompt": "You are the Hermes AI Lab forced top-2 selector. Read the evidence and return only one valid JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Both labels must be copied exactly from the allowed failure-mode list and must be distinct. Each evidence key must be copied exactly from the allowed list for the chosen label. Do not add prose.",
+    "expected_fields": [
+      "primary_label",
+      "primary_evidence_key",
+      "secondary_label",
+      "secondary_evidence_key"
+    ],
+    "list_fields": [],
+    "max_new_tokens": 64,
+    "generation_prefix": ""
+  },
+  "output_dir": "/tmp/ai-lab-unsloth-artifact-card-output",
+  "artifact_volume": "ai-lab-unsloth-artifacts",
+  "artifact_dir": "/artifacts/artifact-card-failure-modes-forced-top2-v2p2/20260501T184312Z",
+  "adapter_dir": "/artifacts/artifact-card-failure-modes-forced-top2-v2p2/20260501T184312Z/adapter",
+  "metrics": {
+    "train_runtime": 77.6055,
+    "train_samples_per_second": 2.062,
+    "train_steps_per_second": 0.258,
+    "total_flos": 1002665481682944.0,
+    "train_loss": 1.913777482509613,
+    "epoch": 4.0
+  },
+  "sample_eval": [
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\n  \"primary_label\": \"missing-or-noncanonical-field\",\n  \"primary_evidence_key\": \"missing-or-noncanonical-field\",\n  \"secondary_label\": \"no-material-change\",\n  \"secondary_evidence_key\": \"no-material-change\"\n}",
+      "tuned_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}",
+      "base_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"generic-explanation\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\" broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    }
+  ],
+  "full_eval": [
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\n  \"primary_label\": \"missing-or-noncanonical-field\",\n  \"primary_evidence_key\": \"missing-or-noncanonical-field\",\n  \"secondary_label\": \"no-material-change\",\n  \"secondary_evidence_key\": \"no-material-change\"\n}",
+      "tuned_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"mixed-fields-no-clear-task-win\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}",
+      "base_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"generic-explanation\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\" broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-or-noncanonical-field\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "tuned_response": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"hallucinated-detail\",\"primary_evidence_key\":\"invented-detail\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"wrong-causal-point\",\"primary_evidence_key\":\"missed-core-cause\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"mixed-fields-no-clear-task-win\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"overlap-contaminated-eval\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-or-template-collapse\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"overlap-contaminated-eval\",\"secondary_evidence_key\":\"overlap-contaminated-eval\"}",
+      "tuned_response": "{\"primary_label\":\"overlap-untrustworthy\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-distortion\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}"
+    },
+    {
+      "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+      "reference": "{\"primary_label\":\"fluency-without-correctness\",\"primary_evidence_key\":\"fluency-gain-without-correctness\",\"secondary_label\":\"missing-required-detail\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+      "base_response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"generic-explanation\"}",
+      "tuned_response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"broader-than-reference\"}"
+    }
+  ],
+  "auto_eval": {
+    "base_metrics": {
+      "rows": 8,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.0,
+      "field_accuracy": {
+        "primary_label": 0.25,
+        "primary_evidence_key": 0.25,
+        "secondary_label": 0.25,
+        "secondary_evidence_key": 0.125
+      },
+      "invalid_examples": []
+    },
+    "tuned_metrics": {
+      "rows": 8,
+      "valid_json_rate": 1.0,
+      "exact_card_match_rate": 0.375,
+      "field_accuracy": {
+        "primary_label": 0.375,
+        "primary_evidence_key": 0.5,
+        "secondary_label": 0.375,
+        "secondary_evidence_key": 0.5
+      },
+      "invalid_examples": []
+    }
+  },
+  "task_aware_eval": {
+    "scheme": "forced_top2",
+    "base_metrics": {
+      "rows": 8,
+      "valid_json_rate": 0.0,
+      "exact_row_match_rate": 0.0,
+      "field_accuracy": {
+        "primary_label": 0.0,
+        "primary_evidence_key": 0.0,
+        "secondary_label": 0.0,
+        "secondary_evidence_key": 0.0
+      },
+      "invalid_reason_counts": {
+        "bad-primary-label": 6,
+        "bad-secondary-evidence-key": 1,
+        "bad-secondary-label": 1
+      },
+      "invalid_examples": [
+        {
+          "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+          "response": "{\n  \"primary_label\": \"missing-or-noncanonical-field\",\n  \"primary_evidence_key\": \"missing-or-noncanonical-field\",\n  \"secondary_label\": \"no-material-change\",\n  \"secondary_evidence_key\": \"no-material-change\"\n}",
+          "reason": "bad-primary-label"
+        },
+        {
+          "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+          "response": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"generic-explanation\"}",
+          "reason": "bad-secondary-evidence-key"
+        },
+        {
+          "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+          "response": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+          "reason": "bad-primary-label"
+        }
+      ],
+      "top2_set_match_rate": 0.0,
+      "top2_ordered_match_rate": 0.0,
+      "primary_label_accuracy": 0.0,
+      "secondary_label_accuracy": 0.0,
+      "primary_evidence_key_accuracy": 0.0,
+      "secondary_evidence_key_accuracy": 0.0,
+      "invalid_row_rate": 1.0,
+      "predicted_label_histogram": {},
+      "predicted_ordered_pair_histogram": {},
+      "most_common_ordered_pair": null,
+      "most_common_ordered_pair_rate": 0.0,
+      "mismatch_rows": 8,
+      "mismatch_ordered_pair_histogram": {},
+      "most_common_mismatch_ordered_pair": null,
+      "most_common_mismatch_ordered_pair_rate": 0.0,
+      "selector_collapse_alert": false,
+      "example_mismatches": [
+        {
+          "source_example_index": 0,
+          "source_run_id": "20260504T080000Z",
+          "gold_pair": [
+            "no-material-change",
+            "missing-required-detail"
+          ],
+          "predicted": "{\n  \"primary_label\": \"missing-or-noncanonical-field\",\n  \"primary_evidence_key\": \"missing-or-noncanonical-field\",\n  \"secondary_label\": \"no-material-change\",\n  \"secondary_evidence_key\": \"no-material-change\"\n}",
+          "reason": "bad-primary-label"
+        },
+        {
+          "source_example_index": 1,
+          "source_run_id": "20260504T081500Z",
+          "gold_pair": [
+            "missing-required-detail",
+            "generic-explanation"
+          ],
+          "predicted": "{\"primary_label\":\"missing-required-detail\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"generic-explanation\",\"secondary_evidence_key\":\"generic-explanation\"}",
+          "reason": "bad-secondary-evidence-key"
+        },
+        {
+          "source_example_index": 2,
+          "source_run_id": "20260504T083000Z",
+          "gold_pair": [
+            "fluency-without-correctness",
+            "missing-required-detail"
+          ],
+          "predicted": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+          "reason": "bad-primary-label"
+        },
+        {
+          "source_example_index": 3,
+          "source_run_id": "20260504T084700Z",
+          "gold_pair": [
+            "no-material-change",
+            "missing-required-detail"
+          ],
+          "predicted": "{\"primary_label\":\"no-material-change\",\"primary_evidence_key\":\"repeated-no-change\",\"secondary_label\":\"missing-or-noncanonical-field\",\"secondary_evidence_key\":\"missing-or-noncanonical-field\"}",
+          "reason": "bad-secondary-label"
+        },
+        {
+          "source_example_index": 4,
+          "source_run_id": "20260504T090200Z",
+          "gold_pair": [
+            "hallucinated-detail",
+            "missing-required-detail"
+          ],
+          "predicted": "{\"primary_label\":\"missing-or-noncanonical-field\",\"primary_evidence_key\":\"missing-or-noncanonical-field\",\"secondary_label\":\"no-material-change\",\"secondary_evidence_key\":\"repeated-no-change\"}",
+          "reason": "bad-primary-label"
+        }
+      ]
+    },
+    "tuned_metrics": {
+      "rows": 8,
+      "valid_json_rate": 0.875,
+      "exact_row_match_rate": 0.375,
+      "field_accuracy": {
+        "primary_label": 0.375,
+        "primary_evidence_key": 0.375,
+        "secondary_label": 0.375,
+        "secondary_evidence_key": 0.375
+      },
+      "invalid_reason_counts": {
+        "bad-primary-label": 1
+      },
+      "invalid_examples": [
+        {
+          "instruction": "Read the experiment evidence and return one strict JSON object with exactly these keys: primary_label, primary_evidence_key, secondary_label, secondary_evidence_key. Choose exactly two distinct failure modes ranked strongest to second strongest. Output JSON only.",
+          "response": "{\"primary_label\":\"overlap-untrustworthy\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-distortion\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}",
+          "reason": "bad-primary-label"
+        }
+      ],
+      "top2_set_match_rate": 0.375,
+      "top2_ordered_match_rate": 0.375,
+      "primary_label_accuracy": 0.375,
+      "secondary_label_accuracy": 0.375,
+      "primary_evidence_key_accuracy": 0.375,
+      "secondary_evidence_key_accuracy": 0.375,
+      "invalid_row_rate": 0.125,
+      "predicted_label_histogram": {
+        "generic-explanation": 5,
+        "missing-required-detail": 7,
+        "no-material-change": 2
+      },
+      "predicted_ordered_pair_histogram": {
+        "missing-required-detail -> generic-explanation": 5,
+        "no-material-change -> missing-required-detail": 2
+      },
+      "most_common_ordered_pair": "missing-required-detail -> generic-explanation",
+      "most_common_ordered_pair_rate": 0.625,
+      "mismatch_rows": 5,
+      "mismatch_ordered_pair_histogram": {
+        "missing-required-detail -> generic-explanation": 4
+      },
+      "most_common_mismatch_ordered_pair": "missing-required-detail -> generic-explanation",
+      "most_common_mismatch_ordered_pair_rate": 0.8,
+      "selector_collapse_alert": true,
+      "example_mismatches": [
+        {
+          "source_example_index": 2,
+          "source_run_id": "20260504T083000Z",
+          "gold_pair": [
+            "fluency-without-correctness",
+            "missing-required-detail"
+          ],
+          "gold_primary_evidence_key": "fluency-gain-without-correctness",
+          "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_pair": [
+            "missing-required-detail",
+            "generic-explanation"
+          ],
+          "predicted_primary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_secondary_evidence_key": "broader-than-reference"
+        },
+        {
+          "source_example_index": 4,
+          "source_run_id": "20260504T090200Z",
+          "gold_pair": [
+            "hallucinated-detail",
+            "missing-required-detail"
+          ],
+          "gold_primary_evidence_key": "invented-detail",
+          "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_pair": [
+            "missing-required-detail",
+            "generic-explanation"
+          ],
+          "predicted_primary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_secondary_evidence_key": "broader-than-reference"
+        },
+        {
+          "source_example_index": 5,
+          "source_run_id": "20260504T091900Z",
+          "gold_pair": [
+            "wrong-causal-point",
+            "no-material-change"
+          ],
+          "gold_primary_evidence_key": "missed-core-cause",
+          "gold_secondary_evidence_key": "mixed-fields-no-clear-task-win",
+          "predicted_pair": [
+            "missing-required-detail",
+            "generic-explanation"
+          ],
+          "predicted_primary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_secondary_evidence_key": "broader-than-reference"
+        },
+        {
+          "source_example_index": 6,
+          "source_run_id": "20260504T093100Z",
+          "gold_pair": [
+            "overlap-contaminated-eval",
+            "phrase-copy-or-template-collapse"
+          ],
+          "predicted": "{\"primary_label\":\"overlap-untrustworthy\",\"primary_evidence_key\":\"overlap-untrustworthy\",\"secondary_label\":\"phrase-copy-distortion\",\"secondary_evidence_key\":\"phrase-copy-distortion\"}",
+          "reason": "bad-primary-label"
+        },
+        {
+          "source_example_index": 7,
+          "source_run_id": "20260504T094500Z",
+          "gold_pair": [
+            "fluency-without-correctness",
+            "missing-required-detail"
+          ],
+          "gold_primary_evidence_key": "fluency-gain-without-correctness",
+          "gold_secondary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_pair": [
+            "missing-required-detail",
+            "generic-explanation"
+          ],
+          "predicted_primary_evidence_key": "missing-or-noncanonical-field",
+          "predicted_secondary_evidence_key": "broader-than-reference"
+        }
+      ]
+    }
+  },
+  "trainer_config": {
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_size": 8,
+    "assistant_only_loss": true,
+    "learning_rate": 0.0002,
+    "warmup_steps": 2
+  },
+  "next_steps": [
+    "Review task_aware_eval before trusting train loss or generic auto_eval.",
+    "Inspect rows where the tuned output is invalid JSON, uses illegal label/evidence pairings, or misses required fields.",
+    "Patch the dataset by field failure and branch-specific contract failure, not by train loss alone."
+  ]
+}

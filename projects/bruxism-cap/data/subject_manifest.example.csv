@@ -1,0 +1,5 @@
+subject_id,label,edf_path,channel,notes
+brux1,bruxism,projects/bruxism-cap/data/raw/capslpdb/brux1.edf,C4-P4,check channel availability first
+brux2,bruxism,projects/bruxism-cap/data/raw/capslpdb/brux2.edf,C4-P4,check channel availability first
+n3,control,projects/bruxism-cap/data/raw/capslpdb/n3.edf,C4-P4,healthy control used in paper-style tiny pilot
+n5,control,projects/bruxism-cap/data/raw/capslpdb/n5.edf,C4-P4,healthy control used in paper-style tiny pilot
