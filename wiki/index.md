@@ -1,7 +1,7 @@
 # Wiki Index
 
 > AI lab knowledge base for this profile.
-> Last updated: 2026-05-06 | Total pages: 86
+> Last updated: 2026-05-06 | Total pages: 90
 
 ## Entities
 - [[unsloth]] — Main fine-tuning framework currently chosen for the first learning track.
@@ -10,7 +10,7 @@
 - [[ai-lab-learning-path]] — The current staged plan for learning by doing across VPS, MacBook, and Modal.
 - [[artifact-card-sft]] — A paused structured-output fine-tuning track retained as a documented archive and possible later return path.
 - [[artifact-driven-experiment-debugging]] — Use saved Modal artifacts and run summaries as the main debugging surface for experiment iteration.
-- [[bruxism-cap]] — The main active ai-lab project: a small CAP-based EMG-first bruxism baseline with leakage-aware evaluation.
+- [[bruxism-cap]] — Completed public benchmark project: a small CAP-based bruxism baseline preserved as a leakage-aware benchmark history and methodology scaffold.
 - [[hermes-ai-lab-tutor-adapter]] — The original tutor-style first experiment, now mainly useful as a negative result and debugging case study.
 
 ## Comparisons
@@ -21,19 +21,23 @@
 - [[artifact-card-full-card-vs-failure-modes-branch]] — Comparison showing that a simple `primary_failure_modes`-only branch did not beat the full-card field score, pointing to label/evidence design rather than only field interference.
 - [[artifact-card-v1-vs-v2]] — Run-by-run comparison showing how constraining labels and phrases improved semantic field accuracy without changing the schema.
 - [[artifact-card-v2-vs-v3]] — Comparison showing that extra full-card scaffolding improved `next_action` but regressed other fields, motivating task decomposition.
-- [[bruxism-cap-patched-emg-vs-matched-c4-anchor-comparison-2026-05-05]] — Comparison showing that `C4-P4` still wins the narrow honest subject-level criterion and both channels remain scaffold-bottlenecked, so the next step should test whether the pass34 and pass35 EMG gains compose honestly.
+- [[bruxism-cap-patched-emg-vs-matched-c4-anchor-comparison-2026-05-05]] — Historical comparison showing that `C4-P4` still won the narrow honest subject-level criterion on that mid-branch scaffold, before the later repaired control-expanded closure sequence.
 - [[first-fine-tuning-project-options]] — Ranked comparison of better-scoped first fine-tuning project types after the repo-tutor adapter failed to improve reliably.
 
 ## Queries
 - [[bruxism-cap-emg-morphology-ideas-2026-05-05]] — Literature scan concluding that the strongest next EMG-first move is a record-relative, log-compressed morphology representation rerun rather than more deletion, a dataset switch, or a model-family rewrite.
 - [[bruxism-cap-kanban-policy-and-triage-2026-05-05]] — Short board policy fixing the role split, clarifying that `TRIAGE` is not auto-dispatched, and recording `t_98c3f05e` as the picked branch-spec card.
-- [[bruxism-cap-newcomer-deep-dive-2026-05-05]] — Newcomer-oriented briefing covering project goals, dataset, pass-by-pass evolution, lessons learned, critique, limitations, and best next steps.
+- [[bruxism-cap-newcomer-deep-dive-2026-05-05]] — Newcomer-oriented briefing covering project goals, dataset, pass-by-pass evolution, lessons learned, limitations, and the final closure read.
 - [[bruxism-cap-annotation-alignment-audit-2026-05-03]] — Follow-up audit showing that `n10` is unusable for local `SLEEP-S2` extraction and `brux1` is only partially usable, tightening the interpretation of the first stage-aware rerun.
 - [[bruxism-cap-autoresearch-loop-setup-2026-05-04]] — Best current patch-free setup for the bruxism autoresearch loop: profile-local cron job plus a dedicated ai-lab ticker service and explicit kickoff pattern.
-- [[bruxism-cap-campaign-handoff-2026-05-05]] — Revised campaign handoff concluding that `pass45` stays the repaired `A3-only` anchor, `pass46` is preserved only as a negative side variant, privacy and LLM/RL gates remain closed, and the exact next step is a frozen-`pass45` event-trio swap replacing `evt_interburst_gap_median_s` with `evt_phasic_like_episode_fraction`.
+- [[bruxism-cap-campaign-handoff-2026-05-05]] — Historical mid-branch handoff page explaining the repaired `A3-only` anchor logic before the later pass47/pass48 closure sequence.
 - [[bruxism-cap-dataset-decision-rubric-2026-05-06]] — Methodology note defining the weighted science-grounded rubric for deciding whether the project should stay on CAP, expand within CAP, or open a new dataset branch, with tiny-`N` honesty and label validity treated as harder constraints than raw scale or model ambition.
-- [[bruxism-cap-next-data-strategy-2026-05-06]] — Synthesis choosing one bounded CAP-adjacent control-side expansion as the next active branch, while portable jaw-EMG stays the deferred non-CAP backup behind explicit access and validity gates.
+- [[bruxism-cap-next-data-strategy-2026-05-06]] — Updated post-closure strategy page: CAP is complete as a public benchmark branch, so the next active direction should move to wearable/privacy/data-roadmap work rather than more CAP micro-passes.
 - [[bruxism-cap-control-side-expansion-audit-2026-05-06]] — Control-side audit narrowing the healthy `n*` branch to exact admissible subjects: admit `n1` and `n2`, keep `n3` / `n5` / `n11`, treat `n10` as refresh-needed, and exclude the rest from the current dual-channel contract.
+- [[bruxism-cap-control-side-download-verification-2026-05-06]] — Local verification that canonical `n1` and `n2` EDF/TXT files are present, byte-matched to PhysioNet, dual-channel compatible, and usable under the current `SLEEP-S2` + exclusive `A1` / `A3` extraction contract.
+- [[bruxism-cap-pass47-control-expanded-rerun-2026-05-06]] — Exact 7-subject repaired-`A3-only` control-expanded rerun showing the last useful ambiguity before closure: specificity held under the first bounded control expansion, which justified the final matched `A1-only` follow-up.
+- [[bruxism-cap-pass47-control-expanded-branch-verdict-2026-05-06]] — Historical pre-`pass48` verdict page explaining why one final matched repaired `A1-only` replication was justified before the branch was closed.
+- [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] — Final bounded repaired-`A1-only` control-expanded replication showing the branch closes cleanly: both bruxism subjects stay below threshold, `n2` reopens as a false positive, and the CAP benchmark should now be treated as complete rather than extended through more micro-passes.
 - [[bruxism-cap-brux1-localization-after-pass36-2026-05-05]] — Follow-up audit showing that `brux1`, not `n3`, is now the active pass36 bottleneck; the deeper fold read localizes a catastrophic early three-window collapse inside the record-relative amplitude/dispersion block, and both privacy and LLM/RL future-branch promotions remain gated.
 - [[bruxism-cap-pass37-tiny-amplitude-stabilization-audit-2026-05-05]] — Tiny post-pass36 clipping audit showing that a minimal cap on three recurring record-relative amplitude features softens the catastrophic early `brux1` trio but does not fix the benchmark, pointing next toward a still-narrow earlier-stage record-relative stabilization check.
 - [[bruxism-cap-pass38-envelope-cv-scale-floor-audit-2026-05-05]] — Earlier-stage single-feature floor audit showing that a tail-aware `envelope_cv` record-relative scale floor does not materially soften the early `brux1` collapse, preserves the repaired control surface, and points next toward one bounded multi-feature floor check inside the same amplitude block.

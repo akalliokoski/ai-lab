@@ -15,7 +15,9 @@ sources:
 
 # Bruxism CAP pass45 next-step synthesis
 
-Question: after pass44 repaired the `A3-only` scaffold, the fresh jaw-EMG literature lane proposed one small cluster-density add-back, and the methodology lane proposed paired subject-surface reporting, what should the repo promote next as exactly one primary experiment and one bounded measurement upgrade? [[bruxism-cap]] [[bruxism-cap-pass44-cross-family-asymmetry-audit-2026-05-05]] [[bruxism-cap-pass42-pass44-cross-family-methodology-review-2026-05-05]]
+Historical note: this page captures an earlier branch-decision point before the later pass47/pass48 closure sequence. Its proposed next step was valid for that moment, but it is now superseded by the finished repaired control-expanded closure chain. Use it as historical context for why the repaired `A3-only` lane was explored, not as current project guidance. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+Question: after pass44 repaired the `A3-only` scaffold, the fresh jaw-EMG literature lane proposed one small cluster-density add-back, and the methodology lane proposed paired subject-surface reporting, what should the repo promote next as exactly one primary experiment and one bounded measurement upgrade at that stage? [[bruxism-cap]] [[bruxism-cap-pass44-cross-family-asymmetry-audit-2026-05-05]] [[bruxism-cap-pass42-pass44-cross-family-methodology-review-2026-05-05]]
 
 ## Answer in one sentence
 Promote one repaired-`A3-only` same-table shape-only ablation as the primary experiment and one standardized paired subject-surface audit as the measurement upgrade; keep the one-feature `evt_bursts_per_episode_mean` add-back alive only as the backup branch.

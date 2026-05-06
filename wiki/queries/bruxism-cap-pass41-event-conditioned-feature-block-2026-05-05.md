@@ -17,7 +17,9 @@ sources:
 
 # Bruxism CAP pass41 event-conditioned feature block literature memo
 
-Question: after pass40 closes the bounded `envelope_cv` companion-floor subloop, what is the smallest source-verified next representation step that still fits the repo's fixed CAP scaffold? [[bruxism-cap]] [[bruxism-cap-pass40-envelope-cv-rectified-std-scale-floor-audit-2026-05-05]]
+Historical note: this page records the literature logic that justified the pass41 event-conditioned feature block at the time. That branch later became part of the broader repaired-scaffold history and is now preserved as benchmark archaeology rather than a live representation proposal. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+Question: after pass40 closed the bounded `envelope_cv` companion-floor subloop, what was the smallest source-verified next representation step that still fit the repo's fixed CAP scaffold? [[bruxism-cap]] [[bruxism-cap-pass40-envelope-cv-rectified-std-scale-floor-audit-2026-05-05]]
 
 ## Answer in one sentence
 Yes: the next representation step should move toward burst / event-conditioned jaw-EMG summaries, but only as one compact appended block on top of pass36 rather than as a detector rewrite, dataset switch, or deep model pivot. [[bruxism-cap-record-relative-shape-composition-audit-2026-05-05]] [[bruxism-cap-pass40-envelope-cv-rectified-std-scale-floor-audit-2026-05-05]]

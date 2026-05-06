@@ -12,7 +12,9 @@ sources:
 ---
 
 # Question
-After the repo-specific privacy threat-model memo was completed, what durable project conclusions should the wiki preserve about why the privacy branch was activated now, what the memo concluded, what stays on the benchmark loop, and the exact gate for the next privacy task?
+After the repo-specific privacy threat-model memo was completed, what durable project conclusions should the wiki preserve about why the privacy branch was activated, what the memo concluded, and what gate should govern the next privacy task in the now post-CAP project state?
+
+Historical note: this memo was written when the CAP benchmark was still active. It remains useful, but the benchmark-loop parts should now be interpreted through the closure result: CAP is complete, so privacy work is no longer waiting behind more CAP micro-passes. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
 
 # Short answer
 Activate the privacy branch now only in memo form, not as a benchmark pivot.

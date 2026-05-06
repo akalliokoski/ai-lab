@@ -21,6 +21,8 @@ Is there now a more suitable bruxism project and dataset than the current `bruxi
 # Short answer
 There is a more suitable project shape, but I did not find a clearly better open dataset.
 
+Update after closure: this page should now be read as an early strategic precursor to the post-CAP successor direction. Its core literature conclusion still holds — portable jaw-muscle EMG is the stronger translational direction — but the benchmark-comparison framing has changed because the CAP branch is now complete rather than still active. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
 The stronger 2024-2026 research direction is:
 - portable jaw-muscle EMG for ecological monitoring
 - multi-night recording instead of single-night snapshots

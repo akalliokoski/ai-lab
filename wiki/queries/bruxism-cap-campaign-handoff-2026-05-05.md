@@ -1,7 +1,7 @@
 ---
 title: Bruxism CAP campaign handoff (2026-05-05)
 created: 2026-05-05
-updated: 2026-05-05
+updated: 2026-05-06
 type: query
 tags: [research, dataset, evaluation, experiment, notes]
 sources:
@@ -9,84 +9,45 @@ sources:
   - ../projects/bruxism-cap/reports/pass45-honest-benchmark-verdict-2026-05-05.md
   - ../projects/bruxism-cap/reports/pass46-honest-benchmark-verdict-2026-05-05.md
   - ../projects/bruxism-cap/reports/pass46-next-step-synthesis-2026-05-05.md
-  - bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05.md
-  - bruxism-cap-pass46-next-step-synthesis-2026-05-05.md
-  - concepts/bruxism-cap.md
+  - queries/bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06.md
 ---
 
-# Question
-After the repaired `A3-only` post-pass44 branch closed through the negative `pass46` add-back verdict, should the current `bruxism-cap` autoresearch loop continue, and what exact bounded step should replace the failed one-feature density add-back lane? [[bruxism-cap]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]] [[bruxism-cap-pass46-next-step-synthesis-2026-05-05]]
+# Bruxism CAP campaign handoff (historical)
 
-# Short answer
-Continue, but continue more narrowly.
+Historical note: this page captures a mid-branch handoff before the later pass47/pass48 closure sequence. It should now be read as historical branch context only. The benchmark no longer continues from the exact next-step recommendation preserved here because the branch was later closed by `pass48`. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]]
 
-The durable campaign-level read is now: keep `pass45` as the repaired `A3-only` anchor, preserve `pass46` only as a biologically coherent side-variant negative-result memo, keep privacy and LLM/RL gates closed, and move next to one fixed-width repaired-`A3-only` event-trio swap rather than another one-feature density/count add-back. [[bruxism-cap-pass45-honest-benchmark-verdict-2026-05-05]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]]
+## What this page originally did
+This handoff recorded the branch state after the repaired `A3-only` post-pass44 line had stabilized through `pass45` and the one-feature add-back lane (`pass46`) had failed to replace it cleanly.
 
-# What moved in the branch
+The useful historical takeaways that still stand are:
+- `pass45` was the strongest repaired `A3-only` anchor on the five-subject scaffold
+- `pass46` was a meaningful but still negative side-variant
+- the branch was still benchmark-ambiguous rather than benchmark-positive
 
-## 1. `pass45` still owns the repaired `A3-only` anchor
-`pass45` remains the clean repaired `A3-only` reference because it materially improved the paired subject surface over `pass44` while keeping the tiny-N headline fixed:
-- `brux1`: `0.532 -> 0.641`
-- `brux2`: `0.123 -> 0.178`
-- highest control: `0.395 -> 0.345`
-- best-bruxism-minus-highest-control margin: `+0.138 -> +0.295`
-- subject Brier: `0.256 -> 0.211` ^[../projects/bruxism-cap/reports/campaign-handoff-2026-05-05.md]
+## What no longer stands as live guidance
+The original exact next-step recommendation on this page was to continue the repaired `A3-only` loop with another bounded event-trio swap. That recommendation is now superseded.
 
-## 2. `pass46` changed `brux2` directionally, but not decisively
-Restoring only `evt_bursts_per_episode_mean` on top of frozen `pass45` nudged the unresolved subject in the right direction:
-- `brux2`: `0.178 -> 0.196`
-- `brux2 - highest_control`: `-0.167 -> -0.151`
-- controls stayed below threshold
+What happened later instead:
+- the project moved into the repaired cross-family and control-expanded phase
+- `pass47` showed the repaired `A3-only` line survived the first bounded specificity stress test
+- `pass48` then ran the final matched repaired `A1-only` control-expanded replication and closed the benchmark loop in the negative direction
 
-But the run still did not beat the anchor where it mattered:
-- `brux1`: `0.641 -> 0.639`
-- headline stayed `0.750 / 0.500 / 1.000`
-- best-bruxism-minus-highest-control margin slipped `+0.295 -> +0.292` ^[../projects/bruxism-cap/reports/pass46-honest-benchmark-verdict-2026-05-05.md]
+## How to use this page now
+Use this page as:
+- a historical snapshot of the mid-branch logic
+- context for why `pass45` mattered
+- context for why the benchmark was still considered ambiguous before the final closure sequence
 
-So `pass46` should be preserved as a meaningful negative result, not promoted as the new repaired `A3-only` anchor. [[bruxism-cap-pass46-one-feature-addback-2026-05-05]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]]
+Do not use it as the current project plan.
 
-## 3. The bottleneck is now narrower than the old handoff
-The current branch is no longer asking whether one extra event-organization feature can move `brux2` at all. `pass46` already showed that it can, at least slightly.
+## Current replacement read
+The current project read is:
+- CAP benchmark: complete
+- preserve `pass45` and `pass47` as important repaired-anchor evidence
+- preserve `pass48` as the closure artifact
+- move future work away from more CAP micro-passes and toward the wearable/privacy/data-roadmap branch
 
-The narrower remaining bottleneck is this:
-- repaired `A3-only` is still count-matched but subject-unstable
-- `brux1` stays rescued on the repaired no-shape surface
-- `brux2` still remains below the highest control
-- one extra density-style feature was not selective enough to solve that miss
-
-That means the next move should stay inside the compact event-organization lane, but outside the exact failed `evt_bursts_per_episode_mean` add-back lane. [[bruxism-cap-pass46-next-step-synthesis-2026-05-05]]
-
-# Why the loop should continue
-
-## 1. The branch still has one smaller honest question left
-The surviving next question is now a fixed-width trio replacement, not a broad feature search: keep the repaired `pass45` scaffold frozen, preserve the safer event backbone terms, and test whether `evt_phasic_like_episode_fraction` is a better repaired-`A3-only` organization descriptor than `evt_interburst_gap_median_s`. [[bruxism-cap-pass46-next-step-synthesis-2026-05-05]]
-
-## 2. Negative results became sharper, not less useful
-`pass46` did not kill the event lane; it killed one exact add-back lane. That is useful because it narrows the next experiment without pretending the whole event-organization idea failed. [[bruxism-cap-pass46-bursts-per-episode-add-back-review-2026-05-05]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]]
-
-## 3. Future branches remain real but still gated
-The privacy/PET and LLM/RL roadmap notes remain legitimate downstream branches, but this branch did not move their activation gate. Subject-level sensitivity is still only `0.500`, the headline subject verdict did not improve, and repaired `A3-only` still fails to recover both bruxism subjects above the highest control. [[bruxism-cap-privacy-pets-roadmap-2026-05-05]] [[bruxism-cap-llm-rl-roadmap-2026-05-05]]
-
-# Continue or pause?
-Continue.
-
-But continue on this revised durable read:
-- honest comparison anchor: `pass29 C4-P4`
-- repaired `A1-only` anchor: `pass42`
-- repaired `A3-only` anchor: `pass45`
-- pass46 label: biologically coherent side-variant negative result
-- campaign-level benchmark label: still `ambiguous`, not benchmark-positive
-
-Do not pause for reframing yet.
-
-# Best next bounded task
-Queue exactly one implementation/run task on the current board:
-- reuse the frozen `pass45` repaired `A3-only` no-shape table and LOSO contract
-- keep `evt_active_fraction`
-- keep `evt_burst_duration_median_s`
-- drop only `evt_interburst_gap_median_s`
-- add only `evt_phasic_like_episode_fraction`
-- keep subject set, selected rows, threshold, channel family, base exclusions, and shape-drop exclusions fixed
-- require a paired subject-surface audit against frozen `pass45`
-
-This is the highest-value next task because it stays outside the failed density/count add-back lane, keeps the event block width fixed at three features, and tests the strongest surviving repaired-`A3-only` episode-organization hypothesis without reopening scaffold, model, privacy, or LLM/RL scope. [[bruxism-cap-pass46-next-step-synthesis-2026-05-05]]
+## Best pages to read instead
+- [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] — final closure result
+- [[bruxism-cap-next-data-strategy-2026-05-06]] — updated post-closure direction
+- [[bruxism-cap]] — current concept-page summary

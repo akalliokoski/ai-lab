@@ -10,7 +10,9 @@ sources:
 
 # Bruxism CAP Privacy PETs Roadmap
 
-This report is best treated as a future-branch roadmap for `bruxism-cap`, not as an immediate replacement for the current leakage-aware CAP benchmark loop. The current project still needs a stronger honest EMG benchmark anchor first. But the report is important because it defines a credible next research surface once the benchmark is stable: privacy-preserving learning, storage, and cohort analysis for wearable jaw EMG. This should be treated as a differentiating direction for the project, not as optional polish or a generic afterthought. [[bruxism-cap]] [[bruxism-cap-translational-framing-check-2026-05-05]]
+Historical note: this page originally framed privacy PET work as a future branch that should wait behind the active CAP benchmark loop. The benchmark loop is now closed, so this page should be read as successor-roadmap material for the post-CAP phase rather than as a deferred side branch behind more CAP passes. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+This report is best treated as a post-CAP successor roadmap for `bruxism-cap`, not as a replacement for a still-running benchmark loop. The current benchmark is complete, and the report remains important because it defines a credible next research surface: privacy-preserving learning, storage, and cohort analysis for wearable jaw EMG. This should be treated as a differentiating direction for the project, not as optional polish or a generic afterthought. [[bruxism-cap]] [[bruxism-cap-translational-framing-check-2026-05-05]]
 
 ## Best Hermes-native home for this material
 

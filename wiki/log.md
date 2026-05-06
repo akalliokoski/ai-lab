@@ -2,6 +2,29 @@
 
 > Chronological record of wiki actions.
 
+## [2026-05-06] update | bruxism-cap pass47 verdict preservation tightening
+- Files updated:
+  - queries/bruxism-cap-pass47-control-expanded-branch-verdict-2026-05-06.md
+  - concepts/bruxism-cap.md
+  - index.md
+  - log.md
+- Notes:
+  - Tightened the preserved pass47 verdict so the wiki now states the exact frozen `7`-subject contract explicitly: `brux1`, `brux2`, `n1`, `n2`, `n3`, `n5`, `n11` on `EMG1-EMG2` with the repaired no-shape exclusions and retained event trio carried forward into the chosen repaired-`A1-only` replication.
+  - Made the fragile-result read board-safe rather than only implicit: `n1` and `n2` stayed below threshold, the repaired-`A3-only` specificity story held narrowly enough to remain useful, but the benchmark still stays ambiguous because `brux2` remains below the highest control and this must not be blurred into a larger bruxism dataset claim.
+  - Recorded the gate status explicitly alongside the next exact task: repaired-`A1-only` replication is now the bounded follow-up, the repaired-`A3-only` phasic-fraction swap stays deferred, portable jaw-EMG remains deferred, and the privacy branch remains blocked/gated.
+
+## [2026-05-06] query | bruxism-cap control-side download verification
+- Files created:
+  - queries/bruxism-cap-control-side-download-verification-2026-05-06.md
+  - ../projects/bruxism-cap/reports/cap-control-side-download-verification-2026-05-06.md
+- Files updated:
+  - index.md
+  - log.md
+- Notes:
+  - Preserved the exact local verification step that had been left implicit after the control-side audit: canonical `n1` and `n2` are already present in the repo raw-data layout and every local file matches the canonical PhysioNet byte count exactly.
+  - Recorded the local compatibility facts needed before any bounded control-expanded rerun: both records expose `EMG1-EMG2` and `C4-P4`, and the sidecars keep usable in-range `SLEEP-S2`, exclusive `A1-only`, and exclusive `A3-only` rows under the current extraction contract (`n1`: `508/139/56`, `n2`: `367/94/49`).
+  - Kept the branch interpretation stable rather than over-editing it: the manifest proposal already encoded the same admissible-set counts correctly, so `n1` and `n2` are now locally verified additions while `n10` remains `refresh_needed`.
+
 ## [2026-05-06] query | bruxism-cap control-side expansion audit
 - Files created:
   - queries/bruxism-cap-control-side-expansion-audit-2026-05-06.md
@@ -2127,3 +2150,80 @@
   - Revised the durable campaign handoff after the post-pass44 branch closed through `pass45`: preserve `pass45` as the repaired `A3-only` anchor because it materially improves the repaired `A3-only` score surface over `pass44`, but preserve equally clearly that the honest benchmark verdict still stays `ambiguous` rather than `positive`.
   - Recorded the exact failure/improvement split for downstream readers: the repaired `A3-only` branch improves locally (`brux1` `0.532 -> 0.641`, `brux2` `0.123 -> 0.178`, highest control `0.395 -> 0.345`, margin `+0.138 -> +0.295`) while the honest headline stays fixed at `0.750 / 0.500 / 1.000` and `brux2` still remains below the highest control.
   - Preserved that neither future branch gate moved: the privacy export-schema task and the first bounded LLM/RL memo tasks remain closed, and the exact next bounded benchmark step is to restore only `evt_bursts_per_episode_mean` on top of the frozen pass42/pass45 scaffold.
+
+## [2026-05-06] query | bruxism-cap pass47 control-expanded rerun
+- Files created:
+  - queries/bruxism-cap-pass47-control-expanded-rerun-2026-05-06.md
+  - ../projects/bruxism-cap/reports/pass47-control-expanded-rerun.md
+  - ../projects/bruxism-cap/reports/pass47-control-expanded-rerun.json
+  - ../projects/bruxism-cap/reports/loso-cv-pass47-emg-a3-control-expanded.json
+  - ../projects/bruxism-cap/reports/pass47-vs-pass45-paired-subject-surface-audit.md
+  - ../projects/bruxism-cap/reports/pass47-vs-pass45-paired-subject-surface-audit.json
+  - ../projects/bruxism-cap/reports/pass47-vs-pass46-paired-subject-surface-audit.md
+  - ../projects/bruxism-cap/reports/pass47-vs-pass46-paired-subject-surface-audit.json
+  - ../projects/bruxism-cap/reports/time-position-match-pass47-emg-a3-pct10-90-control-expanded.json
+  - ../projects/bruxism-cap/data/window_features_pass47_emg_s2_mcap_a3_only_full_envelope_shape_control_expanded.csv
+  - ../projects/bruxism-cap/data/window_features_pass47_emg_s2_mcap_a3_only_pct10_90_timepos10_shape_control_expanded.csv
+  - ../projects/bruxism-cap/data/window_features_pass47_emg_s2_mcap_a3_only_control_expanded.csv
+  - ../projects/bruxism-cap/src/run_pass47_control_expanded_rerun.py
+- Files updated:
+  - concepts/bruxism-cap.md
+  - index.md
+  - log.md
+- Notes:
+  - Preserved the first exact 7-subject control-expanded stress test for the frozen repaired `A3-only` no-shape anchor: keep `EMG1-EMG2`, exclusive `SLEEP-S2 + MCAP-A3-only`, the repaired percentile-band time-aware selector, cap `10`, and the fixed event trio while adding only verified controls `n1` and `n2` to the prior `brux1`, `brux2`, `n3`, `n5`, `n11` set.
+  - Recorded the bounded positive read honestly: the 7-subject rerun keeps all five controls predicted `control`, places `n1` at `0.196` and `n2` at `0.120`, and improves the best-bruxism-minus-highest-control margin to `+0.335`, even though `brux2` still remains below the highest control and the branch therefore stays a promising but still ambiguous benchmark line rather than a clean win.
+  - Fixed the exact next question downstream: run a matched `A1-only` replication on the same 7-subject control-expanded set and frozen no-shape contract before reopening broader feature rewrites, model pivots, or non-CAP branch promotion.
+
+## [2026-05-06] query | bruxism-cap pass47 control-expanded branch verdict
+- Files created:
+  - queries/bruxism-cap-pass47-control-expanded-branch-verdict-2026-05-06.md
+  - ../projects/bruxism-cap/reports/pass47-control-expanded-branch-verdict-2026-05-06.md
+- Files updated:
+  - concepts/bruxism-cap.md
+  - index.md
+  - log.md
+- Notes:
+  - Preserved the stricter post-pass47 read that the first exact 7-subject control-expanded rerun is informative but not promotable to a benchmark win: the subject-level headline stays `0.750 / 0.500 / 1.000`, `n1` and `n2` both remain below threshold, and `brux2` still sits below the highest control.
+  - Recorded the key paired-surface evidence explicitly: the repaired `A3-only` best-bruxism-minus-highest-control margin improves against both repaired 5-subject references (`+0.295 -> +0.335` versus pass45 and `+0.292 -> +0.335` versus pass46), so the result is better read as preserved specificity than as fragility.
+  - Fixed exactly one next operational move for the repo: promote a matched repaired `A1-only` replication on the same 7-subject control-expanded set and frozen no-shape contract, while explicitly deferring the previously proposed repaired-`A3-only` phasic-fraction event-trio swap.
+
+## [2026-05-06] query | bruxism-cap pass48 control-expanded A1 replication
+- Files created:
+  - queries/bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06.md
+  - ../projects/bruxism-cap/src/run_pass48_control_expanded_a1_replication.py
+  - ../projects/bruxism-cap/data/window_features_pass48_emg_s2_mcap_a1_only_full_envelope_shape_control_expanded.csv
+  - ../projects/bruxism-cap/data/window_features_pass48_emg_s2_mcap_a1_only_pct10_90_timepos10_shape_control_expanded.csv
+  - ../projects/bruxism-cap/data/window_features_pass48_emg_s2_mcap_a1_only_control_expanded.csv
+  - ../projects/bruxism-cap/reports/time-position-match-pass48-emg-a1-pct10-90-control-expanded.json
+  - ../projects/bruxism-cap/reports/loso-cv-pass48-emg-a1-control-expanded.json
+  - ../projects/bruxism-cap/reports/pass48-control-expanded-a1-replication.json
+  - ../projects/bruxism-cap/reports/pass48-control-expanded-a1-replication.md
+  - ../projects/bruxism-cap/reports/pass48-vs-pass47-control-expanded-cross-family-audit.json
+  - ../projects/bruxism-cap/reports/pass48-vs-pass47-control-expanded-cross-family-audit.md
+- Files updated:
+  - concepts/bruxism-cap.md
+  - index.md
+  - log.md
+- Notes:
+  - Ran the final bounded repaired `A1-only` control-expanded replication on the exact same `7`-subject contract used by pass47, carrying forward the repaired percentile-band selector, record-relative surface, fixed pass42 event trio, and no-shape train-time exclusions.
+  - Verified a clean matched table build with `466` raw exclusive `A1-only` candidate rows, exactly `10` selected windows per subject, and zero nulls after the event-feature merge.
+  - Preserved the decisive closure result: the matched repaired `A1-only` rerun falls to subject-level balanced accuracy `0.400`, sensitivity `0.000`, and specificity `0.800`, misses both bruxism subjects, and reopens the control surface through `n2` at `0.614`, so the public CAP benchmark should now be treated as complete rather than extended through more micro-passes.
+
+## [2026-05-06] update | bruxism-cap final closure report and wiki cleanup
+- Files created:
+  - ../projects/bruxism-cap/reports/bruxism-cap-final-closure-report-2026-05-06.md
+- Files updated:
+  - ../projects/bruxism-cap/README.md
+  - concepts/bruxism-cap.md
+  - queries/bruxism-cap-next-data-strategy-2026-05-06.md
+  - queries/bruxism-cap-pass47-control-expanded-branch-verdict-2026-05-06.md
+  - queries/bruxism-cap-campaign-handoff-2026-05-05.md
+  - queries/bruxism-cap-newcomer-deep-dive-2026-05-05.md
+  - queries/bruxism-scout-results-2026-05-06.md
+  - index.md
+  - log.md
+- Notes:
+  - Wrote a comprehensive final closure report for `bruxism-cap`, including glossary terms, project history, final benchmark anchors, exact pass48 implementation details, and the post-closure interpretation.
+  - Rewrote the main concept page around the finished benchmark state so it now reflects closure instead of stale pre-pass48 next-step guidance.
+  - Cleaned the most visible closure-conflicting wiki pages by either converting them into historical context pages or rewriting them around the current post-closure strategy.

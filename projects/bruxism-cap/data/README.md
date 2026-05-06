@@ -8,8 +8,9 @@ Expected raw EDF files live under:
 
 Suggested bounded control-side subset:
 - bruxism: `brux1.edf`, `brux2.edf`
-- already verified controls: `n3.edf`, `n5.edf`, `n11.edf`
-- next admissible control additions: `n1.edf`, `n2.edf`
+- verified controls: `n1.edf`, `n2.edf`, `n3.edf`, `n5.edf`, `n11.edf`
+
+Canonical local verification completed on `2026-05-06` for `n1` and `n2`: both local EDF and TXT sidecars now match the canonical PhysioNet byte sizes, both records expose `EMG1-EMG2` plus `C4-P4`, and both preserve the previously audited in-range `SLEEP-S2` / exclusive-`A1` / exclusive-`A3` counts.
 
 Keep this branch tiny. The goal is to stress specificity under a fixed two-positive public benchmark, not to maximize sample count.
 

@@ -1,0 +1,424 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass47_emg_s2_mcap_a3_only_full_envelope_shape_control_expanded.csv",
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n1",
+    "n2",
+    "n3",
+    "n5",
+    "n11"
+  ],
+  "match_mode": "percentile-band",
+  "percentile_band": {
+    "lower_quantile": 0.1,
+    "upper_quantile": 0.9
+  },
+  "cap_per_subject": 10,
+  "pre_filter_rows": 403,
+  "subjects_summary": {
+    "brux1": {
+      "label": "bruxism",
+      "candidate_rows_after_match_filter": 25,
+      "candidate_start_s": {
+        "count": 25,
+        "min": 2510.0,
+        "median": 8240.0,
+        "mean": 7412.0,
+        "max": 12140.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 2510.0,
+        "median": 8240.0,
+        "mean": 7442.0,
+        "max": 12140.0
+      },
+      "selected_start_s_values": [
+        2510.0,
+        3260.0,
+        4280.0,
+        5870.0,
+        8210.0,
+        8270.0,
+        8570.0,
+        9680.0,
+        11630.0,
+        12140.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 25,
+        "min": 0.1,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.9
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.1,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.9
+      },
+      "selected_relative_time_quantile_values": [
+        0.1,
+        0.2,
+        0.26666666666666666,
+        0.36666666666666664,
+        0.4666666666666667,
+        0.5333333333333333,
+        0.6333333333333333,
+        0.7333333333333333,
+        0.8,
+        0.9
+      ]
+    },
+    "brux2": {
+      "label": "bruxism",
+      "candidate_rows_after_match_filter": 89,
+      "candidate_start_s": {
+        "count": 89,
+        "min": 4800.0,
+        "median": 14220.0,
+        "mean": 15309.438202247191,
+        "max": 24990.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 4800.0,
+        "median": 14580.0,
+        "mean": 15264.0,
+        "max": 24990.0
+      },
+      "selected_start_s_values": [
+        4800.0,
+        7620.0,
+        12180.0,
+        13050.0,
+        14010.0,
+        15150.0,
+        18720.0,
+        19410.0,
+        22710.0,
+        24990.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 89,
+        "min": 0.1,
+        "median": 0.5,
+        "mean": 0.49999999999999994,
+        "max": 0.9
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.1,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.9
+      },
+      "selected_relative_time_quantile_values": [
+        0.1,
+        0.19090909090909092,
+        0.2818181818181818,
+        0.36363636363636365,
+        0.45454545454545453,
+        0.5454545454545454,
+        0.6363636363636364,
+        0.7181818181818181,
+        0.8090909090909091,
+        0.9
+      ]
+    },
+    "n1": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 44,
+      "candidate_start_s": {
+        "count": 44,
+        "min": 7740.0,
+        "median": 24525.0,
+        "mean": 23421.81818181818,
+        "max": 33720.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 7740.0,
+        "median": 24360.0,
+        "mean": 23322.0,
+        "max": 33720.0
+      },
+      "selected_start_s_values": [
+        7740.0,
+        11760.0,
+        19470.0,
+        22140.0,
+        24090.0,
+        24630.0,
+        27330.0,
+        30000.0,
+        32340.0,
+        33720.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 44,
+        "min": 0.10909090909090909,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8909090909090909
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10909090909090909,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8909090909090909
+      },
+      "selected_relative_time_quantile_values": [
+        0.10909090909090909,
+        0.2,
+        0.2909090909090909,
+        0.36363636363636365,
+        0.45454545454545453,
+        0.5454545454545454,
+        0.6363636363636364,
+        0.7090909090909091,
+        0.8,
+        0.8909090909090909
+      ]
+    },
+    "n2": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 39,
+      "candidate_start_s": {
+        "count": 39,
+        "min": 11880.0,
+        "median": 21060.0,
+        "mean": 22289.23076923077,
+        "max": 34200.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 11880.0,
+        "median": 21495.0,
+        "mean": 22698.0,
+        "max": 34200.0
+      },
+      "selected_start_s_values": [
+        11880.0,
+        15120.0,
+        15780.0,
+        18240.0,
+        21000.0,
+        21990.0,
+        23430.0,
+        32490.0,
+        32850.0,
+        34200.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 39,
+        "min": 0.10416666666666667,
+        "median": 0.5,
+        "mean": 0.4999999999999999,
+        "max": 0.8958333333333334
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10416666666666667,
+        "median": 0.5,
+        "mean": 0.4999999999999999,
+        "max": 0.8958333333333334
+      },
+      "selected_relative_time_quantile_values": [
+        0.10416666666666667,
+        0.1875,
+        0.2708333333333333,
+        0.375,
+        0.4583333333333333,
+        0.5416666666666666,
+        0.625,
+        0.7291666666666666,
+        0.8125,
+        0.8958333333333334
+      ]
+    },
+    "n3": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 60,
+      "candidate_start_s": {
+        "count": 60,
+        "min": 11640.0,
+        "median": 25395.0,
+        "mean": 24092.5,
+        "max": 32040.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 11640.0,
+        "median": 25350.0,
+        "mean": 24033.0,
+        "max": 32040.0
+      },
+      "selected_start_s_values": [
+        11640.0,
+        19920.0,
+        20730.0,
+        24660.0,
+        25050.0,
+        25650.0,
+        26010.0,
+        26820.0,
+        27810.0,
+        32040.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 60,
+        "min": 0.10666666666666667,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8933333333333333
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10666666666666667,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8933333333333333
+      },
+      "selected_relative_time_quantile_values": [
+        0.10666666666666667,
+        0.2,
+        0.28,
+        0.37333333333333335,
+        0.4533333333333333,
+        0.5466666666666666,
+        0.6266666666666667,
+        0.72,
+        0.8,
+        0.8933333333333333
+      ]
+    },
+    "n5": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 30,
+      "candidate_start_s": {
+        "count": 30,
+        "min": 5910.0,
+        "median": 14625.0,
+        "mean": 17101.0,
+        "max": 29670.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 5910.0,
+        "median": 14625.0,
+        "mean": 16830.0,
+        "max": 29670.0
+      },
+      "selected_start_s_values": [
+        5910.0,
+        8190.0,
+        11970.0,
+        14100.0,
+        14580.0,
+        14670.0,
+        22590.0,
+        22890.0,
+        23730.0,
+        29670.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 30,
+        "min": 0.10810810810810811,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8918918918918919
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10810810810810811,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8918918918918919
+      },
+      "selected_relative_time_quantile_values": [
+        0.10810810810810811,
+        0.1891891891891892,
+        0.2702702702702703,
+        0.3783783783783784,
+        0.4594594594594595,
+        0.5405405405405406,
+        0.6216216216216216,
+        0.7297297297297297,
+        0.8108108108108109,
+        0.8918918918918919
+      ]
+    },
+    "n11": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 32,
+      "candidate_start_s": {
+        "count": 32,
+        "min": 2160.0,
+        "median": 14130.0,
+        "mean": 13685.625,
+        "max": 27690.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 2160.0,
+        "median": 14535.0,
+        "mean": 13755.0,
+        "max": 27690.0
+      },
+      "selected_start_s_values": [
+        2160.0,
+        6870.0,
+        10380.0,
+        10920.0,
+        13020.0,
+        16050.0,
+        16380.0,
+        16920.0,
+        17160.0,
+        27690.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 32,
+        "min": 0.12195121951219512,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8780487804878049
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.12195121951219512,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8780487804878049
+      },
+      "selected_relative_time_quantile_values": [
+        0.12195121951219512,
+        0.1951219512195122,
+        0.2926829268292683,
+        0.36585365853658536,
+        0.4634146341463415,
+        0.5365853658536586,
+        0.6341463414634146,
+        0.7073170731707317,
+        0.8048780487804879,
+        0.8780487804878049
+      ]
+    }
+  },
+  "out_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass47_emg_s2_mcap_a3_only_pct10_90_timepos10_shape_control_expanded.csv",
+  "rows_written": 70,
+  "selected_subject_means": {
+    "brux1": 7442.0,
+    "brux2": 15264.0,
+    "n1": 23322.0,
+    "n2": 22698.0,
+    "n3": 24033.0,
+    "n5": 16830.0,
+    "n11": 13755.0
+  }
+}

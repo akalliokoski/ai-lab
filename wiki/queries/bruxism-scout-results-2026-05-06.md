@@ -12,103 +12,70 @@ sources:
   - raw/articles/home-vs-lab-wearable-emg-2022.md
   - raw/articles/portable-emg-temporal-patterns-2026.md
   - raw/articles/imu-sleep-bruxism-field-detection-2026.md
+  - queries/bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06.md
 ---
 
 # Dataset Scout: Post-CAP Bruxism Benchmark Candidates
 
 ## Objective
-Identify 5-10 source-verified candidate datasets or benchmark directions to succeed the current `bruxism-cap` baseline, prioritizing scientific validity, label anchor reliability (PSG/AV), and practical accessibility.
+Identify source-verified candidate datasets or benchmark directions to succeed the `bruxism-cap` baseline, prioritizing scientific validity, label-anchor reliability, and practical accessibility.
 
-## Ranked Candidate Benchmarks
+## Important update
+This scout originally fed a pre-closure CAP strategy decision. Since then, the final matched repaired control-expanded replication (`pass48`) has closed the public CAP benchmark branch. So this page should now be read as successor-direction scouting, not as a reason to continue CAP tuning. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]]
 
-### Tier 1: Truly Open / Downloadable (The "Reproducibility" Tier)
+## Ranked candidate directions
 
-1. **Bruxism CAP (PhysioNet Baseline)**
-   - **Modality:** EEG + EMG (`EMG1-EMG2`)
-   - **Subject Count:** Small subset of CAP database.
-   - **Positive-case Definition:** Micro-events (A1, A2, A3) from PSG/AV scoring.
-   - **Label Anchor:** PSG + Audio-Video.
-   - **Openness:** Fully downloadable/open.
-   - **Why it's/isn't an upgrade:** It is the *only* truly open benchmark currently available. While it lacks modern "wearable" ecological validity, it is the indispensable baseline for all subsequent work.
+### Tier 1: Truly open / downloadable
+1. **Bruxism CAP (PhysioNet baseline)**
+   - Modality: EEG + EMG (`EMG1-EMG2`)
+   - Subject count: small and positive-limited
+   - Label anchor: PSG + audio-video
+   - Openness: high
+   - Current role after closure: completed baseline, not the next active tuning branch
 
-2. **Large Pediatric Sleep Repositories (e.g., NSRR/PhysioNet generic)**
-   - **Modality:** Primarily EEG/Respiratory/ECG.
-   - **Subject Count:** Very high (hundreds/thousands).
-   - **Positive-case Definition:** Likely lacks specific bruxism-event labels; requires manual/automated re-labeling.
-   - **Label Anchor:** PSG.
-   - **Openness:** High.
-   - **Why it's/isn't an upgrade:** High subject count for robust statistical power, but requires massive manual effort to create bruxism-specific ground truth.
+2. **Large generic sleep repositories**
+   - Modality: broader sleep signals
+   - Subject count: high
+   - Main problem: poor bruxism-label validity without major relabeling effort
 
-### Tier 2: Data-on-Request / Proprietary Cohorts (The "Clinical Validity" Tier)
+### Tier 2: Data-on-request / proprietary cohorts
+3. **Wireless or mmWave monitoring cohorts**
+   - Strong translational value
+   - Low current reproducibility/access
 
-3. **Shen 2025 (Wireless Signal recognition)**
-   - **Modality:** Wireless/mmWave signals.
-   - **Subject Count:** Not specified in snippet, likely small clinical cohort.
-   - **Positive-case Definition:** Likely PSG-anchored.
-   - **Label Anchor:** PSG/Wireless sensor.
-   - **Openness:** Low (Data-on-request / Proprietary).
-   - **Why it's an upgrade:** Represents the next frontier of non-contact/wireless sensing; high translational potential.
+4. **Earable cohorts**
+   - Strong ecological validity
+   - Low openness/access
 
-4. **Bondareva 2021 (Earables Feasibility)**
-   - **Modality:** Earable (likely IMU/Acoustic).
-   - **Subject Count:** Small study.
-   - **Positive-case Definition:** Clinical bruxism detection.
-   - **Label Anchor:** Likely PSG.
-   - **Openness:** Low (Proprietary/Request).
-   - **Why it's an upgrade:** Highly ecologically valid sensing modality for long-term home monitoring.
+5. **Portable jaw-EMG cohorts**
+   - Strongest scientific alignment with the intended future direction
+   - Still not open enough to replace CAP as a public benchmark in the old loop, but now the best successor direction to pursue
 
-5. **Le 2025 (EMG Logger Utility)**
-   - **Modality:** Portable EMG Logger.
-   - **Subject Count:** Small study.
-   - **Positive-case Definition:** Clinical bruxism diagnosis.
-   - **Label Anchor:** PSG.
-   - **Openness:** Low.
-   - **Why it's an upgrade:** Direct validation of the "portable masseter EMG" sensing modality prioritized by recent literature.
+### Tier 3: Tiny proof-of-concepts
+6. **Simulated or healthy-subject sensing studies**
+   - Useful for feature ideas
+   - Poor as primary benchmark replacements
 
-6. **Gul et al. 2024 (Advanced Sensing System)**
-   - **Modality:** Multi-posture EMG (Temporalis + Masseter).
-   - **Subject Count:** 10 (Healthy subjects).
-   - **Positive-case Definition:** Simulated/controlled bruxism-like behavior.
-   - **Label Anchor:** Manual/Self-report.
-   - **Openness:** Low.
-   - **Why it's NOT an upgrade:** High feature-engineering value, but subjects are healthy and behaviors are simulated; poor clinical validity.
+7. **Very small IMU proof-of-concepts**
+   - Interesting modality signal
+   - Too small to anchor the next benchmark
 
-### Tier 3: Tiny Proof-of-Concepts (The "Novelty" Tier)
+## Updated recommendation after closure
+### 1. Best realistic successor direction
+**Portable or wearable jaw-EMG, with privacy-aware design.**
 
-7. **IMU 2026 (Field Detection Proof-of-Concept)**
-   - **Modality:** Tri-axial IMU (Mandibular motion).
-   - **Subject Count:** 3 (Extremely small).
-   - **Positive-case Definition:** Manually labeled motion classes.
-   - **Label Anchor:** Manual.
-   - **Openness:** Likely Low.
-   - **Why it's NOT an upgrade:** Too small for a benchmark; useful only for initial modality validation.
+Before `pass48`, this scout supported an EMG-first framing inside CAP. After `pass48`, the stronger read is different: CAP should remain the preserved public baseline, while the next active design effort should target better future jaw-EMG data surfaces and privacy-preserving wearable measurement design.
 
-## Summary Table
+### 2. Best “not open enough yet” scientific direction
+Wireless/mmWave and earable monitoring remain interesting, but they are still weaker than portable jaw-EMG as the next serious successor branch because they are both less directly jaw-muscle aligned and not clearly open enough.
 
-| Candidate | Category | Modality | Openness | Upgrade over CAP? |
-|---|---|---|---|---|
-| **CAP** | Open | EEG/EMG | High | N/A (Baseline) |
-| **Shen 2025** | Request | Wireless/mmWave | Low | Yes (Sensing Novelty) |
-| **Bondareva 2021** | Request | Earables | Low | Yes (Ecological Validity) |
-| **Le 2025** | Request | Portable EMG | Low | Yes (Translational Alignment) |
-| **Gul 2024** | Simulated | Multi-EMG | Low | No (Low Clinical Validity) |
-| **IMU 2026** | Tiny PoC | IMU | Low | No (Insufficient Scale) |
+## Rejection log
+- Generic open sleep repositories: rejected as immediate successors because they lack trustworthy bruxism labels.
+- Simulated healthy-subject EMG studies: rejected as primary benchmark replacements because label validity is too weak.
+- Tiny PoC datasets: rejected because subject count is too small.
 
-## Final Recommendations
-
-### 1. Best Realistic Next Dataset Recommendation
-**The "EMG-First CAP" Pivot.** 
-Since no other open, high-quality, PSG-anchored dataset exists, the project should continue with **CAP** but undergo a fundamental framing shift. Instead of EEG-centric detection, the project should pivot to **masseter-EMG-first benchmarking**. This uses the existing `EMG1-EMG2` channels in CAP to build the pipeline, ensuring reproducibility while aligning the scientific target with modern portable-EMG literature.
-
-### 2. Best "Not Open Enough Yet" Scientific Direction
-**Wireless/mmWave or Earable-based Monitoring.**
-The research trends (Shen 2025, Bondareva 2021) point toward non-contact and earable modalities. These offer the highest ecological validity for long-term home monitoring, but the lack of open, large-scale, PSG-validated datasets for these modalities makes them currently unsuitable for a public, reproducible benchmark.
-
-## Rejection Log
-- **Gul 2024 (Simulated):** Rejected as a primary benchmark due to lack of clinical bruxism events and use of healthy subjects.
-- **IMU 2026 (Tiny PoC):** Rejected due to extreme subject scarcity (N=3).
-- **Generic Pediatric Repos:** Rejected for current benchmarking as they lack the necessary bruxism-specific event labels.
-
-## Next Steps
-- Update `wiki/concepts/bruxism-cap.md` to reflect the EMG-first pivot.
-- Design the first "EMG-only" benchmark runner on the CAP subset.
+## Bottom line
+This scout no longer says “continue CAP.” It says:
+- preserve CAP as the completed public baseline
+- use the scout to prioritize the next non-CAP branch
+- treat privacy-preserving wearable jaw-EMG as the most meaningful successor direction

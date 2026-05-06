@@ -15,7 +15,9 @@ sources:
 
 # Bruxism CAP pass46 next-step synthesis
 
-Question: after `pass46` closed the exact one-feature `evt_bursts_per_episode_mean` add-back lane as a negative repaired-`A3-only` side variant, what is the single best next bounded experiment that still survives repo contact? [[bruxism-cap]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]] [[bruxism-cap-pass46-one-feature-addback-2026-05-05]]
+Historical note: this page preserves the pre-pass47/pre-pass48 branch choice. The recommended next experiment here was later superseded by the repaired control-expanded closure sequence, and the CAP benchmark is now closed. Read this page as historical reasoning about the mid-branch `A3-only` lane, not as a live next-step instruction. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+Question: after `pass46` closed the exact one-feature `evt_bursts_per_episode_mean` add-back lane as a negative repaired-`A3-only` side variant, what was the single best next bounded experiment that still survived repo contact at that time? [[bruxism-cap]] [[bruxism-cap-pass46-honest-benchmark-verdict-2026-05-05]] [[bruxism-cap-pass46-one-feature-addback-2026-05-05]]
 
 ## Answer in one sentence
 Run one frozen-`pass45` repaired-`A3-only` event-trio swap: keep `evt_active_fraction` and `evt_burst_duration_median_s`, drop only `evt_interburst_gap_median_s`, add only `evt_phasic_like_episode_fraction`, and judge it with the paired subject-surface audit rather than headline counts alone.

@@ -14,7 +14,9 @@ sources:
 
 # Bruxism CAP pass41 vs honest anchors and benchmark-upgrade verdict
 
-Question: after the pass41 event-conditioned audit and the tiny-subject benchmarking patch both landed, did the new branch materially improve the honest benchmark, did the new outputs improve interpretability, and what exact bounded step should come next? [[bruxism-cap]] [[bruxism-cap-pass41-event-conditioned-feature-block-audit-2026-05-05]] [[bruxism-cap-tiny-subject-benchmarking-upgrade-2026-05-05]]
+Historical note: this page preserves a local verdict from the middle of the benchmark loop. The “exact bounded step should come next” language is now superseded by the later repaired control-expanded sequence and final closure. Keep this page as a trustworthy negative-result checkpoint, not as a live planning page. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+Question: after the pass41 event-conditioned audit and the tiny-subject benchmarking patch both landed, did the new branch materially improve the honest benchmark, did the new outputs improve interpretability, and what exact bounded step should have come next at that stage? [[bruxism-cap]] [[bruxism-cap-pass41-event-conditioned-feature-block-audit-2026-05-05]] [[bruxism-cap-tiny-subject-benchmarking-upgrade-2026-05-05]]
 
 ## Short answer
 

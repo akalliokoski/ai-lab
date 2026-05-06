@@ -13,7 +13,9 @@ sources:
 
 # Bruxism CAP pass42 event-subset ablation verdict
 
-Question: if the pass41 same-table event-conditioned block is reduced to the least control-damaging 3-feature subset, can the repo preserve the small `brux1` lift without reopening `n11`, and does that count as a real benchmark upgrade? [[bruxism-cap]] [[bruxism-cap-pass41-event-conditioned-feature-block-audit-2026-05-05]] [[bruxism-cap-pass41-vs-honest-anchors-benchmark-upgrade-verdict-2026-05-05]]
+Historical note: this page remains important because pass42 became one of the durable repaired anchors later preserved in the final closure report. But its local wording about whether the repo should treat the result as a “real benchmark upgrade” belongs to the mid-branch decision context, not to the current post-closure project state. [[bruxism-cap-pass48-control-expanded-a1-replication-2026-05-06]] [[bruxism-cap]]
+
+Question: if the pass41 same-table event-conditioned block is reduced to the least control-damaging 3-feature subset, can the repo preserve the small `brux1` lift without reopening `n11`, and did that count as a real benchmark upgrade at that stage? [[bruxism-cap]] [[bruxism-cap-pass41-event-conditioned-feature-block-audit-2026-05-05]] [[bruxism-cap-pass41-vs-honest-anchors-benchmark-upgrade-verdict-2026-05-05]]
 
 ## Short answer
 
