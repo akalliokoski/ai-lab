@@ -9,7 +9,12 @@ sources: [raw/articles/first-fine-tuning-use-case-research-2026-04-30.md]
 
 # Artifact Card SFT
 
-`artifact-card-sft` is the new recommended first success-oriented fine-tuning project for `ai-lab`. It replaces the broad repo-tutor task with a narrow structured-output task: read short experiment evidence and emit one strict JSON experiment card. [[first-fine-tuning-project-options]] [[artifact-driven-experiment-debugging]] [[ai-lab-learning-path]] [[unsloth]]
+`artifact-card-sft` is a paused fine-tuning project for `ai-lab`. It replaced the broad repo-tutor task with a narrow structured-output task: read short experiment evidence and emit one strict JSON experiment card. As of 2026-05-03, this track is being kept as a documented archive and possible later return path while the main active project shifts to [[bruxism-cap]]. [[first-fine-tuning-project-options]] [[artifact-driven-experiment-debugging]] [[ai-lab-learning-path]] [[unsloth]]
+
+## Operating status
+- Status: paused as the main project as of 2026-05-03
+- Reason: the current lab focus is now the smaller public-data `bruxism-cap` baseline track
+- Resume condition: return only after the bruxism CAP baseline is running or if a later fine-tuning question explicitly needs this branch family again
 
 ## Why this project is a better fit
 - It matches what tiny LoRA/QLoRA SFT usually does well: format control, extraction, and narrow behavioral shaping.

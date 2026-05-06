@@ -31,10 +31,10 @@ Profile facts
 ## Current first experiment
 
 Default project:
-- `artifact-card-sft`
+- `projects/bruxism-cap/` — main active project, focused on a public CAP Sleep Database pilot for tiny EEG/EMG bruxism baselines with subject-aware evaluation
 
-Additional starter project scaffold:
-- `projects/bruxism-cap/` — public CAP Sleep Database pilot for tiny EEG/EMG bruxism baselines with subject-aware evaluation
+Paused project:
+- `artifact-card-sft` — retained in the repo as a documented fine-tuning track and negative-result archive, but not the current focus
 
 Current repo artifacts:
 - dataset scaffold in `data/artifact-card-v1/`

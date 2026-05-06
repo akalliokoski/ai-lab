@@ -1,12 +1,13 @@
 # Autoresearch-style workflow for artifact-card SFT
 
-This repo does not currently have an installed Hermes skill named `autoresearch`.
+Historical note: this document started before a local `autoresearch` skill existed for the ai-lab profile.
 
 Current status:
-- `hermes skills search autoresearch` -> no matches
-- local skill inventory -> no `autoresearch` skill present
+- a local profile skill named `autoresearch` is now installed
+- use that skill first for new repo-grounded research loops
+- keep this file as artifact-card-specific background and example scaffolding rather than the primary source of truth for autoresearch behavior
 
-So the practical way to "activate and try autoresearch" today is to run an autoresearch-style Hermes pass using the existing skills and delegation stack.
+So the practical way to run this workflow now is to load the local `autoresearch` skill and, when useful, pair it with the existing skills and delegation stack.
 
 Recommended skill set
 - `unsloth`

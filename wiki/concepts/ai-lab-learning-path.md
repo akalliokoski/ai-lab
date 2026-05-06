@@ -19,7 +19,8 @@ The current `ai-lab` learning path is intentionally staged:
 
 Current first-project pivot:
 - the original tutor adapter is now treated as a useful negative result and debugging case study
-- the active first success-oriented project is [[artifact-card-sft]], which keeps the task narrow, structured, and automatically scoreable
+- `artifact-card-sft` is now a paused fine-tuning track kept for reference and future resumption when needed
+- the active project is now [[bruxism-cap]], which focuses on a small, leakage-aware CAP baseline before any heavier modeling
 
 The main design principle is to avoid ambitious but blurry projects too early. Small, documented experiments beat vague grand plans because they compound into reusable knowledge.
 
