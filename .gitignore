@@ -15,3 +15,18 @@ outputs/
 # Large local experiment data
 projects/bruxism-cap/data/raw/
 *.edf
+
+# Local Hermes / test / scratch state
+.hermes/
+.pytest_cache/
+tmp/
+projects/bruxism-cap/tmp/
+projects/bruxism-cap/tmp_*.csv
+projects/bruxism-cap/tmp_*.json
+projects/bruxism-cap/src/__pycache__/
+projects/bruxism-cap/tests/__pycache__/
+scout_query.py
+tmp_pass36_audit_extract.py
+tmp_pass36_audit_extract2.py
+tmp_pass36_audit_extract2.json
+uv.lock
