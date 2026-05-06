@@ -114,6 +114,9 @@ A successful first project is **not** "high accuracy". It is:
 # Best next project after that
 After the CAP pilot works, the next step should be **EMG-first event detection** on a dataset with jaw-muscle channels and stronger labels, or a small curated wearable pilot if you can access such data. That is the path that better matches real bruxism sensing.
 
+# Current operating status
+As of 2026-05-03, `projects/bruxism-cap/` is the main active `ai-lab` project and the artifact-card fine-tuning track is paused. The current goal is to get the first leakage-aware CAP baseline running before adding model complexity or returning to a different primary track.
+
 # Scaffold created in repo
 A starter implementation scaffold now exists under `projects/bruxism-cap/` with:
 - `README.md` describing the tiny pilot workflow

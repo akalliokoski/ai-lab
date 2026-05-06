@@ -6,11 +6,14 @@ Expected raw EDF files live under:
 
 - `projects/bruxism-cap/data/raw/capslpdb/`
 
-Suggested starter subset:
+Suggested bounded control-side subset:
 - bruxism: `brux1.edf`, `brux2.edf`
-- controls: `n3.edf`, `n5.edf`, `n10.edf`, `n11.edf`
+- already verified controls: `n3.edf`, `n5.edf`, `n11.edf`
+- next admissible control additions: `n1.edf`, `n2.edf`
 
-Keep this first pass tiny. The goal is to exercise the pipeline, not to maximize sample count.
+Keep this branch tiny. The goal is to stress specificity under a fixed two-positive public benchmark, not to maximize sample count.
+
+Do not include `n10.edf` in stage-aware rebuilds until the local file is refreshed and re-verified against the canonical PhysioNet object. The current local copy is truncated relative to the remote source.
 
 ## Manifest file
 
@@ -20,7 +23,14 @@ Suggested columns:
 - `subject_id`
 - `label`
 - `edf_path`
-- `channel`
+- `annotation_txt_path`
+- `primary_channel`
+- `comparison_channel`
+- `include_in_control_expansion`
+- `control_audit_status`
+- `s2_in_range`
+- `a1_only_in_range`
+- `a3_only_in_range`
 - `notes`
 
 ## Derived data files

@@ -1,0 +1,144 @@
+{
+  "source_artifact": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/pass41-event-conditioned-feature-block-audit.json",
+  "ranking_method": "bounded pass41 same-table heuristic using per-feature mean contribution to brux1 plus control-minus-brux1 reopening gaps, with n11 reopening weighted as the primary control-risk tie-breaker",
+  "feature_ranking": [
+    {
+      "rank": 1,
+      "feature": "evt_active_fraction",
+      "brux1_mean_contribution": 0.06578107173004187,
+      "brux2_mean_contribution": 0.07396758529702196,
+      "n3_minus_brux1": 0.31187884536923716,
+      "n5_minus_brux1": -0.5669546669763285,
+      "n11_minus_brux1": -0.4196732902442034,
+      "control_damage_sum": 0.31187884536923716,
+      "worst_control_gap": 0.31187884536923716,
+      "reason": "Best keep feature: positive on brux1 (+0.066) and the only feature that is net-protective against n11 (-0.420) while also strongly helping against n5 (-0.567)."
+    },
+    {
+      "rank": 2,
+      "feature": "evt_burst_duration_median_s",
+      "brux1_mean_contribution": 0.15319408955795405,
+      "brux2_mean_contribution": 0.32615153156375526,
+      "n3_minus_brux1": -0.3692484603323727,
+      "n5_minus_brux1": -0.9450551635924256,
+      "n11_minus_brux1": 0.10030517979127446,
+      "control_damage_sum": 0.10030517979127446,
+      "worst_control_gap": 0.10030517979127446,
+      "reason": "Strongest target-useful term after active fraction: positive on brux1 (+0.153) and very protective against n5 (-0.945), with only a modest n11 reopening cost (+0.100)."
+    },
+    {
+      "rank": 3,
+      "feature": "evt_bursts_per_episode_mean",
+      "brux1_mean_contribution": -0.015093117042960787,
+      "brux2_mean_contribution": -0.014048470331280311,
+      "n3_minus_brux1": 0.019429811032121713,
+      "n5_minus_brux1": 0.01739542962853537,
+      "n11_minus_brux1": 0.03959132618766091,
+      "control_damage_sum": 0.07641656684831799,
+      "worst_control_gap": 0.03959132618766091,
+      "reason": "Best low-damage third filler: tiny brux1 drag (-0.015) but the smallest positive control damage footprint among the remaining candidates (n11 +0.040, n5 +0.017, n3 +0.019)."
+    },
+    {
+      "rank": 4,
+      "feature": "evt_burst_count_30s",
+      "brux1_mean_contribution": -0.029833142783616373,
+      "brux2_mean_contribution": -0.04656817631367243,
+      "n3_minus_brux1": 0.04655189965604459,
+      "n5_minus_brux1": 0.02563753300038758,
+      "n11_minus_brux1": 0.045363541800841754,
+      "control_damage_sum": 0.11755297445727392,
+      "worst_control_gap": 0.04655189965604459,
+      "reason": "Similar to bursts-per-episode but slightly worse everywhere: brux1 drag (-0.030) and slightly larger control reopening (n11 +0.045, n5 +0.026, n3 +0.047)."
+    },
+    {
+      "rank": 5,
+      "feature": "evt_phasic_like_episode_fraction",
+      "brux1_mean_contribution": 0.012839887470608968,
+      "brux2_mean_contribution": 0.006486614595525025,
+      "n3_minus_brux1": -0.2521014701370025,
+      "n5_minus_brux1": -0.04551410433380709,
+      "n11_minus_brux1": 0.14352532869180934,
+      "control_damage_sum": 0.14352532869180934,
+      "worst_control_gap": 0.14352532869180934,
+      "reason": "Mixed signal: small brux1 help (+0.013) and helpful against n5 (-0.046), but too much n11 reopening (+0.144) to include ahead of the safer count fillers."
+    },
+    {
+      "rank": 6,
+      "feature": "evt_interburst_gap_median_s",
+      "brux1_mean_contribution": -0.0641811846269729,
+      "brux2_mean_contribution": -0.0067574892449896815,
+      "n3_minus_brux1": 0.19677472499689053,
+      "n5_minus_brux1": 0.09271271826659017,
+      "n11_minus_brux1": 0.05331220207370545,
+      "control_damage_sum": 0.34279964533718615,
+      "worst_control_gap": 0.19677472499689053,
+      "reason": "Net harmful: brux1 drag (-0.064) plus positive reopening on all three controls, especially n3 (+0.197)."
+    },
+    {
+      "rank": 7,
+      "feature": "evt_episode_count_30s",
+      "brux1_mean_contribution": -0.19476720550458718,
+      "brux2_mean_contribution": -0.1299923376510938,
+      "n3_minus_brux1": 0.14587190878522494,
+      "n5_minus_brux1": 0.141002247427695,
+      "n11_minus_brux1": 0.18455874864229016,
+      "control_damage_sum": 0.47143290485521006,
+      "worst_control_gap": 0.18455874864229016,
+      "reason": "Worst feature to keep: largest brux1 drag (-0.195) and the largest combined control damage, especially n11 (+0.185) and n5 (+0.141)."
+    }
+  ],
+  "recommended_subset": {
+    "features": [
+      "evt_bursts_per_episode_mean",
+      "evt_active_fraction",
+      "evt_burst_duration_median_s"
+    ],
+    "brux1_sum": 0.20388204424503514,
+    "brux2_sum": 0.3860706465294969,
+    "n3_minus_brux1": -0.037939803931013816,
+    "n5_minus_brux1": -1.4946144009402187,
+    "n11_minus_brux1": -0.27977678426526803,
+    "control_damage_sum": 0,
+    "worst_control_gap": -0.037939803931013816,
+    "why": "This is the cleanest 3-feature subset under the same-table heuristic: positive net brux1 event contribution (+0.204), zero positive reopening against any control, and the strongest n11 containment among the zero-damage 3-feature combinations."
+  },
+  "explicitly_rejected_subset": {
+    "features": [
+      "evt_burst_count_30s",
+      "evt_episode_count_30s",
+      "evt_interburst_gap_median_s"
+    ],
+    "brux1_sum": -0.28878153291517644,
+    "brux2_sum": -0.18331800320975591,
+    "n3_minus_brux1": 0.38919853343816,
+    "n5_minus_brux1": 0.25935249869467275,
+    "n11_minus_brux1": 0.28323449251683736,
+    "control_damage_sum": 0.93178552464967,
+    "worst_control_gap": 0.38919853343816,
+    "why": "All three terms drag brux1 and reopen every control simultaneously; it is the worst 3-feature combination by combined control damage (+0.932)."
+  },
+  "near_miss_subset": {
+    "features": [
+      "evt_active_fraction",
+      "evt_burst_duration_median_s",
+      "evt_phasic_like_episode_fraction"
+    ],
+    "brux1_sum": 0.2318150487586049,
+    "brux2_sum": 0.40660573145630224,
+    "n3_minus_brux1": -0.309471085100138,
+    "n5_minus_brux1": -1.5575239349025611,
+    "n11_minus_brux1": -0.17584278176111962,
+    "control_damage_sum": 0,
+    "worst_control_gap": -0.17584278176111962,
+    "why_not_recommended": "Looks attractive because all three are net-positive on brux1 (+0.232), but phasic-like fraction adds too much n11 reopening (+0.144 on its own), so the subset is less safe on the target failure than the recommended count/duration/active mix."
+  },
+  "followup_files": {
+    "input_table": "projects/bruxism-cap/data/window_features_pass41_emg_s2_mcap_a1_only_pct10_90_timepos10_record_relative_shape_eventblock.csv",
+    "selection_reference": "projects/bruxism-cap/src/run_pass41_event_conditioned_feature_block_audit.py",
+    "feature_semantics": "projects/bruxism-cap/src/features.py",
+    "training_entrypoint": "projects/bruxism-cap/src/train_baseline.py",
+    "current_loso_report_anchor": "projects/bruxism-cap/reports/loso-cv-pass41-emg-a1-pct10-90-record-relative-shape-eventblock.json",
+    "current_audit_anchor_md": "projects/bruxism-cap/reports/pass41-event-conditioned-feature-block-audit.md",
+    "current_audit_anchor_json": "projects/bruxism-cap/reports/pass41-event-conditioned-feature-block-audit.json"
+  }
+}

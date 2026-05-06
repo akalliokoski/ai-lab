@@ -1,0 +1,1724 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass41_emg_s2_mcap_a1_only_pct10_90_timepos10_record_relative_shape_eventblock.csv",
+  "cv": "loso",
+  "rows": 50,
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n11",
+    "n3",
+    "n5"
+  ],
+  "subject_count": 5,
+  "class_counts": {
+    "control": 30,
+    "bruxism": 20
+  },
+  "feature_count": 28,
+  "feature_columns": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "ptp",
+    "rms",
+    "line_length",
+    "zero_crossing_rate",
+    "sample_entropy",
+    "rectified_mean",
+    "rectified_std",
+    "envelope_mean",
+    "envelope_std",
+    "envelope_cv",
+    "burst_fraction",
+    "burst_rate_hz",
+    "p95_abs",
+    "skewness",
+    "kurtosis",
+    "hjorth_mobility",
+    "hjorth_complexity",
+    "evt_burst_count_30s",
+    "evt_episode_count_30s",
+    "evt_bursts_per_episode_mean",
+    "evt_active_fraction",
+    "evt_burst_duration_median_s",
+    "evt_interburst_gap_median_s",
+    "evt_phasic_like_episode_fraction"
+  ],
+  "excluded_feature_columns": [
+    "n_samples",
+    "duration_s"
+  ],
+  "feature_selection": {
+    "include_features_regex": [],
+    "exclude_features_regex": [
+      "^bp_",
+      "^rel_bp_",
+      "^ratio_"
+    ],
+    "selected_feature_count": 28,
+    "selection_excluded_feature_count": 11,
+    "selection_excluded_features": [
+      "bp_delta",
+      "rel_bp_delta",
+      "bp_theta",
+      "rel_bp_theta",
+      "bp_alpha",
+      "rel_bp_alpha",
+      "bp_beta",
+      "rel_bp_beta",
+      "ratio_theta_beta",
+      "ratio_alpha_beta",
+      "ratio_alpha_delta"
+    ]
+  },
+  "models": {
+    "logreg": {
+      "summary": {
+        "balanced_accuracy": 0.72,
+        "sensitivity": 0.22000000000000003,
+        "specificity": 0.5,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.1,
+          "sensitivity": 0.1,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 1,
+          "fp": 0,
+          "tn": 0,
+          "fn": 9,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.7787729094743443,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 1,
+                "positive_window_fraction": 0.1,
+                "mean_score": 0.11751889001840707,
+                "mean_positive_probability": 0.11751889001840707,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 10,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 1.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 1,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.03887211871902297,
+              "sensitivity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "bruxism",
+                "windows": 10,
+                "predicted_positive_windows": 10,
+                "positive_window_fraction": 1.0,
+                "mean_score": 0.8028398652896003,
+                "mean_positive_probability": 0.8028398652896003,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.6,
+          "sensitivity": 0.0,
+          "specificity": 0.6,
+          "auroc": null,
+          "tp": 0,
+          "fp": 4,
+          "tn": 6,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.29824571903158126,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "bruxism",
+                "windows": 10,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.4,
+                "mean_score": 0.5461187774024816,
+                "mean_positive_probability": 0.5461187774024816,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.9,
+          "sensitivity": 0.0,
+          "specificity": 0.9,
+          "auroc": null,
+          "tp": 0,
+          "fp": 1,
+          "tn": 9,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.02366548137538434,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 1,
+                "positive_window_fraction": 0.1,
+                "mean_score": 0.15383589105076986,
+                "mean_positive_probability": 0.15383589105076986,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.040072349100971336,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.20018079103892897,
+                "mean_positive_probability": 0.20018079103892897,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.5833333333333333,
+          "sensitivity": 0.5,
+          "specificity": 0.6666666666666666,
+          "auroc": 0.5,
+          "tp": 1,
+          "fp": 1,
+          "tn": 2,
+          "fn": 1,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5,
+          "subject_probability_brier": 0.23592571554026082,
+          "sensitivity_subject_counts": {
+            "successes": 1,
+            "trials": 2
+          },
+          "specificity_subject_counts": {
+            "successes": 2,
+            "trials": 3
+          },
+          "sensitivity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.01257911709342505,
+            "high": 0.9874208829065749
+          },
+          "sensitivity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.09453120573423074,
+            "high": 0.9054687942657693
+          },
+          "specificity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 2,
+            "trials": 3,
+            "low": 0.09429932405024609,
+            "high": 0.9915962413403874
+          },
+          "specificity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 2,
+            "trials": 3,
+            "low": 0.20765960080204765,
+            "high": 0.9385080552796037
+          }
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 1,
+            "positive_window_fraction": 0.1,
+            "mean_score": 0.11751889001840707,
+            "mean_positive_probability": 0.11751889001840707,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "bruxism",
+            "windows": 10,
+            "predicted_positive_windows": 10,
+            "positive_window_fraction": 1.0,
+            "mean_score": 0.8028398652896003,
+            "mean_positive_probability": 0.8028398652896003,
+            "correct": true
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "bruxism",
+            "windows": 10,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.4,
+            "mean_score": 0.5461187774024816,
+            "mean_positive_probability": 0.5461187774024816,
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 1,
+            "positive_window_fraction": 0.1,
+            "mean_score": 0.15383589105076986,
+            "mean_positive_probability": 0.15383589105076986,
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.20018079103892897,
+            "mean_positive_probability": 0.20018079103892897,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "svm": {
+      "summary": {
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.1,
+        "specificity": 0.4,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.1,
+          "sensitivity": 0.1,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 1,
+          "fp": 0,
+          "tn": 0,
+          "fn": 9,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.7969382455572088,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 1,
+                "positive_window_fraction": 0.1,
+                "mean_score": 0.10728602253733655,
+                "mean_positive_probability": 0.10728602253733655,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.4,
+          "sensitivity": 0.4,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 4,
+          "fp": 0,
+          "tn": 0,
+          "fn": 6,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.4405622840273558,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.4,
+                "mean_score": 0.33625133971709154,
+                "mean_positive_probability": 0.33625133971709154,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.2,
+          "sensitivity": 0.0,
+          "specificity": 0.2,
+          "auroc": null,
+          "tp": 0,
+          "fp": 8,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.3161649840146341,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "bruxism",
+                "windows": 10,
+                "predicted_positive_windows": 8,
+                "positive_window_fraction": 0.8,
+                "mean_score": 0.5622855004485124,
+                "mean_positive_probability": 0.5622855004485124,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.8,
+          "sensitivity": 0.0,
+          "specificity": 0.8,
+          "auroc": null,
+          "tp": 0,
+          "fp": 2,
+          "tn": 8,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.07654478146040859,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 2,
+                "positive_window_fraction": 0.2,
+                "mean_score": 0.2766672757309917,
+                "mean_positive_probability": 0.2766672757309917,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.04638320146215425,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.2153675961284665,
+                "mean_positive_probability": 0.2153675961284665,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.3333333333333333,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "auroc": 0.33333333333333337,
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 2,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5,
+          "subject_probability_brier": 0.3353186993043523,
+          "sensitivity_subject_counts": {
+            "successes": 0,
+            "trials": 2
+          },
+          "specificity_subject_counts": {
+            "successes": 2,
+            "trials": 3
+          },
+          "sensitivity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 0,
+            "trials": 2,
+            "low": 0.0,
+            "high": 0.841886116991581
+          },
+          "sensitivity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 0,
+            "trials": 2,
+            "low": 0.0,
+            "high": 0.6576197724933469
+          },
+          "specificity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 2,
+            "trials": 3,
+            "low": 0.09429932405024609,
+            "high": 0.9915962413403874
+          },
+          "specificity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 2,
+            "trials": 3,
+            "low": 0.20765960080204765,
+            "high": 0.9385080552796037
+          }
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 1,
+            "positive_window_fraction": 0.1,
+            "mean_score": 0.10728602253733655,
+            "mean_positive_probability": 0.10728602253733655,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.4,
+            "mean_score": 0.33625133971709154,
+            "mean_positive_probability": 0.33625133971709154,
+            "correct": false
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "bruxism",
+            "windows": 10,
+            "predicted_positive_windows": 8,
+            "positive_window_fraction": 0.8,
+            "mean_score": 0.5622855004485124,
+            "mean_positive_probability": 0.5622855004485124,
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 2,
+            "positive_window_fraction": 0.2,
+            "mean_score": 0.2766672757309917,
+            "mean_positive_probability": 0.2766672757309917,
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.2153675961284665,
+            "mean_positive_probability": 0.2153675961284665,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "random_forest": {
+      "summary": {
+        "balanced_accuracy": 0.24,
+        "sensitivity": 0.0,
+        "specificity": 0.24,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 10,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.7368505314152517,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.14160001665001665,
+                "mean_positive_probability": 0.14160001665001665,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 10,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.591039988063991,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.23120874870743294,
+                "mean_positive_probability": 0.23120874870743294,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 0.5,
+          "auroc": null,
+          "tp": 0,
+          "fp": 5,
+          "tn": 5,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.3189452517913833,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "bruxism",
+                "windows": 10,
+                "predicted_positive_windows": 5,
+                "positive_window_fraction": 0.5,
+                "mean_score": 0.564752380952381,
+                "mean_positive_probability": 0.564752380952381,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.2,
+          "sensitivity": 0.0,
+          "specificity": 0.2,
+          "auroc": null,
+          "tp": 0,
+          "fp": 8,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.34084746045918357,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 0,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.975
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 1,
+                "low": 0.0,
+                "high": 0.7934506856227626
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "bruxism",
+                "windows": 10,
+                "predicted_positive_windows": 8,
+                "positive_window_fraction": 0.8,
+                "mean_score": 0.5838214285714285,
+                "mean_positive_probability": 0.5838214285714285,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 0.5,
+          "auroc": null,
+          "tp": 0,
+          "fp": 5,
+          "tn": 5,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 10,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5,
+              "subject_probability_brier": 0.2133677401461325,
+              "sensitivity_subject_counts": {
+                "successes": 0,
+                "trials": 0
+              },
+              "specificity_subject_counts": {
+                "successes": 1,
+                "trials": 1
+              },
+              "sensitivity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "sensitivity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 0,
+                "trials": 0,
+                "low": 0.0,
+                "high": 1.0
+              },
+              "specificity_ci_95_exact": {
+                "method": "clopper_pearson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.025,
+                "high": 1.0
+              },
+              "specificity_ci_95_wilson": {
+                "method": "wilson",
+                "confidence_level": 0.95,
+                "successes": 1,
+                "trials": 1,
+                "low": 0.20654931437723745,
+                "high": 1.0
+              }
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 10,
+                "predicted_positive_windows": 5,
+                "positive_window_fraction": 0.5,
+                "mean_score": 0.4619174603174603,
+                "mean_positive_probability": 0.4619174603174603,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.16666666666666666,
+          "sensitivity": 0.0,
+          "specificity": 0.3333333333333333,
+          "auroc": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "tn": 1,
+          "fn": 2,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5,
+          "subject_probability_brier": 0.4402101943751885,
+          "sensitivity_subject_counts": {
+            "successes": 0,
+            "trials": 2
+          },
+          "specificity_subject_counts": {
+            "successes": 1,
+            "trials": 3
+          },
+          "sensitivity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 0,
+            "trials": 2,
+            "low": 0.0,
+            "high": 0.841886116991581
+          },
+          "sensitivity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 0,
+            "trials": 2,
+            "low": 0.0,
+            "high": 0.6576197724933469
+          },
+          "specificity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 3,
+            "low": 0.008403758659612636,
+            "high": 0.9057006759497539
+          },
+          "specificity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 3,
+            "low": 0.06149194472039615,
+            "high": 0.7923403991979523
+          }
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.14160001665001665,
+            "mean_positive_probability": 0.14160001665001665,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.23120874870743294,
+            "mean_positive_probability": 0.23120874870743294,
+            "correct": false
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "bruxism",
+            "windows": 10,
+            "predicted_positive_windows": 5,
+            "positive_window_fraction": 0.5,
+            "mean_score": 0.564752380952381,
+            "mean_positive_probability": 0.564752380952381,
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "bruxism",
+            "windows": 10,
+            "predicted_positive_windows": 8,
+            "positive_window_fraction": 0.8,
+            "mean_score": 0.5838214285714285,
+            "mean_positive_probability": 0.5838214285714285,
+            "correct": false
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 10,
+            "predicted_positive_windows": 5,
+            "positive_window_fraction": 0.5,
+            "mean_score": 0.4619174603174603,
+            "mean_positive_probability": 0.4619174603174603,
+            "correct": true
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1621 @@
+{
+  "primary": {
+    "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass14-emg-s2-mcap-a3-only-matched14.json",
+    "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass14_emg_s2_mcap_a3_only_matched14.csv",
+    "model_name": "logreg",
+    "subjects": [
+      {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "mean_score": 0.17629848490946307,
+        "windows": 14,
+        "positive_window_fraction": 0.2857142857142857,
+        "predicted_positive_windows": 4
+      },
+      {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "mean_score": 0.07434163897755637,
+        "windows": 14,
+        "positive_window_fraction": 0.0,
+        "predicted_positive_windows": 0
+      },
+      {
+        "subject_id": "n11",
+        "true_label": "control",
+        "mean_score": 0.09538595941495152,
+        "windows": 14,
+        "positive_window_fraction": 0.0,
+        "predicted_positive_windows": 0
+      },
+      {
+        "subject_id": "n3",
+        "true_label": "control",
+        "mean_score": 0.2669540882845629,
+        "windows": 14,
+        "positive_window_fraction": 0.0,
+        "predicted_positive_windows": 0
+      },
+      {
+        "subject_id": "n5",
+        "true_label": "control",
+        "mean_score": 0.2658312509612798,
+        "windows": 14,
+        "positive_window_fraction": 0.14285714285714285,
+        "predicted_positive_windows": 2
+      }
+    ],
+    "default_subject_summary": {
+      "balanced_accuracy": 0.5,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "auroc": 0.16666666666666669,
+      "tp": 0,
+      "fp": 0,
+      "tn": 3,
+      "fn": 2,
+      "subject_count": 5,
+      "positive_subject_count": 2,
+      "negative_subject_count": 3,
+      "score_threshold": 0.5
+    },
+    "window_level_summary": {
+      "balanced_accuracy": 0.6285714285714286,
+      "sensitivity": 0.05714285714285714,
+      "specificity": 0.5714285714285714,
+      "auroc": null
+    },
+    "threshold_audit": {
+      "subject_scores_sorted": [
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.2669540882845629,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.2658312509612798,
+          "windows": 14,
+          "positive_window_fraction": 0.14285714285714285,
+          "predicted_positive_windows": 2
+        },
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.17629848490946307,
+          "windows": 14,
+          "positive_window_fraction": 0.2857142857142857,
+          "predicted_positive_windows": 4
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.09538595941495152,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.07434163897755637,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        }
+      ],
+      "threshold_grid": [
+        {
+          "threshold": 0.0,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.07434063897755637,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.07434163897755637,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.07434263897755637,
+          "tp": 1,
+          "tn": 0,
+          "fp": 3,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.25,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.08486379919625395,
+          "tp": 1,
+          "tn": 0,
+          "fp": 3,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.25,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.09538495941495152,
+          "tp": 1,
+          "tn": 0,
+          "fp": 3,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.25,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.09538595941495152,
+          "tp": 1,
+          "tn": 0,
+          "fp": 3,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.25,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.09538695941495152,
+          "tp": 1,
+          "tn": 1,
+          "fp": 2,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.41666666666666663,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.1358422221622073,
+          "tp": 1,
+          "tn": 1,
+          "fp": 2,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.41666666666666663,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.17629748490946306,
+          "tp": 1,
+          "tn": 1,
+          "fp": 2,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.41666666666666663,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.17629848490946307,
+          "tp": 1,
+          "tn": 1,
+          "fp": 2,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.41666666666666663,
+          "predicted_positive_subjects": [
+            "brux1",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.17629948490946307,
+          "tp": 0,
+          "tn": 1,
+          "fp": 2,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.16666666666666666,
+          "predicted_positive_subjects": [
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.22106486793537145,
+          "tp": 0,
+          "tn": 1,
+          "fp": 2,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.16666666666666666,
+          "predicted_positive_subjects": [
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.2658302509612798,
+          "tp": 0,
+          "tn": 1,
+          "fp": 2,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.16666666666666666,
+          "predicted_positive_subjects": [
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.2658312509612798,
+          "tp": 0,
+          "tn": 1,
+          "fp": 2,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.3333333333333333,
+          "balanced_accuracy": 0.16666666666666666,
+          "predicted_positive_subjects": [
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.26583225096127977,
+          "tp": 0,
+          "tn": 2,
+          "fp": 1,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "balanced_accuracy": 0.3333333333333333,
+          "predicted_positive_subjects": [
+            "n3"
+          ]
+        },
+        {
+          "threshold": 0.26639266962292135,
+          "tp": 0,
+          "tn": 2,
+          "fp": 1,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "balanced_accuracy": 0.3333333333333333,
+          "predicted_positive_subjects": [
+            "n3"
+          ]
+        },
+        {
+          "threshold": 0.26695308828456293,
+          "tp": 0,
+          "tn": 2,
+          "fp": 1,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "balanced_accuracy": 0.3333333333333333,
+          "predicted_positive_subjects": [
+            "n3"
+          ]
+        },
+        {
+          "threshold": 0.2669540882845629,
+          "tp": 0,
+          "tn": 2,
+          "fp": 1,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "balanced_accuracy": 0.3333333333333333,
+          "predicted_positive_subjects": [
+            "n3"
+          ]
+        },
+        {
+          "threshold": 0.2669550882845629,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        },
+        {
+          "threshold": 0.5,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        },
+        {
+          "threshold": 1.0,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        }
+      ],
+      "best_balanced_accuracy": 0.5,
+      "best_balanced_accuracy_rows": [
+        {
+          "threshold": 0.0,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.07434063897755637,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.07434163897755637,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        },
+        {
+          "threshold": 0.2669550882845629,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        },
+        {
+          "threshold": 0.5,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        },
+        {
+          "threshold": 1.0,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        }
+      ],
+      "best_zero_false_positive_row": {
+        "threshold": 0.2669550882845629,
+        "tp": 0,
+        "tn": 3,
+        "fp": 0,
+        "fn": 2,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5,
+        "predicted_positive_subjects": []
+      },
+      "best_positive_sensitivity_row": {
+        "threshold": 0.0,
+        "tp": 2,
+        "tn": 0,
+        "fp": 3,
+        "fn": 0,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "balanced_accuracy": 0.5,
+        "predicted_positive_subjects": [
+          "brux1",
+          "brux2",
+          "n11",
+          "n3",
+          "n5"
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "primary": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass14-emg-s2-mcap-a3-only-matched14.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass14_emg_s2_mcap_a3_only_matched14.csv",
+      "model_name": "logreg",
+      "subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.17629848490946307,
+          "windows": 14,
+          "positive_window_fraction": 0.2857142857142857,
+          "predicted_positive_windows": 4
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.07434163897755637,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.09538595941495152,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.2669540882845629,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.2658312509612798,
+          "windows": 14,
+          "positive_window_fraction": 0.14285714285714285,
+          "predicted_positive_windows": 2
+        }
+      ],
+      "default_subject_summary": {
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "auroc": 0.16666666666666669,
+        "tp": 0,
+        "fp": 0,
+        "tn": 3,
+        "fn": 2,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5
+      },
+      "window_level_summary": {
+        "balanced_accuracy": 0.6285714285714286,
+        "sensitivity": 0.05714285714285714,
+        "specificity": 0.5714285714285714,
+        "auroc": null
+      },
+      "threshold_audit": {
+        "subject_scores_sorted": [
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "mean_score": 0.2669540882845629,
+            "windows": 14,
+            "positive_window_fraction": 0.0,
+            "predicted_positive_windows": 0
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "mean_score": 0.2658312509612798,
+            "windows": 14,
+            "positive_window_fraction": 0.14285714285714285,
+            "predicted_positive_windows": 2
+          },
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "mean_score": 0.17629848490946307,
+            "windows": 14,
+            "positive_window_fraction": 0.2857142857142857,
+            "predicted_positive_windows": 4
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "mean_score": 0.09538595941495152,
+            "windows": 14,
+            "positive_window_fraction": 0.0,
+            "predicted_positive_windows": 0
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "mean_score": 0.07434163897755637,
+            "windows": 14,
+            "positive_window_fraction": 0.0,
+            "predicted_positive_windows": 0
+          }
+        ],
+        "threshold_grid": [
+          {
+            "threshold": 0.0,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.07434063897755637,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.07434163897755637,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.07434263897755637,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.08486379919625395,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.09538495941495152,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.09538595941495152,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.09538695941495152,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.1358422221622073,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.17629748490946306,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.17629848490946307,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux1",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.17629948490946307,
+            "tp": 0,
+            "tn": 1,
+            "fp": 2,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.16666666666666666,
+            "predicted_positive_subjects": [
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.22106486793537145,
+            "tp": 0,
+            "tn": 1,
+            "fp": 2,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.16666666666666666,
+            "predicted_positive_subjects": [
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.2658302509612798,
+            "tp": 0,
+            "tn": 1,
+            "fp": 2,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.16666666666666666,
+            "predicted_positive_subjects": [
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.2658312509612798,
+            "tp": 0,
+            "tn": 1,
+            "fp": 2,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.16666666666666666,
+            "predicted_positive_subjects": [
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.26583225096127977,
+            "tp": 0,
+            "tn": 2,
+            "fp": 1,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.3333333333333333,
+            "predicted_positive_subjects": [
+              "n3"
+            ]
+          },
+          {
+            "threshold": 0.26639266962292135,
+            "tp": 0,
+            "tn": 2,
+            "fp": 1,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.3333333333333333,
+            "predicted_positive_subjects": [
+              "n3"
+            ]
+          },
+          {
+            "threshold": 0.26695308828456293,
+            "tp": 0,
+            "tn": 2,
+            "fp": 1,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.3333333333333333,
+            "predicted_positive_subjects": [
+              "n3"
+            ]
+          },
+          {
+            "threshold": 0.2669540882845629,
+            "tp": 0,
+            "tn": 2,
+            "fp": 1,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.3333333333333333,
+            "predicted_positive_subjects": [
+              "n3"
+            ]
+          },
+          {
+            "threshold": 0.2669550882845629,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          },
+          {
+            "threshold": 0.5,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          },
+          {
+            "threshold": 1.0,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          }
+        ],
+        "best_balanced_accuracy": 0.5,
+        "best_balanced_accuracy_rows": [
+          {
+            "threshold": 0.0,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.07434063897755637,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.07434163897755637,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.2669550882845629,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          },
+          {
+            "threshold": 0.5,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          },
+          {
+            "threshold": 1.0,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          }
+        ],
+        "best_zero_false_positive_row": {
+          "threshold": 0.2669550882845629,
+          "tp": 0,
+          "tn": 3,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": []
+        },
+        "best_positive_sensitivity_row": {
+          "threshold": 0.0,
+          "tp": 2,
+          "tn": 0,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "balanced_accuracy": 0.5,
+          "predicted_positive_subjects": [
+            "brux1",
+            "brux2",
+            "n11",
+            "n3",
+            "n5"
+          ]
+        }
+      }
+    },
+    "anchor": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass12-s2-mcap-a1-only-matched14.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass12_s2_mcap_a1_only_matched14.csv",
+      "model_name": "logreg",
+      "subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.01786035507016273,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.7951916869745717,
+          "windows": 14,
+          "positive_window_fraction": 0.9285714285714286,
+          "predicted_positive_windows": 13
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.2726665566772924,
+          "windows": 14,
+          "positive_window_fraction": 0.14285714285714285,
+          "predicted_positive_windows": 2
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.24452076251713267,
+          "windows": 14,
+          "positive_window_fraction": 0.0,
+          "predicted_positive_windows": 0
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.43313284522584933,
+          "windows": 14,
+          "positive_window_fraction": 0.35714285714285715,
+          "predicted_positive_windows": 5
+        }
+      ],
+      "default_subject_summary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.5,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5
+      },
+      "window_level_summary": {
+        "balanced_accuracy": 0.6857142857142857,
+        "sensitivity": 0.18571428571428572,
+        "specificity": 0.5,
+        "auroc": null
+      },
+      "threshold_audit": {
+        "subject_scores_sorted": [
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "mean_score": 0.7951916869745717,
+            "windows": 14,
+            "positive_window_fraction": 0.9285714285714286,
+            "predicted_positive_windows": 13
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "mean_score": 0.43313284522584933,
+            "windows": 14,
+            "positive_window_fraction": 0.35714285714285715,
+            "predicted_positive_windows": 5
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "mean_score": 0.2726665566772924,
+            "windows": 14,
+            "positive_window_fraction": 0.14285714285714285,
+            "predicted_positive_windows": 2
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "mean_score": 0.24452076251713267,
+            "windows": 14,
+            "positive_window_fraction": 0.0,
+            "predicted_positive_windows": 0
+          },
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "mean_score": 0.01786035507016273,
+            "windows": 14,
+            "positive_window_fraction": 0.0,
+            "predicted_positive_windows": 0
+          }
+        ],
+        "threshold_grid": [
+          {
+            "threshold": 0.0,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.01785935507016273,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.01786035507016273,
+            "tp": 2,
+            "tn": 0,
+            "fp": 3,
+            "fn": 0,
+            "sensitivity": 1.0,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": [
+              "brux1",
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.017861355070162732,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.13119055879364772,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.24451976251713267,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.24452076251713267,
+            "tp": 1,
+            "tn": 0,
+            "fp": 3,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.0,
+            "balanced_accuracy": 0.25,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n3",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.24452176251713267,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.25859365959721253,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.2726655566772924,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.2726665566772924,
+            "tp": 1,
+            "tn": 1,
+            "fp": 2,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.3333333333333333,
+            "balanced_accuracy": 0.41666666666666663,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n11",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.27266755667729237,
+            "tp": 1,
+            "tn": 2,
+            "fp": 1,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.5833333333333333,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.35289970095157086,
+            "tp": 1,
+            "tn": 2,
+            "fp": 1,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.5833333333333333,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.43313184522584935,
+            "tp": 1,
+            "tn": 2,
+            "fp": 1,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.5833333333333333,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.43313284522584933,
+            "tp": 1,
+            "tn": 2,
+            "fp": 1,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 0.6666666666666666,
+            "balanced_accuracy": 0.5833333333333333,
+            "predicted_positive_subjects": [
+              "brux2",
+              "n5"
+            ]
+          },
+          {
+            "threshold": 0.4331338452258493,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.5,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.6141622661002105,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.7951906869745716,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.7951916869745717,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.7951926869745717,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          },
+          {
+            "threshold": 1.0,
+            "tp": 0,
+            "tn": 3,
+            "fp": 0,
+            "fn": 2,
+            "sensitivity": 0.0,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.5,
+            "predicted_positive_subjects": []
+          }
+        ],
+        "best_balanced_accuracy": 0.75,
+        "best_balanced_accuracy_rows": [
+          {
+            "threshold": 0.4331338452258493,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.5,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.6141622661002105,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.7951906869745716,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          },
+          {
+            "threshold": 0.7951916869745717,
+            "tp": 1,
+            "tn": 3,
+            "fp": 0,
+            "fn": 1,
+            "sensitivity": 0.5,
+            "specificity": 1.0,
+            "balanced_accuracy": 0.75,
+            "predicted_positive_subjects": [
+              "brux2"
+            ]
+          }
+        ],
+        "best_zero_false_positive_row": {
+          "threshold": 0.4331338452258493,
+          "tp": 1,
+          "tn": 3,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.75,
+          "predicted_positive_subjects": [
+            "brux2"
+          ]
+        },
+        "best_positive_sensitivity_row": {
+          "threshold": 0.4331338452258493,
+          "tp": 1,
+          "tn": 3,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.5,
+          "specificity": 1.0,
+          "balanced_accuracy": 0.75,
+          "predicted_positive_subjects": [
+            "brux2"
+          ]
+        }
+      }
+    },
+    "subject_score_margin": {
+      "primary_best_bruxism_minus_highest_control": -0.09065560337509984,
+      "anchor_best_bruxism_minus_highest_control": 0.3620588417487223
+    }
+  }
+}

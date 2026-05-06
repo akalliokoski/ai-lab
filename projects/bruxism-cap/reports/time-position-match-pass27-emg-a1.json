@@ -1,0 +1,137 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass27_emg_s2_mcap_a1_only_full_envelope.csv",
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n3",
+    "n5",
+    "n11"
+  ],
+  "shared_interval": {
+    "start_s": 7650.0,
+    "end_s": 12650.0
+  },
+  "cap_per_subject": 2,
+  "pre_filter_rows": 233,
+  "subjects_summary": {
+    "brux1": {
+      "label": "bruxism",
+      "candidate_rows_in_shared_interval": 16,
+      "candidate_start_s": {
+        "count": 16,
+        "min": 8150.0,
+        "median": 10175.0,
+        "mean": 10253.75,
+        "max": 12650.0
+      },
+      "selected_start_s": {
+        "count": 2,
+        "min": 8150.0,
+        "median": 10400.0,
+        "mean": 10400.0,
+        "max": 12650.0
+      },
+      "selected_start_s_values": [
+        8150.0,
+        12650.0
+      ]
+    },
+    "brux2": {
+      "label": "bruxism",
+      "candidate_rows_in_shared_interval": 3,
+      "candidate_start_s": {
+        "count": 3,
+        "min": 7650.0,
+        "median": 9360.0,
+        "mean": 9800.0,
+        "max": 12390.0
+      },
+      "selected_start_s": {
+        "count": 2,
+        "min": 7650.0,
+        "median": 10020.0,
+        "mean": 10020.0,
+        "max": 12390.0
+      },
+      "selected_start_s_values": [
+        7650.0,
+        12390.0
+      ]
+    },
+    "n3": {
+      "label": "control",
+      "candidate_rows_in_shared_interval": 2,
+      "candidate_start_s": {
+        "count": 2,
+        "min": 11730.0,
+        "median": 12015.0,
+        "mean": 12015.0,
+        "max": 12300.0
+      },
+      "selected_start_s": {
+        "count": 2,
+        "min": 11730.0,
+        "median": 12015.0,
+        "mean": 12015.0,
+        "max": 12300.0
+      },
+      "selected_start_s_values": [
+        11730.0,
+        12300.0
+      ]
+    },
+    "n5": {
+      "label": "control",
+      "candidate_rows_in_shared_interval": 26,
+      "candidate_start_s": {
+        "count": 26,
+        "min": 7890.0,
+        "median": 9885.0,
+        "mean": 9984.23076923077,
+        "max": 12540.0
+      },
+      "selected_start_s": {
+        "count": 2,
+        "min": 7890.0,
+        "median": 10215.0,
+        "mean": 10215.0,
+        "max": 12540.0
+      },
+      "selected_start_s_values": [
+        7890.0,
+        12540.0
+      ]
+    },
+    "n11": {
+      "label": "control",
+      "candidate_rows_in_shared_interval": 2,
+      "candidate_start_s": {
+        "count": 2,
+        "min": 10530.0,
+        "median": 10800.0,
+        "mean": 10800.0,
+        "max": 11070.0
+      },
+      "selected_start_s": {
+        "count": 2,
+        "min": 10530.0,
+        "median": 10800.0,
+        "mean": 10800.0,
+        "max": 11070.0
+      },
+      "selected_start_s_values": [
+        10530.0,
+        11070.0
+      ]
+    }
+  },
+  "out_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass27_emg_s2_mcap_a1_only_timepos2_envelope.csv",
+  "rows_written": 10,
+  "selected_subject_means": {
+    "brux1": 10400.0,
+    "brux2": 10020.0,
+    "n3": 12015.0,
+    "n5": 10215.0,
+    "n11": 10800.0
+  }
+}

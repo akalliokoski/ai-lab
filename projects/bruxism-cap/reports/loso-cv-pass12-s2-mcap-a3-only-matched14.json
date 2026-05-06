@@ -1,0 +1,925 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass12_s2_mcap_a3_only_matched14.csv",
+  "cv": "loso",
+  "rows": 70,
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n11",
+    "n3",
+    "n5"
+  ],
+  "subject_count": 5,
+  "class_counts": {
+    "control": 42,
+    "bruxism": 28
+  },
+  "feature_count": 20,
+  "feature_columns": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "ptp",
+    "rms",
+    "line_length",
+    "zero_crossing_rate",
+    "sample_entropy",
+    "bp_delta",
+    "rel_bp_delta",
+    "bp_theta",
+    "rel_bp_theta",
+    "bp_alpha",
+    "rel_bp_alpha",
+    "bp_beta",
+    "rel_bp_beta",
+    "ratio_theta_beta",
+    "ratio_alpha_beta",
+    "ratio_alpha_delta"
+  ],
+  "excluded_feature_columns": [
+    "n_samples",
+    "duration_s"
+  ],
+  "models": {
+    "logreg": {
+      "summary": {
+        "balanced_accuracy": 0.3857142857142857,
+        "sensitivity": 0.0,
+        "specificity": 0.3857142857142857,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.008758200596319286,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.11663565756678898,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.42857142857142855,
+          "sensitivity": 0.0,
+          "specificity": 0.42857142857142855,
+          "auroc": null,
+          "tp": 0,
+          "fp": 8,
+          "tn": 6,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "bruxism",
+                "windows": 14,
+                "predicted_positive_windows": 8,
+                "positive_window_fraction": 0.5714285714285714,
+                "mean_score": 0.5538654302408489,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.7857142857142857,
+          "sensitivity": 0.0,
+          "specificity": 0.7857142857142857,
+          "auroc": null,
+          "tp": 0,
+          "fp": 3,
+          "tn": 11,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 3,
+                "positive_window_fraction": 0.21428571428571427,
+                "mean_score": 0.29819296057914707,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.7142857142857143,
+          "sensitivity": 0.0,
+          "specificity": 0.7142857142857143,
+          "auroc": null,
+          "tp": 0,
+          "fp": 4,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.2857142857142857,
+                "mean_score": 0.3660085162050696,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.3333333333333333,
+          "sensitivity": 0.0,
+          "specificity": 0.6666666666666666,
+          "auroc": 0.0,
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 2,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.008758200596319286,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.11663565756678898,
+            "correct": false
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "bruxism",
+            "windows": 14,
+            "predicted_positive_windows": 8,
+            "positive_window_fraction": 0.5714285714285714,
+            "mean_score": 0.5538654302408489,
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 3,
+            "positive_window_fraction": 0.21428571428571427,
+            "mean_score": 0.29819296057914707,
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.2857142857142857,
+            "mean_score": 0.3660085162050696,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "svm": {
+      "summary": {
+        "balanced_accuracy": 0.5142857142857143,
+        "sensitivity": 0.0,
+        "specificity": 0.5142857142857143,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.0419611208983982,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.24331141515285698,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.7142857142857143,
+          "sensitivity": 0.0,
+          "specificity": 0.7142857142857143,
+          "auroc": null,
+          "tp": 0,
+          "fp": 4,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.2857142857142857,
+                "mean_score": 0.4370256502684327,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.23107375097686383,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.8571428571428571,
+          "sensitivity": 0.0,
+          "specificity": 0.8571428571428571,
+          "auroc": null,
+          "tp": 0,
+          "fp": 2,
+          "tn": 12,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 2,
+                "positive_window_fraction": 0.14285714285714285,
+                "mean_score": 0.28547433166043173,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": 0.16666666666666669,
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 2,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.0419611208983982,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.24331141515285698,
+            "correct": false
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.2857142857142857,
+            "mean_score": 0.4370256502684327,
+            "correct": true
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.23107375097686383,
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 2,
+            "positive_window_fraction": 0.14285714285714285,
+            "mean_score": 0.28547433166043173,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "random_forest": {
+      "summary": {
+        "balanced_accuracy": 0.48571428571428577,
+        "sensitivity": 0.0,
+        "specificity": 0.48571428571428577,
+        "auroc": null
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux1",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.11680143665857952,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.0,
+          "sensitivity": 0.0,
+          "specificity": 0.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 14,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux2"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 0.0,
+              "sensitivity": 0.0,
+              "specificity": 0.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 0,
+              "fn": 1,
+              "subject_count": 1,
+              "positive_subject_count": 1,
+              "negative_subject_count": 0,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "brux2",
+                "true_label": "bruxism",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.0985268412143412,
+                "correct": false
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.7142857142857143,
+          "sensitivity": 0.0,
+          "specificity": 0.7142857142857143,
+          "auroc": null,
+          "tp": 0,
+          "fp": 4,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "n11"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n11",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.2857142857142857,
+                "mean_score": 0.37618990929705215,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 0.7142857142857143,
+          "sensitivity": 0.0,
+          "specificity": 0.7142857142857143,
+          "auroc": null,
+          "tp": 0,
+          "fp": 4,
+          "tn": 10,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "n3"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n3",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 4,
+                "positive_window_fraction": 0.2857142857142857,
+                "mean_score": 0.3526547619047619,
+                "correct": true
+              }
+            ]
+          }
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": null,
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "n5"
+          ],
+          "test_rows": 14,
+          "subject_aggregation": {
+            "summary": {
+              "balanced_accuracy": 1.0,
+              "sensitivity": 0.0,
+              "specificity": 1.0,
+              "auroc": null,
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0,
+              "subject_count": 1,
+              "positive_subject_count": 0,
+              "negative_subject_count": 1,
+              "score_threshold": 0.5
+            },
+            "subjects": [
+              {
+                "subject_id": "n5",
+                "true_label": "control",
+                "predicted_label": "control",
+                "windows": 14,
+                "predicted_positive_windows": 0,
+                "positive_window_fraction": 0.0,
+                "mean_score": 0.2722887133347963,
+                "correct": true
+              }
+            ]
+          }
+        }
+      ],
+      "subject_aggregation": {
+        "summary": {
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auroc": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 2,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5
+        },
+        "subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.11680143665857952,
+            "correct": false
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.0985268412143412,
+            "correct": false
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.2857142857142857,
+            "mean_score": 0.37618990929705215,
+            "correct": true
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.2857142857142857,
+            "mean_score": 0.3526547619047619,
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "predicted_label": "control",
+            "windows": 14,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "mean_score": 0.2722887133347963,
+            "correct": true
+          }
+        ]
+      }
+    }
+  }
+}

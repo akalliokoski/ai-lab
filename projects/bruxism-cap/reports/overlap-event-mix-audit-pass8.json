@@ -1,0 +1,354 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass7_s2_mcap.csv",
+  "annotation_dir": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/raw/capslpdb",
+  "window_seconds": 30.0,
+  "overlap_events": [
+    "MCAP-A1",
+    "MCAP-A2",
+    "MCAP-A3"
+  ],
+  "subjects": [
+    {
+      "subject_id": "brux1",
+      "label": "bruxism",
+      "eligible_full": {
+        "windows": 77,
+        "combo_counts": {
+          "MCAP-A1": 27,
+          "MCAP-A1|MCAP-A2": 4,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 1,
+          "MCAP-A2": 12,
+          "MCAP-A2|MCAP-A3": 1,
+          "MCAP-A3": 31
+        },
+        "event_presence": {
+          "MCAP-A1": 33,
+          "MCAP-A2": 18,
+          "MCAP-A3": 34
+        },
+        "single_event_only": {
+          "MCAP-A1": 27,
+          "MCAP-A2": 12,
+          "MCAP-A3": 31
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 31
+      },
+      "kept_first_n": {
+        "windows": 20,
+        "combo_counts": {
+          "MCAP-A1": 7,
+          "MCAP-A1|MCAP-A2": 1,
+          "MCAP-A1|MCAP-A3": 1,
+          "MCAP-A2": 2,
+          "MCAP-A3": 9
+        },
+        "event_presence": {
+          "MCAP-A1": 9,
+          "MCAP-A2": 3,
+          "MCAP-A3": 10
+        },
+        "single_event_only": {
+          "MCAP-A1": 7,
+          "MCAP-A2": 2,
+          "MCAP-A3": 9
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 9
+      }
+    },
+    {
+      "subject_id": "brux2",
+      "label": "bruxism",
+      "eligible_full": {
+        "windows": 181,
+        "combo_counts": {
+          "MCAP-A1": 29,
+          "MCAP-A1|MCAP-A2": 4,
+          "MCAP-A1|MCAP-A3": 13,
+          "MCAP-A2": 21,
+          "MCAP-A2|MCAP-A3": 3,
+          "MCAP-A3": 111
+        },
+        "event_presence": {
+          "MCAP-A1": 46,
+          "MCAP-A2": 28,
+          "MCAP-A3": 127
+        },
+        "single_event_only": {
+          "MCAP-A1": 29,
+          "MCAP-A2": 21,
+          "MCAP-A3": 111
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 111
+      },
+      "kept_first_n": {
+        "windows": 20,
+        "combo_counts": {
+          "MCAP-A1|MCAP-A3": 1,
+          "MCAP-A2": 1,
+          "MCAP-A3": 18
+        },
+        "event_presence": {
+          "MCAP-A1": 1,
+          "MCAP-A2": 1,
+          "MCAP-A3": 19
+        },
+        "single_event_only": {
+          "MCAP-A1": 0,
+          "MCAP-A2": 1,
+          "MCAP-A3": 18
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 18
+      }
+    },
+    {
+      "subject_id": "n11",
+      "label": "control",
+      "eligible_full": {
+        "windows": 96,
+        "combo_counts": {
+          "MCAP-A1": 14,
+          "MCAP-A1|MCAP-A3": 2,
+          "MCAP-A2": 33,
+          "MCAP-A2|MCAP-A3": 5,
+          "MCAP-A3": 42
+        },
+        "event_presence": {
+          "MCAP-A1": 16,
+          "MCAP-A2": 38,
+          "MCAP-A3": 49
+        },
+        "single_event_only": {
+          "MCAP-A1": 14,
+          "MCAP-A2": 33,
+          "MCAP-A3": 42
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 42
+      },
+      "kept_first_n": {
+        "windows": 20,
+        "combo_counts": {
+          "MCAP-A1": 5,
+          "MCAP-A2": 3,
+          "MCAP-A2|MCAP-A3": 1,
+          "MCAP-A3": 11
+        },
+        "event_presence": {
+          "MCAP-A1": 5,
+          "MCAP-A2": 4,
+          "MCAP-A3": 12
+        },
+        "single_event_only": {
+          "MCAP-A1": 5,
+          "MCAP-A2": 3,
+          "MCAP-A3": 11
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 11
+      }
+    },
+    {
+      "subject_id": "n3",
+      "label": "control",
+      "eligible_full": {
+        "windows": 166,
+        "combo_counts": {
+          "MCAP-A1": 29,
+          "MCAP-A1|MCAP-A2": 9,
+          "MCAP-A1|MCAP-A3": 2,
+          "MCAP-A2": 47,
+          "MCAP-A2|MCAP-A3": 3,
+          "MCAP-A3": 76
+        },
+        "event_presence": {
+          "MCAP-A1": 40,
+          "MCAP-A2": 59,
+          "MCAP-A3": 81
+        },
+        "single_event_only": {
+          "MCAP-A1": 29,
+          "MCAP-A2": 47,
+          "MCAP-A3": 76
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 76
+      },
+      "kept_first_n": {
+        "windows": 20,
+        "combo_counts": {
+          "MCAP-A1": 4,
+          "MCAP-A1|MCAP-A3": 1,
+          "MCAP-A2": 5,
+          "MCAP-A2|MCAP-A3": 1,
+          "MCAP-A3": 9
+        },
+        "event_presence": {
+          "MCAP-A1": 5,
+          "MCAP-A2": 6,
+          "MCAP-A3": 11
+        },
+        "single_event_only": {
+          "MCAP-A1": 4,
+          "MCAP-A2": 5,
+          "MCAP-A3": 9
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 9
+      }
+    },
+    {
+      "subject_id": "n5",
+      "label": "control",
+      "eligible_full": {
+        "windows": 194,
+        "combo_counts": {
+          "MCAP-A1": 134,
+          "MCAP-A1|MCAP-A2": 5,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 3,
+          "MCAP-A2": 8,
+          "MCAP-A2|MCAP-A3": 5,
+          "MCAP-A3": 38
+        },
+        "event_presence": {
+          "MCAP-A1": 143,
+          "MCAP-A2": 19,
+          "MCAP-A3": 47
+        },
+        "single_event_only": {
+          "MCAP-A1": 134,
+          "MCAP-A2": 8,
+          "MCAP-A3": 38
+        },
+        "top_combo": "MCAP-A1",
+        "top_combo_count": 134
+      },
+      "kept_first_n": {
+        "windows": 20,
+        "combo_counts": {
+          "MCAP-A1": 13,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 2,
+          "MCAP-A2|MCAP-A3": 1,
+          "MCAP-A3": 3
+        },
+        "event_presence": {
+          "MCAP-A1": 16,
+          "MCAP-A2": 2,
+          "MCAP-A3": 7
+        },
+        "single_event_only": {
+          "MCAP-A1": 13,
+          "MCAP-A2": 0,
+          "MCAP-A3": 3
+        },
+        "top_combo": "MCAP-A1",
+        "top_combo_count": 13
+      }
+    }
+  ],
+  "labels": {
+    "bruxism": {
+      "eligible_full": {
+        "windows": 258,
+        "combo_counts": {
+          "MCAP-A1": 56,
+          "MCAP-A1|MCAP-A2": 8,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 14,
+          "MCAP-A2": 33,
+          "MCAP-A2|MCAP-A3": 4,
+          "MCAP-A3": 142
+        },
+        "event_presence": {
+          "MCAP-A1": 79,
+          "MCAP-A2": 46,
+          "MCAP-A3": 161
+        },
+        "single_event_only": {
+          "MCAP-A1": 56,
+          "MCAP-A2": 33,
+          "MCAP-A3": 142
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 142
+      },
+      "kept_first_n": {
+        "windows": 40,
+        "combo_counts": {
+          "MCAP-A1": 7,
+          "MCAP-A1|MCAP-A2": 1,
+          "MCAP-A1|MCAP-A3": 2,
+          "MCAP-A2": 3,
+          "MCAP-A3": 27
+        },
+        "event_presence": {
+          "MCAP-A1": 10,
+          "MCAP-A2": 4,
+          "MCAP-A3": 29
+        },
+        "single_event_only": {
+          "MCAP-A1": 7,
+          "MCAP-A2": 3,
+          "MCAP-A3": 27
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 27
+      }
+    },
+    "control": {
+      "eligible_full": {
+        "windows": 456,
+        "combo_counts": {
+          "MCAP-A1": 177,
+          "MCAP-A1|MCAP-A2": 14,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 7,
+          "MCAP-A2": 88,
+          "MCAP-A2|MCAP-A3": 13,
+          "MCAP-A3": 156
+        },
+        "event_presence": {
+          "MCAP-A1": 199,
+          "MCAP-A2": 116,
+          "MCAP-A3": 177
+        },
+        "single_event_only": {
+          "MCAP-A1": 177,
+          "MCAP-A2": 88,
+          "MCAP-A3": 156
+        },
+        "top_combo": "MCAP-A1",
+        "top_combo_count": 177
+      },
+      "kept_first_n": {
+        "windows": 60,
+        "combo_counts": {
+          "MCAP-A1": 22,
+          "MCAP-A1|MCAP-A2|MCAP-A3": 1,
+          "MCAP-A1|MCAP-A3": 3,
+          "MCAP-A2": 8,
+          "MCAP-A2|MCAP-A3": 3,
+          "MCAP-A3": 23
+        },
+        "event_presence": {
+          "MCAP-A1": 26,
+          "MCAP-A2": 12,
+          "MCAP-A3": 30
+        },
+        "single_event_only": {
+          "MCAP-A1": 22,
+          "MCAP-A2": 8,
+          "MCAP-A3": 23
+        },
+        "top_combo": "MCAP-A3",
+        "top_combo_count": 23
+      }
+    }
+  }
+}

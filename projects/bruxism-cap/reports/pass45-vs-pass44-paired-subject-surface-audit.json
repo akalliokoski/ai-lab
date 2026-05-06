@@ -1,0 +1,697 @@
+{
+  "primary_name": "pass45-repaired-a3-no-shape",
+  "anchor_name": "pass44-repaired-a3-event-subset",
+  "primary": {
+    "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass45-emg-a3-pct10-90-record-relative-eventsubset-no-shape.json",
+    "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+    "cv": "loso",
+    "rows": 50,
+    "subject_count": 5,
+    "subjects": [
+      {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "mean_score": 0.6407291362586092,
+        "windows": 10,
+        "predicted_positive_windows": 7,
+        "positive_window_fraction": 0.7,
+        "predicted_label": "bruxism",
+        "correct": true
+      },
+      {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "mean_score": 0.17815309338005472,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": false
+      },
+      {
+        "subject_id": "n11",
+        "true_label": "control",
+        "mean_score": 0.34541063560644264,
+        "windows": 10,
+        "predicted_positive_windows": 3,
+        "positive_window_fraction": 0.3,
+        "predicted_label": "control",
+        "correct": true
+      },
+      {
+        "subject_id": "n3",
+        "true_label": "control",
+        "mean_score": 0.13369034418899153,
+        "windows": 10,
+        "predicted_positive_windows": 1,
+        "positive_window_fraction": 0.1,
+        "predicted_label": "control",
+        "correct": true
+      },
+      {
+        "subject_id": "n5",
+        "true_label": "control",
+        "mean_score": 0.3374133236283941,
+        "windows": 10,
+        "predicted_positive_windows": 2,
+        "positive_window_fraction": 0.2,
+        "predicted_label": "control",
+        "correct": true
+      }
+    ],
+    "model_name": "logreg",
+    "window_level_summary": {
+      "balanced_accuracy": 0.6199999999999999,
+      "sensitivity": 0.13999999999999999,
+      "specificity": 0.4800000000000001,
+      "auroc": null
+    },
+    "subject_level_summary": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "auroc": 0.6666666666666667,
+      "tp": 1,
+      "fp": 0,
+      "tn": 3,
+      "fn": 1,
+      "subject_count": 5,
+      "positive_subject_count": 2,
+      "negative_subject_count": 3,
+      "score_threshold": 0.5,
+      "subject_probability_brier": 0.21110745154712704,
+      "sensitivity_subject_counts": {
+        "successes": 1,
+        "trials": 2
+      },
+      "specificity_subject_counts": {
+        "successes": 3,
+        "trials": 3
+      },
+      "sensitivity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.01257911709342505,
+        "high": 0.9874208829065749
+      },
+      "sensitivity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.09453120573423074,
+        "high": 0.9054687942657693
+      },
+      "specificity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.2924017738212866,
+        "high": 1.0
+      },
+      "specificity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.43850296824495455,
+        "high": 1.0
+      }
+    },
+    "feature_count": 20,
+    "feature_selection": {
+      "include_features_regex": [],
+      "exclude_features_regex": [
+        "^bp_",
+        "^rel_bp_",
+        "^ratio_",
+        "^skewness$",
+        "^kurtosis$",
+        "^hjorth_mobility$",
+        "^hjorth_complexity$"
+      ],
+      "selected_feature_count": 20,
+      "selection_excluded_feature_count": 15,
+      "selection_excluded_features": [
+        "skewness",
+        "kurtosis",
+        "hjorth_mobility",
+        "hjorth_complexity",
+        "bp_delta",
+        "rel_bp_delta",
+        "bp_theta",
+        "rel_bp_theta",
+        "bp_alpha",
+        "rel_bp_alpha",
+        "bp_beta",
+        "rel_bp_beta",
+        "ratio_theta_beta",
+        "ratio_alpha_beta",
+        "ratio_alpha_delta"
+      ]
+    }
+  },
+  "anchor": {
+    "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass44-emg-a3-pct10-90-record-relative-shape-eventsubset.json",
+    "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+    "cv": "loso",
+    "rows": 50,
+    "subject_count": 5,
+    "subjects": [
+      {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "mean_score": 0.5321800695353451,
+        "windows": 10,
+        "predicted_positive_windows": 4,
+        "positive_window_fraction": 0.4,
+        "predicted_label": "bruxism",
+        "correct": true
+      },
+      {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "mean_score": 0.1227463213813423,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": false
+      },
+      {
+        "subject_id": "n11",
+        "true_label": "control",
+        "mean_score": 0.39466206505665086,
+        "windows": 10,
+        "predicted_positive_windows": 4,
+        "positive_window_fraction": 0.4,
+        "predicted_label": "control",
+        "correct": true
+      },
+      {
+        "subject_id": "n3",
+        "true_label": "control",
+        "mean_score": 0.03357041099253784,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": true
+      },
+      {
+        "subject_id": "n5",
+        "true_label": "control",
+        "mean_score": 0.36507344245243484,
+        "windows": 10,
+        "predicted_positive_windows": 2,
+        "positive_window_fraction": 0.2,
+        "predicted_label": "control",
+        "correct": true
+      }
+    ],
+    "model_name": "logreg",
+    "window_level_summary": {
+      "balanced_accuracy": 0.5599999999999999,
+      "sensitivity": 0.08,
+      "specificity": 0.4800000000000001,
+      "auroc": null
+    },
+    "subject_level_summary": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "auroc": 0.6666666666666667,
+      "tp": 1,
+      "fp": 0,
+      "tn": 3,
+      "fn": 1,
+      "subject_count": 5,
+      "positive_subject_count": 2,
+      "negative_subject_count": 3,
+      "score_threshold": 0.5,
+      "subject_probability_brier": 0.2557186480925962,
+      "sensitivity_subject_counts": {
+        "successes": 1,
+        "trials": 2
+      },
+      "specificity_subject_counts": {
+        "successes": 3,
+        "trials": 3
+      },
+      "sensitivity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.01257911709342505,
+        "high": 0.9874208829065749
+      },
+      "sensitivity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.09453120573423074,
+        "high": 0.9054687942657693
+      },
+      "specificity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.2924017738212866,
+        "high": 1.0
+      },
+      "specificity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.43850296824495455,
+        "high": 1.0
+      }
+    },
+    "feature_count": 24,
+    "feature_selection": {
+      "include_features_regex": [],
+      "exclude_features_regex": [
+        "^bp_",
+        "^rel_bp_",
+        "^ratio_",
+        "^evt_burst_count_30s$",
+        "^evt_episode_count_30s$",
+        "^evt_bursts_per_episode_mean$",
+        "^evt_phasic_like_episode_fraction$"
+      ],
+      "selected_feature_count": 24,
+      "selection_excluded_feature_count": 11,
+      "selection_excluded_features": [
+        "bp_delta",
+        "rel_bp_delta",
+        "bp_theta",
+        "rel_bp_theta",
+        "bp_alpha",
+        "rel_bp_alpha",
+        "bp_beta",
+        "rel_bp_beta",
+        "ratio_theta_beta",
+        "ratio_alpha_beta",
+        "ratio_alpha_delta"
+      ]
+    }
+  },
+  "comparison": {
+    "primary_surface": {
+      "sorted_subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.6407291362586092,
+          "windows": 10,
+          "predicted_positive_windows": 7,
+          "positive_window_fraction": 0.7,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.34541063560644264,
+          "windows": 10,
+          "predicted_positive_windows": 3,
+          "positive_window_fraction": 0.3,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.3374133236283941,
+          "windows": 10,
+          "predicted_positive_windows": 2,
+          "positive_window_fraction": 0.2,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.17815309338005472,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.13369034418899153,
+          "windows": 10,
+          "predicted_positive_windows": 1,
+          "positive_window_fraction": 0.1,
+          "predicted_label": "control",
+          "correct": true
+        }
+      ],
+      "best_bruxism_subject": {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "mean_score": 0.6407291362586092,
+        "windows": 10,
+        "predicted_positive_windows": 7,
+        "positive_window_fraction": 0.7,
+        "predicted_label": "bruxism",
+        "correct": true
+      },
+      "worst_bruxism_subject": {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "mean_score": 0.17815309338005472,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": false
+      },
+      "highest_control_subject": {
+        "subject_id": "n11",
+        "true_label": "control",
+        "mean_score": 0.34541063560644264,
+        "windows": 10,
+        "predicted_positive_windows": 3,
+        "positive_window_fraction": 0.3,
+        "predicted_label": "control",
+        "correct": true
+      },
+      "lowest_control_subject": {
+        "subject_id": "n3",
+        "true_label": "control",
+        "mean_score": 0.13369034418899153,
+        "windows": 10,
+        "predicted_positive_windows": 1,
+        "positive_window_fraction": 0.1,
+        "predicted_label": "control",
+        "correct": true
+      },
+      "best_bruxism_minus_highest_control": 0.2953185006521665,
+      "default_positive_subjects": [
+        "brux1"
+      ]
+    },
+    "anchor_surface": {
+      "sorted_subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.5321800695353451,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.39466206505665086,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.36507344245243484,
+          "windows": 10,
+          "predicted_positive_windows": 2,
+          "positive_window_fraction": 0.2,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.1227463213813423,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.03357041099253784,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": true
+        }
+      ],
+      "best_bruxism_subject": {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "mean_score": 0.5321800695353451,
+        "windows": 10,
+        "predicted_positive_windows": 4,
+        "positive_window_fraction": 0.4,
+        "predicted_label": "bruxism",
+        "correct": true
+      },
+      "worst_bruxism_subject": {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "mean_score": 0.1227463213813423,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": false
+      },
+      "highest_control_subject": {
+        "subject_id": "n11",
+        "true_label": "control",
+        "mean_score": 0.39466206505665086,
+        "windows": 10,
+        "predicted_positive_windows": 4,
+        "positive_window_fraction": 0.4,
+        "predicted_label": "control",
+        "correct": true
+      },
+      "lowest_control_subject": {
+        "subject_id": "n3",
+        "true_label": "control",
+        "mean_score": 0.03357041099253784,
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "predicted_label": "control",
+        "correct": true
+      },
+      "best_bruxism_minus_highest_control": 0.13751800447869428,
+      "default_positive_subjects": [
+        "brux1"
+      ]
+    },
+    "paired_subject_rows": [
+      {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "primary_mean_score": 0.6407291362586092,
+        "anchor_mean_score": 0.5321800695353451,
+        "score_delta_primary_minus_anchor": 0.10854906672326403,
+        "primary_positive_window_fraction": 0.7,
+        "anchor_positive_window_fraction": 0.4,
+        "primary_predicted_label": "bruxism",
+        "anchor_predicted_label": "bruxism"
+      },
+      {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "primary_mean_score": 0.17815309338005472,
+        "anchor_mean_score": 0.1227463213813423,
+        "score_delta_primary_minus_anchor": 0.055406771998712426,
+        "primary_positive_window_fraction": 0.0,
+        "anchor_positive_window_fraction": 0.0,
+        "primary_predicted_label": "control",
+        "anchor_predicted_label": "control"
+      },
+      {
+        "subject_id": "n11",
+        "true_label": "control",
+        "primary_mean_score": 0.34541063560644264,
+        "anchor_mean_score": 0.39466206505665086,
+        "score_delta_primary_minus_anchor": -0.04925142945020822,
+        "primary_positive_window_fraction": 0.3,
+        "anchor_positive_window_fraction": 0.4,
+        "primary_predicted_label": "control",
+        "anchor_predicted_label": "control"
+      },
+      {
+        "subject_id": "n3",
+        "true_label": "control",
+        "primary_mean_score": 0.13369034418899153,
+        "anchor_mean_score": 0.03357041099253784,
+        "score_delta_primary_minus_anchor": 0.1001199331964537,
+        "primary_positive_window_fraction": 0.1,
+        "anchor_positive_window_fraction": 0.0,
+        "primary_predicted_label": "control",
+        "anchor_predicted_label": "control"
+      },
+      {
+        "subject_id": "n5",
+        "true_label": "control",
+        "primary_mean_score": 0.3374133236283941,
+        "anchor_mean_score": 0.36507344245243484,
+        "score_delta_primary_minus_anchor": -0.027660118824040736,
+        "primary_positive_window_fraction": 0.2,
+        "anchor_positive_window_fraction": 0.2,
+        "primary_predicted_label": "control",
+        "anchor_predicted_label": "control"
+      }
+    ],
+    "prediction_flips": [],
+    "label_delta_summary": {
+      "bruxism": {
+        "mean_primary_score": 0.40944111481933193,
+        "mean_anchor_score": 0.32746319545834374,
+        "mean_score_delta_primary_minus_anchor": 0.08197791936098822
+      },
+      "control": {
+        "mean_primary_score": 0.2721714344746094,
+        "mean_anchor_score": 0.26443530616720784,
+        "mean_score_delta_primary_minus_anchor": 0.007736128307401581
+      }
+    },
+    "subject_ordering_change": {
+      "primary_top_subject": "brux1",
+      "anchor_top_subject": "brux1",
+      "primary_best_bruxism_subject": "brux1",
+      "anchor_best_bruxism_subject": "brux1"
+    },
+    "margin_change": {
+      "primary_best_bruxism_minus_highest_control": 0.2953185006521665,
+      "anchor_best_bruxism_minus_highest_control": 0.13751800447869428,
+      "delta_primary_minus_anchor": 0.15780049617347225
+    },
+    "copied_through_subject_summary": {
+      "primary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.6666666666666667,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.21110745154712704,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      },
+      "anchor": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.6666666666666667,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.2557186480925962,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,874 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass14_emg_s2_mcap_a3_only_matched14.csv",
+  "model": "logreg",
+  "feature_columns": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "ptp",
+    "rms",
+    "line_length",
+    "zero_crossing_rate",
+    "sample_entropy",
+    "bp_delta",
+    "rel_bp_delta",
+    "bp_theta",
+    "rel_bp_theta",
+    "bp_alpha",
+    "rel_bp_alpha",
+    "bp_beta",
+    "rel_bp_beta",
+    "ratio_theta_beta",
+    "ratio_alpha_beta",
+    "ratio_alpha_delta"
+  ],
+  "subjects": [
+    {
+      "subject_id": "brux1",
+      "true_label": "bruxism",
+      "windows": 14,
+      "mean_score": 0.17629848490946307,
+      "mean_logit": -981.3932710429598,
+      "intercept": -1.9698810463797434,
+      "top_positive_contributors": [
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": 1.0580006328634641
+        },
+        {
+          "feature": "rel_bp_beta",
+          "mean_contribution": 0.36616558727063503
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": 0.2509013561610223
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "mean_contribution": 0.24029965226521202
+        },
+        {
+          "feature": "line_length",
+          "mean_contribution": 0.10891141009607316
+        }
+      ],
+      "top_negative_contributors": [
+        {
+          "feature": "mean",
+          "mean_contribution": -853.6237941308834
+        },
+        {
+          "feature": "bp_theta",
+          "mean_contribution": -76.23053966252994
+        },
+        {
+          "feature": "bp_alpha",
+          "mean_contribution": -31.114257741264918
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -7.067032671272165
+        },
+        {
+          "feature": "bp_delta",
+          "mean_contribution": -4.379465212745396
+        }
+      ],
+      "largest_absolute_contributors": [
+        {
+          "feature": "mean",
+          "mean_contribution": -853.6237941308834,
+          "absolute_contribution": 853.6237941308834
+        },
+        {
+          "feature": "bp_theta",
+          "mean_contribution": -76.23053966252994,
+          "absolute_contribution": 76.23053966252994
+        },
+        {
+          "feature": "bp_alpha",
+          "mean_contribution": -31.114257741264918,
+          "absolute_contribution": 31.114257741264918
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -7.067032671272165,
+          "absolute_contribution": 7.067032671272165
+        },
+        {
+          "feature": "bp_delta",
+          "mean_contribution": -4.379465212745396,
+          "absolute_contribution": 4.379465212745396
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": -3.7293795680271242,
+          "absolute_contribution": 3.7293795680271242
+        },
+        {
+          "feature": "bp_beta",
+          "mean_contribution": -3.03881162559107,
+          "absolute_contribution": 3.03881162559107
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": 1.0580006328634641,
+          "absolute_contribution": 1.0580006328634641
+        }
+      ],
+      "feature_mean_contributions": {
+        "rel_bp_delta": 1.0580006328634641,
+        "rel_bp_beta": 0.36616558727063503,
+        "ratio_alpha_beta": 0.2509013561610223,
+        "rel_bp_alpha": 0.24029965226521202,
+        "line_length": 0.10891141009607316,
+        "sample_entropy": 0.06830596558364464,
+        "ratio_alpha_delta": 0.0179775836051622,
+        "min": -0.061156960451683805,
+        "ptp": -0.33326862837574944,
+        "std": -0.42920607667303406,
+        "rms": -0.4320735574921004,
+        "rel_bp_theta": -0.43675806949916207,
+        "max": -0.6582082796194985,
+        "bp_beta": -3.03881162559107,
+        "zero_crossing_rate": -3.7293795680271242,
+        "bp_delta": -4.379465212745396,
+        "ratio_theta_beta": -7.067032671272165,
+        "bp_alpha": -31.114257741264918,
+        "bp_theta": -76.23053966252994,
+        "mean": -853.6237941308834
+      }
+    },
+    {
+      "subject_id": "brux2",
+      "true_label": "bruxism",
+      "windows": 14,
+      "mean_score": 0.07434163897755637,
+      "mean_logit": -2.627142416067005,
+      "intercept": -0.5084130446420302,
+      "top_positive_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": 0.4595294933949655
+        },
+        {
+          "feature": "min",
+          "mean_contribution": 0.1227484977182542
+        },
+        {
+          "feature": "ptp",
+          "mean_contribution": 0.04269288617718036
+        },
+        {
+          "feature": "rel_bp_theta",
+          "mean_contribution": 0.03246845014587226
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "mean_contribution": 0.0007801856966771292
+        }
+      ],
+      "top_negative_contributors": [
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": -1.3962822919287612
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.19501843899517748
+        },
+        {
+          "feature": "rel_bp_beta",
+          "mean_contribution": -0.12946343637613417
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.12698865252942335
+        },
+        {
+          "feature": "std",
+          "mean_contribution": -0.1128585349067042
+        }
+      ],
+      "largest_absolute_contributors": [
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": -1.3962822919287612,
+          "absolute_contribution": 1.3962822919287612
+        },
+        {
+          "feature": "line_length",
+          "mean_contribution": 0.4595294933949655,
+          "absolute_contribution": 0.4595294933949655
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.19501843899517748,
+          "absolute_contribution": 0.19501843899517748
+        },
+        {
+          "feature": "rel_bp_beta",
+          "mean_contribution": -0.12946343637613417,
+          "absolute_contribution": 0.12946343637613417
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.12698865252942335,
+          "absolute_contribution": 0.12698865252942335
+        },
+        {
+          "feature": "min",
+          "mean_contribution": 0.1227484977182542,
+          "absolute_contribution": 0.1227484977182542
+        },
+        {
+          "feature": "std",
+          "mean_contribution": -0.1128585349067042,
+          "absolute_contribution": 0.1128585349067042
+        },
+        {
+          "feature": "rms",
+          "mean_contribution": -0.11256378654261168,
+          "absolute_contribution": 0.11256378654261168
+        }
+      ],
+      "feature_mean_contributions": {
+        "line_length": 0.4595294933949655,
+        "min": 0.1227484977182542,
+        "ptp": 0.04269288617718036,
+        "rel_bp_theta": 0.03246845014587226,
+        "ratio_alpha_delta": 0.0007801856966771292,
+        "max": -0.008804898976320344,
+        "sample_entropy": -0.06586630316980255,
+        "rel_bp_alpha": -0.07159158707469594,
+        "mean": -0.07604306800956395,
+        "bp_alpha": -0.07953223965982592,
+        "bp_delta": -0.09702089406281401,
+        "ratio_theta_beta": -0.100659921853178,
+        "bp_beta": -0.10209593434610821,
+        "bp_theta": -0.10215889612680322,
+        "rms": -0.11256378654261168,
+        "std": -0.1128585349067042,
+        "rel_bp_delta": -0.12698865252942335,
+        "rel_bp_beta": -0.12946343637613417,
+        "ratio_alpha_beta": -0.19501843899517748,
+        "zero_crossing_rate": -1.3962822919287612
+      }
+    },
+    {
+      "subject_id": "n11",
+      "true_label": "control",
+      "windows": 14,
+      "mean_score": 0.09538595941495152,
+      "mean_logit": -2.5404979178693012,
+      "intercept": 0.34880492445620737,
+      "top_positive_contributors": [
+        {
+          "feature": "sample_entropy",
+          "mean_contribution": 0.02163731854799767
+        },
+        {
+          "feature": "min",
+          "mean_contribution": 0.007427326235257724
+        },
+        {
+          "feature": "rel_bp_theta",
+          "mean_contribution": -0.0035572463002337055
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "mean_contribution": -0.008336883627565241
+        },
+        {
+          "feature": "ptp",
+          "mean_contribution": -0.009334726044914884
+        }
+      ],
+      "top_negative_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": -1.2322764158327597
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.2603767948623148
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.15822571854980721
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "mean_contribution": -0.15184298032878682
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -0.15058600843380973
+        }
+      ],
+      "largest_absolute_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": -1.2322764158327597,
+          "absolute_contribution": 1.2322764158327597
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.2603767948623148,
+          "absolute_contribution": 0.2603767948623148
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.15822571854980721,
+          "absolute_contribution": 0.15822571854980721
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "mean_contribution": -0.15184298032878682,
+          "absolute_contribution": 0.15184298032878682
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -0.15058600843380973,
+          "absolute_contribution": 0.15058600843380973
+        },
+        {
+          "feature": "rel_bp_beta",
+          "mean_contribution": -0.1497747119039165,
+          "absolute_contribution": 0.1497747119039165
+        },
+        {
+          "feature": "bp_theta",
+          "mean_contribution": -0.1446083653926227,
+          "absolute_contribution": 0.1446083653926227
+        },
+        {
+          "feature": "bp_delta",
+          "mean_contribution": -0.14158664776670818,
+          "absolute_contribution": 0.14158664776670818
+        }
+      ],
+      "feature_mean_contributions": {
+        "sample_entropy": 0.02163731854799767,
+        "min": 0.007427326235257724,
+        "rel_bp_theta": -0.0035572463002337055,
+        "ratio_alpha_delta": -0.008336883627565241,
+        "ptp": -0.009334726044914884,
+        "max": -0.01568462132929908,
+        "zero_crossing_rate": -0.02471029482304046,
+        "std": -0.07523173193618342,
+        "rms": -0.07563978731941422,
+        "bp_beta": -0.09910922093697731,
+        "bp_alpha": -0.10770783186979574,
+        "mean": -0.10977749985061326,
+        "bp_delta": -0.14158664776670818,
+        "bp_theta": -0.1446083653926227,
+        "rel_bp_beta": -0.1497747119039165,
+        "ratio_theta_beta": -0.15058600843380973,
+        "rel_bp_alpha": -0.15184298032878682,
+        "rel_bp_delta": -0.15822571854980721,
+        "ratio_alpha_beta": -0.2603767948623148,
+        "line_length": -1.2322764158327597
+      }
+    },
+    {
+      "subject_id": "n3",
+      "true_label": "control",
+      "windows": 14,
+      "mean_score": 0.2669540882845629,
+      "mean_logit": -1.3551330695758803,
+      "intercept": 0.26503391059044645,
+      "top_positive_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": 0.46303280172518047
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "mean_contribution": 0.2308031766962729
+        },
+        {
+          "feature": "rel_bp_theta",
+          "mean_contribution": 0.049349875888410236
+        },
+        {
+          "feature": "min",
+          "mean_contribution": 0.03301810499752168
+        },
+        {
+          "feature": "sample_entropy",
+          "mean_contribution": -0.016550944039027408
+        }
+      ],
+      "top_negative_contributors": [
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": -0.3487712142438494
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.243398780966737
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.22656920664726274
+        },
+        {
+          "feature": "std",
+          "mean_contribution": -0.20216086958937388
+        },
+        {
+          "feature": "rms",
+          "mean_contribution": -0.2014450929327157
+        }
+      ],
+      "largest_absolute_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": 0.46303280172518047,
+          "absolute_contribution": 0.46303280172518047
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": -0.3487712142438494,
+          "absolute_contribution": 0.3487712142438494
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.243398780966737,
+          "absolute_contribution": 0.243398780966737
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "mean_contribution": 0.2308031766962729,
+          "absolute_contribution": 0.2308031766962729
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.22656920664726274,
+          "absolute_contribution": 0.22656920664726274
+        },
+        {
+          "feature": "std",
+          "mean_contribution": -0.20216086958937388,
+          "absolute_contribution": 0.20216086958937388
+        },
+        {
+          "feature": "rms",
+          "mean_contribution": -0.2014450929327157,
+          "absolute_contribution": 0.2014450929327157
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -0.17292172328042135,
+          "absolute_contribution": 0.17292172328042135
+        }
+      ],
+      "feature_mean_contributions": {
+        "line_length": 0.46303280172518047,
+        "ratio_alpha_delta": 0.2308031766962729,
+        "rel_bp_theta": 0.049349875888410236,
+        "min": 0.03301810499752168,
+        "sample_entropy": -0.016550944039027408,
+        "ptp": -0.025724573567750594,
+        "rel_bp_alpha": -0.041355842883783356,
+        "max": -0.05463085533399042,
+        "mean": -0.12508455167984056,
+        "bp_alpha": -0.12965754167078353,
+        "bp_beta": -0.13306534014997845,
+        "rel_bp_beta": -0.15437498581992193,
+        "bp_theta": -0.1598636153892971,
+        "bp_delta": -0.16079580127897847,
+        "ratio_theta_beta": -0.17292172328042135,
+        "rms": -0.2014450929327157,
+        "std": -0.20216086958937388,
+        "rel_bp_delta": -0.22656920664726274,
+        "ratio_alpha_beta": -0.243398780966737,
+        "zero_crossing_rate": -0.3487712142438494
+      }
+    },
+    {
+      "subject_id": "n5",
+      "true_label": "control",
+      "windows": 14,
+      "mean_score": 0.2658312509612798,
+      "mean_logit": -1.27024644764806,
+      "intercept": 0.31348370539766546,
+      "top_positive_contributors": [
+        {
+          "feature": "rel_bp_alpha",
+          "mean_contribution": 0.05838418769856024
+        },
+        {
+          "feature": "sample_entropy",
+          "mean_contribution": 0.03841701278512299
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "mean_contribution": 0.036124250099553175
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "mean_contribution": 0.03324553683061051
+        },
+        {
+          "feature": "min",
+          "mean_contribution": 0.012010810019587778
+        }
+      ],
+      "top_negative_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": -0.20744225772047495
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.1595125375736192
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.14195949692706802
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -0.14076387732769685
+        },
+        {
+          "feature": "bp_delta",
+          "mean_contribution": -0.13881491244744593
+        }
+      ],
+      "largest_absolute_contributors": [
+        {
+          "feature": "line_length",
+          "mean_contribution": -0.20744225772047495,
+          "absolute_contribution": 0.20744225772047495
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "mean_contribution": -0.1595125375736192,
+          "absolute_contribution": 0.1595125375736192
+        },
+        {
+          "feature": "rel_bp_delta",
+          "mean_contribution": -0.14195949692706802,
+          "absolute_contribution": 0.14195949692706802
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "mean_contribution": -0.14076387732769685,
+          "absolute_contribution": 0.14076387732769685
+        },
+        {
+          "feature": "bp_delta",
+          "mean_contribution": -0.13881491244744593,
+          "absolute_contribution": 0.13881491244744593
+        },
+        {
+          "feature": "bp_theta",
+          "mean_contribution": -0.1373107508956084,
+          "absolute_contribution": 0.1373107508956084
+        },
+        {
+          "feature": "std",
+          "mean_contribution": -0.12392492595124434,
+          "absolute_contribution": 0.12392492595124434
+        },
+        {
+          "feature": "rms",
+          "mean_contribution": -0.12378922360493638,
+          "absolute_contribution": 0.12378922360493638
+        }
+      ],
+      "feature_mean_contributions": {
+        "rel_bp_alpha": 0.05838418769856024,
+        "sample_entropy": 0.03841701278512299,
+        "ratio_alpha_delta": 0.036124250099553175,
+        "zero_crossing_rate": 0.03324553683061051,
+        "min": 0.012010810019587778,
+        "rel_bp_theta": -0.022718248114115516,
+        "ptp": -0.04369308891413913,
+        "max": -0.07780797599257637,
+        "bp_alpha": -0.10719343527847898,
+        "mean": -0.10902628326381904,
+        "bp_beta": -0.10927975125309727,
+        "rel_bp_beta": -0.11867518521483988,
+        "rms": -0.12378922360493638,
+        "std": -0.12392492595124434,
+        "bp_theta": -0.1373107508956084,
+        "bp_delta": -0.13881491244744593,
+        "ratio_theta_beta": -0.14076387732769685,
+        "rel_bp_delta": -0.14195949692706802,
+        "ratio_alpha_beta": -0.1595125375736192,
+        "line_length": -0.20744225772047495
+      }
+    }
+  ],
+  "pairwise_gaps_vs_brux1": [
+    {
+      "higher_subject": "n3",
+      "reference_subject": "brux1",
+      "score_gap": 0.09065560337509984,
+      "top_gap_contributors": [
+        {
+          "feature": "mean",
+          "delta_contribution": 853.4987095792036
+        },
+        {
+          "feature": "bp_theta",
+          "delta_contribution": 76.07067604714064
+        },
+        {
+          "feature": "bp_alpha",
+          "delta_contribution": 30.984600199594134
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "delta_contribution": 6.894110947991744
+        },
+        {
+          "feature": "bp_delta",
+          "delta_contribution": 4.218669411466418
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "delta_contribution": 3.3806083537832747
+        }
+      ],
+      "top_gap_reducers": [
+        {
+          "feature": "rel_bp_delta",
+          "delta_contribution": -1.2845698395107268
+        },
+        {
+          "feature": "rel_bp_beta",
+          "delta_contribution": -0.520540573090557
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "delta_contribution": -0.49430013712775933
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "delta_contribution": -0.28165549514899535
+        },
+        {
+          "feature": "sample_entropy",
+          "delta_contribution": -0.08485690962267205
+        },
+        {
+          "feature": "min",
+          "delta_contribution": 0.09417506544920548
+        }
+      ]
+    },
+    {
+      "higher_subject": "n5",
+      "reference_subject": "brux1",
+      "score_gap": 0.08953276605181673,
+      "top_gap_contributors": [
+        {
+          "feature": "mean",
+          "delta_contribution": 853.5147678476196
+        },
+        {
+          "feature": "bp_theta",
+          "delta_contribution": 76.09322891163433
+        },
+        {
+          "feature": "bp_alpha",
+          "delta_contribution": 31.00706430598644
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "delta_contribution": 6.926268793944469
+        },
+        {
+          "feature": "bp_delta",
+          "delta_contribution": 4.2406503002979505
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "delta_contribution": 3.762625104857735
+        }
+      ],
+      "top_gap_reducers": [
+        {
+          "feature": "rel_bp_delta",
+          "delta_contribution": -1.1999601297905322
+        },
+        {
+          "feature": "rel_bp_beta",
+          "delta_contribution": -0.4848407724854749
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "delta_contribution": -0.41041389373464154
+        },
+        {
+          "feature": "line_length",
+          "delta_contribution": -0.3163536678165481
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "delta_contribution": -0.18191546456665178
+        },
+        {
+          "feature": "sample_entropy",
+          "delta_contribution": -0.029888952798521655
+        }
+      ]
+    },
+    {
+      "higher_subject": "n11",
+      "reference_subject": "brux1",
+      "score_gap": -0.08091252549451154,
+      "top_gap_contributors": [
+        {
+          "feature": "mean",
+          "delta_contribution": 853.5140166310329
+        },
+        {
+          "feature": "bp_theta",
+          "delta_contribution": 76.08593129713731
+        },
+        {
+          "feature": "bp_alpha",
+          "delta_contribution": 31.006549909395122
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "delta_contribution": 6.916446662838355
+        },
+        {
+          "feature": "bp_delta",
+          "delta_contribution": 4.237878564978688
+        },
+        {
+          "feature": "zero_crossing_rate",
+          "delta_contribution": 3.704669273204084
+        }
+      ],
+      "top_gap_reducers": [
+        {
+          "feature": "line_length",
+          "delta_contribution": -1.3411878259288328
+        },
+        {
+          "feature": "rel_bp_delta",
+          "delta_contribution": -1.2162263514132714
+        },
+        {
+          "feature": "rel_bp_beta",
+          "delta_contribution": -0.5159402991745515
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "delta_contribution": -0.5112781510233371
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "delta_contribution": -0.39214263259399884
+        },
+        {
+          "feature": "sample_entropy",
+          "delta_contribution": -0.04666864703564697
+        }
+      ]
+    },
+    {
+      "higher_subject": "brux2",
+      "reference_subject": "brux1",
+      "score_gap": -0.1019568459319067,
+      "top_gap_contributors": [
+        {
+          "feature": "mean",
+          "delta_contribution": 853.5477510628739
+        },
+        {
+          "feature": "bp_theta",
+          "delta_contribution": 76.12838076640313
+        },
+        {
+          "feature": "bp_alpha",
+          "delta_contribution": 31.03472550160509
+        },
+        {
+          "feature": "ratio_theta_beta",
+          "delta_contribution": 6.966372749418987
+        },
+        {
+          "feature": "bp_delta",
+          "delta_contribution": 4.2824443186825825
+        },
+        {
+          "feature": "bp_beta",
+          "delta_contribution": 2.9367156912449617
+        }
+      ],
+      "top_gap_reducers": [
+        {
+          "feature": "rel_bp_delta",
+          "delta_contribution": -1.1849892853928874
+        },
+        {
+          "feature": "rel_bp_beta",
+          "delta_contribution": -0.4956290236467692
+        },
+        {
+          "feature": "ratio_alpha_beta",
+          "delta_contribution": -0.44591979515619984
+        },
+        {
+          "feature": "rel_bp_alpha",
+          "delta_contribution": -0.311891239339908
+        },
+        {
+          "feature": "sample_entropy",
+          "delta_contribution": -0.13417226875344718
+        },
+        {
+          "feature": "ratio_alpha_delta",
+          "delta_contribution": -0.01719739790848507
+        }
+      ]
+    }
+  ],
+  "feature_flags": {
+    "high_control_subjects": [
+      "n3",
+      "n5"
+    ],
+    "repeated_positive_features": [
+      {
+        "feature": "ratio_alpha_delta",
+        "count": 2
+      },
+      {
+        "feature": "min",
+        "count": 2
+      },
+      {
+        "feature": "sample_entropy",
+        "count": 2
+      },
+      {
+        "feature": "line_length",
+        "count": 1
+      },
+      {
+        "feature": "rel_bp_theta",
+        "count": 1
+      },
+      {
+        "feature": "rel_bp_alpha",
+        "count": 1
+      },
+      {
+        "feature": "zero_crossing_rate",
+        "count": 1
+      }
+    ]
+  }
+}

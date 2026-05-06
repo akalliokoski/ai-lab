@@ -1,0 +1,88 @@
+{
+  "pass": 42,
+  "experiment": "same_table_event_subset_ablation_analysis",
+  "subset_count": 35,
+  "anchors": {
+    "pass29_c4": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "scores": {
+        "brux1": 0.4053864801050843,
+        "brux2": 0.959047460131513,
+        "n11": 0.18754906842421834,
+        "n3": 0.41731065181362637,
+        "n5": 0.2118126409259633
+      }
+    },
+    "pass36": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "scores": {
+        "brux1": 0.11155130015683953,
+        "brux2": 0.8077590274100276,
+        "n11": 0.4885290884952429,
+        "n3": 0.0682355361009477,
+        "n5": 0.38515770529619975
+      }
+    },
+    "pass40": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "scores": {
+        "brux1": 0.11189304587310445,
+        "brux2": 0.8358080854968419,
+        "n11": 0.47239822745163795,
+        "n3": 0.10636193267375423,
+        "n5": 0.3726947711882157
+      }
+    },
+    "pass41": {
+      "balanced_accuracy": 0.5833333333333333,
+      "sensitivity": 0.5,
+      "specificity": 0.6666666666666666,
+      "scores": {
+        "brux1": 0.11751889001840707,
+        "brux2": 0.8028398652896003,
+        "n11": 0.5461187774024816,
+        "n3": 0.15383589105076986,
+        "n5": 0.20018079103892897
+      }
+    }
+  },
+  "recommended_subset": [
+    "evt_active_fraction",
+    "evt_burst_duration_median_s",
+    "evt_interburst_gap_median_s"
+  ],
+  "recommended_subset_result": {
+    "balanced_accuracy": 0.75,
+    "sensitivity": 0.5,
+    "specificity": 1.0,
+    "subject_probability_brier": 0.21531788051352888,
+    "scores": {
+      "brux1": 0.13646350493546552,
+      "brux2": 0.8246332999484366,
+      "n11": 0.48607843827934516,
+      "n3": 0.1552657817208456,
+      "n5": 0.1994014384071897
+    },
+    "predicted_labels": {
+      "brux1": "control",
+      "brux2": "bruxism",
+      "n11": "control",
+      "n3": "control",
+      "n5": "control"
+    },
+    "brux1_lift_vs_pass36": 0.02491220477862599,
+    "brux1_lift_vs_pass41": 0.018944614917058455,
+    "n11_delta_vs_pass36": -0.002450650215897743,
+    "n11_delta_vs_pass41": -0.060040339123136444,
+    "control_reopened": false,
+    "margin_best_brux_minus_highest_control": 0.33855486166909143
+  },
+  "verdict": "Cleaner negative result with real diagnostic value: small brux1 lift retained, control protection restored, but no subject-level benchmark gain beyond pass36/pass40 and no catch-up to the matched C4 anchor.",
+  "next_bounded_task": "Freeze the best 3-feature subset and run one fold-level attribution audit on held-out brux1 versus n3/n11 to verify whether the remaining miss still comes from the old record-relative amplitude block rather than the retained event subset."
+}

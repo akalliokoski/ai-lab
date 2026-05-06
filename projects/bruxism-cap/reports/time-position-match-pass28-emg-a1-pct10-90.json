@@ -1,0 +1,308 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass27_emg_s2_mcap_a1_only_full_envelope.csv",
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n3",
+    "n5",
+    "n11"
+  ],
+  "match_mode": "percentile-band",
+  "percentile_band": {
+    "lower_quantile": 0.1,
+    "upper_quantile": 0.9
+  },
+  "cap_per_subject": 10,
+  "pre_filter_rows": 233,
+  "subjects_summary": {
+    "brux1": {
+      "label": "bruxism",
+      "candidate_rows_after_match_filter": 21,
+      "candidate_start_s": {
+        "count": 21,
+        "min": 3500.0,
+        "median": 8840.0,
+        "mean": 7688.571428571428,
+        "max": 12020.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 3500.0,
+        "median": 8810.0,
+        "mean": 7733.0,
+        "max": 12020.0
+      },
+      "selected_start_s_values": [
+        3500.0,
+        3560.0,
+        4370.0,
+        6050.0,
+        8750.0,
+        8870.0,
+        9770.0,
+        10190.0,
+        10250.0,
+        12020.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 21,
+        "min": 0.11538461538461539,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8846153846153846
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.11538461538461539,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8846153846153846
+      },
+      "selected_relative_time_quantile_values": [
+        0.11538461538461539,
+        0.19230769230769232,
+        0.2692307692307692,
+        0.38461538461538464,
+        0.46153846153846156,
+        0.5384615384615384,
+        0.6153846153846154,
+        0.7307692307692307,
+        0.8076923076923077,
+        0.8846153846153846
+      ]
+    },
+    "brux2": {
+      "label": "bruxism",
+      "candidate_rows_after_match_filter": 23,
+      "candidate_start_s": {
+        "count": 23,
+        "min": 13290.0,
+        "median": 21000.0,
+        "mean": 20482.17391304348,
+        "max": 26250.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 13290.0,
+        "median": 20985.0,
+        "mean": 20577.0,
+        "max": 26250.0
+      },
+      "selected_start_s_values": [
+        13290.0,
+        14280.0,
+        18570.0,
+        18660.0,
+        20910.0,
+        21060.0,
+        22860.0,
+        24510.0,
+        25380.0,
+        26250.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 23,
+        "min": 0.10714285714285714,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8928571428571429
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10714285714285714,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8928571428571429
+      },
+      "selected_relative_time_quantile_values": [
+        0.10714285714285714,
+        0.17857142857142858,
+        0.2857142857142857,
+        0.35714285714285715,
+        0.4642857142857143,
+        0.5357142857142857,
+        0.6428571428571429,
+        0.7142857142857143,
+        0.8214285714285714,
+        0.8928571428571429
+      ]
+    },
+    "n3": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 23,
+      "candidate_start_s": {
+        "count": 23,
+        "min": 6450.0,
+        "median": 16680.0,
+        "mean": 18881.739130434784,
+        "max": 32370.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 6450.0,
+        "median": 16680.0,
+        "mean": 18618.0,
+        "max": 32370.0
+      },
+      "selected_start_s_values": [
+        6450.0,
+        12300.0,
+        15720.0,
+        16440.0,
+        16650.0,
+        16710.0,
+        17460.0,
+        24810.0,
+        27270.0,
+        32370.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 23,
+        "min": 0.10714285714285714,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8928571428571429
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10714285714285714,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8928571428571429
+      },
+      "selected_relative_time_quantile_values": [
+        0.10714285714285714,
+        0.17857142857142858,
+        0.2857142857142857,
+        0.35714285714285715,
+        0.4642857142857143,
+        0.5357142857142857,
+        0.6428571428571429,
+        0.7142857142857143,
+        0.8214285714285714,
+        0.8928571428571429
+      ]
+    },
+    "n5": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 106,
+      "candidate_start_s": {
+        "count": 106,
+        "min": 2280.0,
+        "median": 10005.0,
+        "mean": 11602.641509433963,
+        "max": 23160.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 2280.0,
+        "median": 10890.0,
+        "mean": 11499.0,
+        "max": 23160.0
+      },
+      "selected_start_s_values": [
+        2280.0,
+        5340.0,
+        6210.0,
+        7320.0,
+        9840.0,
+        11940.0,
+        14520.0,
+        15060.0,
+        19320.0,
+        23160.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 106,
+        "min": 0.10526315789473684,
+        "median": 0.5,
+        "mean": 0.49999999999999994,
+        "max": 0.8947368421052632
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.10526315789473684,
+        "median": 0.5,
+        "mean": 0.5,
+        "max": 0.8947368421052632
+      },
+      "selected_relative_time_quantile_values": [
+        0.10526315789473684,
+        0.19548872180451127,
+        0.2781954887218045,
+        0.3684210526315789,
+        0.45864661654135336,
+        0.5413533834586466,
+        0.631578947368421,
+        0.7218045112781954,
+        0.8045112781954887,
+        0.8947368421052632
+      ]
+    },
+    "n11": {
+      "label": "control",
+      "candidate_rows_after_match_filter": 10,
+      "candidate_start_s": {
+        "count": 10,
+        "min": 2250.0,
+        "median": 12630.0,
+        "mean": 10590.0,
+        "max": 16350.0
+      },
+      "selected_start_s": {
+        "count": 10,
+        "min": 2250.0,
+        "median": 12630.0,
+        "mean": 10590.0,
+        "max": 16350.0
+      },
+      "selected_start_s_values": [
+        2250.0,
+        2280.0,
+        2310.0,
+        10530.0,
+        11070.0,
+        14190.0,
+        14310.0,
+        16290.0,
+        16320.0,
+        16350.0
+      ],
+      "candidate_relative_time_quantile": {
+        "count": 10,
+        "min": 0.15384615384615385,
+        "median": 0.5,
+        "mean": 0.4999999999999999,
+        "max": 0.8461538461538461
+      },
+      "selected_relative_time_quantile": {
+        "count": 10,
+        "min": 0.15384615384615385,
+        "median": 0.5,
+        "mean": 0.4999999999999999,
+        "max": 0.8461538461538461
+      },
+      "selected_relative_time_quantile_values": [
+        0.15384615384615385,
+        0.23076923076923078,
+        0.3076923076923077,
+        0.38461538461538464,
+        0.46153846153846156,
+        0.5384615384615384,
+        0.6153846153846154,
+        0.6923076923076923,
+        0.7692307692307693,
+        0.8461538461538461
+      ]
+    }
+  },
+  "out_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass28_emg_s2_mcap_a1_only_pct10_90_timepos10_envelope.csv",
+  "rows_written": 50,
+  "selected_subject_means": {
+    "brux1": 7733.0,
+    "brux2": 20577.0,
+    "n3": 18618.0,
+    "n5": 11499.0,
+    "n11": 10590.0
+  }
+}

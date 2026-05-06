@@ -1,0 +1,303 @@
+{
+  "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass1.csv",
+  "cv": "random",
+  "rows": 30,
+  "subjects": [
+    "brux1",
+    "brux2",
+    "n10"
+  ],
+  "subject_count": 3,
+  "class_counts": {
+    "bruxism": 20,
+    "control": 10
+  },
+  "feature_count": 22,
+  "models": {
+    "logreg": {
+      "summary": {
+        "balanced_accuracy": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "auroc": 1.0
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        }
+      ]
+    },
+    "svm": {
+      "summary": {
+        "balanced_accuracy": 0.95,
+        "sensitivity": 1.0,
+        "specificity": 0.9,
+        "auroc": 1.0
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 0.75,
+          "sensitivity": 1.0,
+          "specificity": 0.5,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        }
+      ]
+    },
+    "random_forest": {
+      "summary": {
+        "balanced_accuracy": 1.0,
+        "sensitivity": 1.0,
+        "specificity": 1.0,
+        "auroc": 1.0
+      },
+      "folds": [
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 1,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 2,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 3,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 4,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        },
+        {
+          "balanced_accuracy": 1.0,
+          "sensitivity": 1.0,
+          "specificity": 1.0,
+          "auroc": 1.0,
+          "tp": 4,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0,
+          "fold_index": 5,
+          "test_subjects": [
+            "brux1",
+            "brux2",
+            "n10"
+          ],
+          "test_rows": 6
+        }
+      ]
+    }
+  }
+}

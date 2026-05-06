@@ -20,16 +20,49 @@ def best_model_name(payload: dict) -> str:
     return best_name
 
 
+def format_subject_summary(payload: dict) -> str | None:
+    model_name = best_model_name(payload)
+    subject_block = payload['models'][model_name].get('subject_aggregation')
+    if not subject_block:
+        return None
+    summary = subject_block['summary']
+    sens_ci = summary.get('sensitivity_ci_95_exact')
+    spec_ci = summary.get('specificity_ci_95_exact')
+    brier = summary.get('subject_probability_brier')
+    parts = [
+        f"subject_balanced_accuracy={summary['balanced_accuracy']:.3f}",
+        f"subject_sensitivity={summary['sensitivity']:.3f}",
+        f"subject_specificity={summary['specificity']:.3f}",
+        f"subject_counts=pos:{summary['positive_subject_count']} neg:{summary['negative_subject_count']}",
+    ]
+    if sens_ci:
+        parts.append(
+            f"sens_ci95_exact=[{sens_ci['low']:.3f}, {sens_ci['high']:.3f}]"
+        )
+    if spec_ci:
+        parts.append(
+            f"spec_ci95_exact=[{spec_ci['low']:.3f}, {spec_ci['high']:.3f}]"
+        )
+    if brier is not None:
+        parts.append(f"subject_brier={brier:.3f}")
+    return ' | '.join(parts)
+
+
 def format_summary(payload: dict) -> str:
     model_name = best_model_name(payload)
     summary = payload['models'][model_name]['summary']
-    return (
-        f"cv={payload['cv']} | best_model={model_name} | "
-        f"balanced_accuracy={summary['balanced_accuracy']:.3f} | "
-        f"sensitivity={summary['sensitivity']:.3f} | "
-        f"specificity={summary['specificity']:.3f} | "
-        f"auroc={summary['auroc'] if summary['auroc'] is not None else 'n/a'}"
-    )
+    parts = [
+        f"cv={payload['cv']}",
+        f"best_model={model_name}",
+        f"balanced_accuracy={summary['balanced_accuracy']:.3f}",
+        f"sensitivity={summary['sensitivity']:.3f}",
+        f"specificity={summary['specificity']:.3f}",
+        f"auroc={summary['auroc'] if summary['auroc'] is not None else 'n/a'}",
+    ]
+    subject_summary = format_subject_summary(payload)
+    if subject_summary:
+        parts.append(subject_summary)
+    return ' | '.join(parts)
 
 
 def compare(first: dict, second: dict) -> dict[str, float | None]:

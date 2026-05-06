@@ -1,0 +1,133 @@
+{
+  "audits": [
+    {
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass2.csv",
+      "rows": 120,
+      "subject_count": 6,
+      "label_counts": {
+        "bruxism": 40,
+        "control": 80
+      },
+      "subject_counts": {
+        "brux1": 20,
+        "brux2": 20,
+        "n10": 20,
+        "n11": 20,
+        "n3": 20,
+        "n5": 20
+      },
+      "feature_count": 20,
+      "feature_columns": [
+        "mean",
+        "std",
+        "min",
+        "max",
+        "ptp",
+        "rms",
+        "line_length",
+        "zero_crossing_rate",
+        "sample_entropy",
+        "bp_delta",
+        "rel_bp_delta",
+        "bp_theta",
+        "rel_bp_theta",
+        "bp_alpha",
+        "rel_bp_alpha",
+        "bp_beta",
+        "rel_bp_beta",
+        "ratio_theta_beta",
+        "ratio_alpha_beta",
+        "ratio_alpha_delta"
+      ],
+      "silhouette": {
+        "subject_id": 0.19501968177528328,
+        "label": 0.36431549674169567,
+        "subject_minus_label_gap": -0.16929581496641238
+      },
+      "nearest_neighbor": {
+        "same_subject_rate": 0.8166666666666667,
+        "same_label_rate": 0.9666666666666667,
+        "subject_minus_label_gap": -0.15000000000000002
+      },
+      "memorization_probe": {
+        "subject_1nn_random_cv_accuracy": 0.7999999999999999,
+        "label_1nn_random_cv_accuracy": 0.9583333333333333,
+        "subject_minus_label_random_cv_gap": -0.15833333333333333
+      },
+      "pca": {
+        "components": 5,
+        "explained_variance_ratio": [
+          0.5553432858770305,
+          0.18406464745688147,
+          0.11939414694170693,
+          0.04767982894266422,
+          0.041272383353916864
+        ]
+      }
+    },
+    {
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass4_s2.csv",
+      "rows": 100,
+      "subject_count": 5,
+      "label_counts": {
+        "bruxism": 40,
+        "control": 60
+      },
+      "subject_counts": {
+        "brux1": 20,
+        "brux2": 20,
+        "n11": 20,
+        "n3": 20,
+        "n5": 20
+      },
+      "feature_count": 20,
+      "feature_columns": [
+        "mean",
+        "std",
+        "min",
+        "max",
+        "ptp",
+        "rms",
+        "line_length",
+        "zero_crossing_rate",
+        "sample_entropy",
+        "bp_delta",
+        "rel_bp_delta",
+        "bp_theta",
+        "rel_bp_theta",
+        "bp_alpha",
+        "rel_bp_alpha",
+        "bp_beta",
+        "rel_bp_beta",
+        "ratio_theta_beta",
+        "ratio_alpha_beta",
+        "ratio_alpha_delta"
+      ],
+      "silhouette": {
+        "subject_id": 0.14673355697294943,
+        "label": 0.32713360928419294,
+        "subject_minus_label_gap": -0.1804000523112435
+      },
+      "nearest_neighbor": {
+        "same_subject_rate": 0.83,
+        "same_label_rate": 1.0,
+        "subject_minus_label_gap": -0.17000000000000004
+      },
+      "memorization_probe": {
+        "subject_1nn_random_cv_accuracy": 0.8099999999999999,
+        "label_1nn_random_cv_accuracy": 1.0,
+        "subject_minus_label_random_cv_gap": -0.19000000000000006
+      },
+      "pca": {
+        "components": 5,
+        "explained_variance_ratio": [
+          0.6269644350054251,
+          0.14151730876188823,
+          0.09201832234228659,
+          0.04969293900948983,
+          0.031096876377684612
+        ]
+      }
+    }
+  ]
+}

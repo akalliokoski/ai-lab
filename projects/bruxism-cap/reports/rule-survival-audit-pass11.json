@@ -1,0 +1,233 @@
+{
+  "window_seconds": 30.0,
+  "annotation_dir": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/raw/capslpdb",
+  "rules": [
+    {
+      "key": "pass4_s2",
+      "label": "S2 only"
+    },
+    {
+      "key": "pass7_s2_mcap_any",
+      "label": "S2 + any MCAP-A1/A2/A3 overlap"
+    },
+    {
+      "key": "pass9_s2_mcap_a3",
+      "label": "S2 + MCAP-A3 overlap"
+    },
+    {
+      "key": "pass10_s2_mcap_a3_only",
+      "label": "S2 + MCAP-A3 overlap, excluding A1/A2"
+    }
+  ],
+  "subjects": [
+    {
+      "subject_id": "brux1",
+      "label": "bruxism",
+      "record_duration_s": 14341.0,
+      "rule_counts": {
+        "pass4_s2": {
+          "eligible": 144,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 100.0,
+          "kept_vs_eligible_pct": 13.9
+        },
+        "pass7_s2_mcap_any": {
+          "eligible": 77,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 53.5,
+          "kept_vs_eligible_pct": 26.0
+        },
+        "pass9_s2_mcap_a3": {
+          "eligible": 34,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 23.6,
+          "kept_vs_eligible_pct": 58.8
+        },
+        "pass10_s2_mcap_a3_only": {
+          "eligible": 31,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 21.5,
+          "kept_vs_eligible_pct": 64.5
+        }
+      }
+    },
+    {
+      "subject_id": "brux2",
+      "label": "bruxism",
+      "record_duration_s": 31321.0,
+      "rule_counts": {
+        "pass4_s2": {
+          "eligible": 298,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 100.0,
+          "kept_vs_eligible_pct": 6.7
+        },
+        "pass7_s2_mcap_any": {
+          "eligible": 181,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 60.7,
+          "kept_vs_eligible_pct": 11.0
+        },
+        "pass9_s2_mcap_a3": {
+          "eligible": 127,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 42.6,
+          "kept_vs_eligible_pct": 15.7
+        },
+        "pass10_s2_mcap_a3_only": {
+          "eligible": 111,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 37.2,
+          "kept_vs_eligible_pct": 18.0
+        }
+      }
+    },
+    {
+      "subject_id": "n11",
+      "label": "control",
+      "record_duration_s": 31620.0,
+      "rule_counts": {
+        "pass4_s2": {
+          "eligible": 266,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 100.0,
+          "kept_vs_eligible_pct": 7.5
+        },
+        "pass7_s2_mcap_any": {
+          "eligible": 96,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 36.1,
+          "kept_vs_eligible_pct": 20.8
+        },
+        "pass9_s2_mcap_a3": {
+          "eligible": 49,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 18.4,
+          "kept_vs_eligible_pct": 40.8
+        },
+        "pass10_s2_mcap_a3_only": {
+          "eligible": 42,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 15.8,
+          "kept_vs_eligible_pct": 47.6
+        }
+      }
+    },
+    {
+      "subject_id": "n3",
+      "label": "control",
+      "record_duration_s": 33061.0,
+      "rule_counts": {
+        "pass4_s2": {
+          "eligible": 347,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 100.0,
+          "kept_vs_eligible_pct": 5.8
+        },
+        "pass7_s2_mcap_any": {
+          "eligible": 166,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 47.8,
+          "kept_vs_eligible_pct": 12.0
+        },
+        "pass9_s2_mcap_a3": {
+          "eligible": 81,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 23.3,
+          "kept_vs_eligible_pct": 24.7
+        },
+        "pass10_s2_mcap_a3_only": {
+          "eligible": 76,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 21.9,
+          "kept_vs_eligible_pct": 26.3
+        }
+      }
+    },
+    {
+      "subject_id": "n5",
+      "label": "control",
+      "record_duration_s": 31441.0,
+      "rule_counts": {
+        "pass4_s2": {
+          "eligible": 413,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 100.0,
+          "kept_vs_eligible_pct": 4.8
+        },
+        "pass7_s2_mcap_any": {
+          "eligible": 194,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 47.0,
+          "kept_vs_eligible_pct": 10.3
+        },
+        "pass9_s2_mcap_a3": {
+          "eligible": 47,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 11.4,
+          "kept_vs_eligible_pct": 42.6
+        },
+        "pass10_s2_mcap_a3_only": {
+          "eligible": 38,
+          "kept": 20,
+          "eligible_vs_pass4_pct": 9.2,
+          "kept_vs_eligible_pct": 52.6
+        }
+      }
+    }
+  ],
+  "labels": {
+    "bruxism": {
+      "pass4_s2": {
+        "eligible": 442,
+        "kept": 40,
+        "eligible_vs_pass4_pct": 100.0,
+        "kept_vs_eligible_pct": 9.0
+      },
+      "pass7_s2_mcap_any": {
+        "eligible": 258,
+        "kept": 40,
+        "eligible_vs_pass4_pct": 58.4,
+        "kept_vs_eligible_pct": 15.5
+      },
+      "pass9_s2_mcap_a3": {
+        "eligible": 161,
+        "kept": 40,
+        "eligible_vs_pass4_pct": 36.4,
+        "kept_vs_eligible_pct": 24.8
+      },
+      "pass10_s2_mcap_a3_only": {
+        "eligible": 142,
+        "kept": 40,
+        "eligible_vs_pass4_pct": 32.1,
+        "kept_vs_eligible_pct": 28.2
+      }
+    },
+    "control": {
+      "pass4_s2": {
+        "eligible": 1026,
+        "kept": 60,
+        "eligible_vs_pass4_pct": 100.0,
+        "kept_vs_eligible_pct": 5.8
+      },
+      "pass7_s2_mcap_any": {
+        "eligible": 456,
+        "kept": 60,
+        "eligible_vs_pass4_pct": 44.4,
+        "kept_vs_eligible_pct": 13.2
+      },
+      "pass9_s2_mcap_a3": {
+        "eligible": 177,
+        "kept": 60,
+        "eligible_vs_pass4_pct": 17.3,
+        "kept_vs_eligible_pct": 33.9
+      },
+      "pass10_s2_mcap_a3_only": {
+        "eligible": 156,
+        "kept": 60,
+        "eligible_vs_pass4_pct": 15.2,
+        "kept_vs_eligible_pct": 38.5
+      }
+    }
+  }
+}

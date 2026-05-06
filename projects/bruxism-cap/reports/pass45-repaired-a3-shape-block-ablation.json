@@ -1,0 +1,2853 @@
+{
+  "pass": 45,
+  "experiment": "repaired_a3_same_table_shape_block_ablation_on_frozen_pass44_anchor",
+  "objective": "test whether removing only the compact shape family rescues brux2 on the repaired A3-only same-table scaffold while preserving the fixed pass44 event trio and LOSO contract",
+  "anchors": {
+    "pass42_repaired_a1": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass42-emg-a1-pct10-90-record-relative-shape-eventblock-subset.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass41_emg_s2_mcap_a1_only_pct10_90_timepos10_record_relative_shape_eventblock.csv",
+      "subject_summary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.5,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.21531788051352888,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      },
+      "subjects": {
+        "brux1": {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "mean_score": 0.13646350493546552,
+          "mean_positive_probability": 0.13646350493546552,
+          "correct": false
+        },
+        "brux2": {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "predicted_label": "bruxism",
+          "windows": 10,
+          "predicted_positive_windows": 10,
+          "positive_window_fraction": 1.0,
+          "mean_score": 0.8246332999484366,
+          "mean_positive_probability": 0.8246332999484366,
+          "correct": true
+        },
+        "n11": {
+          "subject_id": "n11",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 3,
+          "positive_window_fraction": 0.3,
+          "mean_score": 0.48607843827934516,
+          "mean_positive_probability": 0.48607843827934516,
+          "correct": true
+        },
+        "n3": {
+          "subject_id": "n3",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 1,
+          "positive_window_fraction": 0.1,
+          "mean_score": 0.1552657817208456,
+          "mean_positive_probability": 0.1552657817208456,
+          "correct": true
+        },
+        "n5": {
+          "subject_id": "n5",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "mean_score": 0.1994014384071897,
+          "mean_positive_probability": 0.1994014384071897,
+          "correct": true
+        }
+      },
+      "subjects_scores": {
+        "brux1": 0.13646350493546552,
+        "brux2": 0.8246332999484366,
+        "n3": 0.1552657817208456,
+        "n5": 0.1994014384071897,
+        "n11": 0.48607843827934516
+      },
+      "counts_by_subject": {
+        "brux1": 10,
+        "brux2": 10,
+        "n11": 10,
+        "n3": 10,
+        "n5": 10
+      },
+      "row_count": 50
+    },
+    "pass44_repaired_a3": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass44-emg-a3-pct10-90-record-relative-shape-eventsubset.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+      "subject_summary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.6666666666666667,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.2557186480925962,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      },
+      "subjects": {
+        "brux1": {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "predicted_label": "bruxism",
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "mean_score": 0.5321800695353451,
+          "mean_positive_probability": 0.5321800695353451,
+          "correct": true
+        },
+        "brux2": {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "mean_score": 0.1227463213813423,
+          "mean_positive_probability": 0.1227463213813423,
+          "correct": false
+        },
+        "n11": {
+          "subject_id": "n11",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "mean_score": 0.39466206505665086,
+          "mean_positive_probability": 0.39466206505665086,
+          "correct": true
+        },
+        "n3": {
+          "subject_id": "n3",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "mean_score": 0.03357041099253784,
+          "mean_positive_probability": 0.03357041099253784,
+          "correct": true
+        },
+        "n5": {
+          "subject_id": "n5",
+          "true_label": "control",
+          "predicted_label": "control",
+          "windows": 10,
+          "predicted_positive_windows": 2,
+          "positive_window_fraction": 0.2,
+          "mean_score": 0.36507344245243484,
+          "mean_positive_probability": 0.36507344245243484,
+          "correct": true
+        }
+      },
+      "subjects_scores": {
+        "brux1": 0.5321800695353451,
+        "brux2": 0.1227463213813423,
+        "n3": 0.03357041099253784,
+        "n5": 0.36507344245243484,
+        "n11": 0.39466206505665086
+      },
+      "counts_by_subject": {
+        "brux1": 10,
+        "brux2": 10,
+        "n11": 10,
+        "n3": 10,
+        "n5": 10
+      },
+      "row_count": 50
+    }
+  },
+  "pass45_repaired_a3_no_shape": {
+    "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass45-emg-a3-pct10-90-record-relative-eventsubset-no-shape.json",
+    "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+    "subject_summary": {
+      "balanced_accuracy": 0.75,
+      "sensitivity": 0.5,
+      "specificity": 1.0,
+      "auroc": 0.6666666666666667,
+      "tp": 1,
+      "fp": 0,
+      "tn": 3,
+      "fn": 1,
+      "subject_count": 5,
+      "positive_subject_count": 2,
+      "negative_subject_count": 3,
+      "score_threshold": 0.5,
+      "subject_probability_brier": 0.21110745154712704,
+      "sensitivity_subject_counts": {
+        "successes": 1,
+        "trials": 2
+      },
+      "specificity_subject_counts": {
+        "successes": 3,
+        "trials": 3
+      },
+      "sensitivity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.01257911709342505,
+        "high": 0.9874208829065749
+      },
+      "sensitivity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 1,
+        "trials": 2,
+        "low": 0.09453120573423074,
+        "high": 0.9054687942657693
+      },
+      "specificity_ci_95_exact": {
+        "method": "clopper_pearson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.2924017738212866,
+        "high": 1.0
+      },
+      "specificity_ci_95_wilson": {
+        "method": "wilson",
+        "confidence_level": 0.95,
+        "successes": 3,
+        "trials": 3,
+        "low": 0.43850296824495455,
+        "high": 1.0
+      }
+    },
+    "subjects": {
+      "brux1": {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "predicted_label": "bruxism",
+        "windows": 10,
+        "predicted_positive_windows": 7,
+        "positive_window_fraction": 0.7,
+        "mean_score": 0.6407291362586092,
+        "mean_positive_probability": 0.6407291362586092,
+        "correct": true
+      },
+      "brux2": {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "predicted_label": "control",
+        "windows": 10,
+        "predicted_positive_windows": 0,
+        "positive_window_fraction": 0.0,
+        "mean_score": 0.17815309338005472,
+        "mean_positive_probability": 0.17815309338005472,
+        "correct": false
+      },
+      "n11": {
+        "subject_id": "n11",
+        "true_label": "control",
+        "predicted_label": "control",
+        "windows": 10,
+        "predicted_positive_windows": 3,
+        "positive_window_fraction": 0.3,
+        "mean_score": 0.34541063560644264,
+        "mean_positive_probability": 0.34541063560644264,
+        "correct": true
+      },
+      "n3": {
+        "subject_id": "n3",
+        "true_label": "control",
+        "predicted_label": "control",
+        "windows": 10,
+        "predicted_positive_windows": 1,
+        "positive_window_fraction": 0.1,
+        "mean_score": 0.13369034418899153,
+        "mean_positive_probability": 0.13369034418899153,
+        "correct": true
+      },
+      "n5": {
+        "subject_id": "n5",
+        "true_label": "control",
+        "predicted_label": "control",
+        "windows": 10,
+        "predicted_positive_windows": 2,
+        "positive_window_fraction": 0.2,
+        "mean_score": 0.3374133236283941,
+        "mean_positive_probability": 0.3374133236283941,
+        "correct": true
+      }
+    },
+    "subjects_scores": {
+      "brux1": 0.6407291362586092,
+      "brux2": 0.17815309338005472,
+      "n3": 0.13369034418899153,
+      "n5": 0.3374133236283941,
+      "n11": 0.34541063560644264
+    },
+    "counts_by_subject": {
+      "brux1": 10,
+      "brux2": 10,
+      "n11": 10,
+      "n3": 10,
+      "n5": 10
+    },
+    "row_count": 50,
+    "selection_excluded_columns": [
+      "skewness",
+      "kurtosis",
+      "hjorth_mobility",
+      "hjorth_complexity",
+      "bp_delta",
+      "rel_bp_delta",
+      "bp_theta",
+      "rel_bp_theta",
+      "bp_alpha",
+      "rel_bp_alpha",
+      "bp_beta",
+      "rel_bp_beta",
+      "ratio_theta_beta",
+      "ratio_alpha_beta",
+      "ratio_alpha_delta"
+    ],
+    "feature_columns": [
+      "mean",
+      "std",
+      "min",
+      "max",
+      "ptp",
+      "rms",
+      "line_length",
+      "zero_crossing_rate",
+      "sample_entropy",
+      "rectified_mean",
+      "rectified_std",
+      "envelope_mean",
+      "envelope_std",
+      "envelope_cv",
+      "burst_fraction",
+      "burst_rate_hz",
+      "p95_abs",
+      "evt_active_fraction",
+      "evt_burst_duration_median_s",
+      "evt_interburst_gap_median_s"
+    ],
+    "shape_features_dropped": [
+      "skewness",
+      "kurtosis",
+      "hjorth_mobility",
+      "hjorth_complexity"
+    ],
+    "shape_features_present_in_table": {
+      "skewness": true,
+      "kurtosis": true,
+      "hjorth_mobility": true,
+      "hjorth_complexity": true
+    },
+    "subjects_audit": {
+      "brux1": {
+        "mean_score": 0.6407291362586092,
+        "median_score": 0.7607670741796877,
+        "min_score": 1.8941788324342478e-07,
+        "max_score": 1.0,
+        "positive_windows": 7,
+        "score_bins": {
+          "lt_0_1": 2,
+          "0_1_to_0_2": 0,
+          "0_2_to_0_3": 1,
+          "0_3_to_0_5": 0,
+          "ge_0_5": 7
+        },
+        "block_means": {
+          "amp_disp": 15.063510699834236,
+          "shape": 0.0,
+          "event": 0.5669039457163495,
+          "other": 1.718827924053628
+        },
+        "grouped": {
+          "early_ranks_1_3": {
+            "windows": 3,
+            "mean_score": 1.0,
+            "min_score": 1.0,
+            "max_score": 1.0,
+            "amp_disp_mean": 42.90918635745522,
+            "shape_mean": 0.0,
+            "event_mean": 0.7948735297257957,
+            "other_mean": 2.687937124154369
+          },
+          "mid_ranks_4_7": {
+            "windows": 4,
+            "mean_score": 0.48392880580473246,
+            "min_score": 1.8941788324342478e-07,
+            "max_score": 1.0,
+            "amp_disp_mean": 5.668425456023886,
+            "shape_mean": 0.0,
+            "event_mean": 0.8855424356617385,
+            "other_mean": 1.2202148077664596
+          },
+          "late_ranks_8_10": {
+            "windows": 3,
+            "mean_score": 0.49052537978905403,
+            "min_score": 0.05931675429897808,
+            "max_score": 0.837753825456593,
+            "amp_disp_mean": -0.25538463270629225,
+            "shape_mean": 0.0,
+            "event_mean": -0.08591695822028216,
+            "other_mean": 1.4145362123357783
+          }
+        },
+        "rows_by_time_rank": [
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 2510.0,
+            "end_s": 2540.0,
+            "relative_time_quantile": 0.1,
+            "time_match_rank": 1,
+            "window_index": 3,
+            "score": 1.0,
+            "amp_disp_contrib": 38.210987327827304,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.7821233703331051,
+            "other_contrib": 2.692491510200579
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 3260.0,
+            "end_s": 3290.0,
+            "relative_time_quantile": 0.2,
+            "time_match_rank": 2,
+            "window_index": 6,
+            "score": 1.0,
+            "amp_disp_contrib": 49.58788958408889,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8014204694969143,
+            "other_contrib": 2.6873288618703937
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 4280.0,
+            "end_s": 4310.0,
+            "relative_time_quantile": 0.2666666666666666,
+            "time_match_rank": 3,
+            "window_index": 8,
+            "score": 1.0,
+            "amp_disp_contrib": 40.928682160449476,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.801076749347368,
+            "other_contrib": 2.683991000392135
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 5870.0,
+            "end_s": 5900.0,
+            "relative_time_quantile": 0.3666666666666666,
+            "time_match_rank": 4,
+            "window_index": 11,
+            "score": 0.6837803229027822,
+            "amp_disp_contrib": 0.1029535609387842,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.9731491821685827,
+            "other_contrib": 1.042280512855342
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 8210.0,
+            "end_s": 8240.0,
+            "relative_time_quantile": 0.4666666666666667,
+            "time_match_rank": 5,
+            "window_index": 14,
+            "score": 1.0,
+            "amp_disp_contrib": 39.37024378754986,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8153953752852913,
+            "other_contrib": 2.6659713025553757
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 8270.0,
+            "end_s": 8300.0,
+            "relative_time_quantile": 0.5333333333333333,
+            "time_match_rank": 6,
+            "window_index": 16,
+            "score": 1.8941788324342478e-07,
+            "amp_disp_contrib": -17.66252463416697,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8776562015519759,
+            "other_contrib": 2.6527420899047
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 8570.0,
+            "end_s": 8600.0,
+            "relative_time_quantile": 0.6333333333333333,
+            "time_match_rank": 7,
+            "window_index": 19,
+            "score": 0.25193471089826436,
+            "amp_disp_contrib": 0.8630291097738705,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8759689836411042,
+            "other_contrib": -1.4801346742495793
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 9680.0,
+            "end_s": 9710.0,
+            "relative_time_quantile": 0.7333333333333333,
+            "time_match_rank": 8,
+            "window_index": 22,
+            "score": 0.837753825456593,
+            "amp_disp_contrib": -0.3992911944511021,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.9528369361167761,
+            "other_contrib": 2.435247481545588
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 11630.0,
+            "end_s": 11660.0,
+            "relative_time_quantile": 0.8,
+            "time_match_rank": 9,
+            "window_index": 24,
+            "score": 0.05931675429897808,
+            "amp_disp_contrib": -0.2985623061098434,
+            "shape_contrib": 0.0,
+            "event_contrib": -1.9203308605802916,
+            "other_contrib": 0.8023622070008541
+          },
+          {
+            "subject_id": "brux1",
+            "label": "bruxism",
+            "start_s": 12140.0,
+            "end_s": 12170.0,
+            "relative_time_quantile": 0.9,
+            "time_match_rank": 10,
+            "window_index": 27,
+            "score": 0.5745055596115908,
+            "amp_disp_contrib": -0.0683003975579313,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.709743049802669,
+            "other_contrib": 1.005998948460893
+          }
+        ],
+        "feature_means": {
+          "mean": {
+            "raw_mean": 1.596056811009316,
+            "z_mean": 142.37109472071126,
+            "mean_contribution": 17.413374473810215,
+            "coefficient": 0.1223097603342164
+          },
+          "std": {
+            "raw_mean": 3.065816152869821e-05,
+            "z_mean": 3.1896092822424302,
+            "mean_contribution": -1.14734272041254,
+            "coefficient": -0.3597126227341267
+          },
+          "min": {
+            "raw_mean": -0.00028180384142094145,
+            "z_mean": -1.1240409581176627,
+            "mean_contribution": -0.5470805714364251,
+            "coefficient": 0.4867087515677144
+          },
+          "max": {
+            "raw_mean": -0.06270935399341891,
+            "z_mean": -0.2569279259633631,
+            "mean_contribution": 0.04740514713566588,
+            "coefficient": -0.18450756942017144
+          },
+          "ptp": {
+            "raw_mean": -0.058807501202076964,
+            "z_mean": -0.268170063329517,
+            "mean_contribution": 0.06293247957485422,
+            "coefficient": -0.23467376929961506
+          },
+          "rms": {
+            "raw_mean": 3.073110139723146e-05,
+            "z_mean": 3.1990837630283666,
+            "mean_contribution": -1.1508570386512902,
+            "coefficient": -0.35974582846241193
+          },
+          "line_length": {
+            "raw_mean": 1.5595203214701345,
+            "z_mean": -0.17889930306379043,
+            "mean_contribution": 0.02558997523608809,
+            "coefficient": -0.14304122373782213
+          },
+          "zero_crossing_rate": {
+            "raw_mean": 0.056624654165385646,
+            "z_mean": 0.09214808343613126,
+            "mean_contribution": 0.030182254513776208,
+            "coefficient": 0.32754077337588705
+          },
+          "sample_entropy": {
+            "raw_mean": 0.7041963655307824,
+            "z_mean": -1.4225073513712343,
+            "mean_contribution": -0.16424771374838534,
+            "coefficient": 0.1154635254363064
+          },
+          "rectified_mean": {
+            "raw_mean": -0.1296845905886469,
+            "z_mean": -0.38272866146279166,
+            "mean_contribution": -0.18447186478122393,
+            "coefficient": 0.48199124694808887
+          },
+          "rectified_std": {
+            "raw_mean": 0.08142939593402332,
+            "z_mean": -0.3106244893752498,
+            "mean_contribution": 0.2084315275193064,
+            "coefficient": -0.6710080326844764
+          },
+          "envelope_mean": {
+            "raw_mean": -0.12758662942216178,
+            "z_mean": -0.3806676591144058,
+            "mean_contribution": -0.18422817952571174,
+            "coefficient": 0.48396068096329614
+          },
+          "envelope_std": {
+            "raw_mean": 0.1272324908564896,
+            "z_mean": -0.302529153520092,
+            "mean_contribution": 0.23766556771150507,
+            "coefficient": -0.7855955862307361
+          },
+          "envelope_cv": {
+            "raw_mean": -0.5607524925137797,
+            "z_mean": -0.3289739292037613,
+            "mean_contribution": 0.28676090647540803,
+            "coefficient": -0.8716827718520904
+          },
+          "burst_fraction": {
+            "raw_mean": 0.06445963541666663,
+            "z_mean": -0.8449042951432478,
+            "mean_contribution": -0.010798714899447216,
+            "coefficient": 0.012780991837207274
+          },
+          "burst_rate_hz": {
+            "raw_mean": 10.203333333333333,
+            "z_mean": -0.9485137303065632,
+            "mean_contribution": 1.8636920981876846,
+            "coefficient": -1.9648551609108835
+          },
+          "p95_abs": {
+            "raw_mean": 0.24609927689329586,
+            "z_mean": -0.18433638596165047,
+            "mean_contribution": -0.0046690028216147175,
+            "coefficient": 0.025328709778361727
+          },
+          "evt_active_fraction": {
+            "raw_mean": 0.7599414062500001,
+            "z_mean": 0.38583909970007485,
+            "mean_contribution": -0.018600553125955713,
+            "coefficient": -0.04820805651997042
+          },
+          "evt_burst_duration_median_s": {
+            "raw_mean": 4.66474609375,
+            "z_mean": -0.35216861812109557,
+            "mean_contribution": 0.31019681023599827,
+            "coefficient": -0.8808190005429021
+          },
+          "evt_interburst_gap_median_s": {
+            "raw_mean": 0.483984375,
+            "z_mean": -0.7626027633568712,
+            "mean_contribution": 0.2753076886063069,
+            "coefficient": -0.36101060976286103
+          }
+        }
+      },
+      "brux2": {
+        "mean_score": 0.17815309338005472,
+        "median_score": 0.19289562656026402,
+        "min_score": 0.06123640557301685,
+        "max_score": 0.3113801033284119,
+        "positive_windows": 0,
+        "score_bins": {
+          "lt_0_1": 3,
+          "0_1_to_0_2": 2,
+          "0_2_to_0_3": 4,
+          "0_3_to_0_5": 1,
+          "ge_0_5": 0
+        },
+        "block_means": {
+          "amp_disp": -0.3139040641399616,
+          "shape": 0.0,
+          "event": 0.19354130322005014,
+          "other": 0.05485127933514773
+        },
+        "grouped": {
+          "early_ranks_1_3": {
+            "windows": 3,
+            "mean_score": 0.15770611752078573,
+            "min_score": 0.06123640557301685,
+            "max_score": 0.2426548801497932,
+            "amp_disp_mean": 0.14758294595800714,
+            "shape_mean": 0.0,
+            "event_mean": 0.04518015405532472,
+            "other_mean": -0.42251222625084356
+          },
+          "mid_ranks_4_7": {
+            "windows": 4,
+            "mean_score": 0.18634924737485348,
+            "min_score": 0.06833329020302424,
+            "max_score": 0.3113801033284119,
+            "amp_disp_mean": -0.4458419877835253,
+            "shape_mean": 0.0,
+            "event_mean": 0.16013853930706823,
+            "other_mean": 0.2672646499201859
+          },
+          "late_ranks_8_10": {
+            "windows": 3,
+            "mean_score": 0.18767186391292537,
+            "min_score": 0.08953803919009069,
+            "max_score": 0.24607240154381002,
+            "amp_disp_mean": -0.5994738427131786,
+            "shape_mean": 0.0,
+            "event_mean": 0.38643947093541814,
+            "other_mean": 0.24899695747442144
+          }
+        },
+        "rows_by_time_rank": [
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 4800.0,
+            "end_s": 4830.0,
+            "relative_time_quantile": 0.1,
+            "time_match_rank": 1,
+            "window_index": 11,
+            "score": 0.2426548801497932,
+            "amp_disp_contrib": 0.01850443093812102,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.23277032739257336,
+            "other_contrib": 0.20050251022358984
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 7620.0,
+            "end_s": 7650.0,
+            "relative_time_quantile": 0.1909090909090909,
+            "time_match_rank": 2,
+            "window_index": 21,
+            "score": 0.16922706683954716,
+            "amp_disp_contrib": 2.090842179393492,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.43051255903149227,
+            "other_contrib": -1.661488593454715
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 12180.0,
+            "end_s": 12210.0,
+            "relative_time_quantile": 0.2818181818181818,
+            "time_match_rank": 3,
+            "window_index": 31,
+            "score": 0.06123640557301685,
+            "amp_disp_contrib": -1.6665977724575913,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.33328269380489306,
+            "other_contrib": 0.19344940447859466
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 13050.0,
+            "end_s": 13080.0,
+            "relative_time_quantile": 0.3636363636363636,
+            "time_match_rank": 4,
+            "window_index": 40,
+            "score": 0.3113801033284119,
+            "amp_disp_contrib": 1.093550438621785,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.1019138433859433,
+            "other_contrib": -0.3991832285242991
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 14010.0,
+            "end_s": 14040.0,
+            "relative_time_quantile": 0.4545454545454545,
+            "time_match_rank": 5,
+            "window_index": 50,
+            "score": 0.21656418628098087,
+            "amp_disp_contrib": -0.27380331945109504,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.14211487898440203,
+            "other_contrib": 0.4358424157129654
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 15150.0,
+            "end_s": 15180.0,
+            "relative_time_quantile": 0.5454545454545454,
+            "time_match_rank": 6,
+            "window_index": 60,
+            "score": 0.14911940968699694,
+            "amp_disp_contrib": -0.2713057255071626,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.3700929371505884,
+            "other_contrib": -0.2503554859291742
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 18720.0,
+            "end_s": 18750.0,
+            "relative_time_quantile": 0.6363636363636364,
+            "time_match_rank": 7,
+            "window_index": 70,
+            "score": 0.06833329020302424,
+            "amp_disp_contrib": -2.3318093447976285,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.026432497707339093,
+            "other_contrib": 1.2827548984212516
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 19410.0,
+            "end_s": 19440.0,
+            "relative_time_quantile": 0.7181818181818181,
+            "time_match_rank": 8,
+            "window_index": 79,
+            "score": 0.22740515100487543,
+            "amp_disp_contrib": 1.0354067846564015,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.34466117142145797,
+            "other_contrib": -1.0131333711361075
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 22710.0,
+            "end_s": 22740.0,
+            "relative_time_quantile": 0.8090909090909091,
+            "time_match_rank": 9,
+            "window_index": 89,
+            "score": 0.08953803919009069,
+            "amp_disp_contrib": -2.3216352063502765,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.423050803127795,
+            "other_contrib": 1.1692519724006933
+          },
+          {
+            "subject_id": "brux2",
+            "label": "bruxism",
+            "start_s": 24990.0,
+            "end_s": 25020.0,
+            "relative_time_quantile": 0.9,
+            "time_match_rank": 10,
+            "window_index": 99,
+            "score": 0.24607240154381002,
+            "amp_disp_contrib": -0.5121931064456609,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.3916064382570015,
+            "other_contrib": 0.5908722711586785
+          }
+        ],
+        "feature_means": {
+          "mean": {
+            "raw_mean": 0.00173147476982552,
+            "z_mean": -0.30133947034963976,
+            "mean_contribution": -0.06865615005271015,
+            "coefficient": 0.22783656576103167
+          },
+          "std": {
+            "raw_mean": 3.720742248140833e-06,
+            "z_mean": -0.5262046364317252,
+            "mean_contribution": -0.39348575038638806,
+            "coefficient": 0.7477808501549427
+          },
+          "min": {
+            "raw_mean": -4.729742102853655e-05,
+            "z_mean": 0.5209010137023541,
+            "mean_contribution": -0.2408891757484926,
+            "coefficient": -0.4624471241404381
+          },
+          "max": {
+            "raw_mean": 0.09109034267912781,
+            "z_mean": -0.25253969937271464,
+            "mean_contribution": 0.012395339983563448,
+            "coefficient": -0.04908273833520959
+          },
+          "ptp": {
+            "raw_mean": 0.0272251308897421,
+            "z_mean": -0.2648426003213182,
+            "mean_contribution": 0.01832376337394013,
+            "coefficient": -0.06918737148672068
+          },
+          "rms": {
+            "raw_mean": 3.7207465348291367e-06,
+            "z_mean": -0.525989157875894,
+            "mean_contribution": -0.3930504394788635,
+            "coefficient": 0.7472595843346316
+          },
+          "line_length": {
+            "raw_mean": 0.15743086974465675,
+            "z_mean": -0.2550760507768688,
+            "mean_contribution": -0.048604755591671475,
+            "coefficient": 0.19055005534090355
+          },
+          "zero_crossing_rate": {
+            "raw_mean": -0.0992042440318294,
+            "z_mean": -0.019918575860522574,
+            "mean_contribution": -0.016069148585028385,
+            "coefficient": 0.806741842265765
+          },
+          "sample_entropy": {
+            "raw_mean": 1.6125592910864572,
+            "z_mean": 0.36774230567644595,
+            "mean_contribution": -0.24427019836752803,
+            "coefficient": -0.6642428532072306
+          },
+          "rectified_mean": {
+            "raw_mean": 0.13300738663963374,
+            "z_mean": -0.11935276841352313,
+            "mean_contribution": 0.09529141506308361,
+            "coefficient": -0.798401380460034
+          },
+          "rectified_std": {
+            "raw_mean": -0.08203996531066013,
+            "z_mean": -0.38358294681205496,
+            "mean_contribution": 0.18909088117375553,
+            "coefficient": -0.4929595612768594
+          },
+          "envelope_mean": {
+            "raw_mean": 0.1330158235551306,
+            "z_mean": -0.11954653715709374,
+            "mean_contribution": 0.09443834195796905,
+            "coefficient": -0.7899713718505245
+          },
+          "envelope_std": {
+            "raw_mean": 0.07210456255196364,
+            "z_mean": -0.33656955406288935,
+            "mean_contribution": 0.25909225086730375,
+            "coefficient": -0.769802995368058
+          },
+          "envelope_cv": {
+            "raw_mean": -0.44126291951593044,
+            "z_mean": -0.3155837624863417,
+            "mean_contribution": 0.14128942573382158,
+            "coefficient": -0.44770816033330146
+          },
+          "burst_fraction": {
+            "raw_mean": 0.08843749999999997,
+            "z_mean": -0.17319522625477374,
+            "mean_contribution": -0.013775600593797243,
+            "coefficient": 0.0795379924244162
+          },
+          "burst_rate_hz": {
+            "raw_mean": 14.856666666666666,
+            "z_mean": -0.5137831382586523,
+            "mean_contribution": 0.32896622688150146,
+            "coefficient": -0.6402822560437766
+          },
+          "p95_abs": {
+            "raw_mean": 0.09823367171127166,
+            "z_mean": -0.22651887152665315,
+            "mean_contribution": 0.020860788964727088,
+            "coefficient": -0.09209294053132576
+          },
+          "evt_active_fraction": {
+            "raw_mean": 0.5858203125,
+            "z_mean": -0.18454591055171796,
+            "mean_contribution": -0.022506009941843225,
+            "coefficient": 0.12195344711004062
+          },
+          "evt_burst_duration_median_s": {
+            "raw_mean": 2.98671875,
+            "z_mean": -0.5074279673013943,
+            "mean_contribution": 0.057449076645091766,
+            "coefficient": -0.11321622052213186
+          },
+          "evt_interburst_gap_median_s": {
+            "raw_mean": 0.6541015625,
+            "z_mean": -0.5931568163447761,
+            "mean_contribution": 0.15859823651680163,
+            "coefficient": -0.2673799443023097
+          }
+        }
+      },
+      "n11": {
+        "mean_score": 0.34541063560644264,
+        "median_score": 0.217013971248091,
+        "min_score": 0.00699557985376563,
+        "max_score": 0.9250770806154281,
+        "positive_windows": 3,
+        "score_bins": {
+          "lt_0_1": 3,
+          "0_1_to_0_2": 2,
+          "0_2_to_0_3": 0,
+          "0_3_to_0_5": 2,
+          "ge_0_5": 3
+        },
+        "block_means": {
+          "amp_disp": -0.44779555028231666,
+          "shape": 0.0,
+          "event": -0.6209261836751104,
+          "other": -0.1626466163313217
+        },
+        "grouped": {
+          "early_ranks_1_3": {
+            "windows": 3,
+            "mean_score": 0.428017313517614,
+            "min_score": 0.12404778035756688,
+            "max_score": 0.7575402861479724,
+            "amp_disp_mean": -0.17089101352732686,
+            "shape_mean": 0.0,
+            "event_mean": 0.04634442508119829,
+            "other_mean": -0.3506744023434442
+          },
+          "mid_ranks_4_7": {
+            "windows": 4,
+            "mean_score": 0.48898173567473224,
+            "min_score": 0.00699557985376563,
+            "max_score": 0.9250770806154281,
+            "amp_disp_mean": -0.35678781750256316,
+            "shape_mean": 0.0,
+            "event_mean": 0.07599278926414521,
+            "other_mean": -0.37288246379174206
+          },
+          "late_ranks_8_10": {
+            "windows": 3,
+            "mean_score": 0.07137582427088508,
+            "min_score": 0.03203914328781869,
+            "max_score": 0.11087376354013524,
+            "amp_disp_mean": -0.8460437307436445,
+            "shape_mean": 0.0,
+            "event_mean": -2.21742208968376,
+            "other_mean": 0.3056956329613613
+          }
+        },
+        "rows_by_time_rank": [
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 2160.0,
+            "end_s": 2190.0,
+            "relative_time_quantile": 0.1219512195121951,
+            "time_match_rank": 1,
+            "window_index": 5,
+            "score": 0.40246387404730266,
+            "amp_disp_contrib": 0.5713851445588597,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.12331958365973505,
+            "other_contrib": -1.1615974629700943
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 6870.0,
+            "end_s": 6900.0,
+            "relative_time_quantile": 0.1951219512195122,
+            "time_match_rank": 2,
+            "window_index": 8,
+            "score": 0.12404778035756688,
+            "amp_disp_contrib": -1.5766126378327499,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.87799018261615,
+            "other_contrib": 0.42827476179893775
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 10380.0,
+            "end_s": 10410.0,
+            "relative_time_quantile": 0.2926829268292683,
+            "time_match_rank": 3,
+            "window_index": 12,
+            "score": 0.7575402861479724,
+            "amp_disp_contrib": 0.4925544526919097,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8937038742000099,
+            "other_contrib": -0.31870050585917603
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 10920.0,
+            "end_s": 10950.0,
+            "relative_time_quantile": 0.3658536585365853,
+            "time_match_rank": 4,
+            "window_index": 15,
+            "score": 0.3099801621386151,
+            "amp_disp_contrib": 1.303205162755422,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.7272506378291311,
+            "other_contrib": -2.90235117579482
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 13020.0,
+            "end_s": 13050.0,
+            "relative_time_quantile": 0.4634146341463415,
+            "time_match_rank": 5,
+            "window_index": 19,
+            "score": 0.9250770806154281,
+            "amp_disp_contrib": 0.9599569490782339,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8246033056202573,
+            "other_contrib": 0.6571736363895986
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 16050.0,
+            "end_s": 16080.0,
+            "relative_time_quantile": 0.5365853658536586,
+            "time_match_rank": 6,
+            "window_index": 22,
+            "score": 0.7138741200911201,
+            "amp_disp_contrib": 1.3269675734331294,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.9694696699615841,
+            "other_contrib": -1.4538457823588158
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 16380.0,
+            "end_s": 16410.0,
+            "relative_time_quantile": 0.6341463414634146,
+            "time_match_rank": 7,
+            "window_index": 26,
+            "score": 0.00699557985376563,
+            "amp_disp_contrib": -5.017280955277038,
+            "shape_contrib": 0.0,
+            "event_contrib": -2.2173524563543916,
+            "other_contrib": 2.207493466597069
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 16920.0,
+            "end_s": 16950.0,
+            "relative_time_quantile": 0.7073170731707317,
+            "time_match_rank": 8,
+            "window_index": 29,
+            "score": 0.03203914328781869,
+            "amp_disp_contrib": -2.520416035124842,
+            "shape_contrib": 0.0,
+            "event_contrib": -2.217456906348444,
+            "other_contrib": 1.2579563454668587
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 17160.0,
+            "end_s": 17190.0,
+            "relative_time_quantile": 0.8048780487804879,
+            "time_match_rank": 9,
+            "window_index": 33,
+            "score": 0.11087376354013524,
+            "amp_disp_contrib": -1.058629396901953,
+            "shape_contrib": 0.0,
+            "event_contrib": -2.2173524563543916,
+            "other_contrib": 1.1224515884479938
+          },
+          {
+            "subject_id": "n11",
+            "label": "control",
+            "start_s": 27690.0,
+            "end_s": 27720.0,
+            "relative_time_quantile": 0.8780487804878049,
+            "time_match_rank": 10,
+            "window_index": 36,
+            "score": 0.07121456598470133,
+            "amp_disp_contrib": 1.0409142397958615,
+            "shape_contrib": 0.0,
+            "event_contrib": -2.217456906348444,
+            "other_contrib": -1.4633210350307686
+          }
+        ],
+        "feature_means": {
+          "mean": {
+            "raw_mean": 0.00334701069263013,
+            "z_mean": -0.299793846536967,
+            "mean_contribution": -0.028465608030911093,
+            "coefficient": 0.09495060809195446
+          },
+          "std": {
+            "raw_mean": 1.3065622197907069e-05,
+            "z_mean": 0.15359044984661413,
+            "mean_contribution": 0.053055703920298146,
+            "coefficient": 0.345436216726256
+          },
+          "min": {
+            "raw_mean": -0.00021328592357464042,
+            "z_mean": -0.7408966766907745,
+            "mean_contribution": -0.007090181748861386,
+            "coefficient": 0.009569730803125993
+          },
+          "max": {
+            "raw_mean": 2.28365122615771,
+            "z_mean": -0.1904200213246478,
+            "mean_contribution": 0.026648131886220387,
+            "coefficient": -0.13994396020357489
+          },
+          "ptp": {
+            "raw_mean": 2.3185789726360424,
+            "z_mean": -0.17698199778664708,
+            "mean_contribution": 0.030984043803842166,
+            "coefficient": -0.175068900743191
+          },
+          "rms": {
+            "raw_mean": 1.3065651048319569e-05,
+            "z_mean": 0.1520822763048213,
+            "mean_contribution": 0.05244585474161654,
+            "coefficient": 0.3448518526675545
+          },
+          "line_length": {
+            "raw_mean": 0.31729392128358364,
+            "z_mean": -0.24629918541723145,
+            "mean_contribution": -0.0013754463598488135,
+            "coefficient": 0.005584453547902743
+          },
+          "zero_crossing_rate": {
+            "raw_mean": 0.423611111111111,
+            "z_mean": 0.40667678990888556,
+            "mean_contribution": 0.42450674720191806,
+            "coefficient": 1.043843065882927
+          },
+          "sample_entropy": {
+            "raw_mean": 1.414258591001933,
+            "z_mean": 0.03345085398041071,
+            "mean_contribution": -0.013360286885379574,
+            "coefficient": -0.3994004725022434
+          },
+          "rectified_mean": {
+            "raw_mean": 0.49427820503976977,
+            "z_mean": 0.23730565397145584,
+            "mean_contribution": -0.0160912747149894,
+            "coefficient": -0.06780822304775314
+          },
+          "rectified_std": {
+            "raw_mean": 1.8286682471520321,
+            "z_mean": 0.5252977125846398,
+            "mean_contribution": -0.3367080054579401,
+            "coefficient": -0.640985097386441
+          },
+          "envelope_mean": {
+            "raw_mean": 0.49442352804196477,
+            "z_mean": 0.2372859580229346,
+            "mean_contribution": -0.014826504786777373,
+            "coefficient": -0.062483700722586945
+          },
+          "envelope_std": {
+            "raw_mean": 1.2938212248858523,
+            "z_mean": 0.42264578724660584,
+            "mean_contribution": -0.38410917195346045,
+            "coefficient": -0.9088205384840142
+          },
+          "envelope_cv": {
+            "raw_mean": 0.5263169093134535,
+            "z_mean": -0.20922472376027387,
+            "mean_contribution": 0.15796971889540862,
+            "coefficient": -0.7550241484673086
+          },
+          "burst_fraction": {
+            "raw_mean": 0.0963802083333333,
+            "z_mean": 0.033621052426310014,
+            "mean_contribution": 0.0035506477878655906,
+            "coefficient": 0.10560787160508528
+          },
+          "burst_rate_hz": {
+            "raw_mean": 26.046666666666663,
+            "z_mean": 0.3864542942303052,
+            "mean_contribution": -0.5773437244357258,
+            "coefficient": -1.4939508579807919
+          },
+          "p95_abs": {
+            "raw_mean": 0.10926107524821138,
+            "z_mean": -0.22255373528393818,
+            "mean_contribution": 0.019767189523085996,
+            "coefficient": -0.08881985062109449
+          },
+          "evt_active_fraction": {
+            "raw_mean": 0.7665559895833334,
+            "z_mean": 0.41088385059745863,
+            "mean_contribution": 0.058444667688707076,
+            "coefficient": 0.14224133560791877
+          },
+          "evt_burst_duration_median_s": {
+            "raw_mean": 14.451953125,
+            "z_mean": 0.7038251747598357,
+            "mean_contribution": -0.5152441970634136,
+            "coefficient": -0.7320627558388045
+          },
+          "evt_interburst_gap_median_s": {
+            "raw_mean": 1.58203125,
+            "z_mean": 0.27540582142956965,
+            "mean_contribution": -0.164126654300404,
+            "coefficient": -0.5959447532679573
+          }
+        }
+      },
+      "n3": {
+        "mean_score": 0.13369034418899153,
+        "median_score": 0.0886748515281993,
+        "min_score": 2.5775010089209693e-17,
+        "max_score": 0.5350661413636648,
+        "positive_windows": 1,
+        "score_bins": {
+          "lt_0_1": 6,
+          "0_1_to_0_2": 2,
+          "0_2_to_0_3": 1,
+          "0_3_to_0_5": 0,
+          "ge_0_5": 1
+        },
+        "block_means": {
+          "amp_disp": -8.76547855100985,
+          "shape": 0.0,
+          "event": 1.126548098607928,
+          "other": -1.8561509420661522
+        },
+        "grouped": {
+          "early_ranks_1_3": {
+            "windows": 3,
+            "mean_score": 0.23241536445388788,
+            "min_score": 2.5775010089209693e-17,
+            "max_score": 0.5350661413636648,
+            "amp_disp_mean": -12.501281125177044,
+            "shape_mean": 0.0,
+            "event_mean": 0.9532394116940544,
+            "other_mean": -1.6612975490523665
+          },
+          "mid_ranks_4_7": {
+            "windows": 4,
+            "mean_score": 0.10438688816249184,
+            "min_score": 7.780618639419022e-09,
+            "max_score": 0.2401978418129501,
+            "amp_disp_mean": -5.289819130899029,
+            "shape_mean": 0.0,
+            "event_mean": 1.246862973615623,
+            "other_mean": -2.0547912460361584
+          },
+          "late_ranks_8_10": {
+            "windows": 3,
+            "mean_score": 0.07403659862609473,
+            "min_score": 2.989948946497315e-12,
+            "max_score": 0.1684628425165196,
+            "amp_disp_mean": -9.663888536990417,
+            "shape_mean": 0.0,
+            "event_mean": 1.139436952178208,
+            "other_mean": -1.7861505964532647
+          }
+        },
+        "rows_by_time_rank": [
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 11640.0,
+            "end_s": 11670.0,
+            "relative_time_quantile": 0.1066666666666666,
+            "time_match_rank": 1,
+            "window_index": 8,
+            "score": 0.5350661413636648,
+            "amp_disp_contrib": 2.4907460897586535,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.8423128338276233,
+            "other_contrib": -3.168993692597171
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 19920.0,
+            "end_s": 19950.0,
+            "relative_time_quantile": 0.2,
+            "time_match_rank": 2,
+            "window_index": 15,
+            "score": 0.16217995199799887,
+            "amp_disp_contrib": 0.7663435379260748,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.194414367738093,
+            "other_contrib": -3.5792846906993714
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 20730.0,
+            "end_s": 20760.0,
+            "relative_time_quantile": 0.28,
+            "time_match_rank": 3,
+            "window_index": 21,
+            "score": 2.5775010089209693e-17,
+            "amp_disp_contrib": -40.76093300321586,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.822991033516447,
+            "other_contrib": 1.7643857361394426
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 24660.0,
+            "end_s": 24690.0,
+            "relative_time_quantile": 0.3733333333333333,
+            "time_match_rank": 4,
+            "window_index": 28,
+            "score": 0.2401978418129501,
+            "amp_disp_contrib": 0.7148975074466836,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.4737474718724126,
+            "other_contrib": -3.316670116892962
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 25050.0,
+            "end_s": 25080.0,
+            "relative_time_quantile": 0.4533333333333333,
+            "time_match_rank": 5,
+            "window_index": 34,
+            "score": 0.0845003121245305,
+            "amp_disp_contrib": -0.11489218452163183,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.194414367738093,
+            "other_contrib": -3.4386669592638563
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 25650.0,
+            "end_s": 25680.0,
+            "relative_time_quantile": 0.5466666666666666,
+            "time_match_rank": 6,
+            "window_index": 41,
+            "score": 7.780618639419022e-09,
+            "amp_disp_contrib": -20.948184641008908,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.1248756871138934,
+            "other_contrib": 1.1752489953890475
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 26010.0,
+            "end_s": 26040.0,
+            "relative_time_quantile": 0.6266666666666667,
+            "time_match_rank": 7,
+            "window_index": 47,
+            "score": 0.0928493909318681,
+            "amp_disp_contrib": -0.8110972055122622,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.194414367738093,
+            "other_contrib": -2.6390769033768615
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 26820.0,
+            "end_s": 26850.0,
+            "relative_time_quantile": 0.72,
+            "time_match_rank": 8,
+            "window_index": 54,
+            "score": 2.989948946497315e-12,
+            "amp_disp_contrib": -28.91169996462009,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.0626396450823627,
+            "other_contrib": 1.3368655351149021
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 27810.0,
+            "end_s": 27840.0,
+            "relative_time_quantile": 0.8,
+            "time_match_rank": 9,
+            "window_index": 60,
+            "score": 0.053646953358774604,
+            "amp_disp_contrib": -0.8148220665457862,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.1612568437141682,
+            "other_contrib": -3.1930557768958865
+          },
+          {
+            "subject_id": "n3",
+            "label": "control",
+            "start_s": 32040.0,
+            "end_s": 32070.0,
+            "relative_time_quantile": 0.8933333333333333,
+            "time_match_rank": 10,
+            "window_index": 67,
+            "score": 0.1684628425165196,
+            "amp_disp_contrib": 0.7348564201946293,
+            "shape_contrib": 0.0,
+            "event_contrib": 1.194414367738093,
+            "other_contrib": -3.5022615475788097
+          }
+        ],
+        "feature_means": {
+          "mean": {
+            "raw_mean": 6.436950915286678e-05,
+            "z_mean": -0.30294455568385803,
+            "mean_contribution": -0.09275529422773802,
+            "coefficient": 0.3061791093038625
+          },
+          "std": {
+            "raw_mean": 2.728433770745836e-06,
+            "z_mean": -0.6059476015296031,
+            "mean_contribution": -0.05624380974492754,
+            "coefficient": 0.09281959298617636
+          },
+          "min": {
+            "raw_mean": -3.46111701989624e-05,
+            "z_mean": 0.6090490695069789,
+            "mean_contribution": 0.052947005358830776,
+            "coefficient": 0.08693389089600123
+          },
+          "max": {
+            "raw_mean": 43.33513191003238,
+            "z_mean": 16.06951406748061,
+            "mean_contribution": -1.1075547098068648,
+            "coefficient": -0.06892272567520817
+          },
+          "ptp": {
+            "raw_mean": 32.90469798657303,
+            "z_mean": 12.515624210844198,
+            "mean_contribution": -0.893872083093242,
+            "coefficient": -0.07142049553699001
+          },
+          "rms": {
+            "raw_mean": 2.728581119602951e-06,
+            "z_mean": -0.605512302517751,
+            "mean_contribution": -0.05665343508151417,
+            "coefficient": 0.09356281424166991
+          },
+          "line_length": {
+            "raw_mean": 22.152040775047276,
+            "z_mean": 10.002806060206767,
+            "mean_contribution": 5.8456170545388195,
+            "coefficient": 0.5843977199351984
+          },
+          "zero_crossing_rate": {
+            "raw_mean": -0.17605985037406288,
+            "z_mean": -0.07568511004372755,
+            "mean_contribution": -0.013993128189410476,
+            "coefficient": 0.18488614446521728
+          },
+          "sample_entropy": {
+            "raw_mean": 1.5698128991252343,
+            "z_mean": 0.3269803047946125,
+            "mean_contribution": -0.13181690446086253,
+            "coefficient": -0.4031340803344753
+          },
+          "rectified_mean": {
+            "raw_mean": 0.6637248553491022,
+            "z_mean": 0.4096539040396924,
+            "mean_contribution": 0.06817784001043402,
+            "coefficient": 0.16642790252483008
+          },
+          "rectified_std": {
+            "raw_mean": 2.0314365642840126,
+            "z_mean": 0.6694585083746261,
+            "mean_contribution": -0.21206933634149694,
+            "coefficient": -0.3167774159094322
+          },
+          "envelope_mean": {
+            "raw_mean": 0.6629652141816319,
+            "z_mean": 0.4085666962306475,
+            "mean_contribution": 0.06935249646763456,
+            "coefficient": 0.1697458385802525
+          },
+          "envelope_std": {
+            "raw_mean": 1.5178232791387907,
+            "z_mean": 0.6017475215081166,
+            "mean_contribution": -0.21424938184259892,
+            "coefficient": -0.3560453083473298
+          },
+          "envelope_cv": {
+            "raw_mean": 12.364920725154143,
+            "z_mean": 8.017600502356107,
+            "mean_contribution": -12.707930600218662,
+            "coefficient": -1.5850042162220752
+          },
+          "burst_fraction": {
+            "raw_mean": 0.13169921874999996,
+            "z_mean": 1.0738527144580654,
+            "mean_contribution": -0.34129815270117686,
+            "coefficient": -0.31782585088814314
+          },
+          "burst_rate_hz": {
+            "raw_mean": 32.43666666666667,
+            "z_mean": 0.9153633995411268,
+            "mean_contribution": -1.369042756714703,
+            "coefficient": -1.4956275916220885
+          },
+          "p95_abs": {
+            "raw_mean": 3.636976212836796,
+            "z_mean": 2.3604681912511074,
+            "mean_contribution": 0.5397557029714746,
+            "coefficient": 0.22866467973262136
+          },
+          "evt_active_fraction": {
+            "raw_mean": 0.30434244791666665,
+            "z_mean": -1.3147422545328844,
+            "mean_contribution": 0.5612376032704627,
+            "coefficient": -0.42688032679824767
+          },
+          "evt_burst_duration_median_s": {
+            "raw_mean": 0.3408203125,
+            "z_mean": -0.7761523703456354,
+            "mean_contribution": 0.7470905686241783,
+            "coefficient": -0.9625565767343911
+          },
+          "evt_interburst_gap_median_s": {
+            "raw_mean": 1.785546875,
+            "z_mean": 0.4687404149454821,
+            "mean_contribution": -0.1817800732867131,
+            "coefficient": -0.3878054195686442
+          }
+        }
+      },
+      "n5": {
+        "mean_score": 0.3374133236283941,
+        "median_score": 0.3165570550125531,
+        "min_score": 0.08699134178801604,
+        "max_score": 0.7282540759187999,
+        "positive_windows": 2,
+        "score_bins": {
+          "lt_0_1": 1,
+          "0_1_to_0_2": 2,
+          "0_2_to_0_3": 1,
+          "0_3_to_0_5": 4,
+          "ge_0_5": 2
+        },
+        "block_means": {
+          "amp_disp": 0.5585497615952424,
+          "shape": 0.0,
+          "event": -0.47080730689173916,
+          "other": -0.5995658434729487
+        },
+        "grouped": {
+          "early_ranks_1_3": {
+            "windows": 3,
+            "mean_score": 0.2516935596826298,
+            "min_score": 0.18281110765281441,
+            "max_score": 0.3360464589825157,
+            "amp_disp_mean": 0.5545755015487466,
+            "shape_mean": 0.0,
+            "event_mean": -0.9107395639095609,
+            "other_mean": -0.49068818374638107
+          },
+          "mid_ranks_4_7": {
+            "windows": 4,
+            "mean_score": 0.32516555061867836,
+            "min_score": 0.08699134178801604,
+            "max_score": 0.7282540759187999,
+            "amp_disp_mean": 0.46953599324646067,
+            "shape_mean": 0.0,
+            "event_mean": -0.32963315358108736,
+            "other_mean": -0.7974203430563864
+          },
+          "late_ranks_8_10": {
+            "windows": 3,
+            "mean_score": 0.43946345158711253,
+            "min_score": 0.3236322187433771,
+            "max_score": 0.5950616460213259,
+            "amp_disp_mean": 0.6812090461067809,
+            "shape_mean": 0.0,
+            "event_mean": -0.2191072542881196,
+            "other_mean": -0.4446375037549326
+          }
+        },
+        "rows_by_time_rank": [
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 5910.0,
+            "end_s": 5940.0,
+            "relative_time_quantile": 0.1081081081081081,
+            "time_match_rank": 1,
+            "window_index": 4,
+            "score": 0.3360464589825157,
+            "amp_disp_contrib": 1.3298083258214912,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.9107106271474559,
+            "other_contrib": -0.8296198451310568
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 8190.0,
+            "end_s": 8220.0,
+            "relative_time_quantile": 0.1891891891891892,
+            "time_match_rank": 2,
+            "window_index": 7,
+            "score": 0.18281110765281441,
+            "amp_disp_contrib": 0.870846459790715,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.910739563909561,
+            "other_contrib": -1.1870831342239043
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 11970.0,
+            "end_s": 12000.0,
+            "relative_time_quantile": 0.2702702702702703,
+            "time_match_rank": 3,
+            "window_index": 10,
+            "score": 0.2362231124125594,
+            "amp_disp_contrib": -0.5369282809659663,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.9107685006716661,
+            "other_contrib": 0.544638428115818
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 14100.0,
+            "end_s": 14130.0,
+            "relative_time_quantile": 0.3783783783783784,
+            "time_match_rank": 4,
+            "window_index": 14,
+            "score": 0.08699134178801604,
+            "amp_disp_contrib": -1.8767263353112618,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.910739563909561,
+            "other_contrib": 0.7069697404782044
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 14580.0,
+            "end_s": 14610.0,
+            "relative_time_quantile": 0.4594594594594595,
+            "time_match_rank": 5,
+            "window_index": 17,
+            "score": 0.3094818912817291,
+            "amp_disp_contrib": 2.202687840591197,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.4246101888297982,
+            "other_contrib": -3.159400035580961
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 14670.0,
+            "end_s": 14700.0,
+            "relative_time_quantile": 0.5405405405405406,
+            "time_match_rank": 6,
+            "window_index": 20,
+            "score": 0.17593489348616842,
+            "amp_disp_contrib": 0.6943771237331667,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.910739563909561,
+            "other_contrib": -1.0573324851072854
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 22590.0,
+            "end_s": 22620.0,
+            "relative_time_quantile": 0.6216216216216216,
+            "time_match_rank": 7,
+            "window_index": 23,
+            "score": 0.7282540759187999,
+            "amp_disp_contrib": 0.8578053439727404,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.07833632466497445,
+            "other_contrib": 0.32008140798449625
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 22890.0,
+            "end_s": 22920.0,
+            "relative_time_quantile": 0.7297297297297297,
+            "time_match_rank": 8,
+            "window_index": 27,
+            "score": 0.5950616460213259,
+            "amp_disp_contrib": -0.47102024914588403,
+            "shape_contrib": 0.0,
+            "event_contrib": 0.2915312111654903,
+            "other_contrib": 0.834859812833398
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 23730.0,
+            "end_s": 23760.0,
+            "relative_time_quantile": 0.8108108108108109,
+            "time_match_rank": 9,
+            "window_index": 30,
+            "score": 0.39969648999663454,
+            "amp_disp_contrib": 0.29382303945606136,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.9104791330506155,
+            "other_contrib": 0.48036681139426607
+          },
+          {
+            "subject_id": "n5",
+            "label": "control",
+            "start_s": 29670.0,
+            "end_s": 29700.0,
+            "relative_time_quantile": 0.8918918918918919,
+            "time_match_rank": 10,
+            "window_index": 33,
+            "score": 0.3236322187433771,
+            "amp_disp_contrib": 2.220824348010165,
+            "shape_contrib": 0.0,
+            "event_contrib": -0.03837384097923366,
+            "other_contrib": -2.649139135492462
+          }
+        ],
+        "feature_means": {
+          "mean": {
+            "raw_mean": 0.0006604547361995899,
+            "z_mean": -0.30237063026868655,
+            "mean_contribution": -0.07298640595620479,
+            "coefficient": 0.2413806059515405
+          },
+          "std": {
+            "raw_mean": 4.877899853499446e-06,
+            "z_mean": -0.43996775997399296,
+            "mean_contribution": -0.055955580115182604,
+            "coefficient": 0.12718109190202986
+          },
+          "min": {
+            "raw_mean": -7.840689734099011e-05,
+            "z_mean": 0.32353361380746787,
+            "mean_contribution": 0.03865267117624781,
+            "coefficient": 0.11947034103000403
+          },
+          "max": {
+            "raw_mean": -0.4097998207348853,
+            "z_mean": -0.2668601516519169,
+            "mean_contribution": 0.056905119769118565,
+            "coefficient": -0.21323947924358377
+          },
+          "ptp": {
+            "raw_mean": -0.3900962379702052,
+            "z_mean": -0.2810382954661636,
+            "mean_contribution": 0.07356134537816221,
+            "coefficient": -0.26174847543871055
+          },
+          "rms": {
+            "raw_mean": 4.8779382056098696e-06,
+            "z_mean": -0.43995651983954326,
+            "mean_contribution": -0.05625544258477426,
+            "coefficient": 0.12786591412553952
+          },
+          "line_length": {
+            "raw_mean": 0.1250100226189466,
+            "z_mean": -0.25694244496573154,
+            "mean_contribution": -0.0015263062641146033,
+            "coefficient": 0.005940265199539791
+          },
+          "zero_crossing_rate": {
+            "raw_mean": -0.5651006711409293,
+            "z_mean": -0.4476030882783273,
+            "mean_contribution": -0.12282782327065825,
+            "coefficient": 0.27441236775891453
+          },
+          "sample_entropy": {
+            "raw_mean": 1.6746976859442306,
+            "z_mean": 0.46917566931694915,
+            "mean_contribution": -0.10474926688478817,
+            "coefficient": -0.22326235935739747
+          },
+          "rectified_mean": {
+            "raw_mean": 0.13961851952432572,
+            "z_mean": -0.12806072556062897,
+            "mean_contribution": 0.009738654094936516,
+            "coefficient": -0.07604715694294466
+          },
+          "rectified_std": {
+            "raw_mean": 0.21182423068849449,
+            "z_mean": -0.2620212547042714,
+            "mean_contribution": 0.2143291177002232,
+            "coefficient": -0.8179837087724977
+          },
+          "envelope_mean": {
+            "raw_mean": 0.1392496916684138,
+            "z_mean": -0.12879145959199184,
+            "mean_contribution": 0.008978461344071643,
+            "coefficient": -0.06971317331533618
+          },
+          "envelope_std": {
+            "raw_mean": 0.3055910225059769,
+            "z_mean": -0.20177463438103257,
+            "mean_contribution": 0.18326882634165326,
+            "coefficient": -0.9082847648509037
+          },
+          "envelope_cv": {
+            "raw_mean": 0.3891771991692134,
+            "z_mean": -0.22431428611252505,
+            "mean_contribution": 0.1808300397985168,
+            "coefficient": -0.8061458899136064
+          },
+          "burst_fraction": {
+            "raw_mean": 0.09475911458333328,
+            "z_mean": -0.009797235362516222,
+            "mean_contribution": 0.002389286748307032,
+            "coefficient": -0.24387356839954405
+          },
+          "burst_rate_hz": {
+            "raw_mean": 24.636666666666663,
+            "z_mean": 0.22617853114831696,
+            "mean_contribution": -0.3743780400658093,
+            "coefficient": -1.6552324315003626
+          },
+          "p95_abs": {
+            "raw_mean": 0.1903910023487372,
+            "z_mean": -0.2011080240999646,
+            "mean_contribution": -0.020990739087411232,
+            "coefficient": 0.10437544290613378
+          },
+          "evt_active_fraction": {
+            "raw_mean": 0.79142578125,
+            "z_mean": 0.4939209510167615,
+            "mean_contribution": 0.09123951367182398,
+            "coefficient": 0.18472493115346247
+          },
+          "evt_burst_duration_median_s": {
+            "raw_mean": 18.5662109375,
+            "z_mean": 1.3164399900793695,
+            "mean_contribution": -0.4023443075251352,
+            "coefficient": -0.30563057226852974
+          },
+          "evt_interburst_gap_median_s": {
+            "raw_mean": 1.99072265625,
+            "z_mean": 0.6780754278943808,
+            "mean_contribution": -0.15970251303842783,
+            "coefficient": -0.23552322716419632
+          }
+        }
+      }
+    },
+    "blocks": {
+      "amp_disp": [
+        "mean",
+        "std",
+        "min",
+        "max",
+        "ptp",
+        "rms",
+        "line_length",
+        "rectified_mean",
+        "rectified_std",
+        "envelope_mean",
+        "envelope_std",
+        "envelope_cv",
+        "p95_abs"
+      ],
+      "shape": [],
+      "event": [
+        "evt_active_fraction",
+        "evt_burst_duration_median_s",
+        "evt_interburst_gap_median_s"
+      ],
+      "other": [
+        "zero_crossing_rate",
+        "sample_entropy",
+        "burst_fraction",
+        "burst_rate_hz"
+      ]
+    }
+  },
+  "exclude_patterns": [
+    "^bp_",
+    "^rel_bp_",
+    "^ratio_",
+    "^skewness$",
+    "^kurtosis$",
+    "^hjorth_mobility$",
+    "^hjorth_complexity$"
+  ],
+  "paired_audit": {
+    "primary_name": "pass45-repaired-a3-no-shape",
+    "anchor_name": "pass44-repaired-a3-event-subset",
+    "primary": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass45-emg-a3-pct10-90-record-relative-eventsubset-no-shape.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+      "cv": "loso",
+      "rows": 50,
+      "subject_count": 5,
+      "subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.6407291362586092,
+          "windows": 10,
+          "predicted_positive_windows": 7,
+          "positive_window_fraction": 0.7,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.17815309338005472,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.34541063560644264,
+          "windows": 10,
+          "predicted_positive_windows": 3,
+          "positive_window_fraction": 0.3,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.13369034418899153,
+          "windows": 10,
+          "predicted_positive_windows": 1,
+          "positive_window_fraction": 0.1,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.3374133236283941,
+          "windows": 10,
+          "predicted_positive_windows": 2,
+          "positive_window_fraction": 0.2,
+          "predicted_label": "control",
+          "correct": true
+        }
+      ],
+      "model_name": "logreg",
+      "window_level_summary": {
+        "balanced_accuracy": 0.6199999999999999,
+        "sensitivity": 0.13999999999999999,
+        "specificity": 0.4800000000000001,
+        "auroc": null
+      },
+      "subject_level_summary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.6666666666666667,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.21110745154712704,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      },
+      "feature_count": 20,
+      "feature_selection": {
+        "include_features_regex": [],
+        "exclude_features_regex": [
+          "^bp_",
+          "^rel_bp_",
+          "^ratio_",
+          "^skewness$",
+          "^kurtosis$",
+          "^hjorth_mobility$",
+          "^hjorth_complexity$"
+        ],
+        "selected_feature_count": 20,
+        "selection_excluded_feature_count": 15,
+        "selection_excluded_features": [
+          "skewness",
+          "kurtosis",
+          "hjorth_mobility",
+          "hjorth_complexity",
+          "bp_delta",
+          "rel_bp_delta",
+          "bp_theta",
+          "rel_bp_theta",
+          "bp_alpha",
+          "rel_bp_alpha",
+          "bp_beta",
+          "rel_bp_beta",
+          "ratio_theta_beta",
+          "ratio_alpha_beta",
+          "ratio_alpha_delta"
+        ]
+      }
+    },
+    "anchor": {
+      "report_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/loso-cv-pass44-emg-a3-pct10-90-record-relative-shape-eventsubset.json",
+      "features_csv": "/home/hermes/work/ai-lab/projects/bruxism-cap/data/window_features_pass44_emg_s2_mcap_a3_only_pct10_90_timepos10_record_relative_shape_eventsubset.csv",
+      "cv": "loso",
+      "rows": 50,
+      "subject_count": 5,
+      "subjects": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.5321800695353451,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.1227463213813423,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.39466206505665086,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.03357041099253784,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": true
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "mean_score": 0.36507344245243484,
+          "windows": 10,
+          "predicted_positive_windows": 2,
+          "positive_window_fraction": 0.2,
+          "predicted_label": "control",
+          "correct": true
+        }
+      ],
+      "model_name": "logreg",
+      "window_level_summary": {
+        "balanced_accuracy": 0.5599999999999999,
+        "sensitivity": 0.08,
+        "specificity": 0.4800000000000001,
+        "auroc": null
+      },
+      "subject_level_summary": {
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "auroc": 0.6666666666666667,
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "subject_count": 5,
+        "positive_subject_count": 2,
+        "negative_subject_count": 3,
+        "score_threshold": 0.5,
+        "subject_probability_brier": 0.2557186480925962,
+        "sensitivity_subject_counts": {
+          "successes": 1,
+          "trials": 2
+        },
+        "specificity_subject_counts": {
+          "successes": 3,
+          "trials": 3
+        },
+        "sensitivity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.01257911709342505,
+          "high": 0.9874208829065749
+        },
+        "sensitivity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 1,
+          "trials": 2,
+          "low": 0.09453120573423074,
+          "high": 0.9054687942657693
+        },
+        "specificity_ci_95_exact": {
+          "method": "clopper_pearson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.2924017738212866,
+          "high": 1.0
+        },
+        "specificity_ci_95_wilson": {
+          "method": "wilson",
+          "confidence_level": 0.95,
+          "successes": 3,
+          "trials": 3,
+          "low": 0.43850296824495455,
+          "high": 1.0
+        }
+      },
+      "feature_count": 24,
+      "feature_selection": {
+        "include_features_regex": [],
+        "exclude_features_regex": [
+          "^bp_",
+          "^rel_bp_",
+          "^ratio_",
+          "^evt_burst_count_30s$",
+          "^evt_episode_count_30s$",
+          "^evt_bursts_per_episode_mean$",
+          "^evt_phasic_like_episode_fraction$"
+        ],
+        "selected_feature_count": 24,
+        "selection_excluded_feature_count": 11,
+        "selection_excluded_features": [
+          "bp_delta",
+          "rel_bp_delta",
+          "bp_theta",
+          "rel_bp_theta",
+          "bp_alpha",
+          "rel_bp_alpha",
+          "bp_beta",
+          "rel_bp_beta",
+          "ratio_theta_beta",
+          "ratio_alpha_beta",
+          "ratio_alpha_delta"
+        ]
+      }
+    },
+    "comparison": {
+      "primary_surface": {
+        "sorted_subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "mean_score": 0.6407291362586092,
+            "windows": 10,
+            "predicted_positive_windows": 7,
+            "positive_window_fraction": 0.7,
+            "predicted_label": "bruxism",
+            "correct": true
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "mean_score": 0.34541063560644264,
+            "windows": 10,
+            "predicted_positive_windows": 3,
+            "positive_window_fraction": 0.3,
+            "predicted_label": "control",
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "mean_score": 0.3374133236283941,
+            "windows": 10,
+            "predicted_positive_windows": 2,
+            "positive_window_fraction": 0.2,
+            "predicted_label": "control",
+            "correct": true
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "mean_score": 0.17815309338005472,
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "predicted_label": "control",
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "mean_score": 0.13369034418899153,
+            "windows": 10,
+            "predicted_positive_windows": 1,
+            "positive_window_fraction": 0.1,
+            "predicted_label": "control",
+            "correct": true
+          }
+        ],
+        "best_bruxism_subject": {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.6407291362586092,
+          "windows": 10,
+          "predicted_positive_windows": 7,
+          "positive_window_fraction": 0.7,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        "worst_bruxism_subject": {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.17815309338005472,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        "highest_control_subject": {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.34541063560644264,
+          "windows": 10,
+          "predicted_positive_windows": 3,
+          "positive_window_fraction": 0.3,
+          "predicted_label": "control",
+          "correct": true
+        },
+        "lowest_control_subject": {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.13369034418899153,
+          "windows": 10,
+          "predicted_positive_windows": 1,
+          "positive_window_fraction": 0.1,
+          "predicted_label": "control",
+          "correct": true
+        },
+        "best_bruxism_minus_highest_control": 0.2953185006521665,
+        "default_positive_subjects": [
+          "brux1"
+        ]
+      },
+      "anchor_surface": {
+        "sorted_subjects": [
+          {
+            "subject_id": "brux1",
+            "true_label": "bruxism",
+            "mean_score": 0.5321800695353451,
+            "windows": 10,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.4,
+            "predicted_label": "bruxism",
+            "correct": true
+          },
+          {
+            "subject_id": "n11",
+            "true_label": "control",
+            "mean_score": 0.39466206505665086,
+            "windows": 10,
+            "predicted_positive_windows": 4,
+            "positive_window_fraction": 0.4,
+            "predicted_label": "control",
+            "correct": true
+          },
+          {
+            "subject_id": "n5",
+            "true_label": "control",
+            "mean_score": 0.36507344245243484,
+            "windows": 10,
+            "predicted_positive_windows": 2,
+            "positive_window_fraction": 0.2,
+            "predicted_label": "control",
+            "correct": true
+          },
+          {
+            "subject_id": "brux2",
+            "true_label": "bruxism",
+            "mean_score": 0.1227463213813423,
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "predicted_label": "control",
+            "correct": false
+          },
+          {
+            "subject_id": "n3",
+            "true_label": "control",
+            "mean_score": 0.03357041099253784,
+            "windows": 10,
+            "predicted_positive_windows": 0,
+            "positive_window_fraction": 0.0,
+            "predicted_label": "control",
+            "correct": true
+          }
+        ],
+        "best_bruxism_subject": {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "mean_score": 0.5321800695353451,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "bruxism",
+          "correct": true
+        },
+        "worst_bruxism_subject": {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "mean_score": 0.1227463213813423,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": false
+        },
+        "highest_control_subject": {
+          "subject_id": "n11",
+          "true_label": "control",
+          "mean_score": 0.39466206505665086,
+          "windows": 10,
+          "predicted_positive_windows": 4,
+          "positive_window_fraction": 0.4,
+          "predicted_label": "control",
+          "correct": true
+        },
+        "lowest_control_subject": {
+          "subject_id": "n3",
+          "true_label": "control",
+          "mean_score": 0.03357041099253784,
+          "windows": 10,
+          "predicted_positive_windows": 0,
+          "positive_window_fraction": 0.0,
+          "predicted_label": "control",
+          "correct": true
+        },
+        "best_bruxism_minus_highest_control": 0.13751800447869428,
+        "default_positive_subjects": [
+          "brux1"
+        ]
+      },
+      "paired_subject_rows": [
+        {
+          "subject_id": "brux1",
+          "true_label": "bruxism",
+          "primary_mean_score": 0.6407291362586092,
+          "anchor_mean_score": 0.5321800695353451,
+          "score_delta_primary_minus_anchor": 0.10854906672326403,
+          "primary_positive_window_fraction": 0.7,
+          "anchor_positive_window_fraction": 0.4,
+          "primary_predicted_label": "bruxism",
+          "anchor_predicted_label": "bruxism"
+        },
+        {
+          "subject_id": "brux2",
+          "true_label": "bruxism",
+          "primary_mean_score": 0.17815309338005472,
+          "anchor_mean_score": 0.1227463213813423,
+          "score_delta_primary_minus_anchor": 0.055406771998712426,
+          "primary_positive_window_fraction": 0.0,
+          "anchor_positive_window_fraction": 0.0,
+          "primary_predicted_label": "control",
+          "anchor_predicted_label": "control"
+        },
+        {
+          "subject_id": "n11",
+          "true_label": "control",
+          "primary_mean_score": 0.34541063560644264,
+          "anchor_mean_score": 0.39466206505665086,
+          "score_delta_primary_minus_anchor": -0.04925142945020822,
+          "primary_positive_window_fraction": 0.3,
+          "anchor_positive_window_fraction": 0.4,
+          "primary_predicted_label": "control",
+          "anchor_predicted_label": "control"
+        },
+        {
+          "subject_id": "n3",
+          "true_label": "control",
+          "primary_mean_score": 0.13369034418899153,
+          "anchor_mean_score": 0.03357041099253784,
+          "score_delta_primary_minus_anchor": 0.1001199331964537,
+          "primary_positive_window_fraction": 0.1,
+          "anchor_positive_window_fraction": 0.0,
+          "primary_predicted_label": "control",
+          "anchor_predicted_label": "control"
+        },
+        {
+          "subject_id": "n5",
+          "true_label": "control",
+          "primary_mean_score": 0.3374133236283941,
+          "anchor_mean_score": 0.36507344245243484,
+          "score_delta_primary_minus_anchor": -0.027660118824040736,
+          "primary_positive_window_fraction": 0.2,
+          "anchor_positive_window_fraction": 0.2,
+          "primary_predicted_label": "control",
+          "anchor_predicted_label": "control"
+        }
+      ],
+      "prediction_flips": [],
+      "label_delta_summary": {
+        "bruxism": {
+          "mean_primary_score": 0.40944111481933193,
+          "mean_anchor_score": 0.32746319545834374,
+          "mean_score_delta_primary_minus_anchor": 0.08197791936098822
+        },
+        "control": {
+          "mean_primary_score": 0.2721714344746094,
+          "mean_anchor_score": 0.26443530616720784,
+          "mean_score_delta_primary_minus_anchor": 0.007736128307401581
+        }
+      },
+      "subject_ordering_change": {
+        "primary_top_subject": "brux1",
+        "anchor_top_subject": "brux1",
+        "primary_best_bruxism_subject": "brux1",
+        "anchor_best_bruxism_subject": "brux1"
+      },
+      "margin_change": {
+        "primary_best_bruxism_minus_highest_control": 0.2953185006521665,
+        "anchor_best_bruxism_minus_highest_control": 0.13751800447869428,
+        "delta_primary_minus_anchor": 0.15780049617347225
+      },
+      "copied_through_subject_summary": {
+        "primary": {
+          "balanced_accuracy": 0.75,
+          "sensitivity": 0.5,
+          "specificity": 1.0,
+          "auroc": 0.6666666666666667,
+          "tp": 1,
+          "fp": 0,
+          "tn": 3,
+          "fn": 1,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5,
+          "subject_probability_brier": 0.21110745154712704,
+          "sensitivity_subject_counts": {
+            "successes": 1,
+            "trials": 2
+          },
+          "specificity_subject_counts": {
+            "successes": 3,
+            "trials": 3
+          },
+          "sensitivity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.01257911709342505,
+            "high": 0.9874208829065749
+          },
+          "sensitivity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.09453120573423074,
+            "high": 0.9054687942657693
+          },
+          "specificity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 3,
+            "trials": 3,
+            "low": 0.2924017738212866,
+            "high": 1.0
+          },
+          "specificity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 3,
+            "trials": 3,
+            "low": 0.43850296824495455,
+            "high": 1.0
+          }
+        },
+        "anchor": {
+          "balanced_accuracy": 0.75,
+          "sensitivity": 0.5,
+          "specificity": 1.0,
+          "auroc": 0.6666666666666667,
+          "tp": 1,
+          "fp": 0,
+          "tn": 3,
+          "fn": 1,
+          "subject_count": 5,
+          "positive_subject_count": 2,
+          "negative_subject_count": 3,
+          "score_threshold": 0.5,
+          "subject_probability_brier": 0.2557186480925962,
+          "sensitivity_subject_counts": {
+            "successes": 1,
+            "trials": 2
+          },
+          "specificity_subject_counts": {
+            "successes": 3,
+            "trials": 3
+          },
+          "sensitivity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.01257911709342505,
+            "high": 0.9874208829065749
+          },
+          "sensitivity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 1,
+            "trials": 2,
+            "low": 0.09453120573423074,
+            "high": 0.9054687942657693
+          },
+          "specificity_ci_95_exact": {
+            "method": "clopper_pearson",
+            "confidence_level": 0.95,
+            "successes": 3,
+            "trials": 3,
+            "low": 0.2924017738212866,
+            "high": 1.0
+          },
+          "specificity_ci_95_wilson": {
+            "method": "wilson",
+            "confidence_level": 0.95,
+            "successes": 3,
+            "trials": 3,
+            "low": 0.43850296824495455,
+            "high": 1.0
+          }
+        }
+      }
+    }
+  },
+  "paired_audit_paths": {
+    "json": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/pass45-vs-pass44-paired-subject-surface-audit.json",
+    "md": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/pass45-vs-pass44-paired-subject-surface-audit.md"
+  },
+  "derived": {
+    "subject_score_rows": [
+      {
+        "subject_id": "brux1",
+        "true_label": "bruxism",
+        "pass42_score": 0.13646350493546552,
+        "pass44_score": 0.5321800695353451,
+        "pass45_score": 0.6407291362586092,
+        "delta_pass45_vs_pass44": 0.10854906672326403,
+        "delta_pass45_vs_pass42": 0.5042656313231436,
+        "pass42_predicted_label": "control",
+        "pass44_predicted_label": "bruxism",
+        "pass45_predicted_label": "bruxism"
+      },
+      {
+        "subject_id": "brux2",
+        "true_label": "bruxism",
+        "pass42_score": 0.8246332999484366,
+        "pass44_score": 0.1227463213813423,
+        "pass45_score": 0.17815309338005472,
+        "delta_pass45_vs_pass44": 0.055406771998712426,
+        "delta_pass45_vs_pass42": -0.6464802065683819,
+        "pass42_predicted_label": "bruxism",
+        "pass44_predicted_label": "control",
+        "pass45_predicted_label": "control"
+      },
+      {
+        "subject_id": "n3",
+        "true_label": "control",
+        "pass42_score": 0.1552657817208456,
+        "pass44_score": 0.03357041099253784,
+        "pass45_score": 0.13369034418899153,
+        "delta_pass45_vs_pass44": 0.1001199331964537,
+        "delta_pass45_vs_pass42": -0.021575437531854064,
+        "pass42_predicted_label": "control",
+        "pass44_predicted_label": "control",
+        "pass45_predicted_label": "control"
+      },
+      {
+        "subject_id": "n5",
+        "true_label": "control",
+        "pass42_score": 0.1994014384071897,
+        "pass44_score": 0.36507344245243484,
+        "pass45_score": 0.3374133236283941,
+        "delta_pass45_vs_pass44": -0.027660118824040736,
+        "delta_pass45_vs_pass42": 0.1380118852212044,
+        "pass42_predicted_label": "control",
+        "pass44_predicted_label": "control",
+        "pass45_predicted_label": "control"
+      },
+      {
+        "subject_id": "n11",
+        "true_label": "control",
+        "pass42_score": 0.48607843827934516,
+        "pass44_score": 0.39466206505665086,
+        "pass45_score": 0.34541063560644264,
+        "delta_pass45_vs_pass44": -0.04925142945020822,
+        "delta_pass45_vs_pass42": -0.14066780267290252,
+        "pass42_predicted_label": "control",
+        "pass44_predicted_label": "control",
+        "pass45_predicted_label": "control"
+      }
+    ],
+    "pass42_best_brux_minus_highest_control": 0.33855486166909143,
+    "pass44_best_brux_minus_highest_control": 0.13751800447869428,
+    "pass45_best_brux_minus_highest_control": 0.2953185006521665,
+    "pass45_highest_control_subject": "n11",
+    "pass45_highest_control_score": 0.34541063560644264,
+    "brux2_delta_pass45_vs_pass44": 0.055406771998712426,
+    "brux1_delta_pass45_vs_pass44": 0.10854906672326403,
+    "pass45_vs_pass44_prediction_flips": [],
+    "pass45_vs_pass42_prediction_flips": [
+      "brux1: control -> bruxism",
+      "brux2: bruxism -> control"
+    ],
+    "no_control_crossed_threshold": true,
+    "verdict": "shape-family removal looks directionally useful and should be preserved as the new repaired A3 working point",
+    "safest_next_step": "Keep the repaired pass45 no-shape table as the new A3 anchor and run the already-preserved paired subject-surface audit against pass42 before considering the backup one-feature event add-back."
+  },
+  "summary_md_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/pass45-repaired-a3-shape-block-ablation.md",
+  "summary_json_path": "/home/hermes/work/ai-lab/projects/bruxism-cap/reports/pass45-repaired-a3-shape-block-ablation.json"
+}
